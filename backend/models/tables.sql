@@ -43,7 +43,7 @@ lunchBreak VARCHAR(255),
 companyOverview TEXT,
 companyLogo TEXT,
 officeLocation  VARCHAR(255),
-  is_deleted SMALLINT DEFAULT 0
+is_deleted SMALLINT DEFAULT 0
 
 )
 ;
