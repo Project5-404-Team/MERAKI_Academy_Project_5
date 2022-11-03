@@ -19,8 +19,8 @@ skills  TEXT,
 educationLevel  VARCHAR(255),
 major  VARCHAR(255),
 educationalInstituteName  VARCHAR(255),
-cv TEXT
-is_deleted SMALLINT DEFAULT 0,
+cv TEXT,
+is_deleted SMALLINT DEFAULT 0
 )
 ;
 
@@ -65,7 +65,7 @@ numberOfHires INT,
 jobDescription TEXT,
 language  VARCHAR(255),
 jobRequirements  TEXT,
-is_deleted SMALLINT DEFAULT 0,
+is_deleted SMALLINT DEFAULT 0
 
 );
 
