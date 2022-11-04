@@ -39,7 +39,9 @@ const addNewJob = (req, res) => {
   };
   
   const getAllJobs = (req, res) => {
-    const query = `SELECT * FROM jobs  WHERE is_deleted=0 `;
+    const query = `SELECT * FROM companiesCreatedJobs INNER JOIN
+    jobs ON companiesCreatedJobs.jobId = jobs.id
+    INNER JOIN companies ON companiesCreatedJobs.companyId = companies.id;`;
     pool
       .query(query)
       .then((result) => {
@@ -59,10 +61,17 @@ const addNewJob = (req, res) => {
   };
 
 
-  module.exports = {addNewJob};
+const jobApply = (req,res)=>{
+    const userId= req.params.userId
+const {jobId} = req.body
+const values = [userId,jobId]
+const query = `INSERT INTO usersAppliedJobs (U)`
 
-  /*
-  SELECT * FROM companiesCreatedJobs INNER JOIN
+}
+
+  module.exports = {addNewJob,getAllJobs};
+
+/*SELECT * FROM companiesCreatedJobs INNER JOIN
 jobs ON companiesCreatedJobs.jobId = jobs.id
 INNER JOIN
 companies ON companiesCreatedJobs.companyId = companies.id;*/
