@@ -50,6 +50,7 @@ is_deleted SMALLINT DEFAULT 0
 
 CREATE TABLE jobs (
 id SERIAL PRIMARY KEY,
+companyId INT,
 jobTitle VARCHAR(255),
 expiryDate DATE,
 createdAt TIMESTAMP DEFAULT NOW (),
@@ -65,11 +66,12 @@ numberOfHires INT,
 jobDescription TEXT,
 language  VARCHAR(255),
 jobRequirements  TEXT,
-is_deleted SMALLINT DEFAULT 0
+is_deleted SMALLINT DEFAULT 0,
+FOREIGN KEY (companyId) REFERENCES  companies(id)
 
 );
 
-CREATE TABLE usersAppliedJobs  (
+CREATE TABLE usersAppliedJobs (
 id SERIAL PRIMARY KEY,
 userId INT,
 jobId INT,
@@ -86,16 +88,6 @@ jobId INT,
 FOREIGN KEY (userId) REFERENCES  users(id),
 FOREIGN KEY (jobId) REFERENCES jobs(id),
 is_deleted SMALLINT DEFAULT 0
-);
-
-CREATE TABLE companiesCreatedJobs (
-id SERIAL PRIMARY KEY,
-companyId  INT,
-jobId  INT,
-FOREIGN KEY (companyId) REFERENCES  companies(id),
-FOREIGN KEY (jobId) REFERENCES  jobs(id),
-is_deleted SMALLINT DEFAULT 0
-
 );
 
 
