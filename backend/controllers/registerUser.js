@@ -32,6 +32,7 @@ const registerUser = async (req, res) => {
 const registerUserComplete = (req, res) => {
   const userId = req.params.userId;
   const {
+    phoneNumber,
     maritalStatus,
     citizenships,
     whereDoYouLive,
@@ -51,6 +52,7 @@ const registerUserComplete = (req, res) => {
   const values = [
     userId,
     iscompleted,
+    phoneNumber,
     maritalStatus,
     citizenships,
     whereDoYouLive,
@@ -66,7 +68,7 @@ const registerUserComplete = (req, res) => {
     educationalInstituteName,
     cv,
   ];
-  const query = `UPDATE users SET iscompleted = $2,maritalStatus =$3,citizenships=$4,whereDoYouLive=$5,residencyStatus=$6,yearsOfExperience=$7,recentJobTitle=$8,recentJobFunction=$9,industryOfRecentJob=$10,languages=$11,skills=$12 ,educationLevel=$13 ,major=$14,educationalInstituteName=$15,cv=$16 WHERE id=$1;`;
+  const query = `UPDATE users SET iscompleted = $2, phoneNumber =$3 , maritalStatus =$4,citizenships=$5,whereDoYouLive=$6,residencyStatus=$7,yearsOfExperience=$8,recentJobTitle=$9,recentJobFunction=$10,industryOfRecentJob=$11,languages=$12,skills=$13 ,educationLevel=$14 ,major=$15,educationalInstituteName=$16,cv=$17 WHERE id=$1;`;
   pool
     .query(query, values)
     .then((result) => {

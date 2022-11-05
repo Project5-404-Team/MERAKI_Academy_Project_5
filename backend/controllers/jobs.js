@@ -44,6 +44,97 @@ const addNewJob = (req, res) => {
       });
   };
 
+  const deleteJobById = (req, res) => {
+    const id = req.params.id;
+    const query = `UPDATE jobs SET is_deleted=1 WHERE id=${id};`;
+  
+    pool
+      .query(query)
+      .then((result) => {
+        if (result.rowCount === 0) {
+          res.status(404).json({
+            success: false,
+            massage: ` ${id} is not found`,
+            err: err,
+          });
+        } else {
+          res.status(200).json({
+            success: true,
+            massage: `Succeeded to delete Job with id: ${id}`,
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      });
+  };
+  const updateJobById = (req, res) => {
+    const id = req.params.id;
+    const { jobTitle, expiryDate,jobLocation,careerLevel,jobType,jobRole,yearsOfExperience,countryOfCitizenship,countryOfResidence,salary,numberOfHires,jobDescription,language,jobRequirements } = req.body;
+  
+    const data = [jobTitle || null,
+       expiryDate || null ,
+       jobLocation || null,
+       careerLevel || null,
+       jobType || null,
+       jobRole || null,
+       yearsOfExperience || null,
+       countryOfCitizenship || null,
+       countryOfResidence || null,
+       salary || null,
+       numberOfHires || null,
+       jobDescription || null,
+       language || null,
+       jobRequirements || null] ;
+
+       const query = `UPDATE jobs SET
+       jobTitle = COALESCE($1,jobTitle),
+       expiryDate = COALESCE($2, expiryDate),
+       jobLocation = COALESCE($3, jobLocation),
+       careerLevel = COALESCE($4, careerLevel),
+       jobType = COALESCE($5,  jobType),
+       jobRole = COALESCE($6, jobRole),
+       yearsOfExperience = COALESCE($7, yearsOfExperience),
+       countryOfCitizenship = COALESCE($8, countryOfCitizenship),
+       countryOfResidence = COALESCE($9, countryOfResidence),
+       salary = COALESCE($10, salary),
+       numberOfHires = COALESCE($11, numberOfHires),
+       jobDescription = COALESCE($12, jobDescription),
+       language = COALESCE($13, language),
+       jobRequirements = COALESCE($14, jobRequirements)
+         WHERE id=${id} AND is_deleted = 0  RETURNING *;`;
+     
+
+    pool
+   
+      .query(query, data)
+      .then((result) => {
+        if (result.rows.length === 0) {
+          return res.status(404).json({
+            success: false,
+            massage: `Job: ${id} is not found`,
+          });
+        } else {
+          res.status(200).json({
+            success: true,
+            massage: `Succeeded to updated Job with id: ${id}`,
+            result: result.rows[0],
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "Server Error",
+          err: err,
+        });
+      });
+  };
+
 
 const jobApply = (req,res)=>{
 const userId= req.params.userId
@@ -67,8 +158,7 @@ pool.query(query,values).then((result)=>{
 const getUserAppliedJobs = (req, res) =>{
     const userId=req.params.userId
     const value=[userId]
-    const query = `SELECT * FROM usersAppliedJobs INNER JOIN
-    jobs ON usersAppliedJobs.jobId = jobs.id WHERE userId=$1;`;
+    const query = `SELECT * FROM usersappliedjobs INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE usersappliedjobs.userId=$1;`;
     pool
       .query(query,value)
       .then((result) => {
@@ -109,8 +199,8 @@ const addFavJob = (req,res)=>{
     const getUserFavoriteJobs = (req, res) =>{
         const userId=req.params.userId
         const value=[userId]
-        const query = `SELECT * FROM usersFavoriteJobs INNER JOIN
-        jobs ON usersFavoriteJobs.jobId = jobs.id WHERE userId=$1;`;
+        const query = `SELECT * FROM usersFavoriteJobs INNER JOIN jobs ON usersFavoriteJobs.jobId = jobs.id
+        INNER JOIN companies ON jobs.companyId = companies.id WHERE usersFavoriteJobs.userId=$1;`;
         pool
           .query(query,value)
           .then((result) => {
@@ -128,5 +218,5 @@ const addFavJob = (req,res)=>{
             });
           });
       };
-  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs};
+  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById};
 
