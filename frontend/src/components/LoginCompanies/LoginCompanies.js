@@ -3,8 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./LoginCompanies.css";
+import { useDispatch, useSelector } from "react-redux"
+import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth";
+
+
 
 const LoginCompanies = () => {
+
+  const dispatch = useDispatch
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +27,11 @@ const LoginCompanies = () => {
         setLoggedInSucssfully(true);
         console.log(response.data.token);
         console.log(response.data.payload.companyId);
-
+        dispatch(setLogin(response.data.token))
+        dispatch(setCompanyId(response.data.payload.companyId))
          localStorage.setItem("Token" , response.data.token)
         localStorage.setItem("CompanyId" , response.data.payload.companyId)
+
       })
 
       .catch((err) => {

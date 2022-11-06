@@ -7,6 +7,8 @@ import RegisterCompanies from "./components/RegisterCompanies/RegisterCompanies"
 import LoginCompanies from "./components/LoginCompanies/LoginCompanies";
 import UserHome from "./components/UserHome/UserHome";
 import CompaniesHome from "./components/CompaniesHome/Companieshome";
+import UserComplete from "./components/UserComplete/UserComplete";
+import CompaniesComplete from "./components/CompaniesComplete/CompaniesComplete"
 
 function App() {
   return <div
@@ -19,7 +21,8 @@ function App() {
       <Route path = "/companies/login" element={<LoginCompanies/> }  />
       <Route path ="/userhome" element ={<UserHome/>}/>
       <Route path ="/companieshome" element ={<CompaniesHome/>}/>
-
+      <Route path ="/test" element ={<UserComplete/>}/>
+      <Route path ="/test2" element ={<CompaniesComplete/>}/>
 
 </Routes>
 
