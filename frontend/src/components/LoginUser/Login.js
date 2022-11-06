@@ -25,8 +25,7 @@ const LoginUser = () => {
         setLoggedInSucssfully(true);
         localStorage.setItem("Token" , response.data.token)
         localStorage.setItem("UserId" , response.data.payload.userId)
-        dispatch(setLogin(response.data.token))
-        dispatch(setUserId(response.data.payload.userId))
+
       })
 
       .catch((err) => {
@@ -73,7 +72,7 @@ const LoginUser = () => {
                 className="loginButton"
                 onClick={() => {
                   handleLogin();
-                  navigate('/userhome')
+                  
                 }}
               >
                 {" "}
