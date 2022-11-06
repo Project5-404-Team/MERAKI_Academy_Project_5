@@ -44,6 +44,10 @@ useEffect(()=>{
                 })}
             
         </div>
+        <div><p onClick={()=>{
+            navigate('/addnewjob')
+        }}>
+            Add New Job</p></div>
         
         
         </>
