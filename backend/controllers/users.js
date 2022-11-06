@@ -20,6 +20,35 @@ const getAllUsers = (req, res) => {
       });
   };
 
+  const usersSearch = (req,res)=>{
+    const searchWord=req.query.search
+const value=[`%${searchWord}%`]
+const query = `SELECT * FROM users
+WHERE fullName LIKE $1;`;
+pool
+  .query(query,value)
+  .then((result) => {
+    if(result.rows.length>0){
+    res.status(200).json({
+      success: true,
+      massage: "Searched Users",
+      result: result.rows,
+    });}
+    else{
+      res.status(200).json({
+        success: true,
+        massage: "No Matching users founded"
+      });
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      massage: "server error",
+      err: err,
+    });
+  });
 
+  }
   
-  module.exports = {getAllUsers};
+  module.exports = {getAllUsers,usersSearch};
