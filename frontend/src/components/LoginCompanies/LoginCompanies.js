@@ -80,6 +80,11 @@ const LoginCompanies = () => {
             </div>
           </div>
       </div>
+      <div>
+        <p onClick={()=>{
+          navigate('/companies/register')
+        }}>Dont Have Account! Register Now</p>
+      </div>
     </>
   );
 };

@@ -7,12 +7,15 @@ import RegisterCompanies from "./components/RegisterCompanies/RegisterCompanies"
 import LoginCompanies from "./components/LoginCompanies/LoginCompanies";
 import UserHome from "./components/UserHome/UserHome";
 import CompaniesHome from "./components/CompaniesHome/Companieshome";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return <div
 
    className="App">
+       <Navbar />
 <Routes>
+  
       <Route path = "/user/login" element={<LoginUser/> }  />
       <Route path = "/user/register" element={<RegisterUser/> }  />
       <Route path = "/companies/register" element={<RegisterCompanies/> }  />

@@ -27,13 +27,13 @@ useEffect(()=>{
         <>
         <div className="jobsCardsDiv">
         {jobs&&jobs.map((elem,index)=>{
-            return<div id={elem.id} className="jobCard">
+            return<div id={elem.id} key={index} className="jobCard">
                 <img src ={elem.companylogo}></img>
             <p>{elem.jobtitle}</p>
             <p>{elem.companyname}</p>
-            <p> {elem.country}</p>
+            <p>{elem.country}</p>
             <p>{elem.industry}</p>
-            <p> {elem.createdat}</p>
+            <p>{elem.createdat}</p>
 
           </div>  
                   
