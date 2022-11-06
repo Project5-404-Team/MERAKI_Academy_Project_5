@@ -21,11 +21,10 @@ const LoginUser = () => {
     axios
       .post("http://localhost:5000/login/users", body)
       .then((response) => {
-       
         setLoggedInSucssfully(true);
-        localStorage.setItem("Token" , response.data.token)
-        localStorage.setItem("UserId" , response.data.payload.userId)
-
+        dispatch(setLogin(response.data.token))
+        dispatch(setUserId(response.data.payload.userId))
+        navigate('/userhome')
       })
 
       .catch((err) => {
