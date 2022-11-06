@@ -15,12 +15,13 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login/users", body)
       .then((response) => {
+       
         setLoggedInSucssfully(true);
         console.log(response.data.token);
-        console.log(response.data.result);
+        console.log(response.data);
 
-        //   localStorage.setItem("Token" , response.data.token)
-        // localStorage.setItem("userId" , response.data.result._id)
+         localStorage.setItem("Token" , response.data.token)
+        // localStorage.setItem("userId" , response.data)
       })
 
       .catch((err) => {
