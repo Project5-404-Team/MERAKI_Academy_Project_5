@@ -15,7 +15,6 @@ function App() {
    className="App">
        <Navbar />
 <Routes>
-  
       <Route path = "/user/login" element={<LoginUser/> }  />
       <Route path = "/user/register" element={<RegisterUser/> }  />
       <Route path = "/companies/register" element={<RegisterCompanies/> }  />

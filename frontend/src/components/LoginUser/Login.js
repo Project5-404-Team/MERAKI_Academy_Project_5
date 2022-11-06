@@ -79,7 +79,7 @@ const LoginUser = () => {
       </div>
       <div>
         <p onClick={()=>{
-          navigate('/users/register')
+          navigate('/user/register')
         }}>Dont Have Account! Register Now</p>
       </div>
     </>
