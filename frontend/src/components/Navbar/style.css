@@ -1,0 +1,8 @@
+.navbar_container{
+    display:flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+.navbar_logo{
+    width:2rem;
+}

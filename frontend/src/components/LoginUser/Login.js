@@ -83,6 +83,11 @@ const LoginUser = () => {
             </div>
           </div>
       </div>
+      <div>
+        <p onClick={()=>{
+          navigate('/user/register')
+        }}>Dont Have Account! Register Now</p>
+      </div>
     </>
   );
 };

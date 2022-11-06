@@ -27,8 +27,7 @@ const LoginCompanies = () => {
         setLoggedInSucssfully(true);
         console.log(response.data.token);
         console.log(response.data.payload.companyId);
-        dispatch(setLogin(response.data.token))
-        dispatch(setCompanyId(response.data.payload.companyId))
+
          localStorage.setItem("Token" , response.data.token)
         localStorage.setItem("CompanyId" , response.data.payload.companyId)
 
@@ -78,7 +77,7 @@ const LoginCompanies = () => {
                 className="loginButton"
                 onClick={() => {
                   handleLogin();
-                  navigate('/companieshome')
+                  
                 }}
               >
                 {" "}
@@ -87,6 +86,11 @@ const LoginCompanies = () => {
               <p>{!iserror ? error : null}</p>
             </div>
           </div>
+      </div>
+      <div>
+        <p onClick={()=>{
+          navigate('/companies/register')
+        }}>Dont Have Account! Register Now</p>
       </div>
     </>
   );

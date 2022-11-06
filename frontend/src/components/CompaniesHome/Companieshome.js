@@ -27,7 +27,7 @@ useEffect(()=>{
         <>
         <div className="usersCardsDiv">
         {users&&users.map((elem,index)=>{
-            return<div id={elem.id} className="jobCard">
+            return<div id={elem.id} key={index} className="jobCard">
                 <img src ={elem.companylogo}></img>
             <p>{elem.fullname}</p>
             <p> {elem.wheredoyoulive}</p>
