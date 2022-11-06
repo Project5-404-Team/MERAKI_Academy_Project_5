@@ -2,8 +2,10 @@ import react from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const LoginUser = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,11 +19,7 @@ const LoginUser = () => {
       .then((response) => {
        
         setLoggedInSucssfully(true);
-        console.log(response.data.token);
-        console.log(response.data.payload.userId);
 
-         localStorage.setItem("Token" , response.data.token)
-       localStorage.setItem("userId" , response.data.payload.userId)
       })
 
       .catch((err) => {
@@ -60,7 +58,7 @@ const LoginUser = () => {
 
               {loggedInSucssfully && (
                 <div className="popuptry">
-                  <h1> Logged In Sussfully</h1>
+                  <h1> Logged In Successfully</h1>
                 </div>
               )}
 
@@ -68,6 +66,7 @@ const LoginUser = () => {
                 className="loginButton"
                 onClick={() => {
                   handleLogin();
+                  navigate('/userhome')
                 }}
               >
                 {" "}
