@@ -27,7 +27,7 @@ const RegisterCompanies = () => {
     
     const body = {
       companyName,
-        industry ,
+      industry ,
       email,
       password,
       country,
