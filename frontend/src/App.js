@@ -10,6 +10,7 @@ import CompaniesHome from "./components/CompaniesHome/Companieshome";
 import Navbar from './components/Navbar/Navbar';
 import UserComplete from "./components/UserComplete/UserComplete"
 import CompaniesComplete from './components/CompaniesComplete/CompaniesComplete'
+import AddNewJob from "./components/AddNewJob/AddNewJob";
 
 
 
@@ -28,6 +29,7 @@ function App() {
       <Route path ="/companieshome" element ={<CompaniesHome/>}/>
       <Route path ="/user/complete" element ={<UserComplete/>}/>
       <Route path ="/company/complete" element ={<CompaniesComplete/>}/>
+      <Route path = "/addnewjob" element={<AddNewJob/>}/>
 
 </Routes>
 
