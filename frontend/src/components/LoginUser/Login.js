@@ -19,7 +19,8 @@ const LoginUser = () => {
       .then((response) => {
        
         setLoggedInSucssfully(true);
-
+        localStorage.setItem("Token" , response.data.token)
+        localStorage.setItem("UserId" , response.data.payload.userId)
       })
 
       .catch((err) => {
