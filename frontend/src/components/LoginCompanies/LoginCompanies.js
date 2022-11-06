@@ -1,9 +1,11 @@
 import react from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./LoginCompanies.css";
 
 const LoginCompanies = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -68,6 +70,7 @@ const LoginCompanies = () => {
                 className="loginButton"
                 onClick={() => {
                   handleLogin();
+                  navigate('/companieshome')
                 }}
               >
                 {" "}
