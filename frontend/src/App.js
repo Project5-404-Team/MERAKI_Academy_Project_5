@@ -1,16 +1,20 @@
 import "./App.css";
 import { Routes, Route, Link , useNavigate ,useParams } from "react-router-dom";
 import {useEffect , useState , createContext} from "react"
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
-
+import LoginUser from "./components/LoginUser/Login";
+import RegisterUser from "./components/Register User/Register";
+import RegisterCompanies from "./components/RegisterCompanies/RegisterCompanies";
+import LoginCompanies from "./components/LoginCompanies/LoginCompanies";
 function App() {
   return <div
 
    className="App">
 <Routes>
-      <Route path = "/login" element={<Login/> }  />
-      <Route path = "/register" element={<Register/> }  />
+      <Route path = "/user/login" element={<LoginUser/> }  />
+      <Route path = "/user/register" element={<RegisterUser/> }  />
+      <Route path = "/companies/register" element={<RegisterCompanies/> }  />
+      <Route path = "/companies/login" element={<LoginCompanies/> }  />
+
 </Routes>
 
    </div>;

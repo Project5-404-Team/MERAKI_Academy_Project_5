@@ -1,9 +1,9 @@
 import react from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Login.css";
+import "./LoginCompanies.css";
 
-const Login = () => {
+const LoginCompanies = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login/users", body)
+      .post("http://localhost:5000/login/companies", body)
       .then((response) => {
        
         setLoggedInSucssfully(true);
@@ -81,4 +81,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default LoginCompanies

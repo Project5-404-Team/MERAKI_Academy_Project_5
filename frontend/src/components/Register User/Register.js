@@ -4,7 +4,7 @@ import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
 
 
-const Register = () => {
+const RegisterUser = () => {
     const [fullName ,setFullName]=useState("")
     const [gender  ,setGender]=useState("")
     const [country ,setCountry]=useState("")
@@ -59,14 +59,14 @@ const Register = () => {
       cv,
     }
     
-      const register = ()=>{
+      const handleRegister = ()=>{
         axios.post("http://localhost:5000/register/users", body)
         .then((response)=>{
             console.log (response)
     
           setRegisteredSucssfully(true)
           setTimeout(() => {
-            navigate("/login") 
+            navigate("/user/login") 
           }, 1000);
         })
         .catch((err)=>{
@@ -130,12 +130,12 @@ const Register = () => {
     <h1 >  Registerd In Sussfully</h1>
     </div>}
     
-          <button className="registerButton" onClick={()=>{ register()}} > Register Now !</button>
+          <button className="registerButton" onClick={()=>{handleRegister()}} > Register Now !</button>
     
 
         
         </div>
         </div>;
     };
-    export default Register;
+    export default RegisterUser;
     
