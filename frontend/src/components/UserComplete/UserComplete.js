@@ -2,10 +2,15 @@ import axios from "axios";
 import React from "react";
 import {useEffect , useState } from "react"
 import {  useNavigate ,useParams} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
+
 
 
 const UserComplete = () => {
 
+const {userId} =useSelector((state)=>{
+  return {userId: state.usersAuth.userId}
+})
   
     const [maritalStatus, setMaritalStatus]= useState(null)
     const [citizenships, setCitizenships]= useState(null)
@@ -21,7 +26,7 @@ const UserComplete = () => {
     const [major, setMajor]= useState(null)
     const [educationalInstituteName, setEducationalInstituteName]= useState(null)
     const [cv, setCv]= useState(null)
-    const [userId ,setUserId] = useState(localStorage.getItem("userId"))
+   // const [userId ,setUserId] = useState(  localStorage.getItem("UserId"))
 
     const navigate =useNavigate()
 

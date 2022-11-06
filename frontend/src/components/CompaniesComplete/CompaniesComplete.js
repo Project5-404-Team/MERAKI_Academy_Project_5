@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"
 
 
 const CompaniesComplete = () => {
@@ -14,11 +15,13 @@ const CompaniesComplete = () => {
     const [lunchBreak, setLunchBreak]= useState("")
     const [companyOverview, setCompanyOverview]= useState("")
     const [officeLocation, setOfficeLocation]= useState("")
-    const [companyId , setCompanyId]=useState(localStorage.getItem("CompanyId"))
+   // const [companyId , setCompanyId]=useState(localStorage.getItem("CompanyId"))
 
     const navigate =useNavigate()
 
-    
+    const {companyId} = useSelector((state)=>{
+      return {companyId: state.companiesAuth.companyId}
+    })
 
     const [role, setRole] = useState("")
 
