@@ -42,7 +42,7 @@ const loginUsers = async (req, res) => {
 
   res
     .status(200)
-    .json({ success: true, massage: "Valid login credentials", token: token,payload });
+    .json({ success: true, massage: "Valid login credentials", token: token, payload:payload});
 };
 
 module.exports = { loginUsers };
