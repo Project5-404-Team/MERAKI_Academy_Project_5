@@ -18,10 +18,10 @@ const LoginCompanies = () => {
        
         setLoggedInSucssfully(true);
         console.log(response.data.token);
-        console.log(response.data);
+        console.log(response.data.payload.companyId);
 
          localStorage.setItem("Token" , response.data.token)
-        // localStorage.setItem("userId" , response.data)
+        localStorage.setItem("CompanyId" , response.data.payload.companyId)
       })
 
       .catch((err) => {

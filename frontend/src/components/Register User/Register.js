@@ -7,7 +7,7 @@ import {  useNavigate  } from "react-router-dom";
 const RegisterUser = () => {
     const [fullName ,setFullName]=useState("")
     const [gender  ,setGender]=useState("")
-    const [country ,setCountry]=useState("")
+
     const [email , setEmail]=useState("")
     const [password, setPassword]= useState("")
     const [dateOfBirth, setDateOfBirth]= useState("")
@@ -38,25 +38,10 @@ const RegisterUser = () => {
     
     const body = {fullName,
         dateOfBirth,
-      country,
-      email,
+        email,
       password,
       gender,
       phoneNumber,
-      maritalStatus,
-      citizenships,
-      whereDoYouLive,
-      residencyStatus,
-      yearsOfExperience,
-      recentJobTitle,
-      recentJobFunction,
-      industryOfRecentJob,
-      languages,
-      skills,
-      educationLevel,
-      major,
-      educationalInstituteName,
-      cv,
     }
     
       const handleRegister = ()=>{
@@ -84,38 +69,13 @@ const RegisterUser = () => {
           <input placeholder="date Of Birth" className="RegInput" onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
     
           
-          <input placeholder="Country" className="RegInput" onChange={(e)=>{setCountry(e.target.value)}}/>
+     
     
           <input placeholder="gender" className="RegInput" onChange={(e)=>{setGender(e.target.value)}}/>
 
           <input placeholder="phone Number" className="RegInput" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
 
-          <input placeholder="Marital Status" className="RegInput" onChange={(e)=>{setMaritalStatus(e.target.value)}}/>
-
-          <input placeholder="citizenships" className="RegInput" onChange={(e)=>{setCitizenships(e.target.value)}}/>
-          
-          <input placeholder="Where DoYou Live" className="RegInput" onChange={(e)=>{setWhereDoYouLive(e.target.value)}}/>
-
-          <input placeholder="Residency Status" className="RegInput" onChange={(e)=>{setResidencyStatus(e.target.value)}}/>
-
-          <input placeholder="Years Of Experience" className="RegInput" onChange={(e)=>{setYearsOfExperience(e.target.value)}}/>
-
-          <input placeholder="Recent Job Title" className="RegInput" onChange={(e)=>{setRecentJobTitle(e.target.value)}}/>
-
-          <input placeholder="Recent Job Function" className="RegInput" onChange={(e)=>{setRecentJobFunction(e.target.value)}}/>
-
-          <input placeholder="Industry Of RecentJob" className="RegInput" onChange={(e)=>{setIndustryOfRecentJob(e.target.value)}}/>
-
-          <input placeholder="Languages" className="RegInput" onChange={(e)=>{setLanguages(e.target.value)}}/>
-          
-          <input placeholder="Skills" className="RegInput" onChange={(e)=>{setSkills(e.target.value)}}/>
-
-          <input placeholder="Education Level" className="RegInput" onChange={(e)=>{setEducationLevel(e.target.value)}}/>
-
-          <input placeholder="Major" className="RegInput" onChange={(e)=>{setMajor(e.target.value)}}/>
-
-          <input placeholder="Educational Institute Name" className="RegInput" onChange={(e)=>{setEducationalInstituteName(e.target.value)}}/>
-
+   
           
           
           <input placeholder="Email" className="RegInput" onChange={(e)=>{setEmail(e.target.value)}}/>

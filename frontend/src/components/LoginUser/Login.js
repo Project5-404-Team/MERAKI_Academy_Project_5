@@ -18,10 +18,10 @@ const LoginUser = () => {
        
         setLoggedInSucssfully(true);
         console.log(response.data.token);
-        console.log(response);
+        console.log(response.data.payload.userId);
 
          localStorage.setItem("Token" , response.data.token)
-        // localStorage.setItem("userId" , response.data)
+       localStorage.setItem("userId" , response.data.payload.userId)
       })
 
       .catch((err) => {
