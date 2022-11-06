@@ -92,3 +92,16 @@ is_deleted SMALLINT DEFAULT 0
 );
 
 
+CREATE TABLE companiesFavoriteUsers (
+id SERIAL PRIMARY KEY,
+companyId INT,
+userId INT,
+FOREIGN KEY (companyId) REFERENCES companies(id),
+FOREIGN KEY (userId) REFERENCES  users(id),
+is_deleted SMALLINT DEFAULT 0
+);
+
+
+
+
+

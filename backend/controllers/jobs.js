@@ -25,7 +25,7 @@ const addNewJob = (req, res) => {
   };
   
   const getAllJobs = (req, res) => {
-    const query = `SELECT * FROM jobs INNER JOIN companies ON jobs.companyId=companies.id `;
+    const query = `SELECT * FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE jobs.is_deleted=0 `;
     pool
       .query(query)
       .then((result) => {
@@ -155,18 +155,52 @@ pool.query(query,values).then((result)=>{
       });
 })
 }
+const deleteJobApplication = (req, res) => {
+  const id = req.params.id;
+  const query = `UPDATE usersAppliedJobs SET is_deleted=1 WHERE id=${id};`;
+
+  pool
+    .query(query)
+    .then((result) => {
+      if (result.rowCount === 0) {
+        res.status(404).json({
+          success: false,
+          massage: ` ${id} is not found`,
+          err: err,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `Succeeded to delete Job Application with id: ${id}`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    });
+};
 const getUserAppliedJobs = (req, res) =>{
     const userId=req.params.userId
     const value=[userId]
-    const query = `SELECT * FROM usersappliedjobs INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE usersappliedjobs.userId=$1;`;
+    const query = `SELECT * FROM usersappliedjobs INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE usersappliedjobs.userId=$1 AND usersappliedjobs.is_deleted=0;`;
     pool
       .query(query,value)
       .then((result) => {
-        res.status(200).json({
+        if(result.rows.length>0){res.status(200).json({
           success: true,
           massage: "User Applied Jobs",
           result: result.rows,
-        });
+        });}
+        else{
+          res.status(404).json({
+            success: false,
+            massage: "No User Applied Jobs founded"
+          })
+        }
       })
       .catch((err) => {
         res.status(500).json({
@@ -196,19 +230,54 @@ const addFavJob = (req,res)=>{
           });
     })
     }
+    const deleteFavoriteJob = (req, res) => {
+      const id = req.params.id;
+      const query = `UPDATE usersFavoriteJobs SET is_deleted=1 WHERE id=${id};`;
+    
+      pool
+        .query(query)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            res.status(404).json({
+              success: false,
+              massage: ` ${id} is not found`,
+              err: err,
+            });
+          } else {
+            res.status(200).json({
+              success: true,
+              massage: `Succeeded to delete Favorite Job with id: ${id}`,
+            });
+          }
+        })
+        .catch((err) => {
+          res.status(500).json({
+            success: false,
+            massage: "Server Error",
+            err: err,
+          });
+        });
+    };
     const getUserFavoriteJobs = (req, res) =>{
         const userId=req.params.userId
         const value=[userId]
         const query = `SELECT * FROM usersFavoriteJobs INNER JOIN jobs ON usersFavoriteJobs.jobId = jobs.id
-        INNER JOIN companies ON jobs.companyId = companies.id WHERE usersFavoriteJobs.userId=$1;`;
+        INNER JOIN companies ON jobs.companyId = companies.id WHERE usersFavoriteJobs.userId=$1 AND usersFavoriteJobs.is_deleted=0;`;
         pool
           .query(query,value)
           .then((result) => {
+            if(result.rows.length>0){
             res.status(200).json({
               success: true,
-              massage: "User Applied Jobs",
+              massage: "User Favorite Jobs",
               result: result.rows,
-            });
+            })}
+            else{
+              res.status(200).json({
+                success: true,
+                massage: "No User Favorite Jobs founded"
+              })
+            }
           })
           .catch((err) => {
             res.status(500).json({
@@ -218,5 +287,38 @@ const addFavJob = (req,res)=>{
             });
           });
       };
-  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById};
 
+      const jobsSearch = (req,res)=>{
+        const searchWord=req.query.search
+    const value=[`%${searchWord}%`]
+    const query = `SELECT * FROM jobs
+    WHERE jobDescription LIKE $1 AND is_deleted=0;`;
+    pool
+      .query(query,value)
+      .then((result) => {
+        if(result.rows.length>0){
+        res.status(200).json({
+          success: true,
+          massage: "Searched Jobs",
+          result: result.rows,
+        });}
+        else{
+          res.status(200).json({
+            success: true,
+            massage: "No related Jobs founded"
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      });
+
+      }
+  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById,jobsSearch,deleteJobApplication,deleteFavoriteJob};
+
+  /*SELECT * FROM users
+WHERE gender LIKE 'male';*/
