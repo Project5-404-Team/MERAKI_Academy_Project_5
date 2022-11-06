@@ -5,7 +5,7 @@ import {  useNavigate  } from "react-router-dom";
 
 
 const CompaniesHome = ()=>{
-    
+    const navigate = useNavigate()
 const [users,setAllUsers] = useState("")
 const getAllUsers = ()=>{
 axios.get('http://localhost:5000/users').then((result)=>{
@@ -25,6 +25,10 @@ useEffect(()=>{
 
     return (
         <>
+        <div><p onClick={()=>{
+            navigate('/company/complete')
+        }}>
+            Complete my account</p></div>
         <div className="usersCardsDiv">
         {users&&users.map((elem,index)=>{
             return<div id={elem.id} key={index} className="jobCard">

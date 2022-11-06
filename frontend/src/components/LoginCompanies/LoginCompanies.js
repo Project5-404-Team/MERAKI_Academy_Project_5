@@ -10,7 +10,7 @@ import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth";
 
 const LoginCompanies = () => {
 
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,21 +21,22 @@ const LoginCompanies = () => {
 
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login/companies", body)
+      .post("http://localhost:5000/login/companies",body)
       .then((response) => {
        
         setLoggedInSucssfully(true);
         console.log(response.data.token);
         console.log(response.data.payload.companyId);
-
-         localStorage.setItem("Token" , response.data.token)
-        localStorage.setItem("CompanyId" , response.data.payload.companyId)
+        dispatch(setLogin(response.data.token))
+        dispatch(setCompanyId(response.data.payload.companyId))
+       
+        navigate('/companieshome')
 
       })
 
       .catch((err) => {
         console.log(err);
-        setError(err.response.data.message);
+        
       });
   };
 
