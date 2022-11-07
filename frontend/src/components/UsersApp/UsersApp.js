@@ -7,10 +7,6 @@ import UserHome from "../UserHome/UserHome";
 import UserComplete from "../UserComplete/UserComplete"
 import UserNavbar from "../UserNavbar/UserNavbar";
 
-
-
-
-
 function UsersApp() {
   return <div
 
@@ -18,7 +14,7 @@ function UsersApp() {
 <UserNavbar/>
 <Routes>
       <Route path = "/user/login" element={<LoginUser/> }  />
-      <Route path = "/user/register" element={<RegisterUser/> }  />
+      <Route path = "/user/register" element={<RegisterUser/> } />
       <Route path ="/userhome" element ={<UserHome/>}/>
       <Route path ="/user/complete" element ={<UserComplete/>}/>
 

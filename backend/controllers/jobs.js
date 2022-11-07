@@ -44,9 +44,31 @@ const addNewJob = (req, res) => {
       });
   };
 
+  const getCompanyJobs = (req, res) => {
+    const companyId = req.params.companyId
+    const value = [companyId]
+    const query = `SELECT * , jobs.id FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE companyId=$1 AND jobs.is_deleted=0 `;
+    pool
+      .query(query,value)
+      .then((result) => {
+        res.status(200).json({
+          success: true,
+          massage: "Company Jobs",
+          result: result.rows,
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      });
+  };
+
   const deleteJobById = (req, res) => {
     const id = req.params.id;
-    const query = `UPDATE jobs SET is_deleted=1 WHERE id=${id};`;
+    const query = `UPDATE jobs SET is_deleted=1 WHERE jobs.id=${id} RETURNING *;`;
   
     pool
       .query(query)
@@ -213,7 +235,7 @@ const getUserAppliedJobs = (req, res) =>{
 
 const addFavJob = (req,res)=>{
     const userId= req.params.userId
-    const {jobId} = req.body
+    const jobId = req.body.jobId
     const values = [userId,jobId]
     const query = `INSERT INTO usersFavoriteJobs (userId,jobId) VALUES($1,$2) RETURNING *`
     pool.query(query,values).then((result)=>{
@@ -318,7 +340,7 @@ const addFavJob = (req,res)=>{
       });
 
       }
-  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById,jobsSearch,deleteJobApplication,deleteFavoriteJob};
+  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById,jobsSearch,deleteJobApplication,deleteFavoriteJob,getCompanyJobs};
 
   /*SELECT * FROM users
 WHERE gender LIKE 'male';*/
