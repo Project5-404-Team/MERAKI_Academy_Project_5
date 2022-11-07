@@ -25,7 +25,7 @@ const addNewJob = (req, res) => {
   };
   
   const getAllJobs = (req, res) => {
-    const query = `SELECT * FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE jobs.is_deleted=0 `;
+    const query = `SELECT * , jobs.id FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE jobs.is_deleted=0 `;
     pool
       .query(query)
       .then((result) => {
