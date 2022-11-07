@@ -2,9 +2,13 @@ import axios from "axios";
 import React from "react";
 import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const CompaniesHome = ()=>{
+    const { isLoggedIn } = useSelector((state) => {
+        return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
+      });
     const navigate = useNavigate()
 const [users,setAllUsers] = useState("")
 const getAllUsers = ()=>{
@@ -21,12 +25,14 @@ console.log(err)
 useEffect(()=>{
     getAllUsers()
 },[])
-
+useEffect(()=>{
+    {console.log(isLoggedIn)}
+},[])
 
     return (
         <>
         <div><p onClick={()=>{
-            navigate('/company/complete')
+            navigate('/companies/company/complete')
         }}>
             Complete my account</p></div>
         <div className="usersCardsDiv">
@@ -45,7 +51,7 @@ useEffect(()=>{
             
         </div>
         <div><p onClick={()=>{
-            navigate('/addnewjob')
+            navigate('/companies/addnewjob')
         }}>
             Add New Job</p></div>
         

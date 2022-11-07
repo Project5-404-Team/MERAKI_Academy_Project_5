@@ -24,7 +24,7 @@ const LoginUser = () => {
         setLoggedInSucssfully(true);
         dispatch(setLogin(response.data.token))
         dispatch(setUserId(response.data.payload.userId))
-        navigate('/userhome')
+        navigate('/users/userhome')
       })
 
       .catch((err) => {
@@ -83,7 +83,7 @@ const LoginUser = () => {
       </div>
       <div>
         <p onClick={()=>{
-          navigate('/user/register')
+          navigate('/users/user/register')
         }}>Dont Have Account! Register Now</p>
       </div>
     </>
