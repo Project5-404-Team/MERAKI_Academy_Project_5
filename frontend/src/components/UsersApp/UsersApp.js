@@ -6,6 +6,7 @@ import RegisterUser from "../RegisterUser/Register";
 import UserHome from "../UserHome/UserHome";
 import UserComplete from "../UserComplete/UserComplete"
 import UserNavbar from "../UserNavbar/UserNavbar";
+import UserFavJobs from "../UserFavJobs/UserFavJobs";
 
 function UsersApp() {
   return <div
@@ -17,6 +18,7 @@ function UsersApp() {
       <Route path = "/user/register" element={<RegisterUser/> } />
       <Route path ="/userhome" element ={<UserHome/>}/>
       <Route path ="/user/complete" element ={<UserComplete/>}/>
+      <Route path ="/user/favjobs" element ={<UserFavJobs/>}/>
 
 </Routes>
 
