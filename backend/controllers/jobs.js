@@ -283,7 +283,7 @@ const addFavJob = (req,res)=>{
     const getUserFavoriteJobs = (req, res) =>{
         const userId=req.params.userId
         const value=[userId]
-        const query = `SELECT * FROM usersFavoriteJobs INNER JOIN jobs ON usersFavoriteJobs.jobId = jobs.id
+        const query = `SELECT * , usersFavoriteJobs.id FROM usersFavoriteJobs INNER JOIN jobs ON usersFavoriteJobs.jobId = jobs.id
         INNER JOIN companies ON jobs.companyId = companies.id WHERE usersFavoriteJobs.userId=$1 AND usersFavoriteJobs.is_deleted=0;`;
         pool
           .query(query,value)

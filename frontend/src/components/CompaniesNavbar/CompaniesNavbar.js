@@ -45,6 +45,10 @@ useEffect(()=>{
         navigate('/companies/companyjobs')
       }}>
         My Jobs</p>}
+        {isLoggedIn&&<p onClick={()=>{
+          navigate('/companies/favusers')
+        }}> My Favorite Users
+          </p>}
           
            {isLoggedIn&&<p
               onClick={() => {

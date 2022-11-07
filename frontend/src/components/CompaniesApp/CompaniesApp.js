@@ -8,6 +8,7 @@ import CompaniesComplete from '../CompaniesComplete/CompaniesComplete'
 import AddNewJob from "../AddNewJob/AddNewJob";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import CompaniesJobs from "../CompaniesJobs/CompaniesJobs"
+import CompaniesFavUsers from "../CompaniesFavUsers/CompaniesFavUsers";
 
 
 function CompaniesApp() {
@@ -22,6 +23,7 @@ function CompaniesApp() {
       <Route path ="/company/complete" element ={<CompaniesComplete/>}/>
       <Route path = "/addnewjob" element={<AddNewJob/>}/>
       <Route path = "/companyjobs" element ={<CompaniesJobs/>}/>
+      <Route path = "/favusers" element={<CompaniesFavUsers/>}/>
 
 </Routes>
 
