@@ -6,6 +6,11 @@ import { useSelector } from "react-redux";
 
 
 const CompaniesHome = ()=>{
+
+    const {companyId} = useSelector((state)=>{
+        return {companyId: state.CompaniesAuth.companyId}
+    })
+
     const { isLoggedIn } = useSelector((state) => {
         return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
       });
