@@ -3,7 +3,7 @@ import axios from "axios";
 import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
-import { setFav } from "../Redux/reducers/fav/fav";
+import { setFav ,deleteFav} from "../Redux/reducers/fav/fav";
 
 
 export default function UserFavJobs() {
@@ -12,9 +12,10 @@ export default function UserFavJobs() {
 
 const [allfav,setAllFav]=useState()
 
-    const {userId} =useSelector((state)=>{
+    const {userId,fav} =useSelector((state)=>{
         return {
           userId: state.usersAuth.userId,
+          fav:state.fav.fav
         }
       })
 
@@ -33,15 +34,25 @@ const [allfav,setAllFav]=useState()
         },[])
 
 
-       const  deleteFavJob =()=>{
-        
+       const  deleteFavJob =(favJobId)=>{
+
+
+        axios
+      .delete(`http://localhost:5000/jobs/favjobs/${favJobId}`)
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
        }
 
 
   return (<>
     <div className="FavCardsDiv">
-        {allfav&&allfav.map((elem,index)=>{
+        {fav&&fav.map((elem,index)=>{
             return<div id={elem.id} key={index} className="jobCard">
                 <img src ={elem.companylogo}></img>
             <p>{elem.jobtitle}</p>
@@ -49,6 +60,7 @@ const [allfav,setAllFav]=useState()
             <p>{elem.country}</p>
             <p>{elem.industry}</p>
             <p>{elem.createdat}</p>
+            <button onClick={()=>{ deleteFavJob(elem.id) ; dispatch(deleteFav(elem.id))}} > delete from Fav</button>
           </div>  
                   
                 })}
