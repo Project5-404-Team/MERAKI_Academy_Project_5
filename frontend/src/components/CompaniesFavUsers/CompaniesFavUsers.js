@@ -1,4 +1,8 @@
-
+import axios from "axios";
+import React from "react";
+import {useEffect , useState } from "react"
+import {  useNavigate  } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const CompaniesFavUsers = () => {
@@ -6,12 +10,10 @@ const CompaniesFavUsers = () => {
         return {companyId: state.CompaniesAuth.companyId}
     })
     const [allCompaniesFavUsers,setAllCompaniesFavUsers] = useState("")
-    const body={
-        userId
-    }
+    
     const getCompaniesFavUsers = ()=>{
         axios.get(`http://localhost:5000/companies/favusers/${companyId}`)
-        .then((response)=>{
+        .then((result)=>{
             console.log(result)
             console.log(result.data.result)
             setAllCompaniesFavUsers(result.data.result)
@@ -25,7 +27,7 @@ const CompaniesFavUsers = () => {
       },[])
     return(
         <>
-        <div>CompaniesFavUsers</div>
+        
         <div className="allCompaniesFavUsers">
         {allCompaniesFavUsers&&allCompaniesFavUsers.map((elem,index)=>{
             return<div id={elem.id} key={index} className="favCard">
@@ -41,3 +43,5 @@ const CompaniesFavUsers = () => {
         </>
     )
 }
+
+export default CompaniesFavUsers

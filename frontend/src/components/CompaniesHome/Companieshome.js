@@ -21,6 +21,16 @@ axios.get('http://localhost:5000/users').then((result)=>{
 }).catch((err)=>{
 console.log(err)
 })}
+const handleCompaniesFavUsers = (userId)=>{
+    axios.post(`http://localhost:5000/companies/favusers/${companyId}`, userId)
+    .then((response)=>{
+        console.log (response)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+
 
 useEffect(()=>{
     getAllUsers()
@@ -44,6 +54,9 @@ useEffect(()=>{
             <p>{elem.recentjobtitle}</p>
             <p>{elem.industryofrecentjob}</p>
             <p> {elem.yearsofexperience}</p>
+            <p onClick={()=>{
+                handleCompaniesFavUsers(elem.id)
+            }}> Add to Favorite</p>
 
           </div>  
                   
@@ -57,7 +70,6 @@ useEffect(()=>{
         
         
         </>
-    )
-}
+    )}
 
 export default CompaniesHome
