@@ -208,7 +208,7 @@ const deleteJobApplication = (req, res) => {
 const getUserAppliedJobs = (req, res) =>{
     const userId=req.params.userId
     const value=[userId]
-    const query = `SELECT * FROM usersappliedjobs INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE usersappliedjobs.userId=$1 AND usersappliedjobs.is_deleted=0;`;
+    const query = `SELECT * , usersappliedjobs.id FROM usersappliedjobs INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE usersappliedjobs.userId=$1 AND usersappliedjobs.is_deleted=0;`;
     pool
       .query(query,value)
       .then((result) => {

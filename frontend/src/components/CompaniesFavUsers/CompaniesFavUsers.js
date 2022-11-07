@@ -22,6 +22,18 @@ const CompaniesFavUsers = () => {
           console.log(err)
         })
       }
+      const deleteCompaniesFavUsers = (favId)=>{
+        axios
+          .delete(`http://localhost:5000/companies/favusers/${favId}`)
+          .then((result) => {
+            console.log(result);
+            console.log(result.data.result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    
       useEffect(()=>{
         getCompaniesFavUsers()
       },[])
@@ -37,6 +49,9 @@ const CompaniesFavUsers = () => {
             <p>{elem.recentjobtitle}</p>
             <p>{elem.industryofrecentjob}</p>
             <p> {elem.yearsofexperience}</p>
+            <p onClick={()=>{
+                deleteCompaniesFavUsers(elem.id)
+            }}>Delete From Favorites</p>
           </div>
         }) }
         </div>
