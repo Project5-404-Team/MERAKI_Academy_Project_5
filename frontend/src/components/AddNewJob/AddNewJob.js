@@ -19,7 +19,7 @@ const AddNewJob = () => {
     const [language, setLanguage]= useState(null)
     const [jobRequirements, setJobRequirements]= useState(null)
     const {companyId} = useSelector((state)=>{
-        return {companyId: state.companiesAuth.companyId}
+        return {companyId: state.CompaniesAuth.companyId}
       })
   
     const body = {

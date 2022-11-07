@@ -5,6 +5,6 @@ import CompaniesAuth from "./reducers/CompaniesAuth"
 export default configureStore({
     reducer: {
         usersAuth: usersAuth,
-        companiesAuth :CompaniesAuth
+        CompaniesAuth :CompaniesAuth
     }
 })

@@ -4,11 +4,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./LoginCompanies.css";
 import { useDispatch, useSelector } from "react-redux"
-import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth";
+import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth/index";
 
 
 
 const LoginCompanies = () => {
+  const { isLoggedIn } = useSelector((state) => {
+    return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
+  });
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,8 +32,8 @@ const LoginCompanies = () => {
         console.log(response.data.payload.companyId);
         dispatch(setLogin(response.data.token))
         dispatch(setCompanyId(response.data.payload.companyId))
-       
-        navigate('/companieshome')
+        navigate('/companies/companieshome')
+        console.log(isLoggedIn)
 
       })
 
@@ -90,7 +93,7 @@ const LoginCompanies = () => {
       </div>
       <div>
         <p onClick={()=>{
-          navigate('/companies/register')
+          navigate('/companies/companies/register')
         }}>Dont Have Account! Register Now</p>
       </div>
     </>
