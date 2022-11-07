@@ -41,7 +41,10 @@ useEffect(()=>{
         >
           My Account
         </p>}
-      
+      {isLoggedIn&&<p onClick={()=>{
+        navigate('/companies/companyjobs')
+      }}>
+        My Jobs</p>}
           
            {isLoggedIn&&<p
               onClick={() => {

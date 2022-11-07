@@ -1,46 +1,49 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const UserHome = () => {
-  const { userId } = useSelector((state) => {
-    return { userId: state.usersAuth.userId };
-  });
+const CompaniesJobs = () => {
+    const {companyId}=useSelector((state)=>{
+        return {companyId:state.CompaniesAuth.companyId}
+    })
 
-  const [jobs, setAllJobs] = useState("");
-  const getAllJobs = () => {
+  const [companyjobs, setCompanyJobs] = useState("");
+
+  const getCompanyJobs = () => {
     axios
-      .get("http://localhost:5000/jobs")
+      .get(`http://localhost:5000/jobs/${companyId}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        setAllJobs(result.data.result);
+        setCompanyJobs(result.data.result);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  const handleAddToFav = (jobId) => {
+  const deleteJob = (jobId)=>{
     axios
-      .post(`http://localhost:5000/jobs/favjobs/${userId}`, jobId)
-      .then((response) => {
-        console.log(response);
+      .delete(`http://localhost:5000/jobs/${jobId}`)
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
       })
       .catch((err) => {
         console.log(err);
       });
-  };
+  }
+
   useEffect(() => {
-    getAllJobs();
+    getCompanyJobs();
   }, []);
 
   return (
     <>
       <div className="jobsCardsDiv">
-        {jobs &&
-          jobs.map((elem, index) => {
+        {companyjobs &&
+          companyjobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
@@ -49,13 +52,12 @@ const UserHome = () => {
                 <p>{elem.country}</p>
                 <p>{elem.industry}</p>
                 <p>{elem.createdat}</p>
-                <p
-                  onClick={(e) => {
-                    handleAddToFav(elem.id);
-                  }}
-                >
-                  Add to Favorite
-                </p>
+                <p onClick={()=>{
+                deleteJob(elem.id)
+                }}>Delete Job</p>
+                <p onClick={()=>{
+                    
+                }}>Update</p>
               </div>
             );
           })}
@@ -64,4 +66,4 @@ const UserHome = () => {
   );
 };
 
-export default UserHome;
+export default CompaniesJobs;

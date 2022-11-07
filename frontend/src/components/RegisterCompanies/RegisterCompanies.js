@@ -43,7 +43,7 @@ const RegisterCompanies = () => {
     
           setRegisteredSucssfully(true)
           setTimeout(() => {
-            navigate("/companies/login") 
+            navigate("/companies/companies/login") 
           }, 1000);
         })
         .catch((err)=>{

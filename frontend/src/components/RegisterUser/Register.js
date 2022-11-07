@@ -51,7 +51,7 @@ const RegisterUser = () => {
     
           setRegisteredSucssfully(true)
           setTimeout(() => {
-            navigate("/user/login") 
+            navigate("/users/user/login") 
           }, 1000);
         })
         .catch((err)=>{

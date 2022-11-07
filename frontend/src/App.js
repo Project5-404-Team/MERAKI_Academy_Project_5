@@ -4,6 +4,7 @@ import { useEffect, useState, createContext } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import UsersApp from "./components/UsersApp/UsersApp";
 import CompaniesApp from "./components/CompaniesApp/CompaniesApp";
+import UserHome from "./components/UserHome/UserHome";
 
 function App() {
   return (
