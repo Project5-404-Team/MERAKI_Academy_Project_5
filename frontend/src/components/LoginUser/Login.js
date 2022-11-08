@@ -24,6 +24,7 @@ const LoginUser = () => {
         setLoggedInSucssfully(true);
         dispatch(setLogin(response.data.token))
         dispatch(setUserId(response.data.payload.userId))
+        console.log(response.data.payload)
         navigate('/users/userhome')
       })
 

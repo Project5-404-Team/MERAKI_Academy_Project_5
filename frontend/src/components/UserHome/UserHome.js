@@ -35,7 +35,7 @@ const dispatch =useDispatch()
   };
   const handleAddToFav = (jobId) => {
     axios
-      .post(`http://localhost:5000/jobs/favjobs/${userId}`, jobId)
+      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId})
       .then((response) => {
         console.log(response);
       })

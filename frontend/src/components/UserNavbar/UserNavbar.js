@@ -28,7 +28,9 @@ useEffect(()=>{
           className="navbar_logo"
         ></img>
 
-     
+     {isLoggedIn&&<p onClick={()=>{
+      navigate('/users/userhome')
+     }}>Home</p>}
 
 {isLoggedIn&&<p
           className="navbar_company"
@@ -36,9 +38,11 @@ useEffect(()=>{
           My Account
         </p>}
         {isLoggedIn&&<p
-          className="navbar_company"
+          className="navbar_company" onClick={()=>{
+            (navigate("/users/user/favjobs"))
+          }}
         >
-          My Favorite
+          My Favorite Jobs
         </p>}
           
             {isLoggedIn&&<p
