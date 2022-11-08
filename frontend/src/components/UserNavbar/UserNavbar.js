@@ -37,6 +37,9 @@ useEffect(()=>{
         >
           My Account
         </p>}
+        {isLoggedIn&&<p onClick={()=>{
+          navigate('/users/user/complete')
+        }}>Complete My Account</p>}
         {isLoggedIn&&<p
           className="navbar_company" onClick={()=>{
             (navigate("/users/user/favjobs"))
