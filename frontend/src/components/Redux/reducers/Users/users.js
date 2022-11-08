@@ -19,7 +19,7 @@ const usersSlice = createSlice({
       state.favJobs.push(action.payload);
     },
     deleteFavJobs: (state, action) => {
-      state.favJobs = state.fav.filter((elem, index) => {
+      state.favJobs = state.favJobs.filter((elem, index) => {
         return elem.id != action.payload;
       });
     },
