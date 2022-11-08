@@ -32,6 +32,7 @@ const loginUsers = async (req, res) => {
   const payload = {
     userId: user.id,
     iscompleted: user.iscompleted,
+    user:user
   };
   console.log(payload);
   const SECRET = process.env.SECRET;
