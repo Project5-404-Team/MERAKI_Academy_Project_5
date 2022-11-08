@@ -5,24 +5,28 @@ const usersSlice = createSlice({
     allJobs: [],
     favJobs: [],
     appliedJobs: [],
-    userDetails :{}
+    userDetails :{},
+    jobDetails :{}
   },
   reducers: {
     setAllJobs: (state, action) => {
       state.allJobs = action.payload;
     },
     setFavJobs: (state, action) => {
-      state.fav = action.payload;
+      state.favJobs = action.payload;
     },
-    addToFav: (state, action) => {
-      state.fav.push(action.payload);
+    addToFavJobs: (state, action) => {
+      state.favJobs.push(action.payload);
     },
-    deleteFav: (state, action) => {
-      state.fav = state.fav.filter((elem, index) => {
+    deleteFavJobs: (state, action) => {
+      state.favJobs = state.fav.filter((elem, index) => {
         return elem.id != action.payload;
       });
     },
     setAppliedJobs: (state, action) => {
+        state.allJobs = action.payload;
+      },
+        setJobDetails: (state, action) => {
         state.allJobs = action.payload;
       },
       setUserDetails: (state, action) => {
@@ -31,5 +35,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setAllJobs,setFavJobs, addToFav, deleteFav,setAppliedJobs,setUserDetails } = usersSlice.actions;
+export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails } = usersSlice.actions;
 export default usersSlice.reducer;
