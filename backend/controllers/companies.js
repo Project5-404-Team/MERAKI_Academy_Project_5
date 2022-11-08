@@ -102,7 +102,7 @@ pool
   const getCompanyFavoriteUsers = (req,res)=>{
     const companyId=req.params.companyId
     const values = [companyId]
-    const query = `SELECT * FROM companiesFavoriteUsers INNER JOIN users ON companiesFavoriteUsers.userId = users.id WHERE companyId=$1 AND companiesFavoriteUsers.is_deleted=0;`
+    const query = `SELECT * , companiesFavoriteUsers.id FROM companiesFavoriteUsers INNER JOIN users ON companiesFavoriteUsers.userId = users.id WHERE companyId=$1 AND companiesFavoriteUsers.is_deleted=0;`
     pool.query(query,values).then((result)=>{
       if(result.rows.length>0){res.status(200).json({
         success: true,
