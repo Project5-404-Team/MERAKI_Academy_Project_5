@@ -2,21 +2,32 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
+import { setAllJobs } from "../Redux/reducers/Users/users";
 
 const UserHome = () => {
-  const { userId } = useSelector((state) => {
-    return { userId: state.usersAuth.userId };
+
+
+const dispatch =useDispatch()
+
+  const { userId ,allJobs} = useSelector((state) => {
+    return {
+       userId: state.usersAuth.userId,
+      allJobs : state.users.allJobs
+    };
   });
 
-  const [jobs, setAllJobs] = useState("");
+  const [jobs, setJobs] = useState("");
+
+
   const getAllJobs = () => {
     axios
       .get("http://localhost:5000/jobs")
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        setAllJobs(result.data.result);
+        setJobs(result.data.result);
+        dispatch(setAllJobs(result.data.result))
       })
       .catch((err) => {
         console.log(err);
@@ -39,8 +50,8 @@ const UserHome = () => {
   return (
     <>
       <div className="jobsCardsDiv">
-        {jobs &&
-          jobs.map((elem, index) => {
+        {allJobs &&
+          allJobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
