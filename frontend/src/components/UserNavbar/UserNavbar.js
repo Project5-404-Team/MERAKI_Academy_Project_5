@@ -8,6 +8,7 @@ import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 
 
+
 const UserNavbar = () => {
   const dispatch = useDispatch()
   const { isLoggedIn } = useSelector((state) => {
@@ -33,6 +34,7 @@ useEffect(()=>{
      }}>Home</p>}
 
 {isLoggedIn&&<p
+onClick={()=>{ navigate("/users/user/userdetails")}}
           className="navbar_company"
         >
           My Account
