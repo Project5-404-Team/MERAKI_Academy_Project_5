@@ -28,6 +28,9 @@ useEffect(()=>{
           className="navbar_logo"
         ></img>
 
+{isLoggedIn&&<p onClick={()=>{
+  navigate("/companies/companieshome")
+}}>Home</p>}
 {isLoggedIn&&<p
           onClick={() => {
             navigate("/companies/addnewjob");
@@ -49,7 +52,9 @@ useEffect(()=>{
           navigate('/companies/favusers')
         }}> My Favorite Users
           </p>}
-          
+         {isLoggedIn&&<p onClick={()=>{
+          navigate('/companies/company/complete')
+        }}>Complete My Account</p>}
            {isLoggedIn&&<p
               onClick={() => {
                 dispatch(setLogout());

@@ -5,22 +5,21 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const CompaniesComplete = () => {
-  const [numberOfEmployees, setNumberOfEmployees] = useState("");
-  const [city, setCity] = useState("");
-  const [contactPerson, setContactPerson] = useState("");
+  const [companyWebsite, setCompanyWebsite] = useState("");
   const [ceo, setCeo] = useState("");
   const [workingHours, setWorkingHours] = useState("");
   const [weekends, setWeekends] = useState("");
   const [lunchBreak, setLunchBreak] = useState("");
   const [companyOverview, setCompanyOverview] = useState("");
+  const [companyLogo, setCompanyLogo] = useState("");
   const [officeLocation, setOfficeLocation] = useState("");
-  // const [companyId , setCompanyId]=useState(localStorage.getItem("CompanyId"))
+
 
 
   const navigate = useNavigate();
 
   const { companyId } = useSelector((state) => {
-    return { companyId: state.companiesAuth.companyId };
+    return { companyId: state.CompaniesAuth.companyId };
   });
 
   const [role, setRole] = useState("");
@@ -28,15 +27,14 @@ const CompaniesComplete = () => {
   const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
 
   const body = {
-    numberOfEmployees,
-    city,
-    contactPerson,
-    ceo,
-    workingHours,
-    weekends,
-    lunchBreak,
-    companyOverview,
-    officeLocation,
+companyWebsite,
+ceo,
+workingHours,
+weekends,
+lunchBreak,
+companyOverview,
+companyLogo,
+officeLocation,
   };
 
   const handleRegister = () => {
@@ -61,37 +59,24 @@ const CompaniesComplete = () => {
         <p> Register</p>
 
         <input
-          placeholder="Number Of Employees"
+          placeholder="Company Website"
           className="RegInput"
           onChange={(e) => {
-            setNumberOfEmployees(e.target.value);
+            setCompanyWebsite(e.target.value);
           }}
         />
 
         <input
-          placeholder="City"
-          className="RegInput"
-          onChange={(e) => {
-            setCity(e.target.value);
-          }}
-        />
-
-        <input
-          placeholder="Contact Person"
-          className="RegInput"
-          onChange={(e) => {
-            setContactPerson(e.target.value);
-          }}
-        />
-
-        <input
-          placeholder="Ceo"
+          placeholder="CEO"
           className="RegInput"
           onChange={(e) => {
             setCeo(e.target.value);
           }}
         />
 
+       
+
+       
         <input
           placeholder="Working Hours"
           className="RegInput"
@@ -123,6 +108,13 @@ const CompaniesComplete = () => {
             setCompanyOverview(e.target.value);
           }}
         />
+        <input
+          placeholder="Company Logo"
+          className="RegInput"
+          onChange={(e) => {
+            setCompanyLogo(e.target.value);
+          }}
+        />
 
         <input
           placeholder="Office Location"
@@ -152,3 +144,4 @@ const CompaniesComplete = () => {
   );
 };
 export default CompaniesComplete;
+

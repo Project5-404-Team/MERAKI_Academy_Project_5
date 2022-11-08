@@ -35,7 +35,11 @@ useEffect(()=>{
         >
           My Account
         </p>}
-      
+        {isLoggedIn&&<p
+          className="navbar_company"
+        >
+          My Favorite
+        </p>}
           
             {isLoggedIn&&<p
               onClick={() => {

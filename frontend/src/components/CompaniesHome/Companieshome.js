@@ -80,13 +80,7 @@ const CompaniesHome = () => {
           })}
       </div>
       <div>
-        <p
-          onClick={() => {
-            navigate("/companies/addnewjob");
-          }}
-        >
-          Add New Job
-        </p>
+       
       </div>
     </>
   );
