@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const AddNewJob = () => {
     const [jobTitle ,setJobTitle]=useState(null)
     const [expiryDate ,setExpiryDate]=useState(null)
-    const [JobLocation ,setJobLocation]=useState(null)
+    const [jobLocation ,setJobLocation]=useState(null)
     const [careerLevel , setCareerLevel]=useState(null)
     const [jobType, setJobType]= useState(null)
     const [jobRole, setJobRole]= useState(null)
@@ -25,7 +25,7 @@ const AddNewJob = () => {
     const body = {
         jobTitle,
         expiryDate ,
-        JobLocation,
+        jobLocation,
         careerLevel,
         jobType,
         jobRole,
@@ -51,7 +51,7 @@ const AddNewJob = () => {
         <div className="infoContainerAddNewJob">
           <p> add new job</p>
           <input placeholder="job Title" className="AddNewJobInput" onChange={(e)=>{setJobTitle(e.target.value)}}/>
-          <input placeholder="expiry Date " className="AddNewJobInput" onChange={(e)=>{setExpiryDate(e.target.value)}}/>
+          <input placeholder="expiry Date " type="date" className="AddNewJobInput" onChange={(e)=>{setExpiryDate(e.target.value)}}/>
           <input placeholder="Job Location " className="AddNewJobInput" onChange={(e)=>{setJobLocation(e.target.value)}}/>
           <input placeholder="career Level " className="AddNewJobInput" onChange={(e)=>{setCareerLevel(e.target.value)}}/>
           <input placeholder="jobType" className="AddNewJobInput" onChange={(e)=>{setJobType(e.target.value)}}/>

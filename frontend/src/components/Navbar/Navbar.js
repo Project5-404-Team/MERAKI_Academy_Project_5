@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import { useNavigate } from "react-router-dom";
-
-
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 
@@ -16,7 +13,9 @@ const Navbar = () => {
   const axios = require("axios");
 
   return (
+
     <>
+  <div className="navbar_mainpage">
       <div className="navbar_container">
         <img
           src="https://www.svgrepo.com/show/26693/job-search-symbol-of-suitcase-and-curriculum-paper.svg"
@@ -41,6 +40,7 @@ const Navbar = () => {
           Employer Account
         </p>
        
+      </div>
       </div>
     </>
   );
