@@ -53,7 +53,7 @@ const LoginUser = () => {
               />
               {/* <p> Password</p> */}
               <input
-                type={"password"}
+                /*type={"password"}*/
                 className="emailInput"
                 placeholder=" Password "
                 onChange={(e) => {
