@@ -24,13 +24,13 @@ const usersSlice = createSlice({
       });
     },
     setAppliedJobs: (state, action) => {
-        state.allJobs = action.payload;
+        state.appliedJobs = action.payload;
       },
         setJobDetails: (state, action) => {
         state.allJobs = action.payload;
       },
       setUserDetails: (state, action) => {
-        state.allJobs = action.payload;
+        state.userDetails = action.payload;
       },
   },
 });

@@ -5,8 +5,17 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { setLogin, setUserId } from "../Redux/reducers/usersAuth";
-
+import {setUserDetails,setAppliedJobs } from "../Redux/reducers/Users/users";
 const LoginUser = () => {
+
+
+  const { userId ,allJobs ,isLoggedIn} = useSelector((state) => {
+    return {
+       userId: state.usersAuth.userId,
+      allJobs : state.users.allJobs,
+      isLoggedIn: state.usersAuth.isLoggedIn,
+    };
+  });
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -22,10 +31,14 @@ const LoginUser = () => {
       .post("http://localhost:5000/login/users", body)
       .then((response) => {
         setLoggedInSucssfully(true);
+       dispatch(setUserId(response.data.payload.userId))
         dispatch(setLogin(response.data.token))
-        dispatch(setUserId(response.data.payload.userId))
+
         console.log(response.data.payload)
+
+dispatch(setUserDetails(response.data.payload.user))
         navigate('/users/userhome')
+
       })
 
       .catch((err) => {
