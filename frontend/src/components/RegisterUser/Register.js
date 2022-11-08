@@ -66,7 +66,7 @@ const RegisterUser = () => {
           <input placeholder="Full Name" className="RegInput" onChange={(e)=>{setFullName(e.target.value)}}/>
     
         
-          <input placeholder="date Of Birth" className="RegInput" onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
+          <input placeholder="date Of Birth" type= "date" className="RegInput" onChange={(e)=>{setDateOfBirth(e.target.value)}}/>
     
           
      

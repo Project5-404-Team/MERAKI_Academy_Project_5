@@ -4,25 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const CompaniesHome = () => {
-  const { companyId } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId };
-  });
-  const { isLoggedIn } = useSelector((state) => {
-    return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
-  });
-  const navigate = useNavigate();
-  const [users, setAllUsers] = useState("");
-  const getAllUsers = () => {
-    axios
-      .get("http://localhost:5000/users")
-      .then((result) => {
-        console.log(result);
-        console.log(result.data.result);
-        setAllUsers(result.data.result);
-      })
-      .catch((err) => {
-        console.log(err);
+
       });
   };
   const handleCompaniesFavUsers = (userId) => {
