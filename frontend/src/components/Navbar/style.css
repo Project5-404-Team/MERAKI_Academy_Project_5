@@ -6,3 +6,8 @@
 .navbar_logo{
     width:2rem;
 }
+.navbar_mainpage{
+    background-image: url('https://cloudfront.tanqeeb.com/tanqeeb_2020/img/home-bg.webp');
+    height: 100vh;
+    background-size: 100vw;
+}
