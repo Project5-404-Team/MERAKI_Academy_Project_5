@@ -30,7 +30,6 @@ function UsersApp() {
       <Route path ="/user/userdetails" element ={<UserDetails/>}/>
       <Route path="/companydetails/userapp" element={<CompanyDetailsUsersApp/>}/>
       <Route path = "/jobdetails" element ={<JobDetailsUsers/>}/>
-
       <Route path="/user/appliedjobs" element = {<UserAppliedJobs/>}/>
 
 

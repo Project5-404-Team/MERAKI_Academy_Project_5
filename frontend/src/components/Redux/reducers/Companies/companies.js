@@ -8,6 +8,7 @@ const companiesSlice = createSlice({
     companyDetails: {},
     jobDetails: {},
     userDetailsInCompanyApp:{},
+    relativeUsers : [],
     companyAppliedJobs:[]
   },
   reducers: {
@@ -47,7 +48,10 @@ const companiesSlice = createSlice({
     },
     setuserDetailsInCompanyApp:(state,action)=>{
       state.userDetailsInCompanyApp = action.payload;
-    }
+    },
+    setRelativeUsers: (state, action) => {
+      state.relativeUsers = action.payload;
+    },
   },
 });
 

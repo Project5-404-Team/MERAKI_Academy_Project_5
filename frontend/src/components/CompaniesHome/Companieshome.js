@@ -3,12 +3,18 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setuserDetailsInCompanyApp } from "../Redux/reducers/Companies/companies";
+import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
+
+
 
 const CompaniesHome = () => {
   const dispatch=useDispatch()
-  const { companyId } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId };
+  const { companyId,companyDetails, relativeUsers} = useSelector((state) => {
+    return { companyId: state.CompaniesAuth.companyId ,
+      companyDetails: state.companies.companyDetails.industry,
+      relativeUsers: state.companies.relativeUsers,
+
+    };
   });
 
   const { isLoggedIn } = useSelector((state) => {
@@ -39,6 +45,27 @@ const CompaniesHome = () => {
       });
   };
 
+
+  const handleRelevantUsers = () => {
+
+    axios
+      .get(`http://localhost:5000/users/search?search=${companyDetails}`)
+      .then((result) => {
+       // console.log(result);
+        console.log(result.data.result);
+   dispatch(setRelativeUsers(result.data.result))
+     
+   setTimeout(() => {
+   navigate("/companies/relevantusers")
+    
+   }, 1000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -59,6 +86,13 @@ const CompaniesHome = () => {
           Complete my account
         </p>
       </div>
+          
+        
+<button onClick={()=>{
+handleRelevantUsers()
+
+}}> Find Relative Users </button>
+
       <div className="usersCardsDiv">
         {users &&
           users.map((elem, index) => {
@@ -87,6 +121,7 @@ const CompaniesHome = () => {
           })}
       </div>
       <div>
+       
        
       </div>
     </>

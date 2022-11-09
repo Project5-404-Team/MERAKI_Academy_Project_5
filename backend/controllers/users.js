@@ -24,7 +24,7 @@ const getAllUsers = (req, res) => {
     const searchWord=req.query.search
 const value=[`%${searchWord}%`]
 const query = `SELECT * FROM users
-WHERE fullName LIKE $1;`;
+WHERE industryOfRecentJob LIKE $1;`;
 pool
   .query(query,value)
   .then((result) => {
