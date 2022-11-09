@@ -6,10 +6,13 @@ import { Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
+import JobsSearch from "../JobsSearch/JobsSearch.js";
+import { setJobSearch } from "../Redux/reducers/Users/users.js";
+
+const UserNavbar = (setSearch) => {
 
 
 
-const UserNavbar = () => {
   const dispatch = useDispatch()
   const { isLoggedIn } = useSelector((state) => {
     return { isLoggedIn: state.usersAuth.isLoggedIn };
@@ -30,8 +33,12 @@ useEffect(()=>{
         ></img>
 
      {isLoggedIn&&<p onClick={()=>{
-      navigate('/users/userhome')
+      navigate('/users/userhome');
+    dispatch(setJobSearch (true))
      }}>Home</p>}
+
+{isLoggedIn&& <JobsSearch />}
+
 
 {isLoggedIn&&<p
 onClick={()=>{ navigate("/users/user/userdetails")}}

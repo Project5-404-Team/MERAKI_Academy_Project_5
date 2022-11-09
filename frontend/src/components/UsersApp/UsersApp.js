@@ -12,6 +12,10 @@ import CompanyDetailsUsersApp from "../CompanyDetailsUsersApp/CompanyDetailsUser
 import JobDetailsUsers from "../JobDetailsUsers/JobDetailUsers";
 
 function UsersApp() {
+
+
+
+
   return <div
 
    className="App">
@@ -25,6 +29,8 @@ function UsersApp() {
       <Route path ="/user/userdetails" element ={<UserDetails/>}/>
       <Route path="/companydetails/userapp" element={<CompanyDetailsUsersApp/>}/>
       <Route path = "/jobdetails" element ={<JobDetailsUsers/>}/>
+     
+
 
 </Routes>
 

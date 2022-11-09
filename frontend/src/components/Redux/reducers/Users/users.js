@@ -7,7 +7,8 @@ const usersSlice = createSlice({
     appliedJobs: [],
     userDetails :{},
     jobDetails :{},
-    companyDetailsInUsersApp:{}
+    companyDetailsInUsersApp:{},
+    jobSearch:false
   },
   reducers: {
     setAllJobs: (state, action) => {
@@ -35,9 +36,12 @@ const usersSlice = createSlice({
       },
       setCompanyDetailsInUsersApp :(state,action)=>{
         state.companyDetailsInUsersApp=action.payload
-      }
+      },
+      setJobSearch: (state, action) => {
+        state.jobSearch = action.payload;
+      },
   },
 });
 
-export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp } = usersSlice.actions;
+export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp , setJobSearch} = usersSlice.actions;
 export default usersSlice.reducer;

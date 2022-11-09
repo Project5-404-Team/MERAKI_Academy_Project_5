@@ -9,12 +9,16 @@ import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 const UserHome = () => {
 
 
+
+
 const dispatch =useDispatch()
 const navigate=useNavigate()
-  const { userId ,allJobs} = useSelector((state) => {
+  const { userId ,allJobs ,jobSearch} = useSelector((state) => {
     return {
        userId: state.usersAuth.userId,
-      allJobs : state.users.allJobs
+      allJobs : state.users.allJobs,
+      jobSearch : state.users.jobSearch
+
     };
   });
 
@@ -46,7 +50,7 @@ const navigate=useNavigate()
   };
   useEffect(() => {
     getAllJobs();
-  }, []);
+  }, [jobSearch]);
 
   return (
     <>
