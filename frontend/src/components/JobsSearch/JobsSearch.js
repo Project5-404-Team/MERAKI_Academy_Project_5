@@ -14,7 +14,6 @@ function JobsSearch() {
 
 
 
-
 const [search, setSearch] = useState("")
 
 const dispatch =useDispatch()
