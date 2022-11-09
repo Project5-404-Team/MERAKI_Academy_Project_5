@@ -310,12 +310,11 @@ const addFavJob = (req,res)=>{
             });
           });
       };
-
+      
       const jobsSearch = (req,res)=>{
-        const searchWord=req.query.search
-    const value=[`%${searchWord}%`]
-    const query = `SELECT * FROM jobs
-    WHERE jobDescription LIKE $1 AND is_deleted=0;`;
+        const searchWord1=req.params.search
+    const value=[`%${searchWord1}%`]
+    const query = `SELECT * FROM jobs WHERE jobdescription LIKE $1 AND is_deleted=0 ;`
     pool
       .query(query,value)
       .then((result) => {

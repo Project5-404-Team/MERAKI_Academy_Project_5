@@ -12,7 +12,7 @@ jobsRouter.delete('/:id',deleteJobById)
 jobsRouter.put('/:id',updateJobById)
 jobsRouter.get("/jobapply/:userId",getUserAppliedJobs)
 jobsRouter.get("/favjobs/:userId",getUserFavoriteJobs)
-jobsRouter.get('/search',jobsSearch)
+jobsRouter.get('/search/:search',jobsSearch)
 jobsRouter.delete('/jobapply/:id',deleteJobApplication)
 jobsRouter.delete('/favjobs/:id',deleteFavoriteJob)
 module.exports = jobsRouter;

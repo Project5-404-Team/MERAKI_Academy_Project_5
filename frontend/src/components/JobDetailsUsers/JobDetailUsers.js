@@ -5,11 +5,21 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function JobDetailsUsers() {
-  const { jobDetails } = useSelector((state) => {
+  const { jobDetails, userId } = useSelector((state) => {
     return {
       jobDetails: state.users.jobDetails,
+      userId: state.usersAuth.userId,
     };
   });
+const jobApply = ()=>{
+    axios.post(`http://localhost:5000/jobs/jobapply/${userId}`,{jobId:jobDetails.id}).then((result)=>{
+        console.log(result)
+
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 
   return (
     <>
@@ -31,6 +41,9 @@ function JobDetailsUsers() {
       <p>{jobDetails.jobdescription}</p>
       <p>{jobDetails.jobrequirements}</p>
       <p>{jobDetails.language}</p>
+      <p onClick={()=>{
+jobApply()
+      }}>Apply For This Job</p>
     </>
   );
 }
