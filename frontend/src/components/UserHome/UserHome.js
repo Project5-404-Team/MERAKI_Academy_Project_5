@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
 import { setAllJobs } from "../Redux/reducers/Users/users";
+import {setCompanyDetailsInUsersApp} from "../Redux/reducers/Users/users"
 
 const UserHome = () => {
 
 
 const dispatch =useDispatch()
-
+const navigate=useNavigate()
   const { userId ,allJobs} = useSelector((state) => {
     return {
        userId: state.usersAuth.userId,
@@ -56,7 +57,10 @@ const dispatch =useDispatch()
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
                 <p>{elem.jobtitle}</p>
-                <p>{elem.companyname}</p>
+                <p onClick={()=>{
+                  dispatch(setCompanyDetailsInUsersApp(elem))
+                  navigate('/users/companydetails/userapp')
+                }}>{elem.companyname}</p>
                 <p>{elem.country}</p>
                 <p>{elem.industry}</p>
                 <p>{elem.createdat}</p>

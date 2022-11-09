@@ -10,6 +10,7 @@ import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import CompaniesJobs from "../CompaniesJobs/CompaniesJobs"
 import CompaniesFavUsers from "../CompaniesFavUsers/CompaniesFavUsers";
 import CompanyDetails from "../CompanyDetails/CompanyDetails";
+import UserDetailsCompanyApp from "../UserDetailsCompanyApp/UserDetailsCompanyApp";
 
 
 function CompaniesApp() {
@@ -26,6 +27,7 @@ function CompaniesApp() {
       <Route path = "/companyjobs" element ={<CompaniesJobs/>}/>
       <Route path = "/favusers" element={<CompaniesFavUsers/>}/>
       <Route path = "/company/companydetails" element={<CompanyDetails/>}/>
+      <Route path="/userdetails/companyapp" element={<UserDetailsCompanyApp/>}/>
 
 </Routes>
 

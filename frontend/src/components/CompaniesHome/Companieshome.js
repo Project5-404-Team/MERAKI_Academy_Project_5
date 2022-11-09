@@ -2,8 +2,11 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setuserDetailsInCompanyApp } from "../Redux/reducers/Companies/companies";
+
 const CompaniesHome = () => {
+  const dispatch=useDispatch()
   const { companyId } = useSelector((state) => {
     return { companyId: state.CompaniesAuth.companyId };
   });
@@ -62,7 +65,11 @@ const CompaniesHome = () => {
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
-                <p>{elem.fullname}</p>
+                <p onClick={()=>{
+                  dispatch(setuserDetailsInCompanyApp(elem))
+                  navigate('/companies/userdetails/companyapp')
+
+                }}>{elem.fullname}</p>
                 <p> {elem.wheredoyoulive}</p>
                 <p>{elem.recentjobtitle}</p>
                 <p>{elem.industryofrecentjob}</p>
