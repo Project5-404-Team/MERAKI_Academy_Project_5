@@ -48,5 +48,5 @@ const usersSlice = createSlice({
 });
 
 
-export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp , setJobSearch} = usersSlice.actions;
+export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp ,deleteAppliedJobs, setJobSearch} = usersSlice.actions;
 export default usersSlice.reducer;
