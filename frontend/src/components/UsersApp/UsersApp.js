@@ -8,6 +8,7 @@ import UserComplete from "../UserComplete/UserComplete"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import UserFavJobs from "../UserFavJobs/UserFavJobs";
 import UserDetails from "../UserDetails/UserDetails";
+import CompanyDetailsUsersApp from "../CompanyDetailsUsersApp/CompanyDetailsUsersApp";
 
 function UsersApp() {
   return <div
@@ -21,6 +22,7 @@ function UsersApp() {
       <Route path ="/user/complete" element ={<UserComplete/>}/>
       <Route path ="/user/favjobs" element ={<UserFavJobs/>}/>
       <Route path ="/user/userdetails" element ={<UserDetails/>}/>
+      <Route path="/companydetails/userapp" element={<CompanyDetailsUsersApp/>}/>
 
 
 </Routes>
