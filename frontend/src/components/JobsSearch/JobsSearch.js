@@ -13,11 +13,7 @@ function JobsSearch() {
 
 
 
-  const { jobSearch} = useSelector((state) => {
-    return {
-      jobSearch : state.users.jobSearch
-    };
-  });
+
 
 const [search, setSearch] = useState("")
 
@@ -51,7 +47,7 @@ const dispatch =useDispatch()
       }} placeholder="Search"/>
 
       <button onClick={()=>{
-        HandleJobSearch() ;dispatch(setJobSearch (!jobSearch))
+        HandleJobSearch() 
       }}>Search Now !</button>
     </div>
     </>

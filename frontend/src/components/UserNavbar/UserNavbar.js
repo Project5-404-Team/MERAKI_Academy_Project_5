@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import JobsSearch from "../JobsSearch/JobsSearch.js";
 import { setJobSearch } from "../Redux/reducers/Users/users.js";
 
-const UserNavbar = (setSearch) => {
+const UserNavbar = () => {
 
 
 
   const dispatch = useDispatch()
-  const { isLoggedIn } = useSelector((state) => {
-    return { isLoggedIn: state.usersAuth.isLoggedIn };
+  const { isLoggedIn,jobSearch } = useSelector((state) => {
+    return { isLoggedIn: state.usersAuth.isLoggedIn ,
+      jobSearch : state.users.jobSearch};
   });
 
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ useEffect(()=>{
 
      {isLoggedIn&&<p onClick={()=>{
       navigate('/users/userhome');
-    dispatch(setJobSearch (true))
+    dispatch(setJobSearch (!jobSearch))
      }}>Home</p>}
 
 {isLoggedIn&& <JobsSearch />}
