@@ -233,6 +233,33 @@ const getUserAppliedJobs = (req, res) =>{
         });
       });
   };
+  const getCompanyAppliedJobs = (req, res) =>{
+    const companyId=req.params.companyId
+    const value=[companyId]
+    const query = `SELECT * , usersappliedjobs.id ,usersappliedjobs.is_deleted FROM usersappliedjobs INNER JOIN users ON usersappliedjobs.userId = users.id INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE companyId=$1 AND usersappliedjobs.is_deleted=0;`;
+    pool
+      .query(query,value)
+      .then((result) => {
+        if(result.rows.length>0){res.status(200).json({
+          success: true,
+          massage: "Company Applied Jobs",
+          result: result.rows,
+        });}
+        else{
+          res.status(404).json({
+            success: false,
+            massage: "No Company Applied Jobs founded"
+          })
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      });
+  };
 
 const addFavJob = (req,res)=>{
     const userId= req.params.userId
@@ -340,7 +367,7 @@ const addFavJob = (req,res)=>{
       });
 
       }
-  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById,jobsSearch,deleteJobApplication,deleteFavoriteJob,getCompanyJobs};
+  module.exports = {addNewJob,getAllJobs,jobApply,addFavJob,getUserAppliedJobs,getUserFavoriteJobs,deleteJobById,updateJobById,jobsSearch,deleteJobApplication,deleteFavoriteJob,getCompanyJobs,getCompanyAppliedJobs};
 
   /*SELECT * FROM users
 WHERE gender LIKE 'male';*/
