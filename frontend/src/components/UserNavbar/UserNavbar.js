@@ -49,7 +49,9 @@ onClick={()=>{ navigate("/users/user/userdetails")}}
         >
           My Favorite Jobs
         </p>}
-          
+          {isLoggedIn&&<p onClick={()=>{
+            navigate('/users/user/appliedjobs')
+          }}>My Applied Jobs</p>}
             {isLoggedIn&&<p
               onClick={() => {
                 dispatch(setLogout());

@@ -27,6 +27,10 @@ const usersSlice = createSlice({
     setAppliedJobs: (state, action) => {
         state.appliedJobs = action.payload;
       },
+      deleteAppliedJobs: (state, action) => {
+        state.appliedJobs = state.appliedJobs.filter((elem, index) => {
+          return elem.id != action.payload;
+      })},
         setJobDetails: (state, action) => {
         state.jobDetails = action.payload;
       },
@@ -39,5 +43,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp } = usersSlice.actions;
+export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp,deleteAppliedJobs } = usersSlice.actions;
 export default usersSlice.reducer;
