@@ -3,8 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
-import { setAllJobs } from "../Redux/reducers/Users/users";
-import {setCompanyDetailsInUsersApp} from "../Redux/reducers/Users/users"
+import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
+import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 
 const UserHome = () => {
 
@@ -56,7 +56,10 @@ const navigate=useNavigate()
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
-                <p>{elem.jobtitle}</p>
+                <p onClick={()=>{
+                  dispatch(setJobDetails(elem))
+                  navigate('/users/jobdetails')
+                }}>{elem.jobtitle}</p>
                 <p onClick={()=>{
                   dispatch(setCompanyDetailsInUsersApp(elem))
                   navigate('/users/companydetails/userapp')

@@ -9,6 +9,7 @@ import UserNavbar from "../UserNavbar/UserNavbar";
 import UserFavJobs from "../UserFavJobs/UserFavJobs";
 import UserDetails from "../UserDetails/UserDetails";
 import CompanyDetailsUsersApp from "../CompanyDetailsUsersApp/CompanyDetailsUsersApp";
+import JobDetailsUsers from "../JobDetailsUsers/JobDetailUsers";
 
 function UsersApp() {
   return <div
@@ -23,7 +24,7 @@ function UsersApp() {
       <Route path ="/user/favjobs" element ={<UserFavJobs/>}/>
       <Route path ="/user/userdetails" element ={<UserDetails/>}/>
       <Route path="/companydetails/userapp" element={<CompanyDetailsUsersApp/>}/>
-
+      <Route path = "/jobdetails" element ={<JobDetailsUsers/>}/>
 
 </Routes>
 

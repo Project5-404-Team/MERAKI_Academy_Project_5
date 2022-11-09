@@ -28,7 +28,7 @@ const usersSlice = createSlice({
         state.appliedJobs = action.payload;
       },
         setJobDetails: (state, action) => {
-        state.allJobs = action.payload;
+        state.jobDetails = action.payload;
       },
       setUserDetails: (state, action) => {
         state.userDetails = action.payload;
