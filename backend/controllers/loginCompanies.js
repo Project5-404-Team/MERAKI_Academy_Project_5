@@ -31,6 +31,7 @@ const loginCompanies = async (req, res) => {
   }
   const payload = {
     companyId: company.id,
+    company:company
   };
   console.log(payload);
   const SECRET = process.env.SECRET;

@@ -1,0 +1,57 @@
+import { createSlice } from "@reduxjs/toolkit";
+const companiesSlice = createSlice({
+  name: "companies",
+  initialState: {
+    allUsers: [],
+    favUsers: [],
+    companyJobs: [],
+    companyDetails: {},
+    jobDetails: {},
+  },
+  reducers: {
+    allUsers: (state, action) => {
+      state.allUsers = action.payload;
+    },
+    setFavUsers: (state, action) => {
+      state.favUsers = action.payload;
+    },
+    addToFavUsers: (state, action) => {
+      state.favUsers.push(action.payload);
+    },
+    deleteFavUsers: (state, action) => {
+      state.favUsers = state.favUsers.filter((elem, index) => {
+        return elem.id != action.payload;
+      });
+    },
+    setCompanyJobs: (state, action) => {
+      state.companyJobs = action.payload;
+    },
+    addJob: (state, action) => {
+      state.companyJobs.push(action.payload);
+    },
+    deleteJobs: (state, action) => {
+      state.companyJobs = state.companyJobs.filter((elem, index) => {
+        return elem.id != action.payload;
+      });
+    },
+    setJobDetails: (state, action) => {
+      state.jobDetails = action.payload;
+    },
+    setCompanyDetails: (state, action) => {
+      state.companyDetails = action.payload;
+    },
+  },
+});
+
+export const {
+  allUsers,
+  setFavUsers,
+  addToFavUsers,
+  deleteFavUsers,
+  setCompanyJobs,
+  addJob,
+  deleteJobs,
+  setJobDetails,
+  setCompanyDetails,
+} = companiesSlice.actions;
+export default companiesSlice.reducer;

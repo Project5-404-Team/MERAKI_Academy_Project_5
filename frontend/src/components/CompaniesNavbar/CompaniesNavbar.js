@@ -41,6 +41,9 @@ useEffect(()=>{
 
         {isLoggedIn&&<p
           className="navbar_company"
+          onClick={()=>{
+            navigate('/companies/company/companydetails')
+          }}
         >
           My Account
         </p>}

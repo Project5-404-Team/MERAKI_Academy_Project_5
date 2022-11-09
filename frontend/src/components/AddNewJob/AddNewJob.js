@@ -2,7 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addJob } from "../Redux/reducers/Companies/companies";
 const AddNewJob = () => {
   const [jobTitle, setJobTitle] = useState(null);
   const [expiryDate, setExpiryDate] = useState(null);
@@ -21,7 +22,7 @@ const AddNewJob = () => {
   const { companyId } = useSelector((state) => {
     return { companyId: state.CompaniesAuth.companyId };
   });
-
+const dispatch=useDispatch()
   const body = {
     jobTitle,
     expiryDate,
@@ -43,6 +44,8 @@ const AddNewJob = () => {
       .post(`http://localhost:5000/jobs/${companyId}`, body)
       .then((response) => {
         console.log(response);
+        console.log(response.data.result)
+        dispatch(addJob(response.data.result))
       })
       .catch((err) => {
         console.log(err);

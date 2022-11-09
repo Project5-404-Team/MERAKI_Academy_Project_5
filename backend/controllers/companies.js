@@ -72,7 +72,7 @@ pool
   }
   const deleteFavoriteUser = (req, res) => {
     const id = req.params.id;
-    const query = `UPDATE companiesFavoriteUsers SET is_deleted=1 WHERE id=${id};`;
+    const query = `UPDATE companiesFavoriteUsers SET is_deleted=1 WHERE id=${id} RETURNING *;`;
   
     pool
       .query(query)
@@ -87,6 +87,7 @@ pool
           res.status(200).json({
             success: true,
             massage: `Succeeded to delete Favorite User with id: ${id}`,
+            result:id
           });
         }
       })
