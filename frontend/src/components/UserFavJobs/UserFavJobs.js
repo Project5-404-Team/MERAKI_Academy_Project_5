@@ -4,17 +4,22 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setFav, deleteFav } from "../Redux/reducers/fav/fav";
-import { setFavJobs ,deleteFavJobs } from "../Redux/reducers/Users/users";
+import {
+  setFavJobs,
+  deleteFavJobs,
+  setJobDetails,
+  setCompanyDetailsInUsersApp
+} from "../Redux/reducers/Users/users";
 export default function UserFavJobs() {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [allfav, setAllFav] = useState();
 
-  const { userId, fav ,favJobs} = useSelector((state) => {
+  const { userId, fav, favJobs } = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
       fav: state.fav.fav,
-      favJobs :state.users.favJobs
+      favJobs: state.users.favJobs,
     };
   });
 
@@ -27,7 +32,6 @@ export default function UserFavJobs() {
         setAllFav(result.data.result);
         dispatch(setFav(result.data.result));
         dispatch(setFavJobs(result.data.result));
-
       })
       .catch((err) => {
         console.log(err);
@@ -57,8 +61,18 @@ export default function UserFavJobs() {
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
-                <p>{elem.jobtitle}</p>
-                <p>{elem.companyname}</p>
+                <p
+                  onClick={() => {
+                    dispatch(setJobDetails(elem));
+                    navigate("/users/jobdetails");
+                  }}
+                >
+                  {elem.jobtitle}
+                </p>
+                <p onClick={()=>{
+                  dispatch(setCompanyDetailsInUsersApp(elem))
+                  navigate('/users/companydetails/userapp')
+                }}>{elem.companyname}</p>
                 <p>{elem.country}</p>
                 <p>{elem.industry}</p>
                 <p>{elem.createdat}</p>

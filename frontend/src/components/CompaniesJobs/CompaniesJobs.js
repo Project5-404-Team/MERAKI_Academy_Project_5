@@ -3,9 +3,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCompanyJobs ,deleteJobs} from "../Redux/reducers/Companies/companies";
+import { setCompanyJobs ,deleteJobs,setJobDetails} from "../Redux/reducers/Companies/companies";
 
 const CompaniesJobs = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { companyId, companyJobs } = useSelector((state) => {
     return {
@@ -53,7 +54,10 @@ const CompaniesJobs = () => {
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
-                <p>{elem.jobtitle}</p>
+                <p onClick={()=>{
+                  dispatch(setJobDetails(elem))
+                  navigate('/companies/jobdetails')
+                }}>{elem.jobtitle}</p>
                 <p>{elem.companyname}</p>
                 <p>{elem.country}</p>
                 <p>{elem.industry}</p>
