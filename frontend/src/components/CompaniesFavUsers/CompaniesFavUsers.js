@@ -2,11 +2,19 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFavUsers,
+  deleteFavUsers,
+} from "../Redux/reducers/Companies/companies";
 
 const CompaniesFavUsers = () => {
-  const { companyId } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId };
+  const dispatch = useDispatch();
+  const { companyId, favUsers } = useSelector((state) => {
+    return {
+      companyId: state.CompaniesAuth.companyId,
+      favUsers: state.companies.favUsers,
+    };
   });
   const [allCompaniesFavUsers, setAllCompaniesFavUsers] = useState("");
 
@@ -16,7 +24,7 @@ const CompaniesFavUsers = () => {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        setAllCompaniesFavUsers(result.data.result);
+        dispatch(setFavUsers(result.data.result));
       })
       .catch((err) => {
         console.log(err);
@@ -28,6 +36,7 @@ const CompaniesFavUsers = () => {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
+        dispatch(deleteFavUsers(result.data.result));
       })
       .catch((err) => {
         console.log(err);
@@ -40,8 +49,8 @@ const CompaniesFavUsers = () => {
   return (
     <>
       <div className="allCompaniesFavUsers">
-        {allCompaniesFavUsers &&
-          allCompaniesFavUsers.map((elem, index) => {
+        {favUsers &&
+          favUsers.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="favCard">
                 <img src={elem.companylogo}></img>

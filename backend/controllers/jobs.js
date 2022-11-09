@@ -83,6 +83,7 @@ const addNewJob = (req, res) => {
           res.status(200).json({
             success: true,
             massage: `Succeeded to delete Job with id: ${id}`,
+            result:id
           });
         }
       })

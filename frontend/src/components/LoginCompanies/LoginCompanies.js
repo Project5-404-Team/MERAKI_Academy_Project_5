@@ -5,12 +5,15 @@ import { useNavigate } from "react-router-dom";
 import "./LoginCompanies.css";
 import { useDispatch, useSelector } from "react-redux"
 import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth/index";
+import { setCompanyDetails } from "../Redux/reducers/Companies/companies";
+import CompanyDetails from "../CompanyDetails/CompanyDetails";
 
 
 
 const LoginCompanies = () => {
-  const { isLoggedIn } = useSelector((state) => {
-    return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
+  const { isLoggedIn,companyDetails } = useSelector((state) => {
+    return { isLoggedIn: state.CompaniesAuth.isLoggedIn,
+      companyDetails:state.companies.companyDetails };
   });
 
   const dispatch = useDispatch()
@@ -32,8 +35,10 @@ const LoginCompanies = () => {
         console.log(response.data.payload.companyId);
         dispatch(setLogin(response.data.token))
         dispatch(setCompanyId(response.data.payload.companyId))
+        dispatch(setCompanyDetails(response.data.payload.company))
         navigate('/companies/companieshome')
         console.log(isLoggedIn)
+        console.log(companyDetails)
 
       })
 
