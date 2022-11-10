@@ -7,9 +7,9 @@ const companiesSlice = createSlice({
     companyJobs: [],
     companyDetails: {},
     jobDetails: {},
-    userDetailsInCompanyApp:{},
-    relativeUsers : [],
-    companyAppliedJobs:[]
+    userDetailsInCompanyApp: {},
+    relativeUsers: [],
+    companyAppliedJobs: [],
   },
   reducers: {
     allUsers: (state, action) => {
@@ -43,10 +43,10 @@ const companiesSlice = createSlice({
     setCompanyDetails: (state, action) => {
       state.companyDetails = action.payload;
     },
-    setCompanyAppliedJobs:(state,action)=>{
+    setCompanyAppliedJobs: (state, action) => {
       state.companyAppliedJobs = action.payload;
     },
-    setuserDetailsInCompanyApp:(state,action)=>{
+    setuserDetailsInCompanyApp: (state, action) => {
       state.userDetailsInCompanyApp = action.payload;
     },
     setRelativeUsers: (state, action) => {
@@ -65,6 +65,8 @@ export const {
   deleteJobs,
   setJobDetails,
   setCompanyDetails,
-  setuserDetailsInCompanyApp,setCompanyAppliedJobs
+  setRelativeUsers,
+  setuserDetailsInCompanyApp,
+  setCompanyAppliedJobs,
 } = companiesSlice.actions;
 export default companiesSlice.reducer;

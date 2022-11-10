@@ -5,7 +5,7 @@ const usersSlice = createSlice({
     allJobs: [],
     favJobs: [],
     appliedJobs: [],
-    userDetails :{},
+    userDetails :localStorage.getItem("userDetails") || null,
     jobDetails :{},
     companyDetailsInUsersApp:{},
     jobSearch:false
@@ -37,6 +37,7 @@ const usersSlice = createSlice({
       },
       setUserDetails: (state, action) => {
         state.userDetails = action.payload;
+        localStorage.setItem("userDetails", JSON.stringify(state.userDetails))
       },
       setCompanyDetailsInUsersApp :(state,action)=>{
         state.companyDetailsInUsersApp=action.payload

@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const CompaniesComplete = () => {
-  const [companyWebsite, setCompanyWebsite] = useState("");
-  const [ceo, setCeo] = useState("");
-  const [workingHours, setWorkingHours] = useState("");
-  const [weekends, setWeekends] = useState("");
-  const [lunchBreak, setLunchBreak] = useState("");
-  const [companyOverview, setCompanyOverview] = useState("");
-  const [companyLogo, setCompanyLogo] = useState("");
-  const [officeLocation, setOfficeLocation] = useState("");
+  const [companyWebsite, setCompanyWebsite] = useState(null);
+  const [ceo, setCeo] = useState(null);
+  const [workingHours, setWorkingHours] = useState(null);
+  const [weekends, setWeekends] = useState(null);
+  const [lunchBreak, setLunchBreak] = useState(null);
+  const [companyOverview, setCompanyOverview] = useState(null);
+  const [companyLogo, setCompanyLogo] = useState(null);
+  const [officeLocation, setOfficeLocation] = useState(null);
 
 
 
