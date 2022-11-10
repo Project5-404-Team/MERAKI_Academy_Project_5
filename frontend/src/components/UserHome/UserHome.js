@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector ,useDispatch} from "react-redux";
 import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
 import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
+import "./UserHome.css"
 
 const UserHome = () => {
 
@@ -60,24 +61,25 @@ const navigate=useNavigate()
             return (
               <div id={elem.id} key={index} className="jobCard">
                 <img src={elem.companylogo}></img>
-                <p onClick={()=>{
+                <h2 onClick={()=>{
                   dispatch(setJobDetails(elem))
                   navigate('/users/jobdetails')
-                }}>{elem.jobtitle}</p>
-                <p onClick={()=>{
+                }}>{elem.jobtitle}</h2>
+                <h4 onClick={()=>{
                   dispatch(setCompanyDetailsInUsersApp(elem))
                   navigate('/users/companydetails/userapp')
-                }}>{elem.companyname}</p>
-                <p>{elem.country}</p>
+                }}>{elem.companyname}</h4>
+                <h5>{elem.country}</h5>
                 <p>{elem.industry}</p>
                 <p>{elem.createdat}</p>
-                <p
+                <button
                   onClick={(e) => {
                     handleAddToFav(elem.id);
                   }}
                 >
                   Add to Favorite
-                </p>
+                </button>
+                
               </div>
             );
           })}

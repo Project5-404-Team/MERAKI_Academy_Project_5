@@ -58,16 +58,16 @@ const registerCompanyComplete = (req, res) => {
   } = req.body;
   const values = [
     companyId,
-    companyWebsite,
-    ceo,
-    workingHours,
-    weekends,
-    lunchBreak,
-    companyOverview,
-    companyLogo,
-    officeLocation,
+    companyWebsite || null,
+    ceo || null,
+    workingHours || null,
+    weekends || null,
+    lunchBreak || null,
+    companyOverview || null,
+    companyLogo || null,
+    officeLocation || null,
   ];
-  const query = `UPDATE companies SET companyWebsite = $2,ceo =$3,workingHours=$4,weekends=$5,lunchBreak=$6,companyOverview=$7,companyLogo=$8,officeLocation=$9 WHERE id=$1;`;
+  const query = `UPDATE companies SET companyWebsite = COALESCE($2,companyWebsite),ceo =COALESCE($3,ceo),workingHours=COALESCE($4,workingHours),weekends=COALESCE($5,weekends),lunchBreak=COALESCE($6,lunchBreak),companyOverview=COALESCE($7,companyOverview),companyLogo=COALESCE($8,companyLogo),officeLocation=COALESCE($9,officeLocation) WHERE id=$1;`;
   pool
     .query(query, values)
     .then((result) => {

@@ -341,7 +341,7 @@ const addFavJob = (req,res)=>{
       const jobsSearch = (req,res)=>{
         const searchWord1=req.params.search
     const value=[`%${searchWord1}%`]
-    const query = `SELECT * FROM jobs WHERE jobdescription LIKE $1 AND is_deleted=0 ;`
+    const query = `SELECT * FROM jobs WHERE jobTitle LIKE $1 OR jobdescription LIKE $1 OR jobType LIKE $1 OR jobRole LIKE $1 OR jobRequirements LIKE $1 AND is_deleted=0 ;`
     pool
       .query(query,value)
       .then((result) => {

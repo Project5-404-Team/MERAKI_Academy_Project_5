@@ -7,7 +7,7 @@ import axios from "axios";
 import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 import JobsSearch from "../JobsSearch/JobsSearch.js";
-import { setJobSearch } from "../Redux/reducers/Users/users.js";
+import { setAppliedJobs, setFavJobs, setJobSearch } from "../Redux/reducers/Users/users.js";
 
 const UserNavbar = () => {
 
@@ -64,6 +64,8 @@ onClick={()=>{ navigate("/users/user/userdetails")}}
               onClick={() => {
                 dispatch(setLogout());
                 navigate('/users/user/login')
+                dispatch(setAppliedJobs([]))
+                dispatch(setFavJobs([]))
               }}
             >
               Logout
