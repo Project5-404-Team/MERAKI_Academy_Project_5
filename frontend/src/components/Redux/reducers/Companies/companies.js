@@ -5,7 +5,7 @@ const companiesSlice = createSlice({
     allUsers: [],
     favUsers: [],
     companyJobs: [],
-    companyDetails: {},
+    companyDetails: JSON.parse(localStorage.getItem("companyDetails")) || null,
     jobDetails: {},
     userDetailsInCompanyApp: {},
     relativeUsers: [],
@@ -32,6 +32,14 @@ const companiesSlice = createSlice({
     addJob: (state, action) => {
       state.companyJobs.push(action.payload);
     },
+    updateJob :(state,action)=>{
+      state.companyJobs.map((elem, index) => {
+        if (elem.id == action.payload.jobUpdateId) {
+          state.companyJobs.splice(index,1,action.payload.updatedJob);
+        }
+      });
+    
+    },
     deleteJobs: (state, action) => {
       state.companyJobs = state.companyJobs.filter((elem, index) => {
         return elem.id != action.payload;
@@ -42,6 +50,7 @@ const companiesSlice = createSlice({
     },
     setCompanyDetails: (state, action) => {
       state.companyDetails = action.payload;
+      localStorage.setItem("companyDetails", JSON.stringify(state.companyDetails))
     },
     setCompanyAppliedJobs: (state, action) => {
       state.companyAppliedJobs = action.payload;
@@ -67,6 +76,6 @@ export const {
   setCompanyDetails,
   setRelativeUsers,
   setuserDetailsInCompanyApp,
-  setCompanyAppliedJobs,
+  setCompanyAppliedJobs,updateJob
 } = companiesSlice.actions;
 export default companiesSlice.reducer;
