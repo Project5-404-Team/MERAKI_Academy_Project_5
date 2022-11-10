@@ -5,7 +5,7 @@ const usersSlice = createSlice({
     allJobs: [],
     favJobs: [],
     appliedJobs: [],
-    userDetails :localStorage.getItem("userDetails") || null,
+    userDetails : JSON.parse(localStorage.getItem("userDetails")) || null,
     jobDetails :{},
     companyDetailsInUsersApp:{},
     jobSearch:false
