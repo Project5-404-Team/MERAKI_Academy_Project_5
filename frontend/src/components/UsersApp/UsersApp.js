@@ -11,6 +11,7 @@ import UserDetails from "../UserDetails/UserDetails";
 import CompanyDetailsUsersApp from "../CompanyDetailsUsersApp/CompanyDetailsUsersApp";
 import JobDetailsUsers from "../JobDetailsUsers/JobDetailUsers";
 import UserAppliedJobs from "../UserAppliedJobs/UserAppliedJobs";
+import Google from "../Google";
 
 function UsersApp() {
 
@@ -31,6 +32,7 @@ function UsersApp() {
       <Route path="/companydetails/userapp" element={<CompanyDetailsUsersApp/>}/>
       <Route path = "/jobdetails" element ={<JobDetailsUsers/>}/>
       <Route path="/user/appliedjobs" element = {<UserAppliedJobs/>}/>
+      <Route path = "/user/login/Google" element = {<Google/>}/>
 
 
 </Routes>

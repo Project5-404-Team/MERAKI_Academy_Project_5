@@ -5,10 +5,10 @@ const usersSlice = createSlice({
     allJobs: [],
     favJobs: [],
     appliedJobs: [],
-    userDetails : JSON.parse(localStorage.getItem("userDetails")) || null,
-    jobDetails :{},
-    companyDetailsInUsersApp:{},
-    jobSearch:false
+    userDetails: JSON.parse(localStorage.getItem("userDetails")) || null,
+    jobDetails: {},
+    companyDetailsInUsersApp: {},
+    jobSearch: false,
   },
   reducers: {
     setAllJobs: (state, action) => {
@@ -26,28 +26,39 @@ const usersSlice = createSlice({
       });
     },
     setAppliedJobs: (state, action) => {
-        state.appliedJobs = action.payload;
-      },
-      deleteAppliedJobs: (state, action) => {
-        state.appliedJobs = state.appliedJobs.filter((elem, index) => {
-          return elem.id != action.payload;
-      })},
-        setJobDetails: (state, action) => {
-        state.jobDetails = action.payload;
-      },
-      setUserDetails: (state, action) => {
-        state.userDetails = action.payload;
-        localStorage.setItem("userDetails", JSON.stringify(state.userDetails))
-      },
-      setCompanyDetailsInUsersApp :(state,action)=>{
-        state.companyDetailsInUsersApp=action.payload
-      },
-      setJobSearch: (state, action) => {
-        state.jobSearch = action.payload;
-      },
+      state.appliedJobs = action.payload;
+    },
+    deleteAppliedJobs: (state, action) => {
+      state.appliedJobs = state.appliedJobs.filter((elem, index) => {
+        return elem.id != action.payload;
+      });
+    },
+    setJobDetails: (state, action) => {
+      state.jobDetails = action.payload;
+    },
+    setUserDetails: (state, action) => {
+      state.userDetails = action.payload;
+      localStorage.setItem("userDetails", JSON.stringify(state.userDetails));
+    },
+    setCompanyDetailsInUsersApp: (state, action) => {
+      state.companyDetailsInUsersApp = action.payload;
+    },
+    setJobSearch: (state, action) => {
+      state.jobSearch = action.payload;
+    },
   },
 });
 
-
-export const { setAllJobs,setFavJobs,addToFavJobs, deleteFavJobs,setAppliedJobs,setUserDetails,setJobDetails,setCompanyDetailsInUsersApp , setJobSearch,deleteAppliedJobs} = usersSlice.actions;
+export const {
+  setAllJobs,
+  setFavJobs,
+  addToFavJobs,
+  deleteFavJobs,
+  setAppliedJobs,
+  setUserDetails,
+  setJobDetails,
+  setCompanyDetailsInUsersApp,
+  setJobSearch,
+  deleteAppliedJobs,
+} = usersSlice.actions;
 export default usersSlice.reducer;
