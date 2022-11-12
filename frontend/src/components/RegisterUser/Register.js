@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
-
+import emailjs from "@emailjs/browser"
 
 const RegisterUser = () => {
     const [fullName ,setFullName]=useState("")
@@ -29,7 +29,16 @@ const RegisterUser = () => {
 
     const navigate =useNavigate()
 
-    
+    const SendMail = () => {
+      const params = {
+        to_name: body.fullName,
+        recieverEmail: body.email,
+      };
+      emailjs
+        .send("service_kv6rdi9","template_pe0lu7b", params,"TF1iRzpMsPVOJG-cK")
+        .then(function (res) {
+       console.log(res)
+    })};
 
     const [role, setRole] = useState("")
 
@@ -48,11 +57,12 @@ const RegisterUser = () => {
         axios.post("http://localhost:5000/register/users", body)
         .then((response)=>{
             console.log (response)
-    
+            
           setRegisteredSucssfully(true)
           setTimeout(() => {
             navigate("/users/user/login") 
           }, 1000);
+          SendMail()
         })
         .catch((err)=>{
           console.log(err)
