@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { setCompanyLogo } from "../Redux/reducers/Companies/companies";
 
 const CompaniesComplete = () => {
   const [companyWebsite, setCompanyWebsite] = useState(null);
@@ -11,30 +12,44 @@ const CompaniesComplete = () => {
   const [weekends, setWeekends] = useState(null);
   const [lunchBreak, setLunchBreak] = useState(null);
   const [companyOverview, setCompanyOverview] = useState(null);
-  const [companyLogo, setCompanyLogo] = useState(null);
   const [officeLocation, setOfficeLocation] = useState(null);
-
-
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const { companyId } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId };
+  const { companyId, companyLogo } = useSelector((state) => {
+    return {
+      companyId: state.CompaniesAuth.companyId,
+      companyLogo: state.companies.companyLogo,
+    };
   });
 
   const [role, setRole] = useState("");
 
   const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
+  const [image, setImage] = useState("");
+  const [url, setImageUrl] = useState("");
+  const uploadImage = () => {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "basel_project5");
 
+    axios
+      .post("https://api.cloudinary.com/v1_1/did6jp3bj/image/upload", formData)
+      .then((response) => {
+        dispatch(setCompanyLogo(response.data.secure_url));
+        console.log(companyLogo);
+      });
+  };
   const body = {
-companyWebsite,
-ceo,
-workingHours,
-weekends,
-lunchBreak,
-companyOverview,
-companyLogo,
-officeLocation,
+    companyWebsite,
+    ceo,
+    workingHours,
+    weekends,
+    lunchBreak,
+    companyOverview,
+    companyLogo,
+    officeLocation,
   };
 
   const handleRegister = () => {
@@ -74,9 +89,6 @@ officeLocation,
           }}
         />
 
-       
-
-       
         <input
           placeholder="Working Hours"
           className="RegInput"
@@ -108,13 +120,14 @@ officeLocation,
             setCompanyOverview(e.target.value);
           }}
         />
+
         <input
+          type="file"
           placeholder="Company Logo"
           className="RegInput"
-          onChange={(e) => {
-            setCompanyLogo(e.target.value);
-          }}
-        />
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <button onClick={uploadImage}>Upload</button>
 
         <input
           placeholder="Office Location"
@@ -144,4 +157,3 @@ officeLocation,
   );
 };
 export default CompaniesComplete;
-
