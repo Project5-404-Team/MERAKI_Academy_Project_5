@@ -33,6 +33,7 @@ function UsersApp() {
       <Route path = "/jobdetails" element ={<JobDetailsUsers/>}/>
       <Route path="/user/appliedjobs" element = {<UserAppliedJobs/>}/>
       <Route path = "/user/login/Google" element = {<Google/>}/>
+    
 
 
 </Routes>

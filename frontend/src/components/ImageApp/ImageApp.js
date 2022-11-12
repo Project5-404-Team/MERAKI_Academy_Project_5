@@ -3,16 +3,16 @@ import axios from "axios";
 const ImageApp = () => {
 
  const [image, setImage ] = useState("");
-const [ url, setUrl ] = useState("");
+const [ url, setImageUrl ] = useState("");
 const uploadImage = ()=>{
     const formData = new FormData()
     formData.append("file",image)
     formData.append("upload_preset", "basel_project5")
 
-axios.post("https://api.cloudinary.com/v1_1/dfpuepvtg/image/upload",formData)
+axios.post("https://api.cloudinary.com/v1_1/did6jp3bj/image/upload",formData)
 .then((response)=>{
     console.log(response)
-setUrl(response.dara.url)
+setImageUrl(response.data.secure_url)
 })
 
 }

@@ -3,6 +3,7 @@ import React from "react";
 import {useEffect , useState } from "react"
 import {  useNavigate  } from "react-router-dom";
 import emailjs from "@emailjs/browser"
+import ImageApp from "../ImageApp/ImageApp"
 
 const RegisterUser = () => {
     const [fullName ,setFullName]=useState("")
@@ -92,6 +93,7 @@ const RegisterUser = () => {
     
           
           <input type={"password"} placeholder="Password" className="RegInput" onChange={(e)=>{setPassword(e.target.value)}}/>
+          <ImageApp/>
     
     
           
