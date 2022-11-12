@@ -7,7 +7,7 @@ const [ url, setUrl ] = useState("");
 const uploadImage = ()=>{
     const formData = new FormData()
     formData.append("file",image)
-    formData.append("upload_preset", "Project_5")
+    formData.append("upload_preset", "basel_project5")
 
 axios.post("https://api.cloudinary.com/v1_1/dfpuepvtg/image/upload",formData)
 .then((response)=>{
