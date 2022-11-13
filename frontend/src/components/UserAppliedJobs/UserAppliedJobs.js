@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import UserNavbar from "../UserNavbar/UserNavbar";
 
 import {
 
@@ -52,6 +53,7 @@ function UserAppliedJobs() {
 
   return (
     <>
+       <UserNavbar/>
       <div className="FavCardsDiv">
         {appliedJobs &&
           appliedJobs.map((elem, index) => {

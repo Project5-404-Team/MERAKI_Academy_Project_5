@@ -6,6 +6,7 @@ import { useSelector ,useDispatch} from "react-redux";
 import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
 import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
+import UserNavbar from "../UserNavbar/UserNavbar";
 
 const UserHome = () => {
 
@@ -54,25 +55,38 @@ const navigate=useNavigate()
   }, [jobSearch]);
 
   return (
+   
     <>
+     <UserNavbar/>
+    <div className="userHomeDiv">
+      <div className="filterDiv">
+<p>
+
+</p>
+
+      </div>
       <div className="jobsCardsDiv">
         {allJobs &&
           allJobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
-                <img src={elem.companylogo}></img>
-                <h2 onClick={()=>{
+                <img className="companyLogoCard" src={elem.companylogo}></img>
+                <h2 className="jobTitleCard" onClick={()=>{
                   dispatch(setJobDetails(elem))
                   navigate('/users/jobdetails')
                 }}>{elem.jobtitle}</h2>
-                <h4 onClick={()=>{
+                <h4 className="companyNameCard" onClick={()=>{
                   dispatch(setCompanyDetailsInUsersApp(elem))
                   navigate('/users/companydetails/userapp')
-                }}>{elem.companyname}</h4>
-                <h5>{elem.country}</h5>
-                <p>{elem.industry}</p>
-                <p>{elem.createdat}</p>
-                <button
+                }}>{elem.companyname} - {elem.industry} - {elem.country}</h4>
+                
+                
+                <p className="carerLevelCard">Career Level : {elem.careerlevel}</p>
+                <p></p>
+                <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
+                <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
+                <p className="jobDescription">{elem.jobdescription.substring(0,150)}...</p>
+                <button className="addFavCard" 
                   onClick={(e) => {
                     handleAddToFav(elem.id);
                   }}
@@ -83,6 +97,7 @@ const navigate=useNavigate()
               </div>
             );
           })}
+      </div>
       </div>
     </>
   );

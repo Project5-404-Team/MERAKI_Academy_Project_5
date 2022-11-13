@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "../Redux/reducers/Users/users";
-
+import UserNavbar from "../UserNavbar/UserNavbar";
 function UserDetails() {
   const dispatch = useDispatch()
   const {userDetails,userId} = useSelector((state) => {
@@ -77,7 +77,7 @@ function UserDetails() {
 
   return (
     <>
-  
+       <UserNavbar/>
       <p>{userDetails.fullname}</p>
       <p>{userDetails.citizenships}</p>
       <p>{userDetails.cv}</p>

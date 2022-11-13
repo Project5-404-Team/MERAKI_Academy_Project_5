@@ -50,14 +50,32 @@ const LoginCompanies = () => {
 
   return (
     <>
-      <div>
+    
+      <div className="mainPageLoginCompany">
+      <div className="navbar_container">
+          <p
+            className="navbar_user_login_link"
+            onClick={() => {
+              navigate("/users/user/login");
+            }}
+          >
+            Job Seeker Account
+          </p>
+          <p className="or">or</p>
+          <p
+            className="navbar_company_login_link"
+            onClick={() => {
+              navigate("/companies/companies/login");
+            }}
+          >
+            Employer Account
+          </p>
+        </div>
         <div className="BigDivLogin">
     
 
-         
-
             <div className="infoContainer">
-              <h1> Login</h1>
+              <h1 style={{textAlign:"left",marginBottom:"40px"}}>  Employer Account Login</h1>
               {/* <p> Email</p> */}
               <input
                 className="emailInput"
@@ -90,17 +108,23 @@ const LoginCompanies = () => {
                 }}
               >
                 {" "}
-                Login{" "}
+                Sign In{" "}
               </button>
               <p>{!iserror ? error : null}</p>
             </div>
           </div>
-      </div>
-      <div>
-        <p onClick={()=>{
+          <div className="paragraph">    <span style={{ fontWeight: 600 }}>Employer?</span>
+              <p>Hire the perfect talent from many available candidate.</p>
+              <span style={{ fontWeight: 600 }}>
+                Post a Job{" "}
+              </span> </div>
+          <div className="belowLoginDiv">
+        <p  className="registerLink" onClick={()=>{
           navigate('/companies/companies/register')
         }}>Dont Have Account! Register Now</p>
       </div>
+      </div>
+     
     </>
   );
 };
