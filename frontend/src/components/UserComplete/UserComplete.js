@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./UserComplete.css"
 import { setUserPicture ,setUserCv } from "../Redux/reducers/Users/users";
+import UserNavbar from "../UserNavbar/UserNavbar";
 
 
 
@@ -116,6 +117,8 @@ const UserComplete = () => {
   };
 
   return (
+    <>
+         <UserNavbar/>
     <div className="bigDivRegister">
       <div className="infoContainerRegister">
        
@@ -255,6 +258,7 @@ const UserComplete = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 export default UserComplete;

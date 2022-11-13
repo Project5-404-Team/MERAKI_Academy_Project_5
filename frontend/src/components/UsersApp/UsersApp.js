@@ -19,7 +19,7 @@ function UsersApp() {
   return <div
 
    className="App">
-<UserNavbar/>
+
 <Routes>
       <Route path = "/user/login" element={<LoginUser/> }  />
       <Route path = "/user/register" element={<RegisterUser/> } />

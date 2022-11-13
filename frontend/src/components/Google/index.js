@@ -17,11 +17,11 @@ const Google = () => {
       isLoggedIn: state.usersAuth.isLoggedIn,
     };
   });
-  const login = () => {
+  const login = (decoded1) => {
     axios
       .post("http://localhost:5000/login/users/googlelogin", {
-        fullName: googleFullName,
-        email: googleEmail,
+        fullName: decoded1.name,
+        email: decoded1.email,
         password: "0",
       })
       .then((response) => {
@@ -35,9 +35,7 @@ const Google = () => {
         console.log(err);
       });
   };
-  const [googleLoginInfo, setGoogleLoginInfo] = useState("");
-  const [googleFullName, setGoogleFullName] = useState("");
-  const [googleEmail, setGoogleEmail] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -47,24 +45,13 @@ const Google = () => {
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             var decoded1 = jwtDecode(credentialResponse.credential);
-            console.log(decoded1);
-            var Name1 = decoded1.name;
-            var email1 = decoded1.email;
-            setGoogleFullName(Name1);
-            setGoogleEmail(email1);
-            console.log(decoded1);
-            console.log(email1);
+            login(decoded1);
           }}
           onError={() => {
             console.log("Login Failed");
           }}
         />
       </GoogleOAuthProvider>
-      <div className="login_button_google">
-        <button className="login_button_google1" onClick={() => login()}>
-          Login
-        </button>
-      </div>
     </div>
   );
 };

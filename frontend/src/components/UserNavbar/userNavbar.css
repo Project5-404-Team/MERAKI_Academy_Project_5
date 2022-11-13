@@ -1,0 +1,30 @@
+.userNavbar{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    width: 100vw;
+    background-color: rgb(240, 240, 240);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Verdana, sans-serif;
+    text-decoration: none;
+    color: rgba(7, 7, 93, 0.856);
+    font-weight: 900;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .userNavbar div:hover{
+    color: #4091d2;;
+  }
+  .search_navbar *{
+    height: 30px;
+    font-weight: 600;
+    color:rgba(7, 7, 93, 0.856);
+    border-radius: 5px;
+    border:none;
+    margin-top: 5px;
+
+
+}
