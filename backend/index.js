@@ -8,6 +8,7 @@ const loginCompanyRouter = require("./routes/loginCompany");
 const jobsRouter = require("./routes/jobs");
 const usersRouter = require("./routes/users");
 const companiesRouter = require("./routes/companies");
+const AdminRouter =require("./routes/admin");
 
 require("./models/db");
 
@@ -23,6 +24,7 @@ app.use('/login/companies',loginCompanyRouter)
 app.use('/jobs',jobsRouter)
 app.use('/users',usersRouter)
 app.use('/companies',companiesRouter)
+app.use('/admin',AdminRouter)
 
 app.listen(PORT, () => {
   console.log(`server listening on ${PORT}`);

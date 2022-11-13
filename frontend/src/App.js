@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import UsersApp from "./components/UsersApp/UsersApp";
 import CompaniesApp from "./components/CompaniesApp/CompaniesApp";
 import UserHome from "./components/UserHome/UserHome";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 function App() {
   return (
@@ -13,7 +14,10 @@ function App() {
         <Route path="/" element={<Navbar />} />
         <Route path="/users/*" element={<UsersApp />} />
         <Route path="/companies/*" element={<CompaniesApp />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
+     
+
     </div>
   );
 }
