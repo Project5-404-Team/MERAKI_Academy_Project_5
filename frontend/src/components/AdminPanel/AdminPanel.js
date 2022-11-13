@@ -128,6 +128,7 @@ const dispatch =useDispatch()
               <th>phonenumber</th>
               <th>Email</th>
               <th>Password</th>
+              <th>IS DELETED</th>
               <th>Detele User</th>
             </tr>
 
@@ -142,6 +143,8 @@ const dispatch =useDispatch()
                       <td> {elem.phonenumber} </td>
                       <td> {elem.email} </td>
                       <td> {elem.password} </td>
+                      <td> {elem.is_deleted} </td>
+
          <button onClick={()=>{deleteUser(elem.id)}}>Delete</button>
                     </tr>
                   </>
@@ -163,6 +166,7 @@ const dispatch =useDispatch()
               <th>Contact Person</th>
               <th>Email</th>
               <th>Password</th>
+              <th>IS DELETED</th>
               <th>Detele Company</th>
             </tr>
 
@@ -179,8 +183,8 @@ const dispatch =useDispatch()
                       <td> {elem.contactperson} </td>
                       <td> {elem.email} </td>
                       <td> {elem.password} </td>
+                      <td> {elem.is_deleted} </td>
          <button onClick={()=>{deleteCompany(elem.id)}}>Delete</button>
-
                     </tr>
                   </>
                 );
@@ -223,6 +227,7 @@ const dispatch =useDispatch()
                       <td> {elem.yearsofexperience} </td>
                       <td> {elem.email} </td>
                       <td> {elem.password} </td>
+
          <button onClick={()=>{deleteJob(elem.id)}}>Delete</button> z
                     </tr>
 
