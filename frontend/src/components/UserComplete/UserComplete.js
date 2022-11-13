@@ -4,11 +4,30 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./UserComplete.css"
+import { setUserPicture ,setUserCv } from "../Redux/reducers/Users/users";
+
+
+
+
+
+
+
+
 
 const UserComplete = () => {
-  const { userId } = useSelector((state) => {
-    return { userId: state.usersAuth.userId };
+
+
+
+  const { userId , userPicture,userCv} = useSelector((state) => {
+    return { 
+      userId: state.usersAuth.userId,
+      userPicture : state.users.userPicture,
+      userCv : state.users.userCv,
+    };
   });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [maritalStatus, setMaritalStatus] = useState(null);
   const [citizenships, setCitizenships] = useState(null);
@@ -25,13 +44,42 @@ const UserComplete = () => {
   const [educationalInstituteName, setEducationalInstituteName] =
     useState(null);
   const [cv, setCv] = useState(null);
-  
-
-  const navigate = useNavigate();
-
   const [role, setRole] = useState("");
-
   const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
+
+
+  const [image, setImage] = useState("");
+  const [url, setImageUrl] = useState("");
+
+
+  const uploadCv = () => {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "basel_project5");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/did6jp3bj/image/upload", formData)
+      .then((response) => {
+        dispatch(setUserCv(response.data.secure_url));
+        console.log(response.data);
+      });
+  };
+
+
+  const uploadPicture = () => {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "basel_project5");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/did6jp3bj/image/upload", formData)
+      .then((response) => {
+        dispatch(setUserPicture(response.data.secure_url));
+        console.log(response.data);
+      });
+  };
+
+
 
   const body = {
     phoneNumber,
@@ -48,7 +96,7 @@ const UserComplete = () => {
     educationLevel,
     major,
     educationalInstituteName,
-    cv,
+    cv : userCv,
   };
 
   const handleRegister = () => {
@@ -182,13 +230,13 @@ const UserComplete = () => {
             setEducationalInstituteName(e.target.value);
           }}
         />
-        <input
-          placeholder="Cv"
+       <input
+          type="file"
+          placeholder="Company Logo"
           className="RegInput"
-          onChange={(e) => {
-            setCv(e.target.value);
-          }}
-        />
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <button onClick={uploadCv}>Upload</button>
 
         {registeredSucssfully && (
           <div className="popuptry">

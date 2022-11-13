@@ -9,6 +9,8 @@ const usersSlice = createSlice({
     jobDetails: {},
     companyDetailsInUsersApp: {},
     jobSearch: false,
+    userPicture: "" ,
+    userCv: "",
   },
   reducers: {
     setAllJobs: (state, action) => {
@@ -46,6 +48,12 @@ const usersSlice = createSlice({
     setJobSearch: (state, action) => {
       state.jobSearch = action.payload;
     },
+    setUserPicture: (state, action) => {
+      state.userPicture = action.payload;
+    },
+    setUserCv: (state, action) => {
+      state.userCv = action.payload;
+    },
   },
 });
 
@@ -60,5 +68,7 @@ export const {
   setCompanyDetailsInUsersApp,
   setJobSearch,
   deleteAppliedJobs,
+  setUserCv,
+  setUserPicture,
 } = usersSlice.actions;
 export default usersSlice.reducer;

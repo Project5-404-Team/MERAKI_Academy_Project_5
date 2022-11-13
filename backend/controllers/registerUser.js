@@ -68,7 +68,7 @@ const registerUserComplete = (req, res) => {
     educationalInstituteName,
     cv,
   ];
-  const query = `UPDATE users SET iscompleted = $2, phoneNumber =$3 , maritalStatus =$4,citizenships=$5,whereDoYouLive=$6,residencyStatus=$7,yearsOfExperience=$8,recentJobTitle=$9,recentJobFunction=$10,industryOfRecentJob=$11,languages=$12,skills=$13 ,educationLevel=$14 ,major=$15,educationalInstituteName=$16,cv=$17 WHERE id=$1;`;
+  const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted),phoneNumber =COALESCE($3,phoneNumber),maritalStatus =COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships), whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience)  ,recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv) WHERE id=$1;`;
   pool
     .query(query, values)
     .then((result) => {
