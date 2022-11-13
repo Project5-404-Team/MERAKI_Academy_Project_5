@@ -6,7 +6,7 @@ const loginUsers = async (req, res) => {
   const { email, password } = req.body;
   const inputPassword = password;
   const value = [email];
-  const query = "SELECT * FROM users WHERE email=$1";
+  const query = "SELECT * FROM users WHERE email=$1 AND is-deleted=0";
   const user = await pool
     .query(query, value)
     .then((result) => {
