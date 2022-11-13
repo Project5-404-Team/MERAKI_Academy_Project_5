@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import UserNavbar from "../UserNavbar/UserNavbar";
 
 function UserDetailsCompanyApp() {
   const { userDetailsInCompanyApp } = useSelector((state) => {
@@ -13,6 +14,7 @@ function UserDetailsCompanyApp() {
 
   return (
     <>
+         <UserNavbar/>
       <p>{userDetailsInCompanyApp.fullname}</p>
       <p>{userDetailsInCompanyApp.citizenships}</p>
       <p>{userDetailsInCompanyApp.cv}</p>

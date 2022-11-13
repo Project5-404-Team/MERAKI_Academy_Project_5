@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import UserNavbar from "../UserNavbar/UserNavbar";
 
 function JobDetailsUsers() {
   const { jobDetails, userId } = useSelector((state) => {
@@ -23,6 +24,7 @@ const jobApply = ()=>{
 
   return (
     <>
+       <UserNavbar/>
       {console.log(jobDetails)}
 
       <p>{jobDetails.companylogo}</p>

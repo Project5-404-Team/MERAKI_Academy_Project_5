@@ -7,68 +7,106 @@ import axios from "axios";
 import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 import JobsSearch from "../JobsSearch/JobsSearch.js";
-import { setAppliedJobs, setFavJobs, setJobSearch } from "../Redux/reducers/Users/users.js";
-
-
+import {
+  setAppliedJobs,
+  setFavJobs,
+  setJobSearch,
+} from "../Redux/reducers/Users/users.js";
+import "./userNavbar.css"
 const UserNavbar = () => {
-
-
-
-  const dispatch = useDispatch()
-  const { isLoggedIn,jobSearch } = useSelector((state) => {
-    return { isLoggedIn: state.usersAuth.isLoggedIn ,
-      jobSearch : state.users.jobSearch};
+  const dispatch = useDispatch();
+  const { isLoggedIn, jobSearch } = useSelector((state) => {
+    return {
+      isLoggedIn: state.usersAuth.isLoggedIn,
+      jobSearch: state.users.jobSearch,
+    };
   });
 
   const navigate = useNavigate();
   const axios = require("axios");
-useEffect(()=>{
-    {console.log(isLoggedIn)}
-},[])
+  useEffect(() => {
+    {
+      console.log(isLoggedIn);
+    }
+  }, []);
   return (
     <>
-   
-      <div>
-
-     {isLoggedIn&&<p onClick={()=>{
-      navigate('/users/userhome');
-    dispatch(setJobSearch (!jobSearch))
-     }}>Home</p>}
-
-{isLoggedIn&& <JobsSearch />}
-
-
-{isLoggedIn&&<p
-onClick={()=>{ navigate("/users/user/userdetails")}}
-          className="navbar_company"
-        >
-          My Account
-        </p>}
-        {isLoggedIn&&<p onClick={()=>{
-          navigate('/users/user/complete')
-        }}>Complete My Account</p>}
-        {isLoggedIn&&<p
-          className="navbar_company" onClick={()=>{
-            (navigate("/users/user/favjobs"))
-          }}
-        >
-          My Favorite Jobs
-        </p>}
-          {isLoggedIn&&<p onClick={()=>{
-            navigate('/users/user/appliedjobs')
-          }}>My Applied Jobs</p>}
-            {isLoggedIn&&<p
+      <div className="userNavbar">
+        <div className="home_navbar">
+          {isLoggedIn && (
+            <p
               onClick={() => {
-                dispatch(setLogout());
-                navigate('/users/user/login')
-                dispatch(setAppliedJobs([]))
-                dispatch(setFavJobs([]))
+                navigate("/users/userhome");
+                dispatch(setJobSearch(!jobSearch));
               }}
             >
-              Logout
-            </p>}
-          
-        
+              Home
+            </p>
+          )}
+
+        </div>
+        <div className="userDetails_navbar">
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/users/user/userdetails");
+            }}
+            className="navbar_company"
+          >
+            My Account
+          </p>
+        )}
+        </div>
+       
+
+    <div className="complete_account_Navbar">
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/users/user/complete");
+            }}
+          >
+            Complete My Account
+          </p>
+        )}
+        </div>
+        <div className="favJobs_navbar">
+        {isLoggedIn && (
+          <p
+            className="navbar_company"
+            onClick={() => {
+              navigate("/users/user/favjobs");
+            }}
+          >
+            My Favorite Jobs
+          </p>
+        )}</div>
+        <div className="applyJobs_navbar">
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/users/user/appliedjobs");
+            }}
+          >
+            My Applied Jobs
+          </p>
+        )}</div>
+        <div className="search_navbar">
+         {isLoggedIn && <JobsSearch />}
+         </div>
+         <div className="logout">
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              dispatch(setLogout());
+              navigate("/users/user/login");
+              dispatch(setAppliedJobs([]));
+              dispatch(setFavJobs([]));
+            }}
+          >
+            Logout
+          </p>
+        )}</div>
       </div>
     </>
   );

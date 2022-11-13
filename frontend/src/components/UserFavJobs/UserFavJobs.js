@@ -10,6 +10,7 @@ import {
   setJobDetails,
   setCompanyDetailsInUsersApp
 } from "../Redux/reducers/Users/users";
+import UserNavbar from "../UserNavbar/UserNavbar";
 export default function UserFavJobs() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ export default function UserFavJobs() {
 
   return (
     <>
+         <UserNavbar/>
       <div className="FavCardsDiv">
         {favJobs &&
           favJobs.map((elem, index) => {
