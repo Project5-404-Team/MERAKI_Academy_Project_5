@@ -8,6 +8,7 @@ import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 import JobsSearch from "../JobsSearch/JobsSearch.js";
 import { setAppliedJobs, setFavJobs, setJobSearch } from "../Redux/reducers/Users/users.js";
+import "./userNavbar.css";
 
 const UserNavbar = () => {
 
@@ -27,11 +28,7 @@ useEffect(()=>{
   return (
     <>
    
-      <div className="navbar_container">
-        <img
-          src="https://www.svgrepo.com/show/26693/job-search-symbol-of-suitcase-and-curriculum-paper.svg"
-          className="navbar_logo"
-        ></img>
+      <div>
 
      {isLoggedIn&&<p onClick={()=>{
       navigate('/users/userhome');
