@@ -1,7 +1,7 @@
 const pool = require("../models/db");
 
 const getAllUsers = (req, res) => {
-  const query = `SELECT * FROM Users AND is-deleted=0`;
+  const query = `SELECT * FROM Users WHERE is_deleted=0`;
   pool
     .query(query)
     .then((result) => {
@@ -24,7 +24,7 @@ const usersSearch = (req, res) => {
   const searchWord = req.query.search;
   const value = [`%${searchWord}%`];
   const query = `SELECT * FROM users
-WHERE industryOfRecentJob LIKE $1 AND is-deleted=0;`;
+WHERE industryOfRecentJob LIKE $1 AND is_deleted=0;`;
   pool
     .query(query, value)
     .then((result) => {

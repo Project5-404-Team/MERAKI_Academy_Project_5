@@ -6,7 +6,7 @@ const loginCompanies = async (req, res) => {
   const { email, password } = req.body;
   const inputPassword = password;
   const value = [email];
-  const query = "SELECT * FROM companies WHERE email=$1 AND is-deleted=0";
+  const query = "SELECT * FROM companies WHERE email=$1 AND is_deleted=0";
   const company = await pool
     .query(query, value)
     .then((result) => {
