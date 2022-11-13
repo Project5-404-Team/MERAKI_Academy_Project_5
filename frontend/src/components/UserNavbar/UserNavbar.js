@@ -8,7 +8,7 @@ import { setLogout } from "../Redux/reducers/usersAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 import JobsSearch from "../JobsSearch/JobsSearch.js";
 import { setAppliedJobs, setFavJobs, setJobSearch } from "../Redux/reducers/Users/users.js";
-import "./userNavbar.css";
+
 
 const UserNavbar = () => {
 
