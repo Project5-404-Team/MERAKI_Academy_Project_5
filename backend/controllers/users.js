@@ -5,9 +5,8 @@ const getAllUsers = (req, res) => {
 
 
   const query = `SELECT * FROM Users WHERE is_deleted=0`;
-=========
-  const query = `SELECT * FROM Users AND is_deleted=0`;
->>>>>>>>> Temporary merge branch 2
+
+
   pool
     .query(query)
     .then((result) => {
