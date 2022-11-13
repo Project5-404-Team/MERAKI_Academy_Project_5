@@ -29,6 +29,9 @@ const CompaniesComplete = () => {
   const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
   const [image, setImage] = useState("");
   const [url, setImageUrl] = useState("");
+
+
+  
   const uploadImage = () => {
     const formData = new FormData();
     formData.append("file", image);
