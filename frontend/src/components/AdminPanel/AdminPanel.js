@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./AdminPanel.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {setCompanies ,setJobs,setUsers ,deleteCompany ,deleteUser,deleteJob} from "../Redux/reducers/Admin/admin"
+import {setCompanies ,setJobs,setUsers ,setDeleteCompany ,setDeleteUser,setDeleteJob} from "../Redux/reducers/Admin/admin"
 
 
 
@@ -29,7 +29,7 @@ const dispatch =useDispatch()
  // const [jobs, setJobs] = useState([]);
   //const [companies, setCompanies] = useState([]);
 
-//   const [id, setId] = useState("");
+  const [id, setId] = useState(3);
 
   const getAllUsers = () => {
     axios
@@ -74,7 +74,7 @@ const dispatch =useDispatch()
       .then((result) => {
 
         console.log(result);
-        dispatch(deleteCompany(result.data.result))
+        dispatch(setDeleteCompany(result.data.result))
         
       })
       .catch((err) => {
@@ -86,7 +86,7 @@ const dispatch =useDispatch()
     axios
       .put(`http://localhost:5000/admin/users/${id}`)
       .then((result) => {
-        dispatch(deleteUser(result.data.result))
+      dispatch(setDeleteUser(result.data.result))
         console.log(result);
       })
       .catch((err) => {
@@ -99,7 +99,8 @@ const dispatch =useDispatch()
       .put(`http://localhost:5000/admin/jobs/${jobId}`)
       .then((result) => {
         console.log(result);
-        dispatch(deleteJob(result.data.result))
+     
+        dispatch(setDeleteJob(result.data.result))
 
    
       })

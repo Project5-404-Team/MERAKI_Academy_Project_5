@@ -16,17 +16,17 @@ const adminSlice = createSlice({
     setJobs: (state, action) => {
       state.jobs=(action.payload);
     },
-    deleteUser: (state, action) => {
+    setDeleteUser: (state, action) => {
       state.users = state.users.filter((elem, index) => {
         return elem.id != action.payload;
       });
     },
-    deleteJob: (state, action) => {
+    setDeleteJob: (state, action) => {
       state.jobs = state.jobs.filter((elem, index) => {
         return elem.id != action.payload;
       });
     },
-    deleteCompany: (state, action) => {
+    setDeleteCompany: (state, action) => {
         state.companies = state.companies.filter((elem, index) => {
           return elem.id != action.payload;
         });
@@ -38,8 +38,8 @@ export const {
     setUsers,
     setCompanies,
     setJobs,
-    deleteUser,
-    deleteJob,
-    deleteCompany
+    setDeleteUser,
+    setDeleteJob,
+    setDeleteCompany
 } = adminSlice.actions;
 export default adminSlice.reducer;

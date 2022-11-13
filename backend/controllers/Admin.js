@@ -78,6 +78,7 @@ const getAllCompanies = (req, res) => {
           res.status(200).json({
             success: true,
             massage: `Succeeded to delete Job with id: ${id}`,
+            result: id,
           });
         }
       })
@@ -108,6 +109,7 @@ const getAllCompanies = (req, res) => {
           res.status(200).json({
             success: true,
             massage: `Succeeded to delete Company with id: ${id}`,
+            result: id,
           });
         }
       })
@@ -138,6 +140,8 @@ const getAllCompanies = (req, res) => {
           res.status(200).json({
             success: true,
             massage: `Succeeded to delete User with id: ${id} `,
+          result: id,
+
           });
         }
       })
