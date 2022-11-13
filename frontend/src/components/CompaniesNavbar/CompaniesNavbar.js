@@ -23,10 +23,7 @@ const CompaniesNavbar = () => {
   return (
     <>
       <div className="navbar_container">
-        <img
-          src="https://www.svgrepo.com/show/26693/job-search-symbol-of-suitcase-and-curriculum-paper.svg"
-          className="navbar_logo"
-        ></img>
+       
 
         {isLoggedIn && (
           <p

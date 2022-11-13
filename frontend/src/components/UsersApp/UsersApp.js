@@ -12,11 +12,9 @@ import CompanyDetailsUsersApp from "../CompanyDetailsUsersApp/CompanyDetailsUser
 import JobDetailsUsers from "../JobDetailsUsers/JobDetailUsers";
 import UserAppliedJobs from "../UserAppliedJobs/UserAppliedJobs";
 import Google from "../Google";
+import "./user.css";
 
 function UsersApp() {
-
-
-
 
   return <div
 
