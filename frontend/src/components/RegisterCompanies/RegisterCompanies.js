@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../RegisterCompanies/RegisterCompanies.css"
 
 const RegisterCompanies = () => {
   const [companyName, setCompanyName] = useState("");
@@ -10,8 +11,9 @@ const RegisterCompanies = () => {
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [companyWebsite, setCompanyWebsite] = useState("");
-  const [companyLogo, setCompanyLogo] = useState(null);
+  const [city, setCity] = useState("");
+  const [contactPerson, setContactPerson] = useState(null);
+  const [numberOfEmployees, setNumberOfEmployees] = useState(null);
   var companyLogo1;
 
   const navigate = useNavigate();
@@ -27,8 +29,9 @@ const RegisterCompanies = () => {
     password,
     country,
     phoneNumber,
-    companyWebsite,
-    companyLogo1,
+    city,
+    numberOfEmployees,
+    contactPerson,
   };
 
   const handleRegister = () => {
@@ -48,9 +51,29 @@ const RegisterCompanies = () => {
   };
 
   return (
-    <div className="bigDivRegister">
-      <div className="infoContainerRegister">
-        <p> Register</p>
+    <div className="mainPageRegisterCompany">
+      <div className="navbar_container">
+          <p
+            className="navbar_user_login_link"
+            onClick={() => {
+              navigate("/users/user/login");
+            }}
+          >
+            Job Seeker Account
+          </p>
+          <p className="or">or</p>
+          <p
+            className="navbar_company_login_link"
+            onClick={() => {
+              navigate("/companies/companies/login");
+            }}
+          >
+            Employer Account
+          </p>
+        </div>
+    <div className="bigDivRegisterCompany">
+      <div className="infoContainerRegisterCompany">
+      <h1 style={{textAlign:"left",marginBottom:"40px"}}> Employer Account Register</h1>
 
         <input
           placeholder="Company Name"
@@ -60,14 +83,30 @@ const RegisterCompanies = () => {
           }}
         />
 
-        <label for="Indutry">Choose the Industry:</label>
-        <select
-          name="Indutry"
+<input
+          placeholder="Country"
+          className="RegInput"
+          onChange={(e) => {
+            setCountry(e.target.value);
+          }}
+        />
+        <input
+          placeholder="City"
+          className="RegInput"
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
+        />
+        <select className="RegInput"
+          name="Industry"
           id="Industry"
           onChange={(e) => {
             setIndustry(e.target.value);
           }}
         >
+          <option selected disabled hidden>
+          Choose the Industry:
+          </option>
           <option value="Non-Profit and Social Services">
             Non-Profit and Social Services
           </option>
@@ -120,13 +159,20 @@ const RegisterCompanies = () => {
         </select>
 
         <input
-          placeholder="Country"
+          placeholder="Number of Employees"
           className="RegInput"
           onChange={(e) => {
-            setCountry(e.target.value);
+            setNumberOfEmployees(e.target.value);
           }}
         />
 
+<input
+          placeholder="Contact Person"
+          className="RegInput"
+          onChange={(e) => {
+            setContactPerson(e.target.value);
+          }}
+        />
         <input
           placeholder="phone Number"
           className="RegInput"
@@ -135,13 +181,8 @@ const RegisterCompanies = () => {
           }}
         />
 
-        <input
-          placeholder="Company Website"
-          className="RegInput"
-          onChange={(e) => {
-            setCompanyWebsite(e.target.value);
-          }}
-        />
+        
+        
 
         <input
           placeholder="Email"
@@ -176,6 +217,12 @@ const RegisterCompanies = () => {
           Register Now !
         </button>
       </div>
+    </div>
+    <div className="paragraph">    <span style={{ fontWeight: 600 }}>Employer?</span>
+              <p>Hire the perfect talent from many available candidate.</p>
+              <span style={{ fontWeight: 600 }}>
+                Post a Job{" "}
+              </span> </div>
     </div>
   );
 };
