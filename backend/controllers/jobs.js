@@ -406,7 +406,36 @@ const getUserFavoriteJobs = (req, res) => {
 const jobsSearch = (req, res) => {
   const searchWord1 = req.params.search;
   const value = [`%${searchWord1}%`];
-  const query = `SELECT * FROM jobs WHERE jobTitle LIKE $1 OR jobdescription LIKE $1 OR jobType LIKE $1 OR jobRole LIKE $1 OR jobRequirements LIKE $1 AND is_deleted=0 ;`;
+  const query = `SELECT * FROM jobs WHERE jobTitle LIKE $1 OR jobdescription LIKE $1 OR jobType LIKE $1 OR jobRole LIKE $1 OR jobRequirements LIKE $1 AND jobs.is_deleted=0 ;`;
+  pool
+    .query(query, value)
+    .then((result) => {
+      if (result.rows.length > 0) {
+        res.status(200).json({
+          success: true,
+          massage: "Searched Jobs",
+          result: result.rows,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: "No related Jobs founded",
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    });
+};
+
+const jobsSearchByCompanyIndustry = (req, res) => {
+  const searchWord2 = req.params.searchIndustry;
+  const value = [`%${searchWord2}%`];
+  const query = `SELECT * FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE companies.industry LIKE $1 AND jobs.is_deleted=0 ;`;
   pool
     .query(query, value)
     .then((result) => {
@@ -445,6 +474,7 @@ module.exports = {
   deleteFavoriteJob,
   getCompanyJobs,
   getCompanyAppliedJobs,
+  jobsSearchByCompanyIndustry
 };
 
 /*SELECT * FROM users

@@ -60,13 +60,64 @@ const RegisterCompanies = () => {
           }}
         />
 
-        <input
-          placeholder="Industry"
-          className="RegInput"
+        <label for="Indutry">Choose the Industry:</label>
+        <select
+          name="Indutry"
+          id="Industry"
           onChange={(e) => {
             setIndustry(e.target.value);
           }}
-        />
+        >
+          <option value="Non-Profit and Social Services">
+            Non-Profit and Social Services
+          </option>
+          <option value="Education and Training">Education and Training</option>
+          <option value="Government and Public Sector">
+            Government and Public Sector
+          </option>
+          <option value="Healthcare and Medical Services">
+            Healthcare and Medical Services
+          </option>
+          <option value="Retail and Wholesale">Retail and Wholesale</option>
+          <option value="Telecommunications">Telecommunications</option>
+          <option value="Call Center, Telemarketing and BPO">
+            Call Center, Telemarketing and BPO
+          </option>
+          <option value="Catering, Food Services and Restaurants">
+            Catering, Food Services and Restaurants
+          </option>
+          <option value="Banking and Financial Services">
+            Banking and Financial Services
+          </option>
+          <option value="Manufacturing and Production">
+            Manufacturing and Production
+          </option>
+          <option value="Marketing, Advertising and Public Relations">
+            Marketing, Advertising and Public Relations
+          </option>
+          <option value="Shipping and Logistics">Shipping and Logistics</option>
+
+          <option value="Consultancy">Consultancy</option>
+          <option value="Furniture and Office Equipment">
+            Furniture and Office Equipment
+          </option>
+          <option value="Property and Real Estate">
+            Property and Real Estate
+          </option>
+          <option value="Business Support Services">
+            Business Support Services
+          </option>
+          <option value="Employment Placement Agencies and Human Resources">
+            Employment Placement Agencies and Human Resources
+          </option>
+          <option value="Insurance">Insurance</option>
+          <option value="Law Enforcement and Security Services">
+            Law Enforcement and Security Services
+          </option>
+          <option value="Research and Development">
+            Research and Development
+          </option>
+        </select>
 
         <input
           placeholder="Country"

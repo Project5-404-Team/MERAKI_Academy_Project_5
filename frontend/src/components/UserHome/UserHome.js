@@ -7,6 +7,7 @@ import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
 import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
+import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
 
 const UserHome = () => {
 
@@ -59,6 +60,9 @@ const navigate=useNavigate()
     <>
      <UserNavbar/>
     <div className="userHomeDiv">
+    <div className="filterNav">
+        <FilterNav/>
+      </div>
       <div className="filterDiv">
 <p>
 
@@ -99,6 +103,7 @@ const navigate=useNavigate()
           })}
       </div>
       </div>
+     
     </>
   );
 };
