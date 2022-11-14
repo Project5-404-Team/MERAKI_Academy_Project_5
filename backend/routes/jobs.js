@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { addNewJob, getAllJobs, jobApply, addFavJob, getUserAppliedJobs, getUserFavoriteJobs,deleteJobById,updateJobById, jobsSearch,deleteJobApplication,deleteFavoriteJob, getCompanyJobs,getCompanyAppliedJobs} = require("../controllers/jobs");
+const { addNewJob, getAllJobs, jobApply, addFavJob, getUserAppliedJobs, getUserFavoriteJobs,deleteJobById,updateJobById, jobsSearch,deleteJobApplication,deleteFavoriteJob, getCompanyJobs,getCompanyAppliedJobs, jobsSearchByCompanyIndustry} = require("../controllers/jobs");
 const jobsRouter = express.Router();
 
 jobsRouter.post("/:companyId", addNewJob);
@@ -14,6 +14,7 @@ jobsRouter.get("/jobapply/:userId",getUserAppliedJobs)
 jobsRouter.get("/jobapplies/:companyId",getCompanyAppliedJobs)
 jobsRouter.get("/favjobs/:userId",getUserFavoriteJobs)
 jobsRouter.get('/search/:search',jobsSearch)
+jobsRouter.get('/Industrysearch/:searchIndustry',jobsSearchByCompanyIndustry)
 jobsRouter.delete('/jobapply/:id',deleteJobApplication)
 jobsRouter.delete('/favjobs/:id',deleteFavoriteJob)
 module.exports = jobsRouter;

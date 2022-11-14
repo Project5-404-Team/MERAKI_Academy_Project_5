@@ -1,11 +1,36 @@
 .userHomeDiv{
+    position: relative;
+    top:80px;
     display: grid;
     grid-template-columns: repeat(10,1fr);
-    color:rgba(0, 0, 0, 0.757)
+    color:rgba(0, 0, 0, 0.757);
+ 
 }
+.filterNav{
+    position: fixed;
+    top:80px;
+    width:400px;
+    grid-column: 1/4;
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 2px solid rgba(205, 202, 202, 0.511);
 
+    margin-left: 50px;
+
+}
+.filterNav li{
+    list-style-type: none; 
+    margin-bottom: 8px;
+    font-weight: 500;
+    transition: 500ms;
+    font-size: 14px;
+}
+.filterNav li:hover{
+    cursor: pointer;
+    color:#4090d282
+
+}
 .jobsCardsDiv{
-    grid-column: 4/9;
+    grid-column: 5/10;
 
 }
 .jobCard:hover{background-color: #4090d212;
@@ -23,7 +48,8 @@ padding: 15px;
 transition: 500ms;
 }
 .jobCard img{
-    width:200px;
+    width:150px;
+    height: 150px;
 }
 .companyLogoCard{
 grid-column: 1;
@@ -32,16 +58,17 @@ margin-right: 15px;
 }
 
 .jobTitleCard{
-grid-column: 2/4;
+grid-column: 2/5;
 grid-row: 1;
 margin-top: 0px;
 margin-bottom: 1px;;
 }
 .companyNameCard{
-    grid-column: 2/4;
+    grid-column: 2/6;
     grid-row: 2;
     margin-bottom: 5px;
     margin-top: 10px;
+    font-size: 15px;
 }
 .jobCountryCard{
     grid-column: 2/4;
