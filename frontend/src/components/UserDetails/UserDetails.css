@@ -1,0 +1,98 @@
+.userDetailsMainDiv {
+  position: relative;
+  top: 100px;
+}
+.userDetailsCard {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgba(237, 237, 237, 0.379);
+  border: 2px solid rgba(205, 202, 202, 0.511);
+  padding: 30px;
+  margin-bottom: 100px;
+}
+.updateSectionDetailsUser {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 100px;
+  flex-wrap: wrap;
+  background-color: rgba(237, 237, 237, 0.379);
+  border: 2px solid rgba(205, 202, 202, 0.511);
+  padding:50px;
+}
+.updateSectionDetailsUser input {
+  width: 400px;
+  height: 30px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(75, 75, 75);
+}
+.updateSectionDetailsUser button {
+  background-color: rgba(237, 237, 237, 0.379);
+  border: 1px solid rgba(205, 202, 202, 0.511);
+  width: 170px;
+  height: 35px;
+  font-size: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: rgb(107, 104, 104);
+  transition: 500ms;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.updateSectionDetailsUser button:hover {
+  background-color: #4090d282;
+  border: none;
+  border-radius: 2px;
+}
+.profilePicture img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+.profilePicture button {
+  background-color: rgba(237, 237, 237, 0.379);
+  border: 1px solid rgba(205, 202, 202, 0.511);
+  width: 170px;
+  height: 35px;
+  font-size: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: rgb(107, 104, 104);
+  transition: 500ms;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profilePicture button:hover {
+  background-color: #4090d282;
+  border: none;
+  border-radius: 2px;
+}
+.profilePicture {
+  grid-column: 1/4;
+}
+.personalInfo {
+  grid-column: 5/8;
+}
+
+.professionalInfo {
+  grid-column: 8/11;
+}
+.educationallInfo {
+  grid-column: 8/11;
+}
+
+.CvInfo {
+  grid-column: 8/11;
+}
+.updateSectionDetailsUser {
+}

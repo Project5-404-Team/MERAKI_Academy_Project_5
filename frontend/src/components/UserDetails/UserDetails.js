@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "../Redux/reducers/Users/users";
 import UserNavbar from "../UserNavbar/UserNavbar";
+import './UserDetails.css'
 function UserDetails() {
   const dispatch = useDispatch()
   const {userDetails,userId} = useSelector((state) => {
@@ -77,131 +78,154 @@ function UserDetails() {
 
   return (
     <>
+    {console.log(userDetails)}
        <UserNavbar/>
-      <p>{userDetails.fullname}</p>
-      <p>{userDetails.citizenships}</p>
-      <p>{userDetails.cv}</p>
-      <p>{userDetails.dateofbirth}</p>
-      <p>{userDetails.educationalinstitutename}</p>
-      <p>{userDetails.gender}</p>
-      <p>{userDetails.languages}</p>
-      <p>{userDetails.major}</p>
-      <p>{userDetails.maritalstatus}</p>
-      <p>{userDetails.phonenumber}</p>
-      <p>{userDetails.recentjobfunction}</p>
-      <p>{userDetails.recentjobtitle}</p>
-      <p>{userDetails.residencystatus}</p>
-      <p>{userDetails.skills}</p>
-      <p>{userDetails.wheredoyoulive}</p>
-      <p>{userDetails.yearsofexperience}</p>
-      {updateBox && userUpdateId === userDetails.id && (
-                  <form>
-                    <br />
+       <div className="userDetailsMainDiv">
+        <div className="userDetailsCard">
+        <div className="profilePicture">
+          <img src={userDetails.userimage}></img>
+          <a href={userDetails.cv} download><button>Download My CV</button></a>
+          <button onClick={() => {handleUpdateClick(userId)}}>Update</button>
+        </div>
+        <div className="personalInfo">
+          <h3>Personal Information</h3>
+      <p>Full Name :{userDetails.fullname}</p>
+      <p>Date Of Birth :{userDetails.dateofbirth.substring(0,10)}</p>
+      <p>Gender :{userDetails.gender}</p>
+      <p>Phone Number :{userDetails.phonenumber}</p>
+      <p>Address :{userDetails.wheredoyoulive}</p>
+      <p>Citizenship : {userDetails.citizenships}</p>
+      <p>Material Status :{userDetails.maritalstatus}</p>
+      <p>Languages :{userDetails.languages}</p>
+      </div>
+      <div className="professionalInfo">
+      <h3>Professional Information</h3>
+<p>Recent Job Function :{userDetails.recentjobfunction}</p>
+<p>Recent Job Title :{userDetails.recentjobtitle}</p>
+<p>Years Of Experience :{userDetails.yearsofexperience}</p>
+<p>Skills :{userDetails.skills}</p>
+<h3>Educational Information</h3>
+<p>Major :{userDetails.major}</p>
+<p>Educational Institute Name :{userDetails.educationalinstitutename}</p>
+</div>
+
+
+
+ </div>
+
+ 
+      {updateBox && userUpdateId === userDetails.id && (<div>
+        <h1>Update Any Field You Want !</h1>
+                   <div className="updateSectionDetailsUser">
+              
                     <input
                       type="text"
                       placeholder="phone number here"
                       onChange={(e) => setPhoneNumber(e.target.value)}
                     />
-                    <br />
+                    
                     <input
                       placeholder="marital status here"
                       onChange={(e) => setMaritalStatus(e.target.value)}
                     ></input>
-                    <br/>
+                    
                     <input
                       placeholder="citizenships here"
                       onChange={(e) => setCitizenships(e.target.value)}
                     ></input>
-<br/>
+
                     <input
                       placeholder="where do you live here"
                       onChange={(e) => setWhereDoYouLive(e.target.value)}
                     ></input>
-                     <br/>
+                 
                     <input
                       placeholder="residency status here"
                       onChange={(e) => setResidencyStatus(e.target.value)}
                     ></input>
-<br/>
+
                     <input
                       placeholder="years of experience here"
                       onChange={(e) => setYearsOfExperience(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="recent job title here"
                       onChange={(e) => setRecentJobTitle(e.target.value)}
                     ></input>
-<br/>
 <input
                       placeholder="recent job function here"
                       onChange={(e) => setRecentJobFunction(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="industry of recent job here"
                       onChange={(e) => setIndustryOfRecentJob(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="languages here"
                       onChange={(e) => setLanguages(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="skills here"
                       onChange={(e) => setSkills(e.target.value)}
                     ></input>
-                    <br/>
+                    
                     <input
                       placeholder="education level here"
                       onChange={(e) => setEducationLevel(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="major here"
                       onChange={(e) => setMajor(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="educational institute name here"
                       onChange={(e) => setEducationalInstituteName(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="cv here"
                       onChange={(e) => setCv(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="email here"
                       onChange={(e) => setEmail(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="password here"
                       onChange={(e) => setPassword(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="full name here"
                       onChange={(e) => setFullName(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="date of birth here"
                       onChange={(e) => setDateOfBirth(e.target.value)}
                     ></input>
-<br/>
+
 <input
                       placeholder="gender here"
                       onChange={(e) => setGender(e.target.value)}
                     ></input>
-                  </form>
+
+<button onClick={() => {handleUpdateClick(userId)}}>Update</button>
+                </div></div>
                 )}
-                  <p onClick={() => {handleUpdateClick(userId)}}>Update</p>
-             
+                 
+                  
+                  </div>   
     </>
+    
   );
 }
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import UserNavbar from "../UserNavbar/UserNavbar";
+import "../UserFavJobs/UserFavJobs.css"
 
 import {
 
@@ -54,32 +55,29 @@ function UserAppliedJobs() {
   return (
     <>
        <UserNavbar/>
-      <div className="FavCardsDiv">
+       <div className="favHomeDiv">
+ 
+      <div className="favjobsCardsDiv">
         {appliedJobs &&
-          appliedJobs.map((elem, index) => {
-            return (
-              <div id={elem.id} key={index} className="jobCard">
-                <img src={elem.companylogo}></img>
-                <p
-                  onClick={() => {
-                    dispatch(setJobDetails(elem));
-                    navigate("/users/jobdetails");
-                  }}
-                >
-                  {elem.jobtitle}
-                </p>
-                <p
-                  onClick={() => {
-                    dispatch(setCompanyDetailsInUsersApp(elem));
-                    navigate("/users/companydetails/userapp");
-                  }}
-                >
-                  {elem.companyname}
-                </p>
-                <p>{elem.country}</p>
-                <p>{elem.industry}</p>
-                <p>{elem.createdat}</p>
-                <button
+          appliedJobs.map((elem, index) => { return(
+            <div id={elem.id} key={index} className="favjobCard">
+            <img className="companyLogoCard" src={elem.companylogo}></img>
+            <h2 className="jobTitleCard" onClick={()=>{
+              dispatch(setJobDetails(elem))
+              navigate('/users/jobdetails')
+            }}>{elem.jobtitle}</h2>
+            <h4 className="companyNameCard" onClick={()=>{
+              dispatch(setCompanyDetailsInUsersApp(elem))
+              navigate('/users/companydetails/userapp')
+            }}>{elem.companyname} - {elem.industry} - {elem.country}</h4>
+            
+            
+            <p className="carerLevelCard">Career Level : {elem.careerlevel}</p>
+            <p></p>
+            <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
+            <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
+            <p className="jobDescription">{elem.jobdescription.substring(0,150)}...</p>
+                <button className="deleteFavButton"
                   onClick={() => {
                     deleteAppliedJob1(elem.id)
                     dispatch(deleteAppliedJobs(elem.id));
@@ -87,11 +85,12 @@ function UserAppliedJobs() {
                   }}
                 >
                   {" "}
-                  delete Application
+                  Delete Application
                 </button>
               </div>
             );
           })}
+      </div>
       </div>
     </>
   );
