@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import "../RegisterUser/Register.css"
 
 const RegisterUser = () => {
   const [fullName, setFullName] = useState("");
@@ -65,9 +66,30 @@ const RegisterUser = () => {
   };
 
   return (
+    <div className="mainPageRegisterUser">
+      <div className="navbar_container">
+          <p
+            className="navbar_user_login_link"
+            onClick={() => {
+              navigate("/users/user/login");
+            }}
+          >
+            Job Seeker Account
+          </p>
+          <p className="or">or</p>
+          <p
+            className="navbar_company_login_link"
+            onClick={() => {
+              navigate("/companies/companies/login");
+            }}
+          >
+            Employer Account
+          </p>
+        </div>
     <div className="bigDivRegister">
       <div className="infoContainerRegister">
-        <p> Register</p>
+      <h1 style={{textAlign:"left",marginBottom:"40px"}}> Job Seeker Account Register</h1>
+        
         <input
           placeholder="Full Name"
           className="RegInput"
@@ -134,6 +156,15 @@ const RegisterUser = () => {
           Register Now !
         </button>
       </div>
+    </div>
+    <div className="paragraphRegister"> <span style={{ fontWeight: 600 }}>Job Seeker?</span>
+              <p>
+                {" "}
+                Join Us and let employers find you easily and get hired now.
+              </p>
+              <span style={{ fontWeight: 600 }}>
+                Build your profile 
+              </span> </div>
     </div>
   );
 };

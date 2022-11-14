@@ -17,7 +17,7 @@ import CompaniesAppliedJobs from "../CompanyAppliedJobs/CompanyAppliedJobs";
 function CompaniesApp() {
   return (
     <div className="App">
-      <CompaniesNavbar />
+   
       <Routes>
         <Route path="/companies/register" element={<RegisterCompanies />} />
         <Route path="/companies/login" element={<LoginCompanies />} />
