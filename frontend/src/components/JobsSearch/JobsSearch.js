@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import axios from "axios";
 import "./JobsSearch.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
 import { setJobSearch } from "../Redux/reducers/Users/users.js";
 
 function JobsSearch() {
   const [search, setSearch] = useState("");
-
+const Navigate =useNavigate()
   const dispatch = useDispatch();
 
   const HandleJobSearch = () => {
@@ -20,6 +20,7 @@ function JobsSearch() {
         console.log(result);
         console.log(result.data.result);
         dispatch(setAllJobs(result.data.result));
+ 
       })
       .catch((err) => {
         console.log(err);
@@ -28,8 +29,7 @@ function JobsSearch() {
 
   return (
     <>
-      <div>
-        <input
+      <div><input
           onChange={(e) => {
             setSearch(e.target.value);
           }}
@@ -38,7 +38,8 @@ function JobsSearch() {
 
         <button
           onClick={() => {
-            HandleJobSearch();
+            Navigate('/users/userhome')
+            setTimeout(HandleJobSearch,100);
           }}
         >
           Search Now !
