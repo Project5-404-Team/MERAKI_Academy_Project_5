@@ -20,6 +20,7 @@ skills  TEXT,
 educationLevel  VARCHAR(255),
 major  VARCHAR(255),
 educationalInstituteName  VARCHAR(255),
+userImage TEXT,
 cv TEXT,
 is_deleted SMALLINT DEFAULT 0
 )
@@ -105,3 +106,13 @@ is_deleted SMALLINT DEFAULT 0
 
 
 
+CREATE TABLE conversations (
+id SERIAL PRIMARY KEY,
+userId INT,
+companyId INT,
+message TEXT,
+sender Varchar(255),
+FOREIGN KEY (userId) REFERENCES  users(id),
+FOREIGN KEY (companyId) REFERENCES companies(id),
+is_deleted SMALLINT DEFAULT 0
+);
