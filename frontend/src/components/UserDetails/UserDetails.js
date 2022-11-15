@@ -84,7 +84,7 @@ function UserDetails() {
         <div className="userDetailsCard">
         <div className="profilePicture">
           <img src={userDetails.userimage}></img>
-          <a href={userDetails.cv} download><button>Download My CV</button></a>
+         {userDetails.cv&& <a href={userDetails.cv} download><button>Download My CV</button></a>}
           <button onClick={() => {handleUpdateClick(userId)}}>Edit My Information !</button>
         </div>
         <div className="personalInfo">
