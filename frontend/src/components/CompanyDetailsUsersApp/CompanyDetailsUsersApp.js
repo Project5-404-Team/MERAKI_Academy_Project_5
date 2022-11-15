@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import "./CompanyDetailsUsersApp.css"
+import UserNavbar from "../UserNavbar/UserNavbar";
 function CompanyDetailsUsersApp() {
   const { companyDetailsInUsersApp } = useSelector((state) => {
     return {
@@ -13,23 +14,48 @@ function CompanyDetailsUsersApp() {
 
   return (
     <>
-      <p>{companyDetailsInUsersApp.companylogo}</p>
-      <p>{companyDetailsInUsersApp.companyname}</p>
-      <p>{companyDetailsInUsersApp.industry}</p>
-      <p>{companyDetailsInUsersApp.country}</p>
-      <p>{companyDetailsInUsersApp.city}</p>
-      <p>{companyDetailsInUsersApp.numberofemployees}</p>
-      <p>{companyDetailsInUsersApp.contactperson}</p>
-      <p>{companyDetailsInUsersApp.phonenumber}</p>
-      <p>{companyDetailsInUsersApp.companywebsite}</p>
-      <p>{companyDetailsInUsersApp.ceo}</p>
-      <p>{companyDetailsInUsersApp.workinghours}</p>
-      <p>{companyDetailsInUsersApp.weekends}</p>
-      <p>{companyDetailsInUsersApp.lunchbreak}</p>
-      <p>{companyDetailsInUsersApp.companyoverview}</p>
-      <p>{companyDetailsInUsersApp.officelocation}</p>
-      <p>{companyDetailsInUsersApp.yearsofexperience}</p>
+    <UserNavbar/>
+        <div className="companyDetailsMainDiv">
+        <div className="companyDetailsCard">
+        
+        <div className="generallInfocompanydetails">
+        
+     
+          <img className="companyDetailLogo" src={companyDetailsInUsersApp.companylogo}></img>
+         
+          <div>
+              <p style={{ fontWeight: "600" }}>Company Name:</p><p>{companyDetailsInUsersApp.companyname}</p></div>
+              <div> <p style={{ fontWeight: "600" }}>Industry:</p><p>{companyDetailsInUsersApp.industry}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Country:</p><p>{companyDetailsInUsersApp.country}</p></div>
+              <div><p style={{ fontWeight: "600" }}>City:</p><p>{companyDetailsInUsersApp.city}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Number Of Employees:</p><p>{companyDetailsInUsersApp.numberofemployees}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Contact Person:</p><p>{companyDetailsInUsersApp.contactperson}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Phone Number:</p><p>{companyDetailsInUsersApp.phonenumber}</p></div>
+              <p style={{ fontWeight: "600" }}>Website:</p><p>{companyDetailsInUsersApp.companywebsite}</p>
+        </div>
+      <div className="detailedInfo">
+      <div><p style={{ fontWeight: "600" }}>Company Overview </p><p>{companyDetailsInUsersApp.companyoverview}</p></div>
+      <div className="additionalInfo">
+      <div><p style={{ fontWeight: "600" }}>Working Hours </p><p>{companyDetailsInUsersApp.workinghours}</p></div>
+      <div><p style={{ fontWeight: "600" }}>Lunch Break </p><p>{companyDetailsInUsersApp.lunchbreak}</p></div>
+      <div><p style={{ fontWeight: "600" }}>Weekends </p><p>{companyDetailsInUsersApp.weekends}</p></div>
+      <div><p style={{ fontWeight: "600" }}>ceo: </p><p>{companyDetailsInUsersApp.ceo}</p>
+      </div>
+</div>
+
+     
+
+</div>
+
+
+
+ </div>
+ </div>
+      
     </>
+  
+     
+     
   );
 }
 
