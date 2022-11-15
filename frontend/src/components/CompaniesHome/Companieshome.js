@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 
 
 
@@ -77,6 +78,7 @@ const CompaniesHome = () => {
 
   return (
     <>
+    <CompaniesNavbar/>
       <div>
         <p
           onClick={() => {
