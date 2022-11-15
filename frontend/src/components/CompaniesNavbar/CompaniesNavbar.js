@@ -6,7 +6,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { setLogout } from "../Redux/reducers/CompaniesAuth/index";
 import { useDispatch, useSelector } from "react-redux";
-
+import "./CompaniesNavbar.css"
 const CompaniesNavbar = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => {
@@ -22,7 +22,7 @@ const CompaniesNavbar = () => {
   }, []);
   return (
     <>
-      <div className="navbar_container">
+      <div className="companies_navbar">
        
 
         {isLoggedIn && (

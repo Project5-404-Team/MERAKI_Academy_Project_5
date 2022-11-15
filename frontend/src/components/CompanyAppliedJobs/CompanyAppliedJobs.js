@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompanyAppliedJobs,setJobDetails } from "../Redux/reducers/Companies/companies";
+import "./CompaniesAppliedJobs.css"
+import Navbar from "../Navbar/Navbar";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 
 const CompaniesAppliedJobs = () => {
     const navigate=useNavigate()
@@ -33,33 +36,119 @@ const CompaniesAppliedJobs = () => {
   }, []);
   return (
     <>
-      <div>
+   <CompaniesNavbar/>
+      <div className="jobApplicationMainPage">
         {companyAppliedJobs &&
           companyAppliedJobs.map((elem, index) => {
             return (
-              <div id={elem.id} key={index} className="favCard">
-                <h1 onClick={()=>{
-                        dispatch(setJobDetails(elem))
-                        navigate('/companies/jobdetails')
-                }}>{elem.jobtitle}</h1>
-                <p>{elem.fullname}</p>
-                <p>{elem.citizenships}</p>
-                <p>{elem.cv}</p>
-                <p>{elem.dateofbirth}</p>
-                <p>{elem.educationalinstitutename}</p>
-                <p>{elem.gender}</p>
-                <p>{elem.languages}</p>
-                <p>{elem.major}</p>
-                <p>{elem.maritalstatus}</p>
-                <p>{elem.phonenumber}</p>
-                <p>{elem.recentjobfunction}</p>
-                <p>{elem.recentjobtitle}</p>
-                <p>{elem.residencystatus}</p>
-                <p>{elem.skills}</p>
-                <p>{elem.wheredoyoulive}</p>
-                <p>{elem.yearsofexperience}</p>
-               
+              <div className="jobApplication">
+                 <div className="jobApplicationCard">
+    
+              <div className="profilePicture">
+                <img src={elem.userimage}></img>
+                <a href={elem.cv} download><button>Download CV</button></a>
               </div>
+              <div className="personalInfo">
+                <h3>Personal Information</h3>
+            <p>Full Name :{elem.fullname}</p>
+            <p>Date Of Birth :{elem.dateofbirth.substring(0,10)}</p>
+            <p>Gender :{elem.gender}</p>
+            <p>Phone Number :{elem.phonenumber}</p>
+            <p>Address :{elem.wheredoyoulive}</p>
+            <p>Citizenship : {elem.citizenships}</p>
+            <p>Material Status :{elem.maritalstatus}</p>
+            <p>Languages :{elem.languages}</p>
+            </div>
+            <div className="professionalInfo">
+            <h3>Professional Information</h3>
+      <p>Recent Job Function :{elem.recentjobfunction}</p>
+      <p>Recent Job Title :{elem.recentjobtitle}</p>
+      <p>Years Of Experience :{elem.yearsofexperience}</p>
+      <p>Skills :{elem.skills}</p>
+      <h3>Educational Information</h3>
+      <p>Major :{elem.major}</p>
+      <p>Educational Institute Name :{elem.educationalinstitutename}</p>
+      </div>
+      </div>
+      <h2 style={{marginLeft:"500px"}}>Job Details</h2>
+      <div id={elem.id} key={elem.id} className="jobCardDetailsApplied">
+   
+       <div className="generalInfoApplied">
+        <div>
+        <p style={{ fontWeight: "600" }}>Job Title :</p><p className="jobTitleCardDetails">
+           {elem.jobtitle}
+        </p>
+        </div>
+         <div>
+           <p style={{ fontWeight: "600" }}>Job Location:</p>
+           <p>{elem.joblocation}</p>
+         </div>
+         <div>
+           {" "}
+           <p style={{ fontWeight: "600" }}>Job Type:</p>{" "}
+           <p>{elem.jobtype}</p>
+         </div>
+         <div>
+           {" "}
+           <p style={{ fontWeight: "600" }}>Job Role:</p>
+           <p>{elem.jobrole}</p>
+         </div>
+         <div>
+           <p style={{ fontWeight: "600" }}>Career Level: </p>
+           <p>{elem.careerlevel}</p>
+         </div>
+         <div>
+           <p style={{ fontWeight: "600" }}>Date Posted:</p>
+           <p>{elem.createdat.substring(0, 10)}</p>
+         </div>
+         <div>
+         <p style={{ fontWeight: "600" }}>Expiry Date: </p>
+         <p>{elem.expirydate.substring(0, 10)}</p>
+      </div>
+       <div>
+             <p style={{ fontWeight: "600" }}>Years Of Experience</p>
+             <p>{elem.yearsofexperience}</p>
+           </div>
+           <div>
+             {" "}
+             <p style={{ fontWeight: "600" }}>Country Of Citizenship</p>
+             <p>{elem.countryofcitizenship}</p>
+           </div>
+           <div>
+             {" "}
+             <p style={{ fontWeight: "600" }}>Country Of Residence</p>
+             <p>{elem.countryofresidence}</p>
+           </div>
+           <div>
+             <p style={{ fontWeight: "600" }}>Languages</p>
+             <p>{elem.language}</p>
+           </div>
+           <div>
+             <p style={{ fontWeight: "600" }}>Salary</p>
+             <p>{elem.salary}</p>
+           </div></div> 
+       <div className="jobDetailsInfoApplied">
+       
+         <br></br>
+         <p style={{ fontWeight: "600" }}>Job Description</p>{" "}
+         <p className="jobDescriptionDetails">{elem.jobdescription}</p>
+         <br></br>
+         <p style={{ fontWeight: "600" }}>Job Requirements</p>
+         <p>{elem.jobrequirements}</p>
+         <br></br>
+         
+         </div>
+      
+     
+      </div></div>
+      
+
+              
+     
+            
+               
+         
+         
             );
           })}
       </div>

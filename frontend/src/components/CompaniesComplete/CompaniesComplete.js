@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompanyLogo } from "../Redux/reducers/Companies/companies";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import "./CompaniesComplete.css"
 
 const CompaniesComplete = () => {
   const [companyWebsite, setCompanyWebsite] = useState(null);
@@ -24,15 +26,12 @@ const CompaniesComplete = () => {
     };
   });
 
-  const [role, setRole] = useState("");
-
   const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
-  const [image, setImage] = useState("");
-  const [url, setImageUrl] = useState("");
+
 
 
   
-  const uploadImage = () => {
+  const uploadImage = (image) => {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "basel_project5");
@@ -72,9 +71,11 @@ const CompaniesComplete = () => {
   };
 
   return (
-    <div className="bigDivRegister">
-      <div className="infoContainerRegister">
-        <p> Register</p>
+    <>
+    <CompaniesNavbar/>
+    <div className="bigDivRegisterComplete">
+      <div className="infoContainerRegister1">
+       
 
         <input
           placeholder="Company Website"
@@ -124,14 +125,18 @@ const CompaniesComplete = () => {
           }}
         />
 
-        <input
-          type="file"
-          placeholder="Company Logo"
-          className="RegInput"
-          onChange={(e) => setImage(e.target.files[0])}
-        ></input>
-        <button onClick={uploadImage}>Upload</button>
-
+        <div>
+        <label for="image">Choose Your Company Logo</label>
+          <input
+            id="image"
+            type="file"
+            placeholder="ompany Logoe"
+            className="RegInput"
+            onChange={(e) => {
+              uploadImage(e.target.files[0])
+            }
+            }
+          ></input></div>
         <input
           placeholder="Office Location"
           className="RegInput"
@@ -147,7 +152,7 @@ const CompaniesComplete = () => {
         )}
 
         <button
-          className="registerButton"
+          className="registerButton1complete"
           onClick={() => {
             handleRegister();
           }}
@@ -156,7 +161,7 @@ const CompaniesComplete = () => {
           Complete Information !
         </button>
       </div>
-    </div>
+    </div></>
   );
 };
 export default CompaniesComplete;

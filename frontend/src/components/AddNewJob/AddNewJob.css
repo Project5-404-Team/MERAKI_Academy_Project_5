@@ -1,0 +1,44 @@
+.AddNewJob{
+    position: relative;
+    top: 100px;
+}
+
+.infoContainerAddNewJob {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 100px;
+    flex-wrap: wrap;
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 2px solid rgba(205, 202, 202, 0.511);
+    padding:50px;
+  }
+  .infoContainerAddNewJob input {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(75, 75, 75);
+  }
+  .infoContainerAddNewJob button {
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 1px solid rgba(205, 202, 202, 0.511);
+    width: 170px;
+    height: 35px;
+    font-size: 8px;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(107, 104, 104);
+    transition: 500ms;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .infoContainerAddNewJob button:hover {
+    background-color: #4090d282;
+    border: none;
+    border-radius: 2px;
+  }
