@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   background-color: rgba(237, 237, 237, 0.379);
-  border: 2px solid rgba(205, 202, 202, 0.511);
+
   padding: 30px;
   margin-bottom: 100px;
 }
@@ -60,15 +60,15 @@
 .profilePicture button {
   background-color: rgba(237, 237, 237, 0.379);
   border: 1px solid rgba(205, 202, 202, 0.511);
-  width: 170px;
+  width: 200px;
   height: 35px;
   font-size: 8px;
   font-size: 14px;
   text-align: center;
   color: rgb(107, 104, 104);
   transition: 500ms;
-  margin-top: 50px;
-  margin-left: auto;
+  margin-top: 20px;
+  margin-left: 50px;
   margin-right: auto;
 }
 
@@ -76,11 +76,16 @@
   background-color: #4090d282;
   border: none;
   border-radius: 2px;
+  
 }
 .profilePicture {
-  grid-column: 1/4;
+  grid-column: 1/5;
+  border-right:1px solid rgba(205, 202, 202, 0.743);
+  margin-right:50px;
+ 
 }
 .personalInfo {
+ 
   grid-column: 5/8;
 }
 
