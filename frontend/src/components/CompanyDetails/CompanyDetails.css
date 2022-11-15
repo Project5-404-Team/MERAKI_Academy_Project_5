@@ -1,0 +1,115 @@
+.companyDetailsMainDiv {
+    position: relative;
+    top: 90px;
+  }
+  .companyDetailsCard {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: rgba(237, 237, 237, 0.379);
+  
+    padding: 30px;
+    margin-bottom: 200px;
+  }
+
+  .companyDetailLogo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .generallInfocompanydetails p{
+    margin-bottom: 0px;
+  }
+  
+  .additionalInfo button:hover {
+    background-color: #4090d282;
+    border: none;
+    border-radius: 2px;
+    
+  }
+  .generallInfocompanydetails {
+    grid-column: 1/5;
+    border-right:1px solid rgba(205, 202, 202, 0.743);
+    margin-right:0px;
+   
+  }
+  .generallInfocompanydetails div{
+    box-shadow: -24px 24px 1px -24px rgb(163, 163, 163);
+    padding-bottom: 10px;
+  
+  }
+  
+  .generallInfocompanydetails {
+   
+    line-height: 0.8rem;
+    padding-left: 5px;
+    padding-left:20px
+  }
+  .detailedInfo {
+    margin-top: 200px;
+    grid-column: 6/11;
+  }
+ 
+  .updateSectionDetailsCompany {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 100px;
+    flex-wrap: wrap;
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 2px solid rgba(205, 202, 202, 0.511);
+    padding:50px;
+  }
+  .updateSectionDetailsCompany input {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(75, 75, 75);
+  }
+  .updateSectionDetailsCompany button {
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 1px solid rgba(205, 202, 202, 0.511);
+    width: 170px;
+    height: 35px;
+    font-size: 8px;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(107, 104, 104);
+    transition: 500ms;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .updateSectionDetailsCompany button:hover {
+    background-color: #4090d282;
+    border: none;
+    border-radius: 2px;
+  }
+  .additionalInfo button {
+    background-color: rgba(237, 237, 237, 0.379);
+    border: 1px solid rgba(205, 202, 202, 0.511);
+    width: 200px;
+    height: 35px;
+    font-size: 8px;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(107, 104, 104);
+    transition: 500ms;
+    
+   margin-top: 100px;
+  }
+  
+  .additionalInfo button:hover {
+    background-color: #4090d282;
+    border: none;
+    border-radius: 2px;
+    
+  }

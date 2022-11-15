@@ -1,0 +1,113 @@
+.jobApplicationMainPage {
+  position: relative;
+  top: 100px;
+}
+.jobApplicationCard {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgba(237, 237, 237, 0.379);
+  padding: 30px;
+  
+ 
+}
+.jobApplication{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    background-color: rgba(237, 237, 237, 0.379);
+  border: 1px solid rgba(205, 202, 202, 0.511);
+  margin-bottom: 100px;
+}
+.profilePicture img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+.profilePicture button {
+  background-color: rgba(237, 237, 237, 0.379);
+  border: 1px solid rgba(205, 202, 202, 0.511);
+  width: 200px;
+  height: 35px;
+  font-size: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: rgb(107, 104, 104);
+  transition: 500ms;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: auto;
+}
+
+.profilePicture button:hover {
+  background-color: #4090d282;
+  border: none;
+  border-radius: 2px;
+}
+.profilePicture {
+  grid-column: 1/5;
+  border-right: 1px solid rgba(205, 202, 202, 0.743);
+  margin-right: 50px;
+}
+.personalInfo {
+  grid-column: 5/8;
+}
+
+.professionalInfo {
+  grid-column: 8/11;
+}
+.educationallInfo {
+  grid-column: 8/11;
+}
+
+.CvInfo {
+  grid-column: 8/11;
+}
+
+.jobDetailsMainPage {
+  position: relative;
+  top: 100px;
+}
+.jobCardDetailsApplied {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgba(237, 237, 237, 0.379);
+  padding: 30px;
+  margin-bottom: 100px;
+}
+.companyLogoCardDetails {
+  margin-left: 25px;
+  margin-right: auto;
+  width: 200px;
+  margin-bottom: 20px;
+}
+.generalInfoApplied {
+
+  grid-column: 1/11;
+  line-height: 0.8rem;
+  padding-left: 5px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+}
+.generalInfoApplied div {
+  margin-bottom: 20px;;
+  padding-bottom: 10px;
+}
+.jobDetailsInfoApplied {
+  grid-column: 1/11;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.generalInfoApplied p {
+  margin-bottom: 0px;
+}
+.additionalInfoApplied {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+}

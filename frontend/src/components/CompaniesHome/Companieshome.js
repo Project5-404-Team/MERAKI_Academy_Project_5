@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
-
+import "./CompaniesHome.css"
 
 
 const CompaniesHome = () => {
@@ -94,37 +94,38 @@ const CompaniesHome = () => {
 handleRelevantUsers()
 
 }}> Find Relative Users </button>
-
-      <div className="usersCardsDiv">
+   <div className="companyHomeDiv">
+   <div className="usersCardsDiv">
+   
         {users &&
           users.map((elem, index) => {
             return (
-              <div id={elem.id} key={index} className="jobCard">
-                <img src={elem.companylogo}></img>
-                <p onClick={()=>{
+              <div id={elem.id} key={index} className="userCard">
+                <img className="userImageCard" src={elem.userimage}></img>
+                <h2 className="fullNameCard" onClick={()=>{
                   dispatch(setuserDetailsInCompanyApp(elem))
                   navigate('/companies/userdetails/companyapp')
-
-                }}>{elem.fullname}</p>
-                <p> {elem.wheredoyoulive}</p>
-                <p>{elem.recentjobtitle}</p>
-                <p>{elem.industryofrecentjob}</p>
-                <p> {elem.yearsofexperience}</p>
-                <p
+                  
+                }}>{elem.fullname}</h2>
+                  <h3 className="userjobsdetailingCard">{elem.recentjobtitle} - {elem.industryofrecentjob} - {elem.wheredoyoulive}</h3>
+                  <p className="Majorusercard"> Major : {elem.major}</p>
+                  <p className="yearsofexperienceusercard"> Years Of Experience : {elem.yearsofexperience}</p>
+                  <p className="Languagesusercard"> Languages : {elem.languages}</p>
+                  
+          
+                <button className="addFavCard" 
                   onClick={() => {
                     handleCompaniesFavUsers(elem.id);
                   }}
                 >
                   {" "}
                   Add to Favorite
-                </p>
+                </button>
               </div>
             );
           })}
       </div>
-      <div>
-       
-       
+     
       </div>
     </>
   );

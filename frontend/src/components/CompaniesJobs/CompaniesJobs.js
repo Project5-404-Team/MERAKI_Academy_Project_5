@@ -3,13 +3,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import {
   setCompanyJobs,
   deleteJobs,
   setJobDetails,
   updateJob
 } from "../Redux/reducers/Companies/companies";
-
+import "./CompaniesJobs.css"
 const CompaniesJobs = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -101,108 +102,32 @@ const CompaniesJobs = () => {
 
   return (
     <>
-      <div className="jobsCardsDiv">
+    <CompaniesNavbar/>
+    <div className="companiesJobsDiv">
+      <div className="jobsCardsComapniesDiv">
         {companyJobs &&
           companyJobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
-                <img src={elem.companylogo}></img>
-                <p
-                  onClick={() => {
-                    dispatch(setJobDetails(elem));
-                    navigate("/companies/jobdetails");
-                  }}
-                >
-                  {elem.jobtitle}
-                </p>
-                <p>{elem.companyname}</p>
-                <p>{elem.country}</p>
-                <p>{elem.industry}</p>
-                <p>{elem.createdat}</p>
-                <p
-                  onClick={() => {
-                    deleteJob(elem.id);
-                  }}
-                >
-                  Delete Job
-                </p>
-                {updateBox && jobUpdateId === elem.id && (
-                  <form>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="job title here"
-                      onChange={(e) => setJobTitle(e.target.value)}
-                    />
-                    <br />
-                    <input
-                      placeholder="expiry date here"
-                      onChange={(e) => setExpiryDate(e.target.value)}
-                    ></input>
-                    <br />
-                    <input
-                      placeholder="job location here"
-                      onChange={(e) => setJobLocation(e.target.value)}
-                    ></input>
-                    <br />
-                    <input
-                      placeholder="career level here"
-                      onChange={(e) => setCareerLevel(e.target.value)}
-                    ></input>
-                    <br />
-                    <input
-                      placeholder="job type here"
-                      onChange={(e) => setJobType(e.target.value)}
-                    ></input>
-                    <br />
-                    <input
-                      placeholder="job role here"
-                      onChange={(e) => setJobRole(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="years of experience here"
-                      onChange={(e) => setYearsOfExperience(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="country of citizenship here"
-                      onChange={(e) => setCountryOfCitizenship(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="country of residence here"
-                      onChange={(e) => setCountryOfResidence(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="salary here"
-                      onChange={(e) => setSalary(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="number of hires here"
-                      onChange={(e) => setNumberOfHires(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="job description here"
-                      onChange={(e) => setJobDescription(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="language here"
-                      onChange={(e) => setLanguage(e.target.value)}
-                    ></input>
-                    <input
-                      placeholder="job requirements here"
-                      onChange={(e) => setJobRequirements(e.target.value)}
-                    ></input>
-                  </form>
-                )}
-                <p
-                  onClick={() => {
-                    handleUpdateClick(elem);
-                  }}
-                >
-                  Update
-                </p>
-              </div>
+              <img className="companyLogoCard" src={elem.companylogo}></img>
+              <h2 className="jobTitleCard" onClick={()=>{
+                dispatch(setJobDetails(elem))
+                navigate("/companies/jobdetails");
+              }}>{elem.jobtitle}</h2>
+              <h4 className="companyNameCard" onClick={()=>{
+               
+              }}>{elem.companyname} - {elem.industry} - {elem.country}</h4>
+              
+              
+              <p className="carerLevelCard">Career Level : {elem.careerlevel}</p>
+              <p></p>
+              <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
+              <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
+              <p className="jobDescription">{elem.jobdescription.substring(0,150)}...</p></div>
+
             );
           })}
+      </div>
       </div>
     </>
   );

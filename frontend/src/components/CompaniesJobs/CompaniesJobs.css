@@ -1,4 +1,4 @@
-.companyHomeDiv{
+.companiesJobsDiv{
     position: relative;
     top:60px;
     display: grid;
@@ -6,37 +6,15 @@
     color:rgba(0, 0, 0, 0.757);
  
 }
-.filterNav{
-    position: fixed;
-    top:60px;
-    width:400px;
-    grid-column: 1/4;
-    border-right: 1px solid rgba(205, 202, 202, 0.511);
-  margin-top: 15px;
-    margin-left: 0px;
-    padding-right: 15px;
+
+.jobsCardsComapniesDiv{
+    grid-column: 2/10;
 
 }
-.filterNav li{
-    list-style-type: none; 
-    margin-bottom: 8px;
-    font-weight: 500;
-    transition: 500ms;
-    font-size: 16px;
-}
-.filterNav li:hover{
-    cursor: pointer;
-    color:#4090d282
-
-}
-.usersCardsDiv{
-    grid-column: 4/9;
-
-}
-.userCard:hover{background-color: #4090d212;
+.jobCard:hover{background-color: #4090d212;
     border: 2px solid #4090d282;}
 
-.userCard{
+.jobCard{
     border:1px solid black;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -47,28 +25,28 @@ border: 2px solid rgba(205, 202, 202, 0.511);
 padding: 15px;
 transition: 500ms;
 }
-.userCard img{
+.jobCard img{
     width:150px;
     height: 150px;
 }
-.userImageCard{
+.companyLogoCard{
 grid-column: 1;
 grid-row: 1/6;
 margin-right: 15px;
 }
-.fullNameCard:hover{
+.jobTitleCard:hover{
     cursor: pointer;
 }
-.userjobsdetailingCard{
+.companyNameCard{
     cursor: pointer;
 }
-.fullNameCard{
+.jobTitleCard{
 grid-column: 2/5;
 grid-row: 1;
 margin-top: 0px;
 margin-bottom: 1px;;
 }
-.userjobsdetailingCard{
+.companyNameCard{
     grid-column: 2/6;
     grid-row: 2;
     margin-bottom: 5px;
@@ -90,21 +68,16 @@ text-align: right;
 grid-row: 2;
 text-align: right;
 }
-.Majorusercard{
+.carerLevelCard{
     margin-top:5px;
     grid-column: 2/4;
     grid-row: 3;
     font-size: 13px;
     margin-bottom: 3px;}
 
-.yearsofexperienceusercard{
+.jobDescription{
     grid-column: 2/5;
-    grid-row:4;
-    font-size: 12px;
-}
-.Languagesusercard{
-    grid-column: 2/5;
-    grid-row:5;
+    grid-row:4/6;
     font-size: 12px;
 }
 .addFavCard{

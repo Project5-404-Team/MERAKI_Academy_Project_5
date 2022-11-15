@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addJob } from "../Redux/reducers/Companies/companies";
+import "./AddNewJob.css"
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 const AddNewJob = () => {
   const [jobTitle, setJobTitle] = useState(null);
   const [expiryDate, setExpiryDate] = useState(null);
@@ -51,10 +53,13 @@ const dispatch=useDispatch()
         console.log(err);
       });
   };
-  return (
+  return (<>
+   <CompaniesNavbar/>
+
+   
     <div className="AddNewJob">
       <div className="infoContainerAddNewJob">
-        <p> add new job</p>
+  
         <input
           placeholder="job Title"
           className="AddNewJobInput"
@@ -164,7 +169,7 @@ const dispatch=useDispatch()
           Add New Job{" "}
         </button>
       </div>
-    </div>
+    </div>  </>
   );
 };
 export default AddNewJob;

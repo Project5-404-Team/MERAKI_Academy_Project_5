@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCompanyDetails } from "../Redux/reducers/Companies/companies";
 import UserDetails from "../UserDetails/UserDetails";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import "./CompanyDetails.css"
 
 function CompanyDetails() {
   const dispatch=useDispatch()
@@ -73,53 +75,74 @@ function CompanyDetails() {
   };
   return (
     <>
+    <CompaniesNavbar/>
+      <div className="companyDetailsMainDiv">
+        <div className="companyDetailsCard">
+        
+        <div className="generallInfocompanydetails">
+        
      
-      <p>{companyDetails.companylogo}</p>
-      <p>{companyDetails.companyname}</p>
-      <p>{companyDetails.industry}</p>
-      <p>{companyDetails.country}</p>
-      <p>{companyDetails.city}</p>
-      <p>{companyDetails.numberofemployees}</p>
-      <p>{companyDetails.contactperson}</p>
-      <p>{companyDetails.phonenumber}</p>
-      <p>{companyDetails.companywebsite}</p>
-      <p>{companyDetails.ceo}</p>
-      <p>{companyDetails.workinghours}</p>
-      <p>{companyDetails.weekends}</p>
-      <p>{companyDetails.lunchbreak}</p>
-      <p>{companyDetails.companyoverview}</p>
-      <p>{companyDetails.officelocation}</p>
-      <p>{companyDetails.yearsofexperience}</p>
+          <img className="companyDetailLogo" src={companyDetails.companylogo}></img>
+         
+          <div>
+              <p style={{ fontWeight: "600" }}>Company Name:</p><p>{companyDetails.companyname}</p></div>
+              <div> <p style={{ fontWeight: "600" }}>Industry:</p><p>{companyDetails.industry}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Country:</p><p>{companyDetails.country}</p></div>
+              <div><p style={{ fontWeight: "600" }}>City:</p><p>{companyDetails.city}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Number Of Employees:</p><p>{companyDetails.numberofemployees}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Contact Person:</p><p>{companyDetails.contactperson}</p></div>
+              <div><p style={{ fontWeight: "600" }}>Phone Number:</p><p>{companyDetails.phonenumber}</p></div>
+              <p style={{ fontWeight: "600" }}>Website:</p><p>{companyDetails.companywebsite}</p>
+        </div>
+      <div className="detailedInfo">
+      <div><p style={{ fontWeight: "600" }}>Company Overview </p><p>{companyDetails.companyoverview}</p></div>
+      <div className="additionalInfo">
+      <div><p style={{ fontWeight: "600" }}>Working Hours </p><p>{companyDetails.workinghours}</p></div>
+      <div><p style={{ fontWeight: "600" }}>Lunch Break </p><p>{companyDetails.lunchbreak}</p></div>
+      <div><p style={{ fontWeight: "600" }}>Weekends </p><p>{companyDetails.weekends}</p></div>
+      <div><p style={{ fontWeight: "600" }}>ceo: </p><p>{companyDetails.ceo}</p>
+      </div>
+      <button onClick={() => {handleUpdateClick(companyId)}}>Edit My Information !</button>
+</div>
+
+</div>
+
+ </div>
+ </div>
+     
       <div>
-        {updateBox && companyUpdateId === companyId && (
-          <form>
-            <br />
+  
+        {updateBox && companyUpdateId === companyId && (<div>
+              <h1>Update Any Field You Want !</h1>
+              <div className="updateSectionDetailsCompany">
+         
+      
             <input
               type="text"
               placeholder="company website here"
               onChange={(e) => setCompanyWebsite(e.target.value)}
             />
-            <br />
+        
             <input
               placeholder="ceo here"
               onChange={(e) => setCeo(e.target.value)}
             ></input>
-            <br />
+        
             <input
               placeholder="working hours here"
               onChange={(e) => setWorkingHours(e.target.value)}
             ></input>
-            <br />
+       
             <input
               placeholder="Weekends here"
               onChange={(e) => setWeekends(e.target.value)}
             ></input>
-            <br />
+       
             <input
               placeholder="lunch break here"
               onChange={(e) => setLunchBreak(e.target.value)}
             ></input>
-            <br />
+       
             <input
               placeholder="company overview here"
               onChange={(e) => setCompanyOverview(e.target.value)}
@@ -168,16 +191,22 @@ function CompanyDetails() {
               placeholder="password here"
               onChange={(e) => setPassword(e.target.value)}
             ></input>
-          </form>
-        )}
-        <p
+             <button
           onClick={() => {
-            handleUpdateClick(companyId);
+            handleUpdateClick()
+            console.log("yes")
           }}
         >
           Update
-        </p>
+        </button>
+          </div>
+          
+          </div>
+        
+        )}
+  
       </div>
+      
     </>
   );
 }
