@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth/index";
 import { setCompanyDetails } from "../Redux/reducers/Companies/companies";
 import CompanyDetails from "../CompanyDetails/CompanyDetails";
+import { setUserName } from "../Redux/reducers/Messenger/messenger";
 
 
 
@@ -36,6 +37,7 @@ const LoginCompanies = () => {
         dispatch(setLogin(response.data.token))
         dispatch(setCompanyId(response.data.payload.companyId))
         dispatch(setCompanyDetails(response.data.payload.company))
+        dispatch(setUserName(response.data.payload.company.companyname))
         navigate('/companies/companieshome')
         console.log(isLoggedIn)
         console.log(companyDetails)

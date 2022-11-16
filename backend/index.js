@@ -9,6 +9,7 @@ const jobsRouter = require("./routes/jobs");
 const usersRouter = require("./routes/users");
 const companiesRouter = require("./routes/companies");
 const AdminRouter =require("./routes/admin");
+const messengerRouter = require("./routes/messenger")
 
 require("./models/db");
 
@@ -25,7 +26,9 @@ app.use('/jobs',jobsRouter)
 app.use('/users',usersRouter)
 app.use('/companies',companiesRouter)
 app.use('/admin',AdminRouter)
+app.use("/messenger", messengerRouter);
 
 app.listen(PORT, () => {
   console.log(`server listening on ${PORT}`);
 });
+require("./socket");

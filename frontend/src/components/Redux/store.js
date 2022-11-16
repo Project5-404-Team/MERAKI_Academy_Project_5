@@ -5,6 +5,7 @@ import fav from "./reducers/fav/fav"
 import users from "./reducers/Users/users"
 import companies from "./reducers/Companies/companies"
 import admin from "./reducers/Admin/admin"
+import messenger from "./reducers/Messenger/messenger"
 
 
 export default configureStore({
@@ -14,6 +15,7 @@ export default configureStore({
         fav:fav,
         users:users,
         companies:companies,
-    admin:admin
+    admin:admin,
+    messenger : messenger
     }
 })

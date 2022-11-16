@@ -95,6 +95,16 @@ const CompaniesNavbar = () => {
             Logout
           </p>
         )}
+
+{isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/messenger");
+            }}
+          >
+           messages
+          </p>
+        )}
       </div>
     </>
   );

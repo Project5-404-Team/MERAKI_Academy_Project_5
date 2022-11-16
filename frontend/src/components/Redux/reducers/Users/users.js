@@ -11,6 +11,8 @@ const usersSlice = createSlice({
     jobSearch: false,
     userPicture: "" ,
     userCv: "",
+    companyIdUserApp:null,
+
   },
   reducers: {
     setAllJobs: (state, action) => {
@@ -54,6 +56,9 @@ const usersSlice = createSlice({
     setUserCv: (state, action) => {
       state.userCv = action.payload;
     },
+    setCompanyIdUserApp :(state,action)=>{
+      state.companyIdUserApp=action.payload
+    }
   },
 });
 
@@ -70,5 +75,6 @@ export const {
   deleteAppliedJobs,
   setUserCv,
   setUserPicture,
+  setCompanyIdUserApp
 } = usersSlice.actions;
 export default usersSlice.reducer;

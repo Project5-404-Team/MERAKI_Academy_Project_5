@@ -6,6 +6,7 @@ import UsersApp from "./components/UsersApp/UsersApp";
 import CompaniesApp from "./components/CompaniesApp/CompaniesApp";
 import UserHome from "./components/UserHome/UserHome";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Messenger from "./components/messenger/messenger";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/users/*" element={<UsersApp />} />
         <Route path="/companies/*" element={<CompaniesApp />} />
         <Route path="/admin/*" element={<AdminPanel />} />
+        <Route path="/messenger" element={<Messenger/>} />
      
         
       </Routes>
