@@ -7,8 +7,11 @@ import {
   setFavUsers,
   deleteFavUsers,
 } from "../Redux/reducers/Companies/companies";
-
+import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import "./CompaniesFavUsers.css"
 const CompaniesFavUsers = () => {
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   const { companyId, favUsers } = useSelector((state) => {
     return {
@@ -48,28 +51,34 @@ const CompaniesFavUsers = () => {
   }, []);
   return (
     <>
-      <div className="allCompaniesFavUsers">
+    <CompaniesNavbar/>
+    <div className="companyfavDiv">
+   <div className="usersCardsDivcompanyfav">
         {favUsers &&
           favUsers.map((elem, index) => {
             return (
-              <div id={elem.id} key={index} className="favCard">
-                <img src={elem.companylogo}></img>
-                <p>{elem.fullname}</p>
-                <p> {elem.wheredoyoulive}</p>
-                <p>{elem.recentjobtitle}</p>
-                <p>{elem.industryofrecentjob}</p>
-                <p> {elem.yearsofexperience}</p>
-                <p
+              <div id={elem.id} key={index} className="userCard">
+              <img className="userImageCard" src={elem.userimage}></img>
+              <h2 className="fullNameCard" onClick={()=>{
+                dispatch(setuserDetailsInCompanyApp(elem))
+                navigate('/companies/userdetails/companyapp')
+                
+              }}>{elem.fullname}</h2>
+                <h3 className="userjobsdetailingCard">{elem.recentjobtitle} - {elem.industryofrecentjob} - {elem.wheredoyoulive}</h3>
+                <p className="Majorusercard"> Major : {elem.major}</p>
+                <p className="yearsofexperienceusercard"> Years Of Experience : {elem.yearsofexperience}</p>
+                <p className="Languagesusercard"> Languages : {elem.languages}</p>
+                <button className="deleteFavCard"
                   onClick={() => {
                     deleteCompaniesFavUsers(elem.id);
                   }}
                 >
                   Delete From Favorites
-                </p>
+                </button>
               </div>
             );
           })}
-      </div>
+      </div></div>
     </>
   );
 };

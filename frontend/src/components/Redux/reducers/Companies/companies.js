@@ -13,7 +13,7 @@ const companiesSlice = createSlice({
     companyLogo:""
   },
   reducers: {
-    allUsers: (state, action) => {
+    setAllUsers: (state, action) => {
       state.allUsers = action.payload;
     },
     setFavUsers: (state, action) => {
@@ -71,7 +71,7 @@ const companiesSlice = createSlice({
 });
 
 export const {
-  allUsers,
+  setAllUsers,
   setFavUsers,
   addToFavUsers,
   deleteFavUsers,

@@ -64,9 +64,6 @@ const navigate=useNavigate()
         <FilterNav/>
       </div>
       <div className="filterDiv">
-<p>
-
-</p>
 
       </div>
       <div className="jobsCardsDiv">

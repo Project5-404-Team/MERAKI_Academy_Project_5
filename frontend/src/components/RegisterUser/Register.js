@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import "../RegisterUser/Register.css"
+import "./Register.css"
 
 const RegisterUser = () => {
   const [fullName, setFullName] = useState("");
@@ -87,7 +87,7 @@ const RegisterUser = () => {
           </p>
         </div>
     <div className="bigDivRegister">
-      <div className="infoContainerRegister">
+      <div className="infoContainerRegisteruser">
       <h1 style={{textAlign:"left",marginBottom:"40px"}}> Job Seeker Account Register</h1>
         
         <input
@@ -107,13 +107,20 @@ const RegisterUser = () => {
           }}
         />
 
-        <input
-          placeholder="gender"
-          className="RegInput"
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-        />
+<select
+ className="RegSelect"
+                name="gender"
+                id="gender"
+                onClick={(e) => {
+                  setGender(e.target.value);
+                }}
+              >
+                <option selected disabled hidden>
+                  Select Your Gender{" "}
+                </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
 
         <input
           placeholder="phone Number"

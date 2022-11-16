@@ -6,14 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesHome.css"
+import FilterNavCompanies from "../FilterNavCompanies/FilterNavCompanies";
+import { setAllUsers } from "../Redux/reducers/Companies/companies";
 
 
 const CompaniesHome = () => {
   const dispatch=useDispatch()
-  const { companyId,companyDetails, relativeUsers} = useSelector((state) => {
+  const { companyId,companyDetails, relativeUsers ,allUsers} = useSelector((state) => {
     return { companyId: state.CompaniesAuth.companyId ,
       companyDetails: state.companies.companyDetails.industry,
       relativeUsers: state.companies.relativeUsers,
+      allUsers:state.companies.allUsers
 
     };
   });
@@ -22,14 +25,14 @@ const CompaniesHome = () => {
     return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
   });
   const navigate = useNavigate();
-  const [users, setAllUsers] = useState("");
+  
   const getAllUsers = () => {
     axios
       .get("http://localhost:5000/users")
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        setAllUsers(result.data.result);
+        dispatch(setAllUsers(result.data.result));
       })
       .catch((err) => {
         console.log(err);
@@ -79,26 +82,22 @@ const CompaniesHome = () => {
   return (
     <>
     <CompaniesNavbar/>
-      <div>
-        <p
-          onClick={() => {
-            navigate("/companies/company/complete");
-          }}
-        >
-          Complete my account
-        </p>
+    
+   <div className="companyHomeDiv">
+    <div className="filterNav">
+        <FilterNavCompanies/>
       </div>
+    
           
         
-<button onClick={()=>{
+
+   <div className="usersCardsDiv">
+   <button onClick={()=>{
 handleRelevantUsers()
 
 }}> Find Relative Users </button>
-   <div className="companyHomeDiv">
-   <div className="usersCardsDiv">
-   
-        {users &&
-          users.map((elem, index) => {
+        {allUsers &&
+          allUsers.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="userCard">
                 <img className="userImageCard" src={elem.userimage}></img>

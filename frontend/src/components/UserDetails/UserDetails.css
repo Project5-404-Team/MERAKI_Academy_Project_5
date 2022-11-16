@@ -47,6 +47,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+.updateSectionDetailsUser select{
+  width: 410px;
+  height: 35px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(75, 75, 75);
+}
 .updateSectionDetailsUser button:hover {
   background-color: #4090d282;
   border: none;

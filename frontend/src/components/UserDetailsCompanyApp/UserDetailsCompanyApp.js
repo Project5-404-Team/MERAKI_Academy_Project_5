@@ -16,22 +16,42 @@ function UserDetailsCompanyApp() {
   return (
     <>
          <CompaniesNavbar/>
-      <p>{userDetailsInCompanyApp.fullname}</p>
-      <p>{userDetailsInCompanyApp.citizenships}</p>
-      <p>{userDetailsInCompanyApp.cv}</p>
-      <p>{userDetailsInCompanyApp.dateofbirth}</p>
-      <p>{userDetailsInCompanyApp.educationalinstitutename}</p>
-      <p>{userDetailsInCompanyApp.gender}</p>
-      <p>{userDetailsInCompanyApp.languages}</p>
-      <p>{userDetailsInCompanyApp.major}</p>
-      <p>{userDetailsInCompanyApp.maritalstatus}</p>
-      <p>{userDetailsInCompanyApp.phonenumber}</p>
-      <p>{userDetailsInCompanyApp.recentjobfunction}</p>
-      <p>{userDetailsInCompanyApp.recentjobtitle}</p>
-      <p>{userDetailsInCompanyApp.residencystatus}</p>
-      <p>{userDetailsInCompanyApp.skills}</p>
-      <p>{userDetailsInCompanyApp.wheredoyoulive}</p>
-      <p>{userDetailsInCompanyApp.yearsofexperience}</p>
+         <div className="userDetailsMainDiv">
+        <div className="userDetailsCard">
+          <div className="profilePicture">
+            <img src={userDetailsInCompanyApp.userimage}></img>
+            {userDetailsInCompanyApp.cv && (
+              <a href={userDetailsInCompanyApp.cv} download>
+                <button>Download CV</button>
+              </a>
+            )}
+           
+          </div>
+          <div className="personalInfo">
+            <h3>Personal Information</h3>
+            <p>Full Name :{userDetailsInCompanyApp.fullname}</p>
+            <p>Date Of Birth :{userDetailsInCompanyApp.dateofbirth.substring(0, 10)}</p>
+            <p>Gender :{userDetailsInCompanyApp.gender}</p>
+            <p>Phone Number :{userDetailsInCompanyApp.phonenumber}</p>
+            <p>Address :{userDetailsInCompanyApp.wheredoyoulive}</p>
+            <p>Citizenship : {userDetailsInCompanyApp.citizenships}</p>
+            <p>Material Status :{userDetailsInCompanyApp.maritalstatus}</p>
+            <p>Languages :{userDetailsInCompanyApp.languages}</p>
+          </div>
+          <div className="professionalInfo">
+            <h3>Professional Information</h3>
+            <p>Recent Job Function :{userDetailsInCompanyApp.recentjobfunction}</p>
+            <p>Recent Job Title :{userDetailsInCompanyApp.recentjobtitle}</p>
+            <p>Years Of Experience :{userDetailsInCompanyApp.yearsofexperience}</p>
+            <p>Skills :{userDetailsInCompanyApp.skills}</p>
+            <h3>Educational Information</h3>
+            <p>Major :{userDetailsInCompanyApp.major}</p>
+            <p>
+              Educational Institute Name :{userDetailsInCompanyApp.educationalinstitutename}
+            </p>
+          </div>
+        </div>
+        </div>
     </>
   );
 }
