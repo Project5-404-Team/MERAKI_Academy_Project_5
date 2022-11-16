@@ -61,18 +61,30 @@ token:state.usersAuth.token
    
     <>
      <UserNavbar/>
+     <div className="IconDiv">
+<img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668624692/meraki/NiceJob__1_-removebg-preview_yvyumr.png"></img>
+</div>
     <div className="userHomeDiv">
-    <div className="filterNav">
+   
+    <div className="filterNav1">
+    
         <FilterNav/>
       </div>
-      <div className="filterDiv">
-
-      </div>
+    <div className="video">
+      
+    <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+  <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+</video>
+<h1>Create a winning<br></br>
+  resume in minutes..</h1>
+ 
+  <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton" >Create My Resume</button></a>
+    </div>
       <div className="jobsCardsDiv">
         {allJobs &&
           allJobs.map((elem, index) => {
             return (
-              <div id={elem.id} key={index} className="jobCard">
+              <div id={elem.id} key={index} className="jobCard1">
                 <img className="companyLogoCard" src={elem.companylogo}></img>
                 <h2 className="jobTitleCard" onClick={()=>{
                   dispatch(setJobDetails(elem))
@@ -89,7 +101,7 @@ token:state.usersAuth.token
                 <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
                 <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
                 <p className="jobDescription">{elem.jobdescription.substring(0,150)}...</p>
-                <button className="addFavCard" 
+                <button className="addFavCard1" 
                   onClick={(e) => {
                     handleAddToFav(elem.id);
                   }}
