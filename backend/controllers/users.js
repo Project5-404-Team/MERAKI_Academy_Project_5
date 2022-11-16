@@ -29,7 +29,7 @@ const usersSearch = (req, res) => {
   const searchWord = req.query.search;
   const value = [`%${searchWord}%`];
   const query = `SELECT * FROM users
-WHERE industryOfRecentJob LIKE $1 AND is_deleted=0;`;
+WHERE users.industryOfRecentJob LIKE $1 AND users.is_deleted=0;`;
   pool
     .query(query, value)
     .then((result) => {
@@ -54,6 +54,7 @@ WHERE industryOfRecentJob LIKE $1 AND is_deleted=0;`;
       });
     });
 };
+
 const userUpdate = (req, res) => {
   const userId = req.params.userId;
   const {
@@ -77,6 +78,7 @@ const userUpdate = (req, res) => {
     fullName,
     dateOfBirth,
     gender,
+    userImage,
   } = req.body;
   const iscompleted = 1;
   const values = [
@@ -102,8 +104,9 @@ const userUpdate = (req, res) => {
     fullName || null,
     dateOfBirth || null,
     gender || null,
+    userImage || null
   ];
-  const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted), phoneNumber = COALESCE($3,phoneNumber), maritalStatus = COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships),whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience),recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv), email=COALESCE($18,email),password=COALESCE($19,password),fullName=COALESCE($20,fullName),dateOfBirth= COALESCE($21,dateOfBirth),gender= COALESCE($22,gender) WHERE id=$1 RETURNING *;`;
+  const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted), phoneNumber = COALESCE($3,phoneNumber), maritalStatus = COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships),whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience),recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv), email=COALESCE($18,email),password=COALESCE($19,password),fullName=COALESCE($20,fullName),dateOfBirth= COALESCE($21,dateOfBirth),gender= COALESCE($22,gender),userImage =COALESCE($23,userImage) WHERE id=$1 RETURNING *;`;
   pool
     .query(query, values)
     .then((result) => {
