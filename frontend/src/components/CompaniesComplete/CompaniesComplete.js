@@ -19,10 +19,11 @@ const CompaniesComplete = () => {
 
   const navigate = useNavigate();
 
-  const { companyId, companyLogo } = useSelector((state) => {
+  const { companyId, companyLogo,token } = useSelector((state) => {
     return {
       companyId: state.CompaniesAuth.companyId,
       companyLogo: state.companies.companyLogo,
+      token:state.CompaniesAuth.token
     };
   });
 
@@ -56,13 +57,16 @@ const CompaniesComplete = () => {
 
   const handleRegister = () => {
     axios
-      .put(`http://localhost:5000/register/companies/${companyId}`, body)
+      .put(`http://localhost:5000/register/companies/${companyId}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((response) => {
         console.log(response);
 
         setRegisteredSucssfully(true);
         setTimeout(() => {
-          navigate("/companies/login");
+          navigate("/companies/companieshome");
         }, 1000);
       })
       .catch((err) => {

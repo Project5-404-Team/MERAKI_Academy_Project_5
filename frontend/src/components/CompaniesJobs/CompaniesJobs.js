@@ -14,10 +14,11 @@ import "./CompaniesJobs.css"
 const CompaniesJobs = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { companyId, companyJobs } = useSelector((state) => {
+  const { companyId, companyJobs,token } = useSelector((state) => {
     return {
       companyId: state.CompaniesAuth.companyId,
       companyJobs: state.companies.companyJobs,
+      token:state.CompaniesAuth.token
     };
   });
   const [jobTitle, setJobTitle] = useState(null);
@@ -52,7 +53,10 @@ const CompaniesJobs = () => {
   };
   const deleteJob = (jobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/${jobId}`)
+      .delete(`http://localhost:5000/jobs/${jobId}`,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -85,7 +89,10 @@ const CompaniesJobs = () => {
   };
   const updateJob1 = () => {
     axios
-      .put(`http://localhost:5000/jobs/${jobUpdateId}`,body)
+      .put(`http://localhost:5000/jobs/${jobUpdateId}`,body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

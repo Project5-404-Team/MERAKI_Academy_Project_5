@@ -16,12 +16,12 @@ const UserHome = () => {
 
 const dispatch =useDispatch()
 const navigate=useNavigate()
-  const { userId ,allJobs ,jobSearch} = useSelector((state) => {
+  const { userId ,allJobs ,jobSearch,token} = useSelector((state) => {
     return {
        userId: state.usersAuth.userId,
       allJobs : state.users.allJobs,
-      jobSearch : state.users.jobSearch
-
+      jobSearch : state.users.jobSearch,
+token:state.usersAuth.token
     };
   });
 
@@ -43,7 +43,9 @@ const navigate=useNavigate()
   };
   const handleAddToFav = (jobId) => {
     axios
-      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId})
+      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId},{headers: {
+        authorization: "Bearer " + token
+      }})
       .then((response) => {
         console.log(response);
       })

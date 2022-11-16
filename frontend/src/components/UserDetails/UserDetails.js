@@ -16,10 +16,11 @@ function UserDetails() {
       userCv: state.users.userCv,
     };
   });
-  const { userDetails, userId } = useSelector((state) => {
+  const { userDetails, userId ,token} = useSelector((state) => {
     return {
       userDetails: state.users.userDetails,
       userId: state.usersAuth.userId,
+      token:state.usersAuth.token
     };
   });
   const [phoneNumber, setPhoneNumber] = useState(null);
@@ -101,7 +102,10 @@ function UserDetails() {
   };
   const updateUser = (user) => {
     axios
-      .put(`http://localhost:5000/users/${user}`, body)
+      .put(`http://localhost:5000/users/${user}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

@@ -17,11 +17,12 @@ export default function UserFavJobs() {
   const navigate = useNavigate();
   const [allfav, setAllFav] = useState();
 
-  const { userId, fav, favJobs } = useSelector((state) => {
+  const { userId, fav, favJobs,token } = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
       fav: state.fav.fav,
       favJobs: state.users.favJobs,
+      token:state.usersAuth.token
     };
   });
 
@@ -45,7 +46,10 @@ export default function UserFavJobs() {
 
   const deleteFavJob = (favJobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/favjobs/${favJobId}`)
+      .delete(`http://localhost:5000/jobs/favjobs/${favJobId}`,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

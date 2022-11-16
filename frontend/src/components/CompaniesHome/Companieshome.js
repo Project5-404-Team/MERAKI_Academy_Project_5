@@ -21,8 +21,9 @@ const CompaniesHome = () => {
     };
   });
 
-  const { isLoggedIn } = useSelector((state) => {
-    return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
+  const { isLoggedIn,token } = useSelector((state) => {
+    return { isLoggedIn: state.CompaniesAuth.isLoggedIn ,
+    token:state.CompaniesAuth.token};
   });
   const navigate = useNavigate();
   
@@ -40,7 +41,10 @@ const CompaniesHome = () => {
   };
   const handleCompaniesFavUsers = (userId) => {
     axios
-      .post(`http://localhost:5000/companies/favusers/${companyId}`, { userId })
+      .post(`http://localhost:5000/companies/favusers/${companyId}`, { userId },{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((response) => {
         console.log(response);
       })

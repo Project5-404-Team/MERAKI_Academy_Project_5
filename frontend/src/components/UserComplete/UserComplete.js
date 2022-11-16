@@ -8,11 +8,12 @@ import { setUserPicture, setUserCv } from "../Redux/reducers/Users/users";
 import UserNavbar from "../UserNavbar/UserNavbar";
 
 const UserComplete = () => {
-  const { userId, userPicture, userCv } = useSelector((state) => {
+  const { userId, userPicture, userCv ,token} = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
       userPicture: state.users.userPicture,
       userCv: state.users.userCv,
+      token:state.usersAuth.token
     };
   });
   const navigate = useNavigate();
@@ -84,7 +85,10 @@ const UserComplete = () => {
 
   const handleRegister = () => {
     axios
-      .put(`http://localhost:5000/register/users/${userId}`, body)
+      .put(`http://localhost:5000/register/users/${userId}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((response) => {
         console.log(response);
         setRegisteredSucssfully(true);

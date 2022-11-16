@@ -21,9 +21,13 @@ const AddNewJob = () => {
   const [jobDescription, setJobDescription] = useState(null);
   const [language, setLanguage] = useState(null);
   const [jobRequirements, setJobRequirements] = useState(null);
-  const { companyId } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId };
+  const { companyId,token } = useSelector((state) => {
+    return { companyId: state.CompaniesAuth.companyId ,
+    token:state.CompaniesAuth.token
+    };
+
   });
+  
 const dispatch=useDispatch()
   const body = {
     jobTitle,
@@ -43,7 +47,10 @@ const dispatch=useDispatch()
   };
   const handleAddNewJob = () => {
     axios
-      .post(`http://localhost:5000/jobs/${companyId}`, body)
+      .post(`http://localhost:5000/jobs/${companyId}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((response) => {
         console.log(response);
         console.log(response.data.result)
