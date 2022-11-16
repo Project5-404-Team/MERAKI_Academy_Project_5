@@ -54,15 +54,19 @@ function CompanyDetails() {
     setCompanyUpdateId(companyId)
     if (updateBox) updateCompany(companyId);
   };
-  const { companyDetails,companyId } = useSelector((state) => {
+  const { companyDetails,companyId ,token} = useSelector((state) => {
     return {
       companyDetails: state.companies.companyDetails,
       companyId: state.CompaniesAuth.companyId,
+      token:state.CompaniesAuth.token
     };
   });
   const updateCompany = () => {
     axios
-      .put(`http://localhost:5000/companies/${companyId}`, body)
+      .put(`http://localhost:5000/companies/${companyId}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         dispatch(setCompanyDetails(result.data.result[0]));

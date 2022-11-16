@@ -7,17 +7,19 @@ import UserNavbar from "../UserNavbar/UserNavbar";
 import "../JobDetailsUsers/JobDetailsUsers.css";
 
 function JobDetailsUsers() {
-  const { jobDetails, userId } = useSelector((state) => {
+  const { jobDetails, userId, token } = useSelector((state) => {
     return {
       jobDetails: state.users.jobDetails,
       userId: state.usersAuth.userId,
+      token : state.usersAuth.token
     };
   });
   const jobApply = () => {
     axios
       .post(`http://localhost:5000/jobs/jobapply/${userId}`, {
-        jobId: jobDetails.id,
-      })
+        jobId: jobDetails.id},{headers: {
+          authorization: "Bearer " + token
+        }})
       .then((result) => {
         console.log(result);
       })
@@ -27,7 +29,9 @@ function JobDetailsUsers() {
   };
   const handleAddToFav = (jobId) => {
     axios
-      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId})
+      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId},{headers: {
+        authorization: "Bearer " + token
+      }})
       .then((response) => {
         console.log(response);
       })

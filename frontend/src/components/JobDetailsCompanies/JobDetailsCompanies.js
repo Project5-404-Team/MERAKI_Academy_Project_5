@@ -30,14 +30,18 @@ function JobDetailsCompanies() {
   const [jobRequirements, setJobRequirements] = useState(null);
   const [jobUpdateId, setJobUpdateId] = useState("");
   const [updateBox, setUpdateBox] = useState(false);
-  const { jobDetails } = useSelector((state) => {
+  const { jobDetails,token } = useSelector((state) => {
     return {
       jobDetails: state.companies.jobDetails,
+      token:state.CompaniesAuth.token
     };
   });
   const deleteJob = (jobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/${jobId}`)
+      .delete(`http://localhost:5000/jobs/${jobId}`,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -70,7 +74,10 @@ function JobDetailsCompanies() {
   };
   const updateJob1 = () => {
     axios
-      .put(`http://localhost:5000/jobs/${jobUpdateId}`, body)
+      .put(`http://localhost:5000/jobs/${jobUpdateId}`, body,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

@@ -17,10 +17,11 @@ function UserAppliedJobs() {
   const navigate = useNavigate();
  
 
-  const { userId, appliedJobs } = useSelector((state) => {
+  const { userId, appliedJobs,token } = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
       appliedJobs: state.users.appliedJobs,
+      token:state.usersAuth.token
     };
   });
 
@@ -42,7 +43,10 @@ function UserAppliedJobs() {
 
   const deleteAppliedJob1 = (appliedJobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/jobapply/${appliedJobId}`)
+      .delete(`http://localhost:5000/jobs/jobapply/${appliedJobId}`,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

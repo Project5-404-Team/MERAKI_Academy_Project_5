@@ -13,10 +13,11 @@ import "./CompaniesFavUsers.css"
 const CompaniesFavUsers = () => {
   const navigate=useNavigate()
   const dispatch = useDispatch();
-  const { companyId, favUsers } = useSelector((state) => {
+  const { companyId, favUsers ,token} = useSelector((state) => {
     return {
       companyId: state.CompaniesAuth.companyId,
       favUsers: state.companies.favUsers,
+      token:state.CompaniesAuth.token
     };
   });
   const [allCompaniesFavUsers, setAllCompaniesFavUsers] = useState("");
@@ -35,7 +36,10 @@ const CompaniesFavUsers = () => {
   };
   const deleteCompaniesFavUsers = (favId) => {
     axios
-      .delete(`http://localhost:5000/companies/favusers/${favId}`)
+      .delete(`http://localhost:5000/companies/favusers/${favId}`,{
+        headers: {
+          authorization: "Bearer " + token,
+        }})
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
