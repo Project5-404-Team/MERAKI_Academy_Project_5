@@ -4,9 +4,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import {setUserCoId} from "../Redux/reducers/Companies/companies"
 
 
 function UserDetailsCompanyApp() {
+
+
+  const dispatch =useDispatch()
+  const navigate=useNavigate()
+
   const { userDetailsInCompanyApp } = useSelector((state) => {
     return {
       userDetailsInCompanyApp: state.companies.userDetailsInCompanyApp,
@@ -51,6 +57,11 @@ function UserDetailsCompanyApp() {
             </p>
           </div>
         </div>
+        <button onClick={()=>{
+dispatch(setUserCoId(userDetailsInCompanyApp.id))
+navigate("/messenger")
+    }}> Send Message</button>
+      
         </div>
     </>
   );

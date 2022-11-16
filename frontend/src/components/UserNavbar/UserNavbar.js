@@ -107,6 +107,17 @@ const UserNavbar = () => {
             Logout
           </p>
         )}</div>
+         <div>
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/messenger");
+            }}
+          >
+            messages
+          </p>
+        )}</div>
+
       </div>
     </>
   );

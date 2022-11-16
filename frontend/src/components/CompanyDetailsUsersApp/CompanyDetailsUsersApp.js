@@ -5,7 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./CompanyDetailsUsersApp.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
+import {setCompanyIdUserApp} from "../Redux/reducers/Users/users"
+
 function CompanyDetailsUsersApp() {
+
+  const dispatch =useDispatch()
+  const navigate=useNavigate()
+
   const { companyDetailsInUsersApp } = useSelector((state) => {
     return {
       companyDetailsInUsersApp: state.users.companyDetailsInUsersApp,
@@ -47,7 +53,11 @@ function CompanyDetailsUsersApp() {
 
 </div>
 
+<button onClick={()=>{
+dispatch(setCompanyIdUserApp(companyDetailsInUsersApp.id))
 
+navigate("/messenger")
+    }}> Send Message</button>
 
  </div>
  </div>

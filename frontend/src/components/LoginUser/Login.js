@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setUserId } from "../Redux/reducers/usersAuth";
 import { setUserDetails, setAppliedJobs } from "../Redux/reducers/Users/users";
+import { setUserName } from "../Redux/reducers/Messenger/messenger";
 
 const LoginUser = () => {
   const { userId, allJobs, isLoggedIn } = useSelector((state) => {
@@ -34,6 +35,8 @@ const LoginUser = () => {
         dispatch(setLogin(response.data.token));
         console.log(response.data.payload);
         dispatch(setUserDetails(response.data.payload.user));
+dispatch(setUserName(response.data.payload.user.fullname))
+
         navigate("/users/userhome");
       })
 
