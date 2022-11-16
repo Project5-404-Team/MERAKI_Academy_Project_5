@@ -34,7 +34,7 @@ const UserNavbar = () => {
       <div className="userNavbar">
         <div className="home_navbar">
           {isLoggedIn && (
-            <p
+            <p style={{color:"white"}}
               onClick={() => {
                 navigate("/users/userhome");
                 dispatch(setJobSearch(!jobSearch));
