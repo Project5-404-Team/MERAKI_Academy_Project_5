@@ -80,13 +80,13 @@ function CompanyDetails() {
   return (
     <>
     <CompaniesNavbar/>
-      <div className="companyDetailsMainDiv">
-        <div className="companyDetailsCard">
+      <div className="companyDetailsMainDiv2">
+        <div className="companyDetailsCard2">
         
-        <div className="generallInfocompanydetails">
+        <div className="generallInfocompanydetails2">
         
      
-          <img className="companyDetailLogo" src={companyDetails.companylogo}></img>
+          <img className="companyDetailLogo2" src={companyDetails.companylogo}></img>
          
           <div>
               <p style={{ fontWeight: "600" }}>Company Name:</p><p>{companyDetails.companyname}</p></div>
@@ -98,9 +98,9 @@ function CompanyDetails() {
               <div><p style={{ fontWeight: "600" }}>Phone Number:</p><p>{companyDetails.phonenumber}</p></div>
               <p style={{ fontWeight: "600" }}>Website:</p><p>{companyDetails.companywebsite}</p>
         </div>
-      <div className="detailedInfo">
+      <div className="detailedInfo2">
       <div><p style={{ fontWeight: "600" }}>Company Overview </p><p>{companyDetails.companyoverview}</p></div>
-      <div className="additionalInfo">
+      <div className="additionalInfo2">
       <div><p style={{ fontWeight: "600" }}>Working Hours </p><p>{companyDetails.workinghours}</p></div>
       <div><p style={{ fontWeight: "600" }}>Lunch Break </p><p>{companyDetails.lunchbreak}</p></div>
       <div><p style={{ fontWeight: "600" }}>Weekends </p><p>{companyDetails.weekends}</p></div>
@@ -118,7 +118,7 @@ function CompanyDetails() {
   
         {updateBox && companyUpdateId === companyId && (<div>
               <h1>Update Any Field You Want !</h1>
-              <div className="updateSectionDetailsCompany">
+              <div className="updateSectionDetailsCompany2">
          
       
             <input

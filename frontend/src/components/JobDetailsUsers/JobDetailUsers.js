@@ -44,11 +44,11 @@ function JobDetailsUsers() {
     <>
       <UserNavbar />
       {console.log(jobDetails)}
-      <div className="jobDetailsMainPage">
-        <div id={jobDetails.id} key={jobDetails.id} className="jobCardDetails">
+      <div className="jobDetailsMainPage2">
+        <div id={jobDetails.id} key={jobDetails.id} className="jobCardDetails2">
           <div className="generalInfo">
             <img
-              className="companyLogoCardDetails"
+              className="companyLogoCardDetails2"
               src={jobDetails.companylogo}
             ></img>
             <div>
@@ -87,7 +87,7 @@ function JobDetailsUsers() {
           <div className="jobDetailsInfo">
             
             <h2 className="jobTitleCardDetails" onClick={() => {}}>
-              {jobDetails.jobtitle}   <button style={{marginLeft:"120px"}}className="applyButton"
+              {jobDetails.jobtitle}   <button style={{marginLeft:"120px"}}className="applyButton2"
             onClick={() => {
               jobApply();
             }}
@@ -107,7 +107,7 @@ function JobDetailsUsers() {
             <div><p style={{ fontWeight: "600" }}>Salary</p><p>{jobDetails.salary}</p></div>
             
             </div>
-            <button className="applyButton"
+            <button className="applyButton2"
             onClick={() => {
               jobApply();
             }}

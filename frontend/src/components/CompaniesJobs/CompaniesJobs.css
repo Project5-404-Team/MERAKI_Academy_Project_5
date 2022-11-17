@@ -1,32 +1,38 @@
 .companiesJobsDiv{
     position: relative;
-    top:60px;
+    top:100px;
     display: grid;
     grid-template-columns: repeat(10,1fr);
-    color:rgba(0, 0, 0, 0.757);
+    color:rgb(82, 79, 79);
  
 }
 
 .jobsCardsComapniesDiv{
-    grid-column: 2/10;
+    grid-column: 2/8;
 
 }
-.jobCard:hover{background-color: #4090d212;
-    border: 2px solid #4090d282;}
-
+.jobCard:hover{    background-color:rgba(239, 238, 238, 0.734);
+}
+.jobCard:first-of-type {
+    border-top: 5PX #3f92ff SOLID ;
+    border-radius: 5px;
+}
 .jobCard{
-    border:1px solid black;
+    
+    border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-rows: repeat(5,30px);
-margin-bottom: 20px;
-background-color: rgba(206, 202, 202, 0.821);
-border: 2px solid rgba(205, 202, 202, 0.511);
-padding: 15px;
-transition: 500ms;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 25px);
+    border:none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    background-color: white;
+    padding: 15px;
+    transition: 500ms;
 }
 .jobCard img{
-    width:150px;
+    margin-top:25px;
+   
+    width: 150px;
     height: 150px;
 }
 .companyLogoCard{
@@ -70,32 +76,14 @@ text-align: right;
 }
 .carerLevelCard{
     margin-top:5px;
-    grid-column: 2/4;
-    grid-row: 3;
+    grid-column: 2/6;
+    grid-row: 4;
     font-size: 13px;
     margin-bottom: 3px;}
 
 .jobDescription{
     grid-column: 2/5;
-    grid-row:4/6;
+    grid-row: 5/9;
     font-size: 12px;
-}
-.addFavCard{
-    grid-column: 6;
-    grid-row: 5;
-    background-color: rgba(237, 237, 237, 0.379);
-    border: 1px solid rgba(205, 202, 202, 0.511);
-    width: 170px;
-    height: 35px;
-    font-size: 8px;
-    font-size: 14px;
-    text-align: center;
-    color: rgb(107, 104, 104);
-    transition: 500ms;
-}
-.addFavCard:hover{
-    background-color: #4090d282;
-    border: none;
-    border-radius: 2px;
 }
 

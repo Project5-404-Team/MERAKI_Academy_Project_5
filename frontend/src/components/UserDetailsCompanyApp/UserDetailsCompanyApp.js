@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import {setUserCoId} from "../Redux/reducers/Companies/companies"
-
+import "./UserDetailsCompanyApp.css"
 
 function UserDetailsCompanyApp() {
 
@@ -22,8 +22,8 @@ function UserDetailsCompanyApp() {
   return (
     <>
          <CompaniesNavbar/>
-         <div className="userDetailsMainDiv">
-        <div className="userDetailsCard">
+         <div className="userDetailsMainDiv3">
+        <div className="userDetailsCard3">
           <div className="profilePicture">
             <img src={userDetailsInCompanyApp.userimage}></img>
             {userDetailsInCompanyApp.cv && (

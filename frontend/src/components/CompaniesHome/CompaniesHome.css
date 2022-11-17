@@ -1,128 +1,174 @@
-.companyHomeDiv{
+.companyHomeDiv1 {
     position: relative;
-    top:60px;
+    top: 140px;
     display: grid;
-    grid-template-columns: repeat(10,1fr);
-    color:rgba(0, 0, 0, 0.757);
- 
-}
-.filterNav{
+    grid-template-columns: repeat(10, 1fr);
+    color:rgb(82, 79, 79);
+  }
+  .IconDiv{
+      position: fixed;
+      top: -80px;
+      left: -20px;
+      
+  }
+  .filterNav1 {
     position: fixed;
-    top:60px;
-    width:400px;
+    top: 150px;
+    width: 400px;
     grid-column: 1/4;
     border-right: 1px solid rgba(205, 202, 202, 0.511);
-  margin-top: 15px;
-    margin-left: 0px;
+    margin-top: 0px;
+    margin-left: -10px;
     padding-right: 15px;
-
-}
-.filterNav li{
-    list-style-type: none; 
+    background-color:#3f92ff;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    color: white;
+  }
+  .filterNav1 li {
+    list-style-type: none;
     margin-bottom: 8px;
     font-weight: 500;
-    transition: 500ms;
     font-size: 16px;
-}
-.filterNav li:hover{
+  }
+  .video{
+      display: flex;
+      grid-column: 9/11;
+      margin-top: 50px;
+      position: fixed;
+      right: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    
+  }
+  .createCvButton{
+      grid-column: 6;
+      grid-row: 5;
+      background-color: #3f92ff;
+      border: 1px solid rgba(205, 202, 202, 0.511);
+      width:250px;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      color:white;
+      transition: 500ms;
+      font-weight: 600;
+      border-radius: 5px;
+      margin-top: 30px;
+    }
+  
+    .createCvButton:hover {
+      background-color: #006eff;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      cursor: pointer
+    }
+    
+  
+  .filterNav1 li:hover {
     cursor: pointer;
-    color:#4090d282
-
-}
-.usersCardsDiv{
-    grid-column: 4/9;
-
-}
-.userCard:hover{background-color: #4090d212;
-    border: 2px solid #4090d282;}
-
-.userCard{
-    border:1px solid black;
+    background-color: #f4f4f4;
+    color: GREY;
+  
+    border-radius: 5px;
+  }
+  .userCard1 {
+    grid-column: 4/8;
+  
+  }
+  .userCard1:hover {
+    background-color:rgba(239, 238, 238, 0.734);
+  }
+  .userCard1:first-of-type {
+      border-top: 5PX #3f92ff SOLID ;
+      border-radius: 5px;
+  }
+  .userCard1 {
+    border: 1px solid black;
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-rows: repeat(5,30px);
-margin-bottom: 20px;
-background-color: rgba(206, 202, 202, 0.821);
-border: 2px solid rgba(205, 202, 202, 0.511);
-padding: 15px;
-transition: 500ms;
-}
-.userCard img{
-    width:150px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 25px);
+    border:none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    background-color: white;
+    padding: 15px;
+    transition: 500ms;
+   
+  }
+  
+  .userCard1 img {
+    margin-top:25px;
+   
+    width: 150px;
     height: 150px;
-}
-.userImageCard{
-grid-column: 1;
-grid-row: 1/6;
-margin-right: 15px;
-}
-.fullNameCard:hover{
-    cursor: pointer;
-}
-.userjobsdetailingCard{
-    cursor: pointer;
-}
-.fullNameCard{
-grid-column: 2/5;
-grid-row: 1;
-margin-top: 0px;
-margin-bottom: 1px;;
-}
-.userjobsdetailingCard{
-    grid-column: 2/6;
-    grid-row: 2;
-    margin-bottom: 5px;
-    margin-top: 10px;
-    font-size: 15px;
-}
-.jobCountryCard{
-    grid-column: 2/4;
-    grid-row: 2;
-}
+  }
+  .usersCardsDiv1{
+    grid-column: 4/8;
 
-.createdDateCard{
-grid-column: 5/7;
-grid-row: 1;
-text-align: right;
+
 }
-.expiryDateCard{
-    grid-column: 5/7;
-grid-row: 2;
-text-align: right;
-}
-.Majorusercard{
+  .userImageCard1 {
+    grid-column: 1;
+    grid-row: 1/9;
+    margin-right: 15px;
+  }
+  .fullNameCard1:hover {
+    cursor: pointer;
+  }
+
+.fullNameCard1 {
+    grid-column: 2/5;
+    grid-row: 1;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+  .userjobsdetailingCard1 {
+    grid-column: 2/5;
+    grid-row: 2/4;
+    margin-bottom: 5px;
+    
+    font-size: 15px;
+  }
+ .yearsofexperienceusercard12 {
+    grid-column: 2/5;
+    grid-row: 6;
+    font-size: 13px;
+  }
+  .Majorusercard1{
     margin-top:5px;
-    grid-column: 2/4;
-    grid-row: 3;
+    grid-column: 2/5;
+    grid-row: 5;
     font-size: 13px;
     margin-bottom: 3px;}
 
-.yearsofexperienceusercard{
-    grid-column: 2/5;
-    grid-row:4;
-    font-size: 12px;
-}
-.Languagesusercard{
-    grid-column: 2/5;
-    grid-row:5;
-    font-size: 12px;
-}
-.addFavCard{
+    .Languagesusercard1{
+        grid-column: 2/5;
+        grid-row:7;
+        font-size: 12px;
+    }
+
+
+  .addFavCard1 {
     grid-column: 6;
-    grid-row: 5;
-    background-color: rgba(237, 237, 237, 0.379);
+    grid-row:8;
+    background-color: #3f92ff;
     border: 1px solid rgba(205, 202, 202, 0.511);
     width: 170px;
     height: 35px;
     font-size: 8px;
     font-size: 14px;
     text-align: center;
-    color: rgb(107, 104, 104);
+    color:white;
     transition: 500ms;
-}
-.addFavCard:hover{
-    background-color: #4090d282;
+    font-weight: 600;
+    border-radius: 5px;
+  }
+  .addFavCard1:hover {
+    background-color: #006eff;
     border: none;
     border-radius: 2px;
-}
-
+    color: white;
+  cursor: pointer;}
+  

@@ -104,10 +104,10 @@ const UserComplete = () => {
   return (
     <>
        
-      <UserNavbar />
-      <div className="bigDivRegisterComplete">
-        <h2 className="completeAccountpar">Complete Your Account !</h2>
-        <div className="infoContainerRegister1">
+      <UserNavbar/>
+      <div className="bigDivRegisterComplete2">
+        <h2 className="completeAccountpar2">Complete Your Account !</h2>
+        <div className="infoContainerRegister2">
           <input
             placeholder="Phone Number"
             className="RegInput"
@@ -953,7 +953,7 @@ const UserComplete = () => {
        
           </div>
           <button
-            className="registerButton1"
+            className="registerButton2"
             onClick={() => {
               handleRegister();
             }}

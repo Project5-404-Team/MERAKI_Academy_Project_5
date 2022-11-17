@@ -4,6 +4,8 @@
 }
 
 .infoContainerAddNewJob {
+  border-top: 5PX #3f92ff SOLID ;
+  border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
@@ -11,8 +13,8 @@
     flex-direction: row;
     column-gap: 100px;
     flex-wrap: wrap;
-    background-color: rgba(237, 237, 237, 0.379);
-    border: 2px solid rgba(205, 202, 202, 0.511);
+    background-color:white;
+   
     padding:50px;
   }
   .infoContainerAddNewJob input {
@@ -24,21 +26,25 @@
     color: rgb(75, 75, 75);
   }
   .infoContainerAddNewJob button {
-    background-color: rgba(237, 237, 237, 0.379);
+    background-color: #3f92ff;
     border: 1px solid rgba(205, 202, 202, 0.511);
     width: 170px;
     height: 35px;
     font-size: 8px;
     font-size: 14px;
     text-align: center;
-    color: rgb(107, 104, 104);
+    font-weight: 600;
     transition: 500ms;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    color:white;
   }
   .infoContainerAddNewJob button:hover {
-    background-color: #4090d282;
+    background-color: #006eff;
     border: none;
-    border-radius: 2px;
+
+    color: white;
+  cursor: pointer;
   }

@@ -31,8 +31,8 @@ const UserNavbar = () => {
   }, []);
   return (
     <>
-      <div className="userNavbar">
-        <div className="home_navbar">
+      <div className="userNavbar1">
+        <div className="home_navbar1">
           {isLoggedIn && (
             <p style={{color:"white"}}
               onClick={() => {
@@ -45,7 +45,7 @@ const UserNavbar = () => {
           )}
 
         </div>
-        <div className="userDetails_navbar">
+        <div className="userDetails_navbar1">
         {isLoggedIn && (
           <p
             onClick={() => {
@@ -91,7 +91,7 @@ const UserNavbar = () => {
             My Applied Jobs
           </p>
         )}</div>
-        <div className="search_navbar">
+        <div className="search_navbar1">
          {isLoggedIn && <JobsSearch />}
          </div>
          <div className="logout">
