@@ -60,10 +60,7 @@ margin-right: 15px;
     margin-top: 10px;
     font-size: 15px;
 }
-.jobCountryCard1{
-    grid-column: 2/4;
-  grid-row: 2/4;
-}
+
 
 .createdDateCard{
 grid-column: 5/7;

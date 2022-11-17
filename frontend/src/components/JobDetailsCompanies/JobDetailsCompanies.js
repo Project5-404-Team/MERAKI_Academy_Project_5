@@ -96,11 +96,11 @@ function JobDetailsCompanies() {
   return (
     <>
       <CompaniesNavbar />
-      <div className="jobDetailsMainPage">
-        <div id={jobDetails.id} key={jobDetails.id} className="jobCardDetails">
+      <div className="jobDetailsMainPage3">
+        <div id={jobDetails.id} key={jobDetails.id} className="jobCardDetails3">
           <div className="generalInfo">
             <img
-              className="companyLogoCardDetails"
+              className="companyLogoCardDetails3"
               src={jobDetails.companylogo}
             ></img>
             <div>
@@ -137,18 +137,18 @@ function JobDetailsCompanies() {
             <p style={{ fontWeight: "600" }}>Expiry Date: </p>
             <p>{jobDetails.expirydate.substring(0, 10)}</p>
           </div>
-          <div className="jobDetailsInfo">
-            <h2 className="jobTitleCardDetails" onClick={() => {}}>
+          <div className="jobDetailsInfo3">
+            <h2 className="jobTitleCardDetails3" onClick={() => {}}>
               {jobDetails.jobtitle}
             </h2>{" "}
             <br></br>
             <p style={{ fontWeight: "600" }}>Job Description</p>{" "}
-            <p className="jobDescriptionDetails">{jobDetails.jobdescription}</p>
+            <p className="jobDescriptionDetails3">{jobDetails.jobdescription}</p>
             <br></br>
             <p style={{ fontWeight: "600" }}>Job Requirements</p>
             <p>{jobDetails.jobrequirements}</p>
             <br></br>
-            <div className="additionalInfo">
+            <div className="additionalInfo3">
               <div>
                 <p style={{ fontWeight: "600" }}>Years Of Experience</p>
                 <p>{jobDetails.yearsofexperience}</p>

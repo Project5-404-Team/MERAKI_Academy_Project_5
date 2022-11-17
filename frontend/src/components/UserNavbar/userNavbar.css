@@ -1,4 +1,4 @@
-.userNavbar{
+.userNavbar1{
   margin-top:-10px;
   position: fixed;
     height: 60px;
@@ -17,11 +17,13 @@
     font-size: 16px;
     cursor: pointer;
     z-index: 1;
+  margin-left: -10px;
+  margin-right: -10px;
   }
-  .userNavbar div:hover{
-    color: white;;
+  .userNavbar1 div:hover{
+    color: white;
   }
-  .search_navbar *{
+  .search_navbar1 *{
     height: 30px;
     font-weight: 600;
     color:rgba(7, 7, 93, 0.856);
@@ -32,6 +34,6 @@
 
 }
 
-.userNavbar div{
+.userNavbar1 div{
   transition: 500ms;
 }

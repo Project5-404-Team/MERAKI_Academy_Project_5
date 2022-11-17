@@ -1,19 +1,24 @@
-.userDetailsMainDiv {
+.userDetailsMainDiv1 {
   position: relative;
   top: 100px;
+  color:rgb(82, 79, 79)
 }
-.userDetailsCard {
+.userDetailsCard1 {
+  border-top: 5PX #3f92ff SOLID ;
+  border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  background-color: rgba(237, 237, 237, 0.379);
+  background-color: white;
 
   padding: 30px;
   margin-bottom: 100px;
 }
-.updateSectionDetailsUser {
+.updateSectionDetailsUser1 {
+  border-top: 5PX #3f92ff SOLID ;
+  border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
@@ -21,11 +26,12 @@
   flex-direction: row;
   column-gap: 100px;
   flex-wrap: wrap;
-  background-color: rgba(237, 237, 237, 0.379);
-  border: 2px solid rgba(205, 202, 202, 0.511);
+  background-color: white;
+
   padding:50px;
+  border-radius: 5px;
 }
-.updateSectionDetailsUser input {
+.updateSectionDetailsUser1 input {
   width: 400px;
   height: 30px;
   margin-bottom: 20px;
@@ -33,7 +39,10 @@
   font-weight: 600;
   color: rgb(75, 75, 75);
 }
-.updateSectionDetailsUser button {
+.updateSectionDetailsUser1 input:focus {
+  color: rgb(75, 75, 75);
+}
+.updateSectionDetailsUser1 button{
   background-color: rgba(237, 237, 237, 0.379);
   border: 1px solid rgba(205, 202, 202, 0.511);
   width: 170px;
@@ -47,15 +56,15 @@
   margin-left: auto;
   margin-right: auto;
 }
-.updateSectionDetailsUser select{
+.updateSectionDetailsUser1 select{
   width: 410px;
   height: 35px;
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 600;
-  color: rgb(75, 75, 75);
+  color: rgba(75, 75, 75, 0.737);
 }
-.updateSectionDetailsUser button:hover {
+.updateSectionDetailsUser1 button:hover {
   background-color: #4090d282;
   border: none;
   border-radius: 2px;
@@ -106,6 +115,4 @@
 
 .CvInfo {
   grid-column: 8/11;
-}
-.updateSectionDetailsUser {
 }

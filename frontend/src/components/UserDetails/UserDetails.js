@@ -120,8 +120,8 @@ function UserDetails() {
     <>
       {console.log(userDetails)}
       <UserNavbar />
-      <div className="userDetailsMainDiv">
-        <div className="userDetailsCard">
+      <div className="userDetailsMainDiv1">
+        <div className="userDetailsCard1">
           <div className="profilePicture">
             <img src={userDetails.userimage}></img>
             {userDetails.cv && (
@@ -165,7 +165,7 @@ function UserDetails() {
         {updateBox && userDetails.id && (
           <div>
             <h1>Update Any Field You Want !</h1>
-            <div className="updateSectionDetailsUser">
+            <div className="updateSectionDetailsUser1">
               <input
                 type="text"
                 placeholder="phone number here"

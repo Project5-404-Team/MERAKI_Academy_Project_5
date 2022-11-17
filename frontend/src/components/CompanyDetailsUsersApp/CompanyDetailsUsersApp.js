@@ -21,13 +21,13 @@ function CompanyDetailsUsersApp() {
   return (
     <>
     <UserNavbar/>
-        <div className="companyDetailsMainDiv">
-        <div className="companyDetailsCard">
+        <div className="companyDetailsMainDiv2">
+        <div className="companyDetailsCard2">
         
-        <div className="generallInfocompanydetails">
+        <div className="generallInfocompanydetails2">
         
      
-          <img className="companyDetailLogo" src={companyDetailsInUsersApp.companylogo}></img>
+          <img className="companyDetailLogo2" src={companyDetailsInUsersApp.companylogo}></img>
          
           <div>
               <p style={{ fontWeight: "600" }}>Company Name:</p><p>{companyDetailsInUsersApp.companyname}</p></div>
@@ -48,16 +48,16 @@ function CompanyDetailsUsersApp() {
       <div><p style={{ fontWeight: "600" }}>ceo: </p><p>{companyDetailsInUsersApp.ceo}</p>
       </div>
 </div>
+<button className="sendmessage" onClick={()=>{
+dispatch(setCompanyIdUserApp(companyDetailsInUsersApp.id))
+
+navigate("/messenger")
+    }}> Send Message</button>
 
      
 
 </div>
 
-<button onClick={()=>{
-dispatch(setCompanyIdUserApp(companyDetailsInUsersApp.id))
-
-navigate("/messenger")
-    }}> Send Message</button>
 
  </div>
  </div>

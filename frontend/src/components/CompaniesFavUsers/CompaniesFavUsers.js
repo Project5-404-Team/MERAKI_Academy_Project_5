@@ -69,7 +69,7 @@ const CompaniesFavUsers = () => {
                 
               }}>{elem.fullname}</h2>
                 <h3 className="userjobsdetailingCard">{elem.recentjobtitle} - {elem.industryofrecentjob} - {elem.wheredoyoulive}</h3>
-                <p className="Majorusercard"> Major : {elem.major}</p>
+                <p className="Majorusercard"> Major : {elem.major} - {elem.educationalinstitutename}</p>
                 <p className="yearsofexperienceusercard"> Years Of Experience : {elem.yearsofexperience}</p>
                 <p className="Languagesusercard"> Languages : {elem.languages}</p>
                 <button className="deleteFavCard"
