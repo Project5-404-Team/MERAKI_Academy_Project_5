@@ -5,13 +5,17 @@
   grid-template-columns: repeat(10, 1fr);
   color:rgb(82, 79, 79);
 }
-.IconDiv{
+.IconDiv1{
     position: fixed;
-    top: -80px;
-    left: -20px;
+    top: 70px;
+    left: 50px;
+    
     
 }
-.filterNav1 {
+.IconDiv1 img{
+  width:300px;
+}
+.filterNav2 {
   position: fixed;
   top: 150px;
   width: 400px;
@@ -20,12 +24,12 @@
   margin-top: 0px;
   margin-left: -10px;
   padding-right: 15px;
-  background-color:#3f92ff;
+  background-color:#3a3b3d;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   color: white;
 }
-.filterNav1 li {
+.filterNav2 li {
   list-style-type: none;
   margin-bottom: 8px;
   font-weight: 500;
@@ -42,10 +46,10 @@
     flex-direction: column;
   
 }
-.createCvButton{
+.createCvButton1{
     grid-column: 6;
     grid-row: 5;
-    background-color: #3f92ff;
+    background-color: #3a3b3d;
     border: 1px solid rgba(205, 202, 202, 0.511);
     width:250px;
     height: 40px;
@@ -58,16 +62,16 @@
     margin-top: 30px;
   }
 
-  .createCvButton:hover {
-    background-color: #006eff;
+  .createCvButton1:hover {
+    background-color: #3a3b3dd1;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     color: white;
     cursor: pointer
   }
   
 
-.filterNav1 li:hover {
+.filterNav2 li:hover {
   cursor: pointer;
   background-color: #f4f4f4;
   color: GREY;
@@ -82,7 +86,7 @@
   background-color:rgba(239, 238, 238, 0.734);
 }
 .jobCard1:first-of-type {
-    border-top: 5PX #3f92ff SOLID ;
+    border-top: 5PX #3a3b3d SOLID ;
     border-radius: 5px;
 }
 .jobCard1 {
@@ -100,7 +104,6 @@
 
 .jobCard1 img {
   margin-top:25px;
- 
   width: 150px;
   height: 150px;
 }
@@ -156,10 +159,10 @@
   grid-row: 5/9;
   font-size: 12px;
 }
-.addFavCard1 {
+.addFavCard2 {
   grid-column: 6;
-  grid-row: 5;
-  background-color: #3f92ff;
+  grid-row: 7;
+  background-color: #3a3b3d;
   border: 1px solid rgba(205, 202, 202, 0.511);
   width: 170px;
   height: 35px;
@@ -171,8 +174,8 @@
   font-weight: 600;
   border-radius: 5px;
 }
-.addFavCard1:hover {
-  background-color: #006eff;
+.addFavCard2:hover {
+  background-color: #3a3b3dd1;
   border: none;
 
   color: white;

@@ -93,12 +93,23 @@ const CompaniesHome = () => {
   return (
     <>
       <CompaniesNavbar />
-
+      <div className="IconDiv1">
+<img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668709233/hire-me-logoSvg_nwibby.svg"></img>
+</div>
       <div className="companyHomeDiv1">
         <div className="filterNav1">
           <FilterNavCompanies />
         </div>
-
+        <div className="video">
+      
+      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+  </video>
+  <h1>Create a winning<br></br>
+    portfolio in minutes..</h1>
+   
+    <a href="https://portfolio.adobe.com/start" target="blank"><button className="createCvButton1" >Create Your Portfolio</button></a>
+      </div>
         <div className="usersCardsDiv1">
           <button
             onClick={() => {

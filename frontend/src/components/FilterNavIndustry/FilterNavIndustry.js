@@ -30,105 +30,106 @@ function FilterNav() {
     <>
       <div className="filterNavList">
         <ul>
-            <h2>Filter</h2>
-            <h3>Industry</h3>
+            <h2><i class="fas fa-filter"></i> &nbsp;Filter</h2>
+            <h3><i class="fas fa-toolbox"></i> &nbsp;Industry</h3>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Non-Profit and Social Services
+            <i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;&nbsp;Non-Profit and Social Services
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Education and Training
+            <i class="fas fa-graduation-cap"></i> Education and Training
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Government and Public Sector{" "}
+            <i class="fas fa-university"></i>&nbsp;&nbsp;&nbsp;Government and Public Sector{" "}
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Healthcare and Medical Services
+           <i class="fas fa-hand-holding-medical"></i>&nbsp;&nbsp;&nbsp;Healthcare and Medical Services
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Retail and Wholesale{" "}
+           <i class="fas fa-cash-register"></i>&nbsp;&nbsp;&nbsp;Retail and Wholesale{" "}
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Telecommunications
+           <i class="fas fa-satellite-dish"></i>&nbsp;&nbsp;&nbsp;Telecommunications
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Call Center, Telemarketing and BPO
+             <i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;Call Center, Telemarketing and BPO
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Catering, Food Services and Restaurants
+           <i class="fas fa-utensils"></i>&nbsp;&nbsp;&nbsp;Catering, Food Services and Restaurants
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Banking and Financial Services
+            <i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;Banking and Financial Services
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Manufacturing and Production
+            <i class="fas fa-industry"></i>&nbsp;&nbsp;&nbsp;Manufacturing and Production
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Marketing, Advertising and Public Relations
+          
+<i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;Marketing, Advertising and Public Relations
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Shipping and Logistics{" "}
+            <i class="fas fa-shipping-fast"></i>&nbsp;&nbsp;&nbsp;Shipping and Logistics{" "}
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Consultancy
+            <i class="fas fa-layer-group"></i>&nbsp;&nbsp;&nbsp;Consultancy
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Furniture and Office Equipment
+            <i class="fas fa-couch"></i>&nbsp;&nbsp;&nbsp;Furniture and Office Equipment
           </li>
           <li value={"Property and Real Estate"}
             onClick={(e)=>{
@@ -137,42 +138,46 @@ function FilterNav() {
               
           
           >
-            Property and Real Estate
+            <i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;Property and Real Estate
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Business Support Services
+            <i class="fas fa-briefcase"></i>&nbsp;&nbsp;&nbsp;Business Support Services
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Employment Placement Agencies and Human Resources{" "}
+            <i class="fas fa-handshake"></i>&nbsp;&nbsp;&nbsp;Employment Placement Agencies and Human Resources{" "}
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Insurance
+          <i class="fas fa-user-injured"></i>&nbsp;&nbsp;&nbsp;Insurance
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Law Enforcement and Security Services{" "}
+           
+ 
+ 
+<i class="fas fa-gavel"></i>&nbsp;&nbsp;&nbsp;Law Enforcement and Security Services{" "}
           </li>
           <li
             onClick={(e) => {
                 HandleJobSearch(e.target.innerText);
             }}
           >
-            Research and Development{" "}
+           
+<i class="fas fa-search-dollar"></i>&nbsp;&nbsp;&nbsp;Research and Development{" "}
           </li>
         </ul>
       </div>

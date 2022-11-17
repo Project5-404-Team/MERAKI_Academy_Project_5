@@ -1,50 +1,50 @@
-.bigDivRegisterComplete{
-    position: relative;
-    top:200px;
-  
+.bigDivRegisterComplete {
+  position: relative;
+  top: 200px;
 }
-.infoContainerRegister1{
-    border-top: 5PX #3f92ff SOLID ;
-    border-radius: 5px;
-    width: 920px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-left: auto;
-    margin-right: auto;
-    background-color:white;
+.infoContainerRegister1 {
+  border-top: 5px #3a3b3d SOLID;
+  border-radius: 5px;
+  width: 920px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
 
-    padding:30px
+  padding: 30px;
 }
-.completeAccountpar{
-    margin-left: 250px;
+.completeAccountpar {
+  margin-left: 250px;
 }
-.infoContainerRegister select{
-    width:300px;
-    height:30px}
-    .infoContainerRegister input{
-        grid-column: auto;
-        grid-row: auto;
-    }
-    .registerButton1complete{
-        grid-column: 1/3;
-     align-items: center;
-     background-color: #3f92ff;
-     border: 1px solid rgba(205, 202, 202, 0.511);
-     width: 300px;
-     height: 50px;
-     
-     font-size: 16px;
-     text-align: center;
-     color:white;
-     transition: 500ms;
-     font-weight: 600;
-     border-radius: 5px;
-       margin-left: 300px;
-       margin-top:50px;
-    }
-    .registerButton1complete:hover{
-        background-color: #006eff;
-        border: none;
-        border-radius: 5px;
-        color: white;
-      cursor: pointer;}
+.infoContainerRegister select {
+  width: 300px;
+  height: 30px;
+}
+.infoContainerRegister input {
+  grid-column: auto;
+  grid-row: auto;
+}
+.registerButton1complete {
+  grid-column: 1/3;
+  align-items: center;
+  background-color: #3a3b3d;
+  border: none;
+  width: 300px;
+  height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  transition: 500ms;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+.registerButton1complete:hover {
+  background-color: #3a3b3dd1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
