@@ -9,8 +9,6 @@ import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
 
-
-
 const UserHome = () => {
 
 
