@@ -5,12 +5,16 @@
     grid-template-columns: repeat(10, 1fr);
     color:rgb(82, 79, 79);
   }
-  .IconDiv{
-      position: fixed;
-      top: -80px;
-      left: -20px;
-      
-  }
+  .IconDiv1{
+    position: fixed;
+    top: 70px;
+    left: 50px;
+    
+    
+}
+.IconDiv1 img{
+  width:300px;
+}
   .filterNav1 {
     position: fixed;
     top: 150px;
@@ -20,7 +24,7 @@
     margin-top: 0px;
     margin-left: -10px;
     padding-right: 15px;
-    background-color:#3f92ff;
+    background-color:#3a3b3d;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
     color: white;
@@ -45,8 +49,8 @@
   .createCvButton{
       grid-column: 6;
       grid-row: 5;
-      background-color: #3f92ff;
-      border: 1px solid rgba(205, 202, 202, 0.511);
+      background-color: #3a3b3d;
+      border: none;
       width:250px;
       height: 40px;
       font-size: 18px;
@@ -59,7 +63,7 @@
     }
   
     .createCvButton:hover {
-      background-color: #006eff;
+      background-color: #3a3b3dd1;
       border: none;
       border-radius: 2px;
       color: white;
@@ -82,11 +86,11 @@
     background-color:rgba(239, 238, 238, 0.734);
   }
   .userCard1:first-of-type {
-      border-top: 5PX #3f92ff SOLID ;
+      border-top: 5PX #3a3b3d SOLID ;
       border-radius: 5px;
   }
   .userCard1 {
-    border: 1px solid black;
+    
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(8, 25px);
@@ -100,7 +104,6 @@
   
   .userCard1 img {
     margin-top:25px;
-   
     width: 150px;
     height: 150px;
   }
@@ -153,8 +156,8 @@
   .addFavCard1 {
     grid-column: 6;
     grid-row:8;
-    background-color: #3f92ff;
-    border: 1px solid rgba(205, 202, 202, 0.511);
+    background-color: #3a3b3d;
+    border: none;
     width: 170px;
     height: 35px;
     font-size: 8px;
@@ -166,9 +169,9 @@
     border-radius: 5px;
   }
   .addFavCard1:hover {
-    background-color: #006eff;
+    background-color: #3a3b3dd1;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     color: white;
   cursor: pointer;}
   

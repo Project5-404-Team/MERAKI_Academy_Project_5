@@ -31,7 +31,7 @@ const UserNavbar = () => {
   }, []);
   return (
     <>
-      <div className="userNavbar1">
+      <div className="userNavbar2">
         <div className="home_navbar1">
           {isLoggedIn && (
             <p style={{color:"white"}}
