@@ -17,7 +17,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 1100px;
-    border-top: 5PX #3f92ff SOLID ;
+    border-top: 5PX #3a3b3d SOLID ;
     background-color: white;
     border-radius: 5px;
   margin-bottom: 100px;
@@ -28,24 +28,25 @@
   width: 300px;
 }
 .profilePicture button {
-  background-color: rgba(237, 237, 237, 0.379);
-  border: 1px solid rgba(205, 202, 202, 0.511);
+  background-color: #3a3b3d;
+  border: none;
   width: 200px;
   height: 35px;
   font-size: 8px;
   font-size: 14px;
   text-align: center;
-  color: rgb(107, 104, 104);
+  color:white;
   transition: 500ms;
   margin-top: 20px;
   margin-left: 50px;
   margin-right: auto;
+  font-weight: 600;
 }
 
 .profilePicture button:hover {
-  background-color: #4090d282;
+  background-color: #3a3b3dd1;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 .profilePicture {
   grid-column: 1/5;

@@ -16,7 +16,7 @@
 
 }
 .favjobCard1:first-of-type {
-    border-top: 5PX #3f92ff SOLID ;
+    border-top: 5PX #3a3b3d SOLID ;
     border-radius: 5px;
 }
 .favjobCard1:hover{  background-color:rgba(239, 238, 238, 0.734);}
@@ -97,7 +97,7 @@ text-align: right;
 .deleteFavButton1{
     grid-column: 6;
     grid-row: 5;
-    background-color: #3f92ff;
+    background-color: #3a3b3d;
     border: 1px solid rgba(205, 202, 202, 0.511);
     width: 170px;
     height: 35px;
@@ -110,7 +110,7 @@ text-align: right;
     border-radius: 5px;
 }
 .deleteFavButton1:hover{
-    background-color: #006eff;
+    background-color: #3a3b3dd1;
     border: none;
     border-radius: 2px;
     color: white;

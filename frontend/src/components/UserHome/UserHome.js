@@ -8,7 +8,7 @@ import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
-import Footer from "../Footer/Footer";
+
 const UserHome = () => {
 
 
@@ -61,12 +61,12 @@ token:state.usersAuth.token
    
     <>
      <UserNavbar/>
-     <div className="IconDiv">
-<img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668624692/meraki/NiceJob__1_-removebg-preview_yvyumr.png"></img>
+     <div className="IconDiv1">
+<img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668709233/hire-me-logoSvg_nwibby.svg"></img>
 </div>
     <div className="userHomeDiv">
    
-    <div className="filterNav1">
+    <div className="filterNav2">
     
         <FilterNav/>
       </div>
@@ -78,7 +78,7 @@ token:state.usersAuth.token
 <h1>Create a winning<br></br>
   resume in minutes..</h1>
  
-  <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton" >Create Your Resume</button></a>
+  <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton1" >Create Your Resume</button></a>
     </div>
       <div className="jobsCardsDiv1">
         {allJobs &&
@@ -101,7 +101,7 @@ token:state.usersAuth.token
                 <p className="createdDateCard1" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
                 <p className="expiryDateCard1" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
                 <p className="jobDescription1">{elem.jobdescription.substring(0,150)}...</p>
-                <button className="addFavCard1" 
+                <button className="addFavCard2" 
                   onClick={(e) => {
                     handleAddToFav(elem.id);
                   }}

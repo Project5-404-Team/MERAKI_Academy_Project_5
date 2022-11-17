@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { setAllJobs, setJobDetails } from "../Redux/reducers/Users/users";
 import { setJobSearch } from "../Redux/reducers/Users/users.js";
 
+
 function JobsSearch() {
   const [search, setSearch] = useState("");
 const Navigate =useNavigate()
@@ -29,7 +30,7 @@ const Navigate =useNavigate()
 
   return (
     <>
-      <div><input
+      <div  className="search_input"><input
           onChange={(e) => {
             setSearch(e.target.value);
           }}
@@ -42,7 +43,7 @@ const Navigate =useNavigate()
             setTimeout(HandleJobSearch,100);
           }}
         >
-          Search Now !
+        <i class="fas fa-search"></i>
         </button>
       </div>
     </>
