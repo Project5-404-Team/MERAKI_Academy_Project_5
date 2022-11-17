@@ -8,7 +8,7 @@ import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
-
+import Footer from "../Footer/Footer";
 const UserHome = () => {
 
 
@@ -114,7 +114,7 @@ token:state.usersAuth.token
           })}
       </div>
       </div>
-     
+     <Footer/>
     </>
   );
 };
