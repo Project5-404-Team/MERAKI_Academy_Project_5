@@ -27,7 +27,7 @@ function UserDetailsCompanyApp() {
           <div className="profilePicture">
             <img src={userDetailsInCompanyApp.userimage}></img>
             {userDetailsInCompanyApp.cv && (
-              <a href={userDetailsInCompanyApp.cv} download>
+              <a href={userDetailsInCompanyApp.cv} target="blank" download>
                 <button>Download CV</button>
               </a>
             )}
