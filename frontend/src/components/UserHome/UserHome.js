@@ -8,12 +8,7 @@ import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
-<<<<<<<<< Temporary merge branch 1
-=========
 
-
-
->>>>>>>>> Temporary merge branch 2
 const UserHome = () => {
 
 
