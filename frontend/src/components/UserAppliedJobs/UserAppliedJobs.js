@@ -15,7 +15,6 @@ import {
 function UserAppliedJobs() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
 
   const { userId, appliedJobs,token } = useSelector((state) => {
     return {
@@ -70,8 +69,12 @@ function UserAppliedJobs() {
     <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton" >Create Your Resume</button></a>
       </div>
        <div className="favHomeDiv1">
- 
       <div className="favjobsCardsDiv1">
+      {!appliedJobs.length&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> Browse Jobs NOW !</h1>
+      <button className="button1" onClick={()=>{navigate('/users/userhome')}} > Browse Jobs now!  </button>
+      </div>}
         {appliedJobs &&
           appliedJobs.map((elem, index) => { return(
             <div id={elem.id} key={index} className="favjobCard1">

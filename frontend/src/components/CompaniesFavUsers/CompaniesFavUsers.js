@@ -58,6 +58,11 @@ const CompaniesFavUsers = () => {
     <CompaniesNavbar/>
     <div className="companyfavDiv">
    <div className="usersCardsDivcompanyfav">
+   {!favUsers.length&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> Browse Users NOW !</h1>
+      <button className="button1" onClick={()=>{navigate('/companies/companieshome')}} > Browse Jobs now!  </button>
+      </div>}
         {favUsers &&
           favUsers.map((elem, index) => {
             return (

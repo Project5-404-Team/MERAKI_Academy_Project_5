@@ -17,10 +17,9 @@ export default function UserFavJobs() {
   const navigate = useNavigate();
   const [allfav, setAllFav] = useState();
 
-  const { userId, fav, favJobs,token } = useSelector((state) => {
+  const { userId, favJobs,token } = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
-      fav: state.fav.fav,
       favJobs: state.users.favJobs,
       token:state.usersAuth.token
     };
@@ -32,8 +31,7 @@ export default function UserFavJobs() {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        setAllFav(result.data.result);
-        dispatch(setFav(result.data.result));
+       setAllFav(result.data.result);
         dispatch(setFavJobs(result.data.result));
       })
       .catch((err) => {
@@ -74,6 +72,11 @@ export default function UserFavJobs() {
       </div>
          <div className="favHomeDiv1">
       <div className="favjobsCardsDiv1">
+      {!allfav&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> Browse Jobs NOW !</h1>
+      <button className="button1" onClick={()=>{navigate('/users/userhome')}} > Browse Jobs now!  </button>
+      </div>}
         {favJobs &&
           favJobs.map((elem, index) => {
             return (

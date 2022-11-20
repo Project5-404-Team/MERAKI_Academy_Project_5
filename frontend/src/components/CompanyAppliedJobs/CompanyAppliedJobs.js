@@ -38,6 +38,11 @@ const CompaniesAppliedJobs = () => {
     <>
    <CompaniesNavbar/>
       <div className="jobApplicationMainPage">
+      {!companyAppliedJobs.length&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> There is no incoming applications yet</h1>
+      
+      </div>}
         {companyAppliedJobs &&
           companyAppliedJobs.map((elem, index) => {
             return (
