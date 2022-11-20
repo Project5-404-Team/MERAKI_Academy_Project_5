@@ -125,7 +125,7 @@ function UserDetails() {
           <div className="profilePicture">
             <img src={userDetails.userimage}></img>
             {userDetails.cv && (
-              <a href={userDetails.cv} download>
+              <a href={userDetails.cv} target="blank" download>
                 <button>Download My CV</button>
               </a>
             )}

@@ -51,7 +51,7 @@ const CompaniesAppliedJobs = () => {
     
               <div className="profilePicture">
                 <img src={elem.userimage}></img>
-                <a href={elem.cv} download><button>Download CV</button></a>
+                <a href={elem.cv} download target="blank"><button>Download CV</button></a>
               </div>
               <div className="personalInfo">
                 <h3>Personal Information</h3>
