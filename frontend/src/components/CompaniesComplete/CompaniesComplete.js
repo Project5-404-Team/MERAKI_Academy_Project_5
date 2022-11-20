@@ -151,7 +151,7 @@ const CompaniesComplete = () => {
 
         {registeredSucssfully && (
           <div className="popuptry">
-            <h1> Registerd In Sussfully</h1>
+            <h1> Completed Successfully !</h1>
           </div>
         )}
 
