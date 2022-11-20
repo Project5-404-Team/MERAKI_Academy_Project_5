@@ -103,7 +103,7 @@ const UserComplete = () => {
 
   return (
     <>
-       
+  
       <UserNavbar/>
       <div className="bigDivRegisterComplete2">
         <h2 className="completeAccountpar2">Complete Your Account !</h2>

@@ -45,7 +45,7 @@
   grid-template-columns: 1fr 1fr 1fr;
 column-gap: 30px;
   }
-  .applyButton2{
+  .applyButton2,.addFavCard{
     background-color: #3a3b3d;
     border: none;
     width: 200px;
@@ -61,7 +61,7 @@ column-gap: 30px;
     font-weight: 600;
     border-radius: 5px;
   }
- .applyButton2:hover {
+ .applyButton2:hover,.addFavCard:hover {
     background-color: #3a3b3dd1;
     border: none;
     border-radius: 5px;
