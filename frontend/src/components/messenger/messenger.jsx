@@ -12,6 +12,7 @@ import {
 } from "../Redux/reducers/Messenger/messenger";
 import { io } from "socket.io-client";
 import axios from "axios";
+import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 
 
 const ENDPOINT = "http://localhost:3001";
@@ -172,7 +173,7 @@ useEffect(() => {
 
   return (
     <>
-      <UserNavbar />
+      {userId&&<UserNavbar /> || companyId&& <CompaniesNavbar/>}
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
