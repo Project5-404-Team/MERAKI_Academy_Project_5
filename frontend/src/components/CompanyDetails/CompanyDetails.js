@@ -106,7 +106,7 @@ function CompanyDetails() {
       <div><p style={{ fontWeight: "600" }}>Weekends </p><p>{companyDetails.weekends}</p></div>
       <div><p style={{ fontWeight: "600" }}>ceo: </p><p>{companyDetails.ceo}</p>
       </div>
-      <button onClick={() => {handleUpdateClick(companyId)}}>Edit My Information !</button>
+      <button id="But" onClick={() => {handleUpdateClick(companyId) }}> <a href="#P3">Edit My Information !</a></button>
 </div>
 
 </div>
@@ -116,7 +116,7 @@ function CompanyDetails() {
      
       <div>
   
-        {updateBox && companyUpdateId === companyId && (<div>
+        {updateBox && companyUpdateId === companyId && (<div id="P3">
               <h1>Update Any Field You Want !</h1>
               <div className="updateSectionDetailsCompany2">
          
