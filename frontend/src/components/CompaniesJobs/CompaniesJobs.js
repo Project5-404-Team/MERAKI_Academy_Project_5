@@ -112,8 +112,13 @@ const CompaniesJobs = () => {
     <CompaniesNavbar/>
     <div className="companiesJobsDiv">
       <div className="jobsCardsComapniesDiv">
-        {(companyJobs.length>0) &&
-          companyJobs.map((elem, index) => {
+
+      {!companyJobs.length&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> Add New Job NOW !</h1>
+      <button className="button1" onClick={()=>{navigate('/companies/addnewjob')}} > Add New Job  </button>
+      </div>}
+        {companyJobs && companyJobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
               <img className="companyLogoCard" src={elem.companylogo}></img>

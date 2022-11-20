@@ -85,3 +85,20 @@
   grid-row: 5/9;
   font-size: 12px;
 }
+
+.button1{
+  background-color: #3a3b3d;
+  border:none;
+  width: 170px;
+  height: 35px;
+  font-size: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  transition: 500ms;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  color:white;
+}

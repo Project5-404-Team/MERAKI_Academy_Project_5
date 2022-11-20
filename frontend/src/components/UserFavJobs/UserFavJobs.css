@@ -7,6 +7,13 @@
  
 }
 
+.empety{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
 .favjobsCardsDiv1{
     grid-column: 2/7;

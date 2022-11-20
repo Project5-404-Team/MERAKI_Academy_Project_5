@@ -134,7 +134,7 @@ function UserDetails() {
                 handleUpdateClick(userId);
               }}
             >
-              Edit My Information !
+             <a href="#P2"> Edit My Information !</a>
             </button>
           </div>
           <div className="personalInfo">
@@ -163,7 +163,7 @@ function UserDetails() {
         </div>
 
         {updateBox && userDetails.id && (
-          <div>
+          <div id="P2">
             <h1>Update Any Field You Want !</h1>
             <div className="updateSectionDetailsUser1">
               <input

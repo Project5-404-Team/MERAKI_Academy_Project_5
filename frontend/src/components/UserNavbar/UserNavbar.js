@@ -15,10 +15,11 @@ import {
 import "./userNavbar.css"
 const UserNavbar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, jobSearch } = useSelector((state) => {
+  const { isLoggedIn, jobSearch ,userDetails } = useSelector((state) => {
     return {
       isLoggedIn: state.usersAuth.isLoggedIn,
       jobSearch: state.users.jobSearch,
+      userDetails: state.users.userDetails.iscompleted
     };
   });
 
@@ -60,7 +61,7 @@ const UserNavbar = () => {
        
 
     <div className="complete_account_Navbar">
-        {isLoggedIn && (
+        {isLoggedIn && (userDetails==0)&& (
           <p
             onClick={() => {
               navigate("/users/user/complete");
