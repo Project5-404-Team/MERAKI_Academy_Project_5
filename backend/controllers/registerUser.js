@@ -51,24 +51,24 @@ const registerUserComplete = (req, res) => {
   } = req.body;
   const iscompleted = 1;
   const values = [
-    userId,
-    iscompleted,
-    phoneNumber,
-    maritalStatus,
-    citizenships,
-    whereDoYouLive,
-    residencyStatus,
-    yearsOfExperience,
-    recentJobTitle,
-    recentJobFunction,
-    industryOfRecentJob,
-    languages,
-    skills,
-    educationLevel,
-    major,
-    educationalInstituteName,
-    cv,
-    userImage
+    userId || null,
+    iscompleted || null,
+    phoneNumber || null,
+    maritalStatus || null,
+    citizenships || null,
+    whereDoYouLive|| null,
+    residencyStatus|| null,
+    yearsOfExperience|| null,
+    recentJobTitle|| null,
+    recentJobFunction|| null,
+    industryOfRecentJob|| null,
+    languages|| null,
+    skills|| null,
+    educationLevel|| null,
+    major|| null,
+    educationalInstituteName|| null,
+    cv|| null,
+    userImage|| null
   ];
   const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted),phoneNumber =COALESCE($3,phoneNumber),maritalStatus =COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships), whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience)  ,recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv) , userImage=COALESCE($18,userImage) WHERE id=$1;`;
   pool

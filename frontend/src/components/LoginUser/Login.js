@@ -8,6 +8,7 @@ import { setLogin, setUserId } from "../Redux/reducers/usersAuth";
 import { setUserDetails, setAppliedJobs } from "../Redux/reducers/Users/users";
 import { setUserName } from "../Redux/reducers/Messenger/messenger";
 
+import { useRef } from "react";
 const LoginUser = () => {
   const { userId, allJobs, isLoggedIn } = useSelector((state) => {
     return {
@@ -16,7 +17,8 @@ const LoginUser = () => {
       isLoggedIn: state.usersAuth.isLoggedIn,
     };
   });
-
+  const buttRef = useRef();
+  const [signIn, setSignIn] = useState("Sign in");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -35,7 +37,7 @@ const LoginUser = () => {
         dispatch(setLogin(response.data.token));
         console.log(response.data.payload);
         dispatch(setUserDetails(response.data.payload.user));
-dispatch(setUserName(response.data.payload.user.fullname))
+        dispatch(setUserName(response.data.payload.user.fullname));
 
         navigate("/users/userhome");
       })
@@ -43,15 +45,17 @@ dispatch(setUserName(response.data.payload.user.fullname))
       .catch((err) => {
         console.log(err);
         setError(err.response.data.message);
+      })
+      .finally(() => {
+        buttRef.current.disabled = false;
+        buttRef.current.innerText = "Sign in";
       });
   };
 
   return (
     <>
-    
- 
       <div className="mainPageLoginUser">
-      <div className="navbar_container">
+        <div className="navbar_container">
           <p
             className="navbar_user_login_link"
             onClick={() => {
@@ -71,9 +75,11 @@ dispatch(setUserName(response.data.payload.user.fullname))
           </p>
         </div>
         <div className="BigDivLogin">
-       
           <div className="infoContainer">
-            <h1 style={{textAlign:"left",marginBottom:"40px"}}> Job Seeker Account Login</h1>
+            <h1 style={{ textAlign: "left", marginBottom: "40px" }}>
+              {" "}
+              Job Seeker Account Login
+            </h1>
             {/* <p> Email</p> */}
             <input
               className="emailInput"
@@ -84,9 +90,9 @@ dispatch(setUserName(response.data.payload.user.fullname))
             />
             {/* <p> Password</p> */}
             <input
-              /*type={"password"}*/
+              type={"password"}
               className="emailInput"
-              placeholder=' Password'
+              placeholder=" Password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
@@ -99,44 +105,45 @@ dispatch(setUserName(response.data.payload.user.fullname))
             )}
 
             <button
+              ref={buttRef}
               className="loginButton"
-              onClick={() => {
-                handleLogin();
+              onClick={(e) => {
+                buttRef.current.disabled = true;
+                setTimeout(handleLogin, 3000);
+                console.log(e);
+                setSignIn(<i class="fa fa-circle-o-notch fa-spin"></i>);
               }}
             >
               {" "}
-              Sign in{" "}
+              {signIn}{" "}
             </button>
             <p>{!iserror ? error : null}</p>
           </div>
         </div>
-        <div className="paragraph"> <span style={{ fontWeight: 600 }}>Job Seeker?</span>
-              <p>
-                {" "}
-                Join Us and let employers find you easily and get hired now.
-              </p>
-              <span style={{ fontWeight: 600 }}>
-                Build your profile 
-              </span> </div>
-<div className="belowLoginDiv">
-        <p
-          className="registerLink"
-          onClick={() => {
-            navigate("/users/user/register");
-          }}
-        >
-          Dont Have Account! Register Now
-        </p>
+        <div className="paragraph">
+          {" "}
+          <span style={{ fontWeight: 600 }}>Job Seeker?</span>
+          <p> Join Us and let employers find you easily and get hired now.</p>
+          <span style={{ fontWeight: 600 }}>Build your profile</span>{" "}
+        </div>
+        <div className="belowLoginDiv">
+          <p
+            className="registerLink"
+            onClick={() => {
+              navigate("/users/user/register");
+            }}
+          >
+            Dont Have Account! Register Now
+          </p>
 
-        <p
-          className="googleLink"
-          onClick={() => {
-             navigate("/users/user/login/Google");
-    
-          }}
-        >
-          LOGIN WITH GOOGLE
-        </p>
+          <p
+            className="googleLink"
+            onClick={() => {
+              navigate("/users/user/login/Google");
+            }}
+          >
+            LOGIN WITH GOOGLE
+          </p>
         </div>
       </div>
     </>

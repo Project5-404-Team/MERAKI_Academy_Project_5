@@ -2,10 +2,10 @@ import axios from "axios";
 import React from "react";
 import { useRef } from "react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addJob } from "../Redux/reducers/Companies/companies";
-import "./AddNewJob.css"
+import "./AddNewJob.css";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 const AddNewJob = () => {
   const [jobTitle, setJobTitle] = useState(null);
@@ -22,14 +22,14 @@ const AddNewJob = () => {
   const [jobDescription, setJobDescription] = useState(null);
   const [language, setLanguage] = useState(null);
   const [jobRequirements, setJobRequirements] = useState(null);
-  const { companyId,token } = useSelector((state) => {
-    return { companyId: state.CompaniesAuth.companyId ,
-    token:state.CompaniesAuth.token
+  const { companyId, token } = useSelector((state) => {
+    return {
+      companyId: state.CompaniesAuth.companyId,
+      token: state.CompaniesAuth.token,
     };
-
   });
-  const ref = useRef();
-const dispatch=useDispatch()
+  const ref = useRef();const navigate = useNavigate();
+  const dispatch = useDispatch();
   const body = {
     jobTitle,
     expiryDate,
@@ -48,14 +48,16 @@ const dispatch=useDispatch()
   };
   const handleAddNewJob = () => {
     axios
-      .post(`http://localhost:5000/jobs/${companyId}`, body,{
+      .post(`http://localhost:5000/jobs/${companyId}`, body, {
         headers: {
           authorization: "Bearer " + token,
-        }})
+        },
+      })
       .then((response) => {
         console.log(response);
-        console.log(response.data.result)
-        dispatch(addJob(response.data.result))
+        console.log(response.data.result);
+        dispatch(addJob(response.data.result[0]));
+        navigate("/companies/companyjobs");
       })
       .catch((err) => {
         console.log(err);
@@ -75,13 +77,9 @@ const dispatch=useDispatch()
             setJobTitle(e.target.value);
           }}
         />
-        <input 
+        <input
           placeholder="expiry Date "
-          // type="date"
-          ref={ref}
-          onFocus={() => (ref.current.type = "date")}
-          onBlur={() => (ref.current.type = "text")}
-        
+          type="date"
           className="AddNewJobInput"
           onChange={(e) => {
             setExpiryDate(e.target.value);

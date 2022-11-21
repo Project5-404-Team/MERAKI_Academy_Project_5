@@ -112,13 +112,13 @@ const CompaniesJobs = () => {
     <CompaniesNavbar/>
     <div className="companiesJobsDiv">
       <div className="jobsCardsComapniesDiv">
+
       {!companyJobs.length&& <div className="empety">
       <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
       <h1> Add New Job NOW !</h1>
       <button className="button1" onClick={()=>{navigate('/companies/addnewjob')}} > Add New Job  </button>
       </div>}
-        {companyJobs &&
-          companyJobs.map((elem, index) => {
+        {companyJobs && companyJobs.map((elem, index) => {
             return (
               <div id={elem.id} key={index} className="jobCard">
               <img className="companyLogoCard" src={elem.companylogo}></img>
@@ -133,9 +133,9 @@ const CompaniesJobs = () => {
               
               <p className="carerLevelCard">Career Level : {elem.careerlevel}</p>
               <p></p>
-              <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem.createdat.substring(0,10)}</p>
-              <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem.expirydate.substring(0,10)}</p>
-              <p className="jobDescription">{elem.jobdescription.substring(0,150)}...</p></div>
+              <p className="createdDateCard" style={{fontSize:"12px"}} >Date Posted :{elem && elem.createdat.substring(0,10)}</p>
+              <p className="expiryDateCard" style={{fontSize:"12px"}}>Expiry Date: {elem && elem.expirydate.substring(0,10)}</p>
+              <p className="jobDescription">{elem && elem.jobdescription.substring(0,150)}...</p></div>
 
             );
           })}
