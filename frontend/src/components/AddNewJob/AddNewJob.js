@@ -76,14 +76,14 @@ const AddNewJob = () => {
       <div className="infoContainerAddNewJob">
   
         <input
-          placeholder="job Title"
+          placeholder="Job Title"
           className="AddNewJobInput"
           onChange={(e) => {
             setJobTitle(e.target.value);
           }}
         />
         <input
-          placeholder="expiry Date "
+          placeholder="Expiry Date "
           ref={ref}
     
         onFocus={() => (ref.current.type = "date")}
@@ -101,77 +101,77 @@ const AddNewJob = () => {
           }}
         />
         <input
-          placeholder="career Level "
+          placeholder="Career Level "
           className="AddNewJobInput"
           onChange={(e) => {
             setCareerLevel(e.target.value);
           }}
         />
         <input
-          placeholder="jobType"
+          placeholder="JobType"
           className="AddNewJobInput"
           onChange={(e) => {
             setJobType(e.target.value);
           }}
         />
         <input
-          placeholder="job Role"
+          placeholder="Job Role"
           className="AddNewJobInput"
           onChange={(e) => {
             setJobRole(e.target.value);
           }}
         />
         <input
-          placeholder="years Of Experience"
+          placeholder="Years Of Experience"
           className="AddNewJobInput"
           onChange={(e) => {
             setYearsOfExperience(e.target.value);
           }}
         />
         <input
-          placeholder="country Of Citizenship"
+          placeholder="Country Of Citizenship"
           className="AddNewJobInput"
           onChange={(e) => {
             setCountryOfCitizenship(e.target.value);
           }}
         />
         <input
-          placeholder="country Of Residence"
+          placeholder="Country Of Residence"
           className="AddNewJobInput"
           onChange={(e) => {
             setCountryOfResidence(e.target.value);
           }}
         />
         <input
-          placeholder="salary"
+          placeholder="Salary"
           className="AddNewJobInput"
           onChange={(e) => {
             setSalary(e.target.value);
           }}
         />
         <input
-          placeholder="number Of Hires"
+          placeholder="Number Of Hires"
           className="AddNewJobInput"
           onChange={(e) => {
             setNumberOfHires(e.target.value);
           }}
         />
         <input
-          placeholder="job Description "
+          placeholder="Job Description "
           className="AddNewJobInput"
           onChange={(e) => {
             setJobDescription(e.target.value);
           }}
         />
         <input
-          placeholder="language"
+          placeholder="Language"
           className="AddNewJobInput"
           onChange={(e) => {
             setLanguage(e.target.value);
           }}
         />
         <input
-          placeholder="job Requirements"
+          placeholder="Job Requirements"
           className="AddNewJobInput"
           onChange={(e) => {
             setJobRequirements(e.target.value);
