@@ -77,6 +77,10 @@ token:state.usersAuth.token
       </div>
    
       <div className="jobsCardsDiv1">
+      {!allJobs&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> No Relative Jobs </h1>
+      </div>}
         {allJobs &&
           allJobs.map((elem, index) => {
             return (

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +8,7 @@ import { addJob } from "../Redux/reducers/Companies/companies";
 import "./AddNewJob.css";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 const AddNewJob = () => {
+  const [success, setSuccess] = useState(false);
   const [jobTitle, setJobTitle] = useState(null);
   const [expiryDate, setExpiryDate] = useState(null);
   const [jobLocation, setJobLocation] = useState(null);
@@ -27,7 +29,7 @@ const AddNewJob = () => {
       token: state.CompaniesAuth.token,
     };
   });
-  const navigate = useNavigate();
+  const ref = useRef();const navigate = useNavigate();
   const dispatch = useDispatch();
   const body = {
     jobTitle,
@@ -56,128 +58,138 @@ const AddNewJob = () => {
         console.log(response);
         console.log(response.data.result);
         dispatch(addJob(response.data.result[0]));
+        setSuccess(true)
+
+        setTimeout(() => {
         navigate("/companies/companyjobs");
+        },1000);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  return (
-    <>
-      <CompaniesNavbar />
-      <div className="AddNewJob">
-        <div className="infoContainerAddNewJob">
-          <input
-            placeholder="job Title"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobTitle(e.target.value);
-            }}
-          />
-          <input
-            placeholder="expiry Date "
-            type="date"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setExpiryDate(e.target.value);
-            }}
-          />
-          <input
-            placeholder="Job Location "
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobLocation(e.target.value);
-            }}
-          />
-          <input
-            placeholder="career Level "
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setCareerLevel(e.target.value);
-            }}
-          />
-          <input
-            placeholder="jobType"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobType(e.target.value);
-            }}
-          />
-          <input
-            placeholder="job Role"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobRole(e.target.value);
-            }}
-          />
-          <input
-            placeholder="years Of Experience"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setYearsOfExperience(e.target.value);
-            }}
-          />
-          <input
-            placeholder="country Of Citizenship"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setCountryOfCitizenship(e.target.value);
-            }}
-          />
-          <input
-            placeholder="country Of Residence"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setCountryOfResidence(e.target.value);
-            }}
-          />
-          <input
-            placeholder="salary"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setSalary(e.target.value);
-            }}
-          />
-          <input
-            placeholder="number Of Hires"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setNumberOfHires(e.target.value);
-            }}
-          />
-          <input
-            placeholder="job Description "
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobDescription(e.target.value);
-            }}
-          />
-          <input
-            placeholder="language"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setLanguage(e.target.value);
-            }}
-          />
-          <input
-            placeholder="job Requirements"
-            className="AddNewJobInput"
-            onChange={(e) => {
-              setJobRequirements(e.target.value);
-            }}
-          />
-          <button
-            className="AddNewJobButton"
-            onClick={() => {
-              handleAddNewJob();
-            }}
-          >
-            {" "}
-            Add New Job{" "}
-          </button>
-        </div>
-      </div>{" "}
-    </>
+  return (<>
+   <CompaniesNavbar/>
+
+   
+    <div className="AddNewJob">
+      <div className="infoContainerAddNewJob">
+  
+        <input
+          placeholder="Job Title"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobTitle(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Expiry Date "
+          ref={ref}
+    
+        onFocus={() => (ref.current.type = "date")}
+        onBlur={() => (ref.current.type = "text")}
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setExpiryDate(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Job Location "
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobLocation(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Career Level "
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setCareerLevel(e.target.value);
+          }}
+        />
+        <input
+          placeholder="JobType"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobType(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Job Role"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobRole(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Years Of Experience"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setYearsOfExperience(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Country Of Citizenship"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setCountryOfCitizenship(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Country Of Residence"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setCountryOfResidence(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Salary"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setSalary(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Number Of Hires"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setNumberOfHires(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Job Description "
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobDescription(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Language"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setLanguage(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Job Requirements"
+          className="AddNewJobInput"
+          onChange={(e) => {
+            setJobRequirements(e.target.value);
+          }}
+        />
+        <button
+          className="AddNewJobButton"
+          onClick={() => {
+            handleAddNewJob();
+          }}
+        >
+          {" "}
+          Add New Job{" "}
+        </button>
+      </div>
+      {success&&   <p> Job Added Successfully !</p>}
+
+    </div>  </>
   );
 };
 export default AddNewJob;
