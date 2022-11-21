@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +28,7 @@ const AddNewJob = () => {
     };
 
   });
-  
+  const ref = useRef();
 const dispatch=useDispatch()
   const body = {
     jobTitle,
@@ -74,9 +75,13 @@ const dispatch=useDispatch()
             setJobTitle(e.target.value);
           }}
         />
-        <input
+        <input 
           placeholder="expiry Date "
-          type="date"
+          // type="date"
+          ref={ref}
+          onFocus={() => (ref.current.type = "date")}
+          onBlur={() => (ref.current.type = "text")}
+        
           className="AddNewJobInput"
           onChange={(e) => {
             setExpiryDate(e.target.value);
