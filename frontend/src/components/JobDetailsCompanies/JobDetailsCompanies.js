@@ -10,9 +10,10 @@ import {
   setJobDetails,
   updateJob,
 } from "../Redux/reducers/Companies/companies";
-import "./JobDetailsCompanies.css"
+import "./JobDetailsCompanies.css";
 
 function JobDetailsCompanies() {
+  const [deleted, setDeleted] = useState(false);
   const dispatch = useDispatch();
   const [jobTitle, setJobTitle] = useState(null);
   const [expiryDate, setExpiryDate] = useState(null);
@@ -30,22 +31,29 @@ function JobDetailsCompanies() {
   const [jobRequirements, setJobRequirements] = useState(null);
   const [jobUpdateId, setJobUpdateId] = useState("");
   const [updateBox, setUpdateBox] = useState(false);
-  const { jobDetails,token } = useSelector((state) => {
+  const navigate = useNavigate();
+  const { jobDetails, token } = useSelector((state) => {
     return {
       jobDetails: state.companies.jobDetails,
-      token:state.CompaniesAuth.token
+      token: state.CompaniesAuth.token,
     };
   });
   const deleteJob = (jobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/${jobId}`,{
+      .delete(`http://localhost:5000/jobs/${jobId}`, {
         headers: {
           authorization: "Bearer " + token,
-        }})
+        },
+      })
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
         dispatch(deleteJobs(result.data.result));
+        setDeleted(true);
+
+        setTimeout(() => {
+          navigate("/companies/companyjobs");
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -74,10 +82,11 @@ function JobDetailsCompanies() {
   };
   const updateJob1 = () => {
     axios
-      .put(`http://localhost:5000/jobs/${jobUpdateId}`, body,{
+      .put(`http://localhost:5000/jobs/${jobUpdateId}`, body, {
         headers: {
           authorization: "Bearer " + token,
-        }})
+        },
+      })
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -143,7 +152,9 @@ function JobDetailsCompanies() {
             </h2>{" "}
             <br></br>
             <p style={{ fontWeight: "600" }}>Job Description</p>{" "}
-            <p className="jobDescriptionDetails3">{jobDetails.jobdescription}</p>
+            <p className="jobDescriptionDetails3">
+              {jobDetails.jobdescription}
+            </p>
             <br></br>
             <p style={{ fontWeight: "600" }}>Job Requirements</p>
             <p>{jobDetails.jobrequirements}</p>
@@ -176,110 +187,102 @@ function JobDetailsCompanies() {
                 <p>{jobDetails.salary}</p>
               </div>
               <button
-            onClick={() => {
-              handleUpdateClick(jobDetails);
-            }}
-          >
-            Update Job
-          </button>
-          <button
-          onClick={() => {
-            deleteJob(jobDetails.id);
-          }}
-        >
-          Delete Job
-        </button>
+                onClick={() => {
+                  handleUpdateClick(jobDetails);
+                }}
+              >
+                Update Job
+              </button>
+              <button
+                onClick={() => {
+                  deleteJob(jobDetails.id);
+                }}
+              >
+                Delete Job
+              </button>
             </div>
             <p></p>{" "}
-            
+            {deleted && <p> Job Deleted Successfully</p>}
           </div>
-
-  
         </div>
-       
-        {updateBox && jobUpdateId === jobDetails.id && (<div><h1>Update Any Field You Want !</h1>
-              <div className="updateSectionDetailsCompany">
-         
-      
-        
-            <input
-              type="text"
-              placeholder="job title here"
-              onChange={(e) => setJobTitle(e.target.value)}
-            />
-            
-            <input
-              placeholder="expiry date here"
-              onChange={(e) => setExpiryDate(e.target.value)}
-            ></input>
-         
-            <input
-              placeholder="job location here"
-              onChange={(e) => setJobLocation(e.target.value)}
-            ></input>
-           
-            <input
-              placeholder="career level here"
-              onChange={(e) => setCareerLevel(e.target.value)}
-            ></input>
-         
-            <input
-              placeholder="job type here"
-              onChange={(e) => setJobType(e.target.value)}
-            ></input>
-          
-            <input
-              placeholder="job role here"
-              onChange={(e) => setJobRole(e.target.value)}
-            ></input>
-            <input
-              placeholder="years of experience here"
-              onChange={(e) => setYearsOfExperience(e.target.value)}
-            ></input>
-            <input
-              placeholder="country of citizenship here"
-              onChange={(e) => setCountryOfCitizenship(e.target.value)}
-            ></input>
-            <input
-              placeholder="country of residence here"
-              onChange={(e) => setCountryOfResidence(e.target.value)}
-            ></input>
-            <input
-              placeholder="salary here"
-              onChange={(e) => setSalary(e.target.value)}
-            ></input>
-            <input
-              placeholder="number of hires here"
-              onChange={(e) => setNumberOfHires(e.target.value)}
-            ></input>
-            <input
-              placeholder="job description here"
-              onChange={(e) => setJobDescription(e.target.value)}
-            ></input>
-            <input
-              placeholder="language here"
-              onChange={(e) => setLanguage(e.target.value)}
-            ></input>
-            <input
-              placeholder="job requirements here"
-              onChange={(e) => setJobRequirements(e.target.value)}
-            ></input>
-                <button
-          onClick={() => {
-            handleUpdateClick(jobDetails.id);
-          }}
-        >
-          Update
-        </button>
-          </div>
-      
+
+        {updateBox && jobUpdateId === jobDetails.id && (
+          <div>
+            <h1>Update Any Field You Want !</h1>
+            <div className="updateSectionDetailsCompany">
+              <input
+                type="text"
+                placeholder="job title here"
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
+
+              <input
+                placeholder="expiry date here"
+                onChange={(e) => setExpiryDate(e.target.value)}
+              ></input>
+
+              <input
+                placeholder="job location here"
+                onChange={(e) => setJobLocation(e.target.value)}
+              ></input>
+
+              <input
+                placeholder="career level here"
+                onChange={(e) => setCareerLevel(e.target.value)}
+              ></input>
+
+              <input
+                placeholder="job type here"
+                onChange={(e) => setJobType(e.target.value)}
+              ></input>
+
+              <input
+                placeholder="job role here"
+                onChange={(e) => setJobRole(e.target.value)}
+              ></input>
+              <input
+                placeholder="years of experience here"
+                onChange={(e) => setYearsOfExperience(e.target.value)}
+              ></input>
+              <input
+                placeholder="country of citizenship here"
+                onChange={(e) => setCountryOfCitizenship(e.target.value)}
+              ></input>
+              <input
+                placeholder="country of residence here"
+                onChange={(e) => setCountryOfResidence(e.target.value)}
+              ></input>
+              <input
+                placeholder="salary here"
+                onChange={(e) => setSalary(e.target.value)}
+              ></input>
+              <input
+                placeholder="number of hires here"
+                onChange={(e) => setNumberOfHires(e.target.value)}
+              ></input>
+              <input
+                placeholder="job description here"
+                onChange={(e) => setJobDescription(e.target.value)}
+              ></input>
+              <input
+                placeholder="language here"
+                onChange={(e) => setLanguage(e.target.value)}
+              ></input>
+              <input
+                placeholder="job requirements here"
+                onChange={(e) => setJobRequirements(e.target.value)}
+              ></input>
+              <button
+                onClick={() => {
+                  handleUpdateClick(jobDetails.id);
+                }}
+              >
+                Update
+              </button>
+            </div>
           </div>
         )}
-       
-        </div>
-    
-  
-      
+      </div>
     </>
   );
 }
