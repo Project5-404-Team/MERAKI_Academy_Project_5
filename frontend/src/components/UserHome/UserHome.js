@@ -81,6 +81,10 @@ token:state.usersAuth.token
   <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton1" >Create Your Resume</button></a>
     </div>
       <div className="jobsCardsDiv1">
+      {!allJobs&& <div className="empety">
+      <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+      <h1> No Relative Jobs </h1>
+      </div>}
         {allJobs &&
           allJobs.map((elem, index) => {
             return (
