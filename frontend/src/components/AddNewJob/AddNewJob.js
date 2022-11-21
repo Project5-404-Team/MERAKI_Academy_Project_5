@@ -8,6 +8,7 @@ import { addJob } from "../Redux/reducers/Companies/companies";
 import "./AddNewJob.css";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 const AddNewJob = () => {
+  const [success, setSuccess] = useState(false);
   const [jobTitle, setJobTitle] = useState(null);
   const [expiryDate, setExpiryDate] = useState(null);
   const [jobLocation, setJobLocation] = useState(null);
@@ -57,7 +58,11 @@ const AddNewJob = () => {
         console.log(response);
         console.log(response.data.result);
         dispatch(addJob(response.data.result[0]));
+        setSuccess(true)
+
+        setTimeout(() => {
         navigate("/companies/companyjobs");
+        },1000);
       })
       .catch((err) => {
         console.log(err);
@@ -79,7 +84,10 @@ const AddNewJob = () => {
         />
         <input
           placeholder="expiry Date "
-          type="date"
+          ref={ref}
+    
+        onFocus={() => (ref.current.type = "date")}
+        onBlur={() => (ref.current.type = "text")}
           className="AddNewJobInput"
           onChange={(e) => {
             setExpiryDate(e.target.value);
@@ -179,6 +187,8 @@ const AddNewJob = () => {
           Add New Job{" "}
         </button>
       </div>
+      {success&&   <p> Job Added Successfully !</p>}
+
     </div>  </>
   );
 };
