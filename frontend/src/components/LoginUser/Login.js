@@ -55,9 +55,9 @@ const LoginUser = () => {
   return (
     <>
       <div className="mainPageLoginUser">
-        <div className="navbar_container">
+        <div className="navbar_container2">
           <p
-            className="navbar_user_login_link"
+            className="navbar_user_login_link1"
             onClick={() => {
               navigate("/users/user/login");
             }}
@@ -66,7 +66,7 @@ const LoginUser = () => {
           </p>
           <p className="or">or</p>
           <p
-            className="navbar_company_login_link"
+            className="navbar_company_login_link1"
             onClick={() => {
               navigate("/companies/companies/login");
             }}
@@ -74,15 +74,15 @@ const LoginUser = () => {
             Employer Account
           </p>
         </div>
-        <div className="BigDivLogin">
-          <div className="infoContainer">
+        <div className="BigDivLogin1">
+          <div className="infoContainer1">
             <h1 style={{ textAlign: "left", marginBottom: "40px" }}>
               {" "}
               Job Seeker Account Login
             </h1>
             {/* <p> Email</p> */}
             <input
-              className="emailInput"
+              className="emailInput1"
               placeholder=" Email "
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -91,7 +91,7 @@ const LoginUser = () => {
             {/* <p> Password</p> */}
             <input
               type={"password"}
-              className="emailInput"
+              className="emailInput1"
               placeholder=" Password"
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -99,14 +99,14 @@ const LoginUser = () => {
             />
 
             {loggedInSucssfully && (
-              <div className="popuptry">
+              <div className="popuptry1">
                 <h1> Logged In Successfully</h1>
               </div>
             )}
 
             <button
               ref={buttRef}
-              className="loginButton"
+              className="loginButton1"
               onClick={(e) => {
                 buttRef.current.disabled = true;
                 setTimeout(handleLogin, 3000);
@@ -120,15 +120,15 @@ const LoginUser = () => {
             <p>{!iserror ? error : null}</p>
           </div>
         </div>
-        <div className="paragraph">
+        <div className="paragraph1">
           {" "}
           <span style={{ fontWeight: 600 }}>Job Seeker?</span>
           <p> Join Us and let employers find you easily and get hired now.</p>
           <span style={{ fontWeight: 600 }}>Build your profile</span>{" "}
         </div>
-        <div className="belowLoginDiv">
+        <div className="belowLoginDiv1">
           <p
-            className="registerLink"
+            className="registerLink1"
             onClick={() => {
               navigate("/users/user/register");
             }}
@@ -137,7 +137,7 @@ const LoginUser = () => {
           </p>
 
           <p
-            className="googleLink"
+            className="googleLink1"
             onClick={() => {
               navigate("/users/user/login/Google");
             }}
