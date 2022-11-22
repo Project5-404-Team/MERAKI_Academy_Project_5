@@ -67,9 +67,9 @@ const RegisterUser = () => {
 
   return (
     <div className="mainPageRegisterUser">
-      <div className="navbar_container">
+      <div className="navbar_container1">
           <p
-            className="navbar_user_login_link"
+            className="navbar_user_login_link1"
             onClick={() => {
               navigate("/users/user/login");
             }}
@@ -78,7 +78,7 @@ const RegisterUser = () => {
           </p>
           <p className="or">or</p>
           <p
-            className="navbar_company_login_link"
+            className="navbar_company_login_link1"
             onClick={() => {
               navigate("/companies/companies/login");
             }}
@@ -86,13 +86,13 @@ const RegisterUser = () => {
             Employer Account
           </p>
         </div>
-    <div className="bigDivRegister">
-      <div className="infoContainerRegisteruser">
+    <div className="bigDivRegister1">
+      <div className="infoContainerRegisteruser1">
       <h1 style={{textAlign:"left",marginBottom:"40px"}}> Job Seeker Account Register</h1>
         
         <input
           placeholder="Full Name"
-          className="RegInput"
+          className="RegInput1"
           onChange={(e) => {
             setFullName(e.target.value);
           }}
@@ -101,14 +101,14 @@ const RegisterUser = () => {
         <input
           placeholder="date Of Birth"
           type="date"
-          className="RegInput"
+          className="RegInput1"
           onChange={(e) => {
             setDateOfBirth(e.target.value);
           }}
         />
 
 <select
- className="RegSelect"
+ className="RegSelect1"
                 name="gender"
                 id="gender"
                 onClick={(e) => {
@@ -124,7 +124,7 @@ const RegisterUser = () => {
 
         <input
           placeholder="phone Number"
-          className="RegInput"
+          className="RegInput1"
           onChange={(e) => {
             setPhoneNumber(e.target.value);
           }}
@@ -132,7 +132,7 @@ const RegisterUser = () => {
 
         <input
           placeholder="Email"
-          className="RegInput"
+          className="RegInput1"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -141,20 +141,20 @@ const RegisterUser = () => {
         <input
           type={"password"}
           placeholder="Password"
-          className="RegInput"
+          className="RegInput1"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
 
         {registeredSucssfully && (
-          <div className="popuptry">
+          <div className="popuptry1">
             <h1> Registerd In Sussfully</h1>
           </div>
         )}
 
         <button
-          className="registerButton"
+          className="registerButton1"
           onClick={() => {
             handleRegister();
           }}
@@ -164,7 +164,7 @@ const RegisterUser = () => {
         </button>
       </div>
     </div>
-    <div className="paragraphRegister"> <span style={{ fontWeight: 600 }}>Job Seeker?</span>
+    <div className="paragraphRegister1"> <span style={{ fontWeight: 600 }}>Job Seeker?</span>
               <p>
                 {" "}
                 Join Us and let employers find you easily and get hired now.
