@@ -7,6 +7,7 @@ import { setCompanyAppliedJobs,setJobDetails } from "../Redux/reducers/Companies
 import "./CompaniesAppliedJobs.css"
 import Navbar from "../Navbar/Navbar";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import Footer from "../Footer/Footer";
 
 const CompaniesAppliedJobs = () => {
     const navigate=useNavigate()
@@ -156,7 +157,12 @@ const CompaniesAppliedJobs = () => {
          
             );
           })}
+          
+      <div className="Footer_user">
+      <Footer/>
       </div>
+      </div>
+
     </>
   );
 };

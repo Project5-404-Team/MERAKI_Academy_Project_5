@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "../UserAppliedJobs/UserAppliedJobs.css"
-
+import Footer from "../Footer/Footer";
 import {
 
   setJobDetails,
@@ -58,16 +58,7 @@ function UserAppliedJobs() {
   return (
     <>
        <UserNavbar/>
-       <div className="video1">
-      
-      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
-    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
-  </video>
-  <h1>Create a winning<br></br>
-    resume in minutes..</h1>
-   
-    <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton" >Create Your Resume</button></a>
-      </div>
+     
        <div className="favHomeDiv1">
       <div className="favjobsCardsDiv1">
       {!appliedJobs.length&& <div className="empety">
@@ -107,6 +98,19 @@ function UserAppliedJobs() {
               </div>
             );
           })}
+      </div>
+      <div className="video2">
+      
+      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+  </video>
+  <h1>Create a winning<br></br>
+    resume in minutes..</h1>
+   
+    <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton" >Create Your Resume</button></a>
+      </div>
+      <div className="Footer_user">
+      <Footer/>
       </div>
       </div>
     </>
