@@ -35,14 +35,14 @@ token:state.usersAuth.token
     axios
       .get("http://localhost:5000/jobs")
       .then((result) => {
-        console.log(result);
-        console.log(result.data.result);
         setJobs(result.data.result);
         dispatch(setAllJobs(result.data.result))
+        console.log(result)
       })
       .catch((err) => {
         console.log(err);
       });
+      
   };
   const handleAddToFav = (jobId) => {
     axios
@@ -116,7 +116,7 @@ token:state.usersAuth.token
      
       <div className="video2">
       
-      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+      <video  style={{width:"400px"}} autoPlay={true} muted={true} playsInline={true} loop={true} >
     <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
   </video>
   <h1>Create a winning<br></br>
@@ -124,7 +124,7 @@ token:state.usersAuth.token
    
     <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton1" >Create Your Resume</button></a>
       </div>
-      <div ref ={navRef} className="Footer_user">
+      <div className="Footer_user">
       <Footer/>
       </div>
       

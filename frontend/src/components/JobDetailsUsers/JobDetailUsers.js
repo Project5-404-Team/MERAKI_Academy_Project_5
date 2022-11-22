@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "../JobDetailsUsers/JobDetailsUsers.css";
-
+import Footer from "../Footer/Footer";
 function JobDetailsUsers() {
-  const { jobDetails, userId, token } = useSelector((state) => {
+  const { jobDetails, userId, token ,iscompleted} = useSelector((state) => {
     return {
       jobDetails: state.users.jobDetails,
       userId: state.usersAuth.userId,
-      token : state.usersAuth.token
+      token : state.usersAuth.token,
+      iscompleted: state.users.userDetails.iscompleted
     };
   });
   const jobApply = () => {
@@ -87,13 +88,7 @@ function JobDetailsUsers() {
           <div className="jobDetailsInfo">
             
             <h2 className="jobTitleCardDetails" onClick={() => {}}>
-              {jobDetails.jobtitle}   <button style={{marginLeft:"120px"}}className="applyButton2"
-            onClick={() => {
-              jobApply();
-            }}
-          >
-            Apply For This Job
-          </button>
+              {jobDetails.jobtitle} 
             </h2> <br></br>
             <p style={{ fontWeight: "600" }}>Job Description</p> <p className="jobDescriptionDetails">{jobDetails.jobdescription}</p><br></br>
             <p style={{ fontWeight: "600" }}>Job Requirements</p><p>{jobDetails.jobrequirements}</p><br></br>
@@ -107,13 +102,13 @@ function JobDetailsUsers() {
             <div><p style={{ fontWeight: "600" }}>Salary</p><p>{jobDetails.salary}</p></div>
             
             </div>
-            <button className="applyButton2"
+            { Boolean(iscompleted)&&<button className="applyButton2"
             onClick={() => {
               jobApply();
             }}
           >
             Apply For This Job
-          </button>
+          </button>}
           <button style={{marginLeft:"120px"}} className="addFavCard" 
                   onClick={(e) => {
                     handleAddToFav(jobDetails.id);
@@ -126,7 +121,11 @@ function JobDetailsUsers() {
 
         
         </div>
+        <div className="Footer_user">
+      <Footer/>
       </div>
+      </div>
+   
     </>
   );
 }

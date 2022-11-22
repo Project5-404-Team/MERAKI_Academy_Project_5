@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./UserComplete.css";
-import { setUserPicture, setUserCv } from "../Redux/reducers/Users/users";
+import { setUserPicture, setUserCv ,setUserDetails} from "../Redux/reducers/Users/users";
 import UserNavbar from "../UserNavbar/UserNavbar";
-
+import Footer from "../Footer/Footer";
 const UserComplete = () => {
   const { userId, userPicture, userCv ,token} = useSelector((state) => {
     return {
@@ -90,12 +90,14 @@ const UserComplete = () => {
           authorization: "Bearer " + token,
         }})
       .then((response) => {
-        console.log(response);
+        dispatch(setUserDetails(response.data.result[0]))
+        console.log(response.data.result[0]);
         setRegisteredSucssfully(true);
         setTimeout(() => {
           navigate("/users/userhome");
         }, 1000);
       })
+      
       .catch((err) => {
         console.log(err);
       });
@@ -963,6 +965,9 @@ const UserComplete = () => {
           </button>
         </div>
      
+      </div>
+      <div className="Footer_user">
+      <Footer/>
       </div>
     </>
   );

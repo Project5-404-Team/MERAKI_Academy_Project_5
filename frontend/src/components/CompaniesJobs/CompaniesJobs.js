@@ -11,6 +11,7 @@ import {
   updateJob
 } from "../Redux/reducers/Companies/companies";
 import "./CompaniesJobs.css"
+import Footer from "../Footer/Footer";
 const CompaniesJobs = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -139,6 +140,19 @@ const CompaniesJobs = () => {
 
             );
           })}
+      </div>
+      <div className="video3">
+      
+      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+  </video>
+  <h1>Create a winning<br></br>
+    portfolio in minutes..</h1>
+   
+    <a href="https://portfolio.adobe.com/start" target="blank"><button className="createCvButton1" >Create Your Portfolio</button></a>
+      </div>
+      <div className="Footer_user">
+      <Footer/>
       </div>
       </div>
     </>

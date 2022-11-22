@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "./Register.css"
-
+import { useRef } from "react";
 const RegisterUser = () => {
   const [fullName, setFullName] = useState("");
   const [gender, setGender] = useState("");
-
+  const inputRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -29,6 +29,8 @@ const RegisterUser = () => {
   const [cv, setCv] = useState("");
 
   const navigate = useNavigate();
+
+const dateRef=useRef()
 
   const SendMail = () => {
     const params = {
@@ -100,10 +102,14 @@ const RegisterUser = () => {
 
         <input
           placeholder="date Of Birth"
-          type="date"
+          type="text"
+          ref={dateRef}
           className="RegInput"
           onChange={(e) => {
             setDateOfBirth(e.target.value);
+          }}
+          onClick={()=>{
+            dateRef.current.type="date"
           }}
         />
 
@@ -149,7 +155,7 @@ const RegisterUser = () => {
 
         {registeredSucssfully && (
           <div className="popuptry">
-            <h1> Registerd In Sussfully</h1>
+            <h1> Registered In Successfully</h1>
           </div>
         )}
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import {setUserCoId} from "../Redux/reducers/Companies/companies"
 import "./UserDetailsCompanyApp.css"
-
+import Footer from "../Footer/Footer";
 function UserDetailsCompanyApp() {
 
 
@@ -63,6 +63,9 @@ navigate("/messenger")
     }}> Send Message</button>
       
         </div>
+        <div className="Footer_user">
+      <Footer/>
+      </div>
     </>
   );
 }

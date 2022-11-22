@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./CompanyDetailsUsersApp.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import {setCompanyIdUserApp} from "../Redux/reducers/Users/users"
-
+import Footer from "../Footer/Footer";
 function CompanyDetailsUsersApp() {
 
   const dispatch =useDispatch()
@@ -61,6 +61,9 @@ navigate("/messenger")
 
  </div>
  </div>
+ <div className="Footer_user">
+      <Footer/>
+      </div>
       
     </>
   
