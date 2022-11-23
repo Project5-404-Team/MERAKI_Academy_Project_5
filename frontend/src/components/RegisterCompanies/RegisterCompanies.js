@@ -82,7 +82,7 @@ const RegisterCompanies = () => {
             setCompanyName(e.target.value);
           }}
         />
-   <select
+   <select 
                 id="country"
                 name="country"
                 class="form-control"

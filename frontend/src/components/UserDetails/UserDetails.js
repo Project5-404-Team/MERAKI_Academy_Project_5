@@ -1007,7 +1007,7 @@ function UserDetails() {
             }}
 
           ></input></div>
-              <button
+              <button className="updateButton1"
                 onClick={() => {
                   handleUpdateClick(userId);
                 }}

@@ -10,7 +10,6 @@ import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
 import Footer from "../Footer/Footer";
 import { useRef } from "react";
-import { useBottomScrollListener } from "react-bottom-scroll-listener";
 
 const UserHome = () => {
   const navRef = useRef();

@@ -39,3 +39,22 @@
 
 }
 
+
+@media only screen and (max-width: 600px) {
+  .navMobile {
+    display: flex; 
+    flex-direction: row;
+    width: 105%;
+  font-size: x-small;    
+  height: fit-content;
+  flex-wrap:wrap-reverse;
+  position: relative;
+  right: 9px;
+  }
+
+  .search_navbar1 *{
+    height: 10px;
+    
+  }
+
+}

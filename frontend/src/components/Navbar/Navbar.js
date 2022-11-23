@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar_mainpage">
-        <div className="navbar_container">
+        <div className="navbar_container1">
           <p
             className="navbar_user_login_link"
             onClick={() => {
