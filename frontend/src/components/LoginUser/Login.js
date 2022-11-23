@@ -5,7 +5,13 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin, setUserId } from "../Redux/reducers/usersAuth";
-import { setUserDetails, setAppliedJobs } from "../Redux/reducers/Users/users";
+import {
+  setUserDetails,
+  setAppliedJobs,
+  setFavJobs,
+  setFavJobsId,
+  setAppliedJobsId
+} from "../Redux/reducers/Users/users";
 import { setUserName } from "../Redux/reducers/Messenger/messenger";
 
 import { useRef } from "react";
@@ -26,6 +32,7 @@ const LoginUser = () => {
   const [error, setError] = useState("");
   const [loggedInSucssfully, setLoggedInSucssfully] = useState(false);
   const [iserror, setIserror] = useState(false);
+
   const body = { email, password };
 
   const handleLogin = () => {
@@ -37,8 +44,9 @@ const LoginUser = () => {
         dispatch(setLogin(response.data.token));
         dispatch(setUserDetails(response.data.payload.user));
         dispatch(setUserName(response.data.payload.user.fullname));
-
         navigate("/users/userhome");
+        getAllFavJobs(response.data.payload.userId);
+        getAppliedJobJobs(response.data.payload.userId)
       })
 
       .catch((err) => {
@@ -50,7 +58,44 @@ const LoginUser = () => {
         buttRef.current.innerText = "Sign in";
       });
   };
-
+  const getAppliedJobJobs = (userId1) => {
+    axios
+      .get(`http://localhost:5000/jobs/jobapply/${userId1}`)
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
+        dispatch(setAppliedJobs(result.data.result));
+        dispatch(
+          setAppliedJobsId(
+            result.data.result.map((elm, idx) => {
+              return elm.jobid;
+            })
+          )
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getAllFavJobs = (userId1) => {
+    axios
+      .get(`http://localhost:5000/jobs/favjobs/${userId1}`)
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
+        dispatch(setFavJobs(result.data.result));
+        dispatch(
+          setFavJobsId(
+            result.data.result.map((elm, idx) => {
+              return elm.jobid;
+            })
+          )
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div className="mainPageLoginUser">
@@ -108,7 +153,7 @@ const LoginUser = () => {
               className="loginButton"
               onClick={(e) => {
                 buttRef.current.disabled = true;
-                setTimeout(handleLogin, 3000);
+                setTimeout(handleLogin, 1000);
                 console.log(e);
                 setSignIn(<i class="fa fa-circle-o-notch fa-spin"></i>);
               }}

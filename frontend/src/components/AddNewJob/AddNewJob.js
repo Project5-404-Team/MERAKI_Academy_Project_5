@@ -187,8 +187,9 @@ const AddNewJob = () => {
           {" "}
           Add New Job{" "}
         </button>
+        {success&& <div className="popuptry"><p> Job Added Successfully !</p></div>}
       </div>
-      {success&&   <p> Job Added Successfully !</p>}
+     
       
     </div>
     

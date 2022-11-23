@@ -10,7 +10,7 @@ import {
 
   setJobDetails,
   setCompanyDetailsInUsersApp,
-  setAppliedJobs,deleteAppliedJobs
+  setAppliedJobs,deleteAppliedJobs, deleteAppliedJobsId
 } from "../Redux/reducers/Users/users";
 function UserAppliedJobs() {
   const dispatch = useDispatch();
@@ -89,6 +89,7 @@ function UserAppliedJobs() {
                   onClick={() => {
                     deleteAppliedJob1(elem.id)
                     dispatch(deleteAppliedJobs(elem.id));
+                    dispatch(deleteAppliedJobsId(elem.jobid))
                     
                   }}
                 >
