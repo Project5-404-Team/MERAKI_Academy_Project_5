@@ -93,7 +93,7 @@ const CompaniesHome = () => {
   return (
     <>
       <CompaniesNavbar />
-      <div className="IconDiv1">
+      <div className="IconDiv2">
 <img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668709233/hire-me-logoSvg_nwibby.svg"></img>
 </div>
       <div className="companyHomeDiv3">

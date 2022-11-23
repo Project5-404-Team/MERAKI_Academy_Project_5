@@ -5,7 +5,7 @@
     grid-template-columns: repeat(10, 1fr);
     color:rgb(82, 79, 79);
   }
-  .IconDiv1{
+  .IconDiv2{
     position: fixed;
     top: 70px;
     left: 50px;
@@ -23,7 +23,7 @@
   
 
 }
-.IconDiv1 img{
+.IconDiv2 img{
   width:300px;
 }
   .filterNav3 {

@@ -32,7 +32,7 @@ const UserNavbar = () => {
   }, []);
   return (
     <>
-      <div className="userNavbar2">
+      <div className="userNavbar2 navMobile">
         <div className="home_navbar1">
           {isLoggedIn && (
             <p style={{color:"white"}}
@@ -46,7 +46,7 @@ const UserNavbar = () => {
           )}
 
         </div>
-        <div className="userDetails_navbar1">
+        <div className="userDetails_navbar1 ">
         {isLoggedIn && (
           <p
             onClick={() => {
