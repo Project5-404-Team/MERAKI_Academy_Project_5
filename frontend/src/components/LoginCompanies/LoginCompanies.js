@@ -82,7 +82,7 @@ const LoginCompanies = () => {
               {/* <p> Email</p> */}
               <input
                 className="emailInput"
-                placeholder="  Email "
+                placeholder=" Email "
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}

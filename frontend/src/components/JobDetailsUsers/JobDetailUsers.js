@@ -6,15 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "../JobDetailsUsers/JobDetailsUsers.css";
 import Footer from "../Footer/Footer";
+import {addAppliedJobsId, addFavJobsId} from "../../components/Redux/reducers/Users/users"
 function JobDetailsUsers() {
-  const { jobDetails, userId, token ,iscompleted} = useSelector((state) => {
+  const { jobDetails, userId, token ,iscompleted,favJobsId,appliedJobsId} = useSelector((state) => {
     return {
       jobDetails: state.users.jobDetails,
       userId: state.usersAuth.userId,
       token : state.usersAuth.token,
-      iscompleted: state.users.userDetails.iscompleted
+      iscompleted: state.users.userDetails.iscompleted,
+      favJobsId:state.users.favJobsId,
+      appliedJobsId:state.users.appliedJobsId
     };
   });
+  const dispatch=useDispatch()
   const jobApply = () => {
     axios
       .post(`http://localhost:5000/jobs/jobapply/${userId}`, {
@@ -23,6 +27,7 @@ function JobDetailsUsers() {
         }})
       .then((result) => {
         console.log(result);
+        console.log(appliedJobsId)
       })
       .catch((err) => {
         console.log(err);
@@ -43,6 +48,7 @@ function JobDetailsUsers() {
 
   return (
     <>
+    {  console.log(appliedJobsId)}
       <UserNavbar />
       {console.log(jobDetails)}
       <div className="jobDetailsMainPage2">
@@ -102,20 +108,35 @@ function JobDetailsUsers() {
             <div><p style={{ fontWeight: "600" }}>Salary</p><p>{jobDetails.salary}</p></div>
             
             </div>
-            { Boolean(iscompleted)&&<button className="applyButton2"
+            {Boolean(iscompleted)&&(!appliedJobsId.includes(jobDetails.id))&&<button className="applyButton2"
             onClick={() => {
               jobApply();
+              dispatch(addAppliedJobsId(jobDetails.id))
             }}
           >
             Apply For This Job
           </button>}
-          <button style={{marginLeft:"120px"}} className="addFavCard" 
-                  onClick={(e) => {
-                    handleAddToFav(jobDetails.id);
-                  }}
-                >
-                  Add to Favorite
-                </button>
+          {Boolean(iscompleted)&&(appliedJobsId.includes(jobDetails.id))&&<button className="applyButton2"
+            
+          >
+            Applied
+          </button>}
+          {!favJobsId.includes(jobDetails.id)&& <button
+                    className="addFavCard"
+                    onClick={(e) => {
+                      handleAddToFav(jobDetails.id);
+                      dispatch(addFavJobsId(jobDetails.id))
+                     
+                    }}
+                  >
+                   Add to Favorite
+                  </button>}
+                  {favJobsId.includes(jobDetails.id)&& <button
+                    className="addFavCard"
+                   
+                  >
+                   Added to Favorite
+                  </button>}
             <p></p>{" "}
           </div>
 

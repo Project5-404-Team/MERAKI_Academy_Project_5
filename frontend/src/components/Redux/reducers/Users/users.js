@@ -9,10 +9,11 @@ const usersSlice = createSlice({
     jobDetails: {},
     companyDetailsInUsersApp: {},
     jobSearch: false,
-    userPicture: "" ,
+    userPicture: "",
     userCv: "",
-    companyIdUserApp:null,
-
+    companyIdUserApp: null,
+    favJobsId: [],
+    appliedJobsId: [],
   },
   reducers: {
     setAllJobs: (state, action) => {
@@ -56,10 +57,31 @@ const usersSlice = createSlice({
     setUserCv: (state, action) => {
       state.userCv = action.payload;
     },
-    setCompanyIdUserApp :(state,action)=>{
-      state.companyIdUserApp=action.payload
-    }
+    setCompanyIdUserApp: (state, action) => {
+      state.companyIdUserApp = action.payload;
+    },
+    setFavJobsId: (state, action) => {
+      state.favJobsId = action.payload;
+    },
+    addFavJobsId: (state, action) => {
+      state.favJobsId.push(action.payload);
+    },
+    deleteFavJobsId: (state, action) => {
+      state.favJobsId = state.favJobsId.filter((elem, index) => {
+        return elem != action.payload;
+      });
+    },
+  setAppliedJobsId: (state, action) => {
+    state.appliedJobsId = action.payload;
   },
+  addAppliedJobsId: (state, action) => {
+    state.appliedJobsId.push(action.payload);
+  },
+  deleteAppliedJobsId: (state, action) => {
+    state.appliedJobsId = state.appliedJobsId.filter((elem, index) => {
+      return elem != action.payload;
+    });
+  },}
 });
 
 export const {
@@ -75,6 +97,12 @@ export const {
   deleteAppliedJobs,
   setUserCv,
   setUserPicture,
-  setCompanyIdUserApp
+  setCompanyIdUserApp,
+  setFavJobsId,
+  addFavJobsId,
+  deleteFavJobsId,
+  setAppliedJobsId,
+  addAppliedJobsId,
+  deleteAppliedJobsId,
 } = usersSlice.actions;
 export default usersSlice.reducer;
