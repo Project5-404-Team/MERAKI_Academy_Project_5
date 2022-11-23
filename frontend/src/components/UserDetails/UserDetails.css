@@ -232,6 +232,7 @@ flex-direction: column;
     grid-column: 1/5;
     border-right:1px solid rgba(205, 202, 202, 0.743);
     margin-right:50px;
+    margin-top: 30px;
    
   }
   .personalInfo {
