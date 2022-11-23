@@ -178,7 +178,7 @@ const AddNewJob = () => {
             setJobRequirements(e.target.value);
           }}
         />
-        <button
+           {success&& <div className="popuptry"><h3> Job Added Successfully !</h3></div>||<button
           className="AddNewJobButton"
           onClick={() => {
             handleAddNewJob();
@@ -186,8 +186,8 @@ const AddNewJob = () => {
         >
           {" "}
           Add New Job{" "}
-        </button>
-        {success&& <div className="popuptry"><p> Job Added Successfully !</p></div>}
+        </button>}
+     
       </div>
      
       
