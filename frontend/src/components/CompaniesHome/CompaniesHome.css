@@ -1,4 +1,4 @@
-.companyHomeDiv1 {
+.companyHomeDiv3 {
     position: relative;
     top: 140px;
     display: grid;
@@ -12,38 +12,54 @@
     
     
 }
+.Footer_user{
+  position: relative;
+  grid-column: 1/11;
+  z-index: 2;
+  height: 280px;
+  margin-left: -10px;
+  background-color:#3a3b3d;
+  
+  
+
+}
 .IconDiv1 img{
   width:300px;
 }
-  .filterNav1 {
-    position: fixed;
+  .filterNav3 {
+    position: sticky;
     top: 150px;
     width: 400px;
+    height: 83vh;
     grid-column: 1/4;
     border-right: 1px solid rgba(205, 202, 202, 0.511);
     margin-top: 0px;
     margin-left: -10px;
     padding-right: 15px;
+    margin-bottom: 300px;
     background-color:#3a3b3d;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
     color: white;
   }
-  .filterNav1 li {
+  .filterNav3 li {
     list-style-type: none;
     margin-bottom: 8px;
     font-weight: 500;
     font-size: 16px;
   }
-  .video{
-      display: flex;
-      grid-column: 9/11;
-      margin-top: 50px;
-      position: fixed;
-      right: 10px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+  .video3{
+    top: 240px;
+    height: 40vh;
+    display: flex;
+    grid-column: 9/11;
+    margin-top: 150px;
+    position: sticky;
+    right: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 400px;
     
   }
   .createCvButton{
@@ -71,25 +87,28 @@
     }
     
   
-  .filterNav1 li:hover {
+  .filterNav3 li:hover {
     cursor: pointer;
     background-color: #f4f4f4;
     color: GREY;
   
     border-radius: 5px;
   }
-  .userCard1 {
+  .userCard3 {
     grid-column: 4/8;
+    margin-bottom: 40px;
+   
+   
   
   }
-  .userCard1:hover {
+  .userCard3:hover {
     background-color:rgba(239, 238, 238, 0.734);
   }
-  .userCard1:first-of-type {
+  .userCard3:first-of-type {
       border-top: 5PX #3a3b3d SOLID ;
       border-radius: 5px;
   }
-  .userCard1 {
+  .userCard3{
     
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -102,17 +121,17 @@
    
   }
   
-  .userCard1 img {
+  .userCard3 img {
     margin-top:25px;
     width: 150px;
     height: 150px;
   }
-  .usersCardsDiv1{
+  .usersCardsDiv3{
     grid-column: 4/8;
 
 
 }
-  .userImageCard1 {
+  .userImageCard3 {
     grid-column: 1;
     grid-row: 1/9;
     margin-right: 15px;

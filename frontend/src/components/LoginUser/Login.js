@@ -35,7 +35,6 @@ const LoginUser = () => {
         setLoggedInSucssfully(true);
         dispatch(setUserId(response.data.payload.userId));
         dispatch(setLogin(response.data.token));
-        console.log(response.data.payload);
         dispatch(setUserDetails(response.data.payload.user));
         dispatch(setUserName(response.data.payload.user.fullname));
 

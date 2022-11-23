@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "../Redux/reducers/Users/users";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "./UserDetails.css";
+import Footer from "../Footer/Footer";
 import { setUserPicture, setUserCv } from "../Redux/reducers/Users/users";
 function UserDetails() {
   const dispatch = useDispatch();
@@ -1017,7 +1018,11 @@ function UserDetails() {
             </div>
           </div>
         )}
+        <div className="Footer_user">
+      <Footer/>
       </div>
+      </div>
+      
     </>
   );
 }

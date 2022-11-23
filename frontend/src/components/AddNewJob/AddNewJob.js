@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addJob } from "../Redux/reducers/Companies/companies";
 import "./AddNewJob.css";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
+import Footer from "../Footer/Footer";
 const AddNewJob = () => {
   const [success, setSuccess] = useState(false);
   const [jobTitle, setJobTitle] = useState(null);
@@ -188,8 +189,13 @@ const AddNewJob = () => {
         </button>
       </div>
       {success&&   <p> Job Added Successfully !</p>}
-
-    </div>  </>
+      
+    </div>
+    
+    <div className="Footer_user">
+      <Footer/>
+      </div>
+      </>
   );
 };
 export default AddNewJob;

@@ -70,13 +70,14 @@ const registerUserComplete = (req, res) => {
     cv|| null,
     userImage|| null
   ];
-  const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted),phoneNumber =COALESCE($3,phoneNumber),maritalStatus =COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships), whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience)  ,recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv) , userImage=COALESCE($18,userImage) WHERE id=$1;`;
+  const query = `UPDATE users SET iscompleted =COALESCE($2,iscompleted),phoneNumber =COALESCE($3,phoneNumber),maritalStatus =COALESCE($4,maritalStatus),citizenships=COALESCE($5,citizenships), whereDoYouLive=COALESCE($6,whereDoYouLive),residencyStatus=COALESCE($7,residencyStatus),yearsOfExperience=COALESCE($8,yearsOfExperience)  ,recentJobTitle=COALESCE($9,recentJobTitle),recentJobFunction=COALESCE($10,recentJobFunction),industryOfRecentJob=COALESCE($11,industryOfRecentJob),languages=COALESCE($12,languages),skills=COALESCE($13,skills) ,educationLevel=COALESCE($14,educationLevel),major=COALESCE($15,major),educationalInstituteName=COALESCE($16,educationalInstituteName),cv=COALESCE($17,cv) , userImage=COALESCE($18,userImage) WHERE id=$1 RETURNING *;`;
   pool
     .query(query, values)
     .then((result) => {
       res.status(200).json({
         success: true,
         massage: "User Profile Completed",
+        result: result.rows,
       });
     })
     .catch((err) => {

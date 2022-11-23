@@ -404,9 +404,9 @@ const getUserFavoriteJobs = (req, res) => {
 };
 
 const jobsSearch = (req, res) => {
-  const searchWord1 = req.params.search;
+  const searchWord1 = req.params.search.toLowerCase();
   const value = [`%${searchWord1}%`];
-  const query = `SELECT * FROM jobs WHERE jobTitle LIKE $1 OR jobdescription LIKE $1 OR jobType LIKE $1 OR jobRole LIKE $1 OR jobRequirements LIKE $1 AND jobs.is_deleted=0 ;`;
+  const query = `SELECT * , jobs.id FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE (LOWER(jobTitle) LIKE $1 OR LOWER(jobdescription) LIKE $1 OR jobType LIKE $1 OR jobRole LIKE $1 OR jobRequirements LIKE $1) AND (jobs.is_deleted=0) ;`;
   pool
     .query(query, value)
     .then((result) => {
@@ -435,7 +435,7 @@ const jobsSearch = (req, res) => {
 const jobsSearchByCompanyIndustry = (req, res) => {
   const searchWord2 = req.params.searchIndustry;
   const value = [`%${searchWord2}%`];
-  const query = `SELECT * FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE companies.industry LIKE $1 AND jobs.is_deleted=0 ;`;
+  const query = `SELECT *, jobs.id FROM jobs INNER JOIN companies ON jobs.companyId=companies.id WHERE companies.industry LIKE $1 AND jobs.is_deleted=0 ;`;
   pool
     .query(query, value)
     .then((result) => {

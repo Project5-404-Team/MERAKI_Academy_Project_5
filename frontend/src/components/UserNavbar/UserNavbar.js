@@ -15,11 +15,11 @@ import {
 import "./userNavbar.css"
 const UserNavbar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, jobSearch ,userDetails } = useSelector((state) => {
+  const { isLoggedIn, jobSearch ,iscompleted } = useSelector((state) => {
     return {
       isLoggedIn: state.usersAuth.isLoggedIn,
       jobSearch: state.users.jobSearch,
-      userDetails: state.users.userDetails.iscompleted
+      iscompleted: state.users.userDetails.iscompleted
     };
   });
 
@@ -60,17 +60,7 @@ const UserNavbar = () => {
         </div>
        
 
-    <div className="complete_account_Navbar">
-        {isLoggedIn && (userDetails==0)&& (
-          <p
-            onClick={() => {
-              navigate("/users/user/complete");
-            }}
-          >
-            Complete My Account
-          </p>
-        )}
-        </div>
+   
         <div className="favJobs_navbar">
         {isLoggedIn && (
           <p
@@ -82,8 +72,8 @@ const UserNavbar = () => {
             My Favorite Jobs
           </p>
         )}</div>
-        <div className="applyJobs_navbar">
-        {isLoggedIn && (
+            <div className="complete_account_Navbar">
+            {isLoggedIn && (iscompleted==1)&& (
           <p
             onClick={() => {
               navigate("/users/user/appliedjobs");
@@ -91,7 +81,21 @@ const UserNavbar = () => {
           >
             My Applied Jobs
           </p>
-        )}</div>
+        )}
+        {isLoggedIn && (iscompleted==0)&& (
+          <p
+            onClick={() => {
+              navigate("/users/user/complete");
+            }}
+          >
+            Complete My Account
+          </p>
+
+        )}
+        </div>
+        <div className="applyJobs_navbar">
+       </div>
+     
         <div className="search_navbar1">
          {isLoggedIn && <JobsSearch />}
          </div>

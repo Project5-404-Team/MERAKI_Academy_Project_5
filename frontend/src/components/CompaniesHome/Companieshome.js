@@ -11,7 +11,7 @@ import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesHome.css";
 import FilterNavCompanies from "../FilterNavCompanies/FilterNavCompanies";
 import { setAllUsers } from "../Redux/reducers/Companies/companies";
-
+import Footer from "../Footer/Footer";
 const CompaniesHome = () => {
   const dispatch = useDispatch();
   const { companyId, companyDetails, relativeUsers, allUsers } = useSelector(
@@ -96,21 +96,12 @@ const CompaniesHome = () => {
       <div className="IconDiv1">
 <img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668709233/hire-me-logoSvg_nwibby.svg"></img>
 </div>
-      <div className="companyHomeDiv1">
-        <div className="filterNav1">
+      <div className="companyHomeDiv3">
+        <div className="filterNav3">
           <FilterNavCompanies />
         </div>
-        <div className="video">
-      
-      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
-    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
-  </video>
-  <h1>Create a winning<br></br>
-    portfolio in minutes..</h1>
-   
-    <a href="https://portfolio.adobe.com/start" target="blank"><button className="createCvButton1" >Create Your Portfolio</button></a>
-      </div>
-        <div className="usersCardsDiv1">
+        
+        <div className="usersCardsDiv3">
           <button
             onClick={() => {
               handleRelevantUsers();
@@ -122,8 +113,8 @@ const CompaniesHome = () => {
           {allUsers &&
             allUsers.map((elem, index) => {
               return (
-                <div id={elem.id} key={index} className="userCard1">
-                  <img className="userImageCard1" src={elem.userimage}></img>
+                <div id={elem.id} key={index} className="userCard3">
+                  <img className="userImageCard3" src={elem.userimage}></img>
                   <h2
                     className="fullNameCard1"
                     onClick={() => {
@@ -160,7 +151,21 @@ const CompaniesHome = () => {
               );
             })}
         </div>
+        <div className="video3">
+      
+      <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
+    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+  </video>
+  <h1>Create a winning<br></br>
+    portfolio in minutes..</h1>
+   
+    <a href="https://portfolio.adobe.com/start" target="blank"><button className="createCvButton1" >Create Your Portfolio</button></a>
       </div>
+      <div className="Footer_user">
+      <Footer/>
+      </div>
+      </div>
+     
     </>
   );
 };

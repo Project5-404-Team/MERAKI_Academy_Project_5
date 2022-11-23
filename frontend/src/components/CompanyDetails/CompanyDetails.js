@@ -7,7 +7,7 @@ import { setCompanyDetails } from "../Redux/reducers/Companies/companies";
 import UserDetails from "../UserDetails/UserDetails";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompanyDetails.css"
-
+import Footer from "../Footer/Footer";
 function CompanyDetails() {
   const dispatch=useDispatch()
   const [companyWebsite, setCompanyWebsite] = useState("");
@@ -208,7 +208,10 @@ function CompanyDetails() {
           </div>
         
         )}
-  
+          
+      <div className="Footer_user">
+      <Footer/>
+      </div>
       </div>
       
     </>

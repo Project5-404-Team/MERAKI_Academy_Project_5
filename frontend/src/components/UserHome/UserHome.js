@@ -8,12 +8,14 @@ import {setCompanyDetailsInUsersApp }  from "../Redux/reducers/Users/users"
 import "./UserHome.css"
 import UserNavbar from "../UserNavbar/UserNavbar";
 import FilterNav from "../FilterNavIndustry/FilterNavIndustry";
+import Footer from "../Footer/Footer"
+import { useRef } from "react";
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
 const UserHome = () => {
 
-
-
-
+  const navRef = useRef();
+const filterRef = useRef()
 const dispatch =useDispatch()
 const navigate=useNavigate()
   const { userId ,allJobs ,jobSearch,token} = useSelector((state) => {
@@ -28,18 +30,19 @@ token:state.usersAuth.token
   const [jobs, setJobs] = useState("");
 
 
+
   const getAllJobs = () => {
     axios
       .get("http://localhost:5000/jobs")
       .then((result) => {
-        console.log(result);
-        console.log(result.data.result);
         setJobs(result.data.result);
         dispatch(setAllJobs(result.data.result))
+        console.log(result)
       })
       .catch((err) => {
         console.log(err);
       });
+      
   };
   const handleAddToFav = (jobId) => {
     axios
@@ -57,29 +60,22 @@ token:state.usersAuth.token
     getAllJobs();
   }, [jobSearch]);
 
+;
   return (
    
     <>
+
      <UserNavbar/>
      <div className="IconDiv1">
 <img src="https://res.cloudinary.com/did6jp3bj/image/upload/v1668709233/hire-me-logoSvg_nwibby.svg"></img>
 </div>
     <div className="userHomeDiv">
    
-    <div className="filterNav2">
+    <div className="filterNav2" ref={filterRef} >
     
-        <FilterNav/>
+        <FilterNav />
       </div>
-    <div className="video">
-      
-    <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >
-  <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
-</video>
-<h1>Create a winning<br></br>
-  resume in minutes..</h1>
- 
-  <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton1" >Create Your Resume</button></a>
-    </div>
+   
       <div className="jobsCardsDiv1">
       {!allJobs&& <div className="empety">
       <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
@@ -117,10 +113,26 @@ token:state.usersAuth.token
             );
           })}
       </div>
+     
+      <div className="video2">
+      
+      <video  style={{width:"400px"}} autoPlay={true} muted={true} playsInline={true} loop={true} >
+    <source src="https://www.freshresume.co/video/Freshresume_t1_new.mp4" type="video/mp4"/>
+  </video>
+  <h1>Create a winning<br></br>
+    resume in minutes..</h1>
+   
+    <a href="https://www.freshresume.co/info/63754103e4e84dce557bca1e" target="blank"><button className="createCvButton1" >Create Your Resume</button></a>
       </div>
- 
+      <div className="Footer_user">
+      <Footer/>
+      </div>
+      
+      </div>
+      
+
     </>
   );
-};
+        }
 
 export default UserHome;

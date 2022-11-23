@@ -43,7 +43,7 @@ const Navigate =useNavigate()
             setTimeout(HandleJobSearch,100);
           }}
         >
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
         </button>
       </div>
     </>

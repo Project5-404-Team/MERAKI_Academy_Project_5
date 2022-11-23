@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCompanyLogo } from "../Redux/reducers/Companies/companies";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesComplete.css"
-
+import Footer from "../Footer/Footer";
 const CompaniesComplete = () => {
   const [companyWebsite, setCompanyWebsite] = useState(null);
   const [ceo, setCeo] = useState(null);
@@ -165,7 +165,14 @@ const CompaniesComplete = () => {
           Complete Information !
         </button>
       </div>
-    </div></>
+
+      
+      <div className="Footer_user">
+      <Footer/>
+      </div>
+    </div>
+    
+    </>
   );
 };
 export default CompaniesComplete;
