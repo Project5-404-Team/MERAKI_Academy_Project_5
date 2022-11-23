@@ -8,7 +8,8 @@ import {
   setFavJobs,
   deleteFavJobs,
   setJobDetails,
-  setCompanyDetailsInUsersApp
+  setCompanyDetailsInUsersApp,
+  deleteFavJobsId
 } from "../Redux/reducers/Users/users";
 import UserNavbar from "../UserNavbar/UserNavbar";
 import "../UserFavJobs/UserFavJobs.css"
@@ -18,11 +19,12 @@ export default function UserFavJobs() {
   const navigate = useNavigate();
   const [allfav, setAllFav] = useState();
 
-  const { userId, favJobs,token } = useSelector((state) => {
+  const { userId, favJobs,token,favJobsId } = useSelector((state) => {
     return {
       userId: state.usersAuth.userId,
       favJobs: state.users.favJobs,
-      token:state.usersAuth.token
+      token:state.usersAuth.token,
+      favJobsId:state.users.favJobsId
     };
   });
 
@@ -34,6 +36,8 @@ export default function UserFavJobs() {
         console.log(result.data.result);
        setAllFav(result.data.result);
         dispatch(setFavJobs(result.data.result));
+        console.log(favJobsId)
+        console.log(favJobs)
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +56,7 @@ export default function UserFavJobs() {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
+
       })
       .catch((err) => {
         console.log(err);
@@ -95,6 +100,7 @@ export default function UserFavJobs() {
                     deleteFavJob(elem.id);
                     dispatch(deleteFav(elem.id));
                     dispatch(deleteFavJobs(elem.id));
+                    dispatch(deleteFavJobsId(elem.jobid));
                   }}
                 >
                   {" "}

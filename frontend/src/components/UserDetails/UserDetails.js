@@ -46,7 +46,7 @@ function UserDetails() {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [gender, setGender] = useState(null);
   const [updateBox, setUpdateBox] = useState(false);
-  
+  const [registeredSucssfully, setRegisteredSucssfully] = useState(false);
   const uploadCv = (cv) => {
     const formData = new FormData();
     formData.append("file", cv);
@@ -110,7 +110,6 @@ function UserDetails() {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
-        dispatch(setUserDetails(result.data.result[0]));
       })
       .catch((err) => {
         console.log(err);
@@ -1015,7 +1014,13 @@ function UserDetails() {
               >
                 Update
               </button>
+              {registeredSucssfully && (
+            <div className="popuptry">
+              <h1>Updated Successfully !</h1>
             </div>
+          )}
+            </div>
+           
           </div>
         )}
         <div className="Footer_user">

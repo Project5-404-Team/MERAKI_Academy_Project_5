@@ -68,7 +68,7 @@
   .bigDivRegisterCompany {
     border-radius: 8px;
     width: 500px;
-    height: 650px;
+    height: 700px;
     background-color: white;
     justify-content: center;
     grid-column: 1;
@@ -102,6 +102,7 @@
     border:none;
     transition: 500ms;
     font-weight: 600;
+    margin-bottom: 100px
    
   }
   .belowLoginDiv{

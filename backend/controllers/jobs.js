@@ -431,7 +431,15 @@ const jobsSearch = (req, res) => {
       });
     });
 };
+const basel = async()=>{
 
+  try{
+   
+  }
+  catch{
+
+  }
+}
 const jobsSearchByCompanyIndustry = (req, res) => {
   const searchWord2 = req.params.searchIndustry;
   const value = [`%${searchWord2}%`];
