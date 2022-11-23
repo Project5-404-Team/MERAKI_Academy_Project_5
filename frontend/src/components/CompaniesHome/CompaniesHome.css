@@ -12,7 +12,7 @@
     
     
 }
-.Footer_user{
+.Footer_company{
   position: relative;
   grid-column: 1/11;
   z-index: 2;
@@ -194,3 +194,12 @@
     color: white;
   cursor: pointer;}
   
+
+  
+/* !!-------------------------------------------- MEDIA Query --------------------------------------!! */
+
+@media only screen and (max-width: 600px) {
+
+
+  
+}

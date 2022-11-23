@@ -161,7 +161,7 @@ const CompaniesHome = () => {
    
     <a href="https://portfolio.adobe.com/start" target="blank"><button className="createCvButton1" >Create Your Portfolio</button></a>
       </div>
-      <div className="Footer_user">
+      <div className="Footer_company">
       <Footer/>
       </div>
       </div>

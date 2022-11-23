@@ -72,3 +72,37 @@ footer a:hover {
 .right_box {
   grid-column: 5;
 }
+
+
+
+@media (max-width:560px){
+  footer{
+    position: relative;
+  }
+  footer .content .box{
+    width: 100%;
+    margin-top: 30px;
+
+  }
+  .content {
+    display: flex;
+    flex-direction:column;
+  
+   
+  }
+  footer .content .middle{
+    padding-left: 0;
+  }
+
+  .bottom.bot{
+    width: fit-content;
+  }
+  .logo2 {
+    width: 250px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+  }
+
+
+}
