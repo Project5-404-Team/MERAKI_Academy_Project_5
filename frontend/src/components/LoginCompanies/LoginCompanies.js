@@ -129,7 +129,7 @@ const LoginCompanies = () => {
                 Sign In{" "}
               </button>
               <div className="popuptry">
-              <h2>{!iserror ? error : null}</h2></div>
+              <h2 style={{ color: "#3a3b3d" }}>{!iserror ? error : null}</h2></div>
             </div>
           </div>
           <div className="paragraph">    <span style={{ fontWeight: 600 }}>Employer?</span>

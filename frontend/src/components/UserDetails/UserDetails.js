@@ -8,6 +8,7 @@ import UserNavbar from "../UserNavbar/UserNavbar";
 import "./UserDetails.css";
 import Footer from "../Footer/Footer";
 import { setUserPicture, setUserCv } from "../Redux/reducers/Users/users";
+import { useRef } from "react";
 function UserDetails() {
   const dispatch = useDispatch();
   const { userPicture, userCv } = useSelector((state) => {
@@ -17,6 +18,7 @@ function UserDetails() {
       userCv: state.users.userCv,
     };
   });
+  const dateRef = useRef()
   const { userDetails, userId ,token} = useSelector((state) => {
     return {
       userDetails: state.users.userDetails,
@@ -127,7 +129,7 @@ function UserDetails() {
             <img src={userDetails.userimage}></img>
             {userDetails.cv && (
               <a href={userDetails.cv} target="blank" download>
-                <button>Download My CV</button>
+                <button style={{color:"white"}}>Download My CV</button>
               </a>
             )}
             <button
@@ -140,25 +142,25 @@ function UserDetails() {
           </div>
           <div className="personalInfo">
             <h3>Personal Information</h3>
-            <p>Full Name :{userDetails.fullname}</p>
-            <p>Date Of Birth :{userDetails.dateofbirth.substring(0, 10)}</p>
-            <p>Gender :{userDetails.gender}</p>
-            <p>Phone Number :{userDetails.phonenumber}</p>
-            <p>Address :{userDetails.wheredoyoulive}</p>
-            <p>Citizenship : {userDetails.citizenships}</p>
-            <p>Material Status :{userDetails.maritalstatus}</p>
-            <p>Languages :{userDetails.languages}</p>
+            <p><span style={{ fontWeight: "600" }}>Full Name :</span>{userDetails.fullname}</p>
+            <p><span style={{ fontWeight: "600" }}>Date Of Birth :</span>{userDetails.dateofbirth.substring(0, 10)}</p>
+            <p><span style={{ fontWeight: "600" }}>Gender :</span>{userDetails.gender}</p>
+            <p><span style={{ fontWeight: "600" }}>Phone Number :</span>{userDetails.phonenumber}</p>
+            <p><span style={{ fontWeight: "600" }}>Address :</span>{userDetails.wheredoyoulive}</p>
+            <p><span style={{ fontWeight: "600" }}>Citizenship : </span>{userDetails.citizenships}</p>
+            <p><span style={{ fontWeight: "600" }}>Material Status :</span>{userDetails.maritalstatus}</p>
+            <p><span style={{ fontWeight: "600" }}>Languages :</span>{userDetails.languages}</p>
           </div>
           <div className="professionalInfo">
             <h3>Professional Information</h3>
-            <p>Recent Job Function :{userDetails.recentjobfunction}</p>
-            <p>Recent Job Title :{userDetails.recentjobtitle}</p>
-            <p>Years Of Experience :{userDetails.yearsofexperience}</p>
-            <p>Skills :{userDetails.skills}</p>
+            <p><span style={{ fontWeight: "600" }}>Recent Job Function :</span>{userDetails.recentjobfunction}</p>
+            <p><span style={{ fontWeight: "600" }}>Recent Job Title :</span>{userDetails.recentjobtitle}</p>
+            <p><span style={{ fontWeight: "600" }}>Years Of Experience :</span>{userDetails.yearsofexperience}</p>
+            <p><span style={{ fontWeight: "600" }}>Skills :</span>{userDetails.skills}</p>
             <h3>Educational Information</h3>
-            <p>Major :{userDetails.major}</p>
+            <p><span style={{ fontWeight: "600" }}>Major :</span>{userDetails.major}</p>
             <p>
-              Educational Institute Name :{userDetails.educationalinstitutename}
+            <span style={{ fontWeight: "600" }}>Educational Institute Name :</span>{userDetails.educationalinstitutename}
             </p>
           </div>
         </div>
@@ -169,12 +171,12 @@ function UserDetails() {
             <div className="updateSectionDetailsUser1">
               <input
                 type="text"
-                placeholder="phone number here"
+                placeholder="Phone Number "
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
 
               <input
-                placeholder="marital status here"
+                placeholder="Marital Status "
                 onChange={(e) => setMaritalStatus(e.target.value)}
               ></input>
 
@@ -824,16 +826,16 @@ function UserDetails() {
               </select>
 
               <input
-                placeholder="years of experience here"
+                placeholder="Years Of Experience "
                 onChange={(e) => setYearsOfExperience(e.target.value)}
               ></input>
 
               <input
-                placeholder="recent job title here"
+                placeholder="Recent Job Title "
                 onChange={(e) => setRecentJobTitle(e.target.value)}
               ></input>
               <input
-                placeholder="recent job function here"
+                placeholder="Recent Job Function "
                 onChange={(e) => setRecentJobFunction(e.target.value)}
               ></input>
               <select
@@ -844,7 +846,7 @@ function UserDetails() {
                 }}
               >
                 <option selected disabled hidden>
-                  Choose the IndustryOf Recent Job
+                  Choose the Industry Of Recent Job
                 </option>
                 <option value="Non-Profit and Social Services">
                   Non-Profit and Social Services
@@ -904,12 +906,12 @@ function UserDetails() {
               </select>
 
               <input
-                placeholder="languages here"
+                placeholder="Languages "
                 onChange={(e) => setLanguages(e.target.value)}
               ></input>
 
               <input
-                placeholder="skills here"
+                placeholder="Skills "
                 onChange={(e) => setSkills(e.target.value)}
               ></input>
               <select
@@ -935,39 +937,43 @@ function UserDetails() {
               </select>
 
               <input
-                placeholder="major here"
+                placeholder="Major "
                 onChange={(e) => setMajor(e.target.value)}
               ></input>
 
               <input
-                placeholder="educational institute name here"
+                placeholder="Educational Institute Name "
                 onChange={(e) => setEducationalInstituteName(e.target.value)}
               ></input>
 
              
 
               <input
-                placeholder="email here"
+                placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
 
               <input
-                placeholder="password here"
+                placeholder="Password "
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
 
               <input
-                placeholder="full name here"
+                placeholder="Full Name "
                 onChange={(e) => setFullName(e.target.value)}
               ></input>
-
-              <input
-                placeholder="date Of Birth"
-                type="date"
-                onChange={(e) => {
-                  setDateOfBirth(e.target.value);
-                }}
-              />
+  <input
+          placeholder="Date Of Birth"
+          type="text"
+          ref={dateRef}
+          className="RegInput"
+          onChange={(e) => {
+            setDateOfBirth(e.target.value);
+          }}
+          onClick={()=>{
+            dateRef.current.type="date"
+          }}
+        />
 
               <select
                 name="gender"
@@ -1008,7 +1014,7 @@ function UserDetails() {
             }}
 
           ></input></div>
-              <button className="updateButton1"
+              <button style={{marginLeft:"-150px"}}className="updateButton1"
                 onClick={() => {
                   handleUpdateClick(userId);
                 }}

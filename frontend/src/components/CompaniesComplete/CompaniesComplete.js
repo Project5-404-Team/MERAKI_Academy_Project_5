@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setCompanyLogo } from "../Redux/reducers/Companies/companies";
+import { setCompanyDetails, setCompanyLogo } from "../Redux/reducers/Companies/companies";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesComplete.css"
 import Footer from "../Footer/Footer";
@@ -62,11 +62,10 @@ const CompaniesComplete = () => {
           authorization: "Bearer " + token,
         }})
       .then((response) => {
-        console.log(response);
-
         setRegisteredSucssfully(true);
+        dispatch(setCompanyDetails(response.data.result))
         setTimeout(() => {
-          navigate("/companies/companieshome");
+          navigate("/companies/company/companydetails");
         }, 1000);
       })
       .catch((err) => {
@@ -121,14 +120,7 @@ const CompaniesComplete = () => {
           }}
         />
 
-        <input
-          placeholder="Company Overview"
-          className="RegInput"
-          onChange={(e) => {
-            setCompanyOverview(e.target.value);
-          }}
-        />
-
+     
        
         <input
           placeholder="Office Location"
@@ -138,13 +130,16 @@ const CompaniesComplete = () => {
           }}
         />
 
-    
+<textarea
+          placeholder="Company Overview"
+          className="RegInputText"
+          onChange={(e) => {
+            setCompanyOverview(e.target.value);
+          }}
+        />
 
-{registeredSucssfully && (
-          <div className="popuptry">
-            <h2> Completed Successfully !</h2>
-          </div>
-        )||<button
+
+<button
           className="registerButton1complete"
           onClick={() => {
             handleRegister();
@@ -152,8 +147,13 @@ const CompaniesComplete = () => {
         >
           {" "}
           Complete Information !
-        </button>}
-      </div>
+        </button>
+        <br></br>
+        {registeredSucssfully && 
+            <h3 style={{color:"#3a3b3d",marginLeft:"-110px"}}> Completed Successfully !</h3>
+          }
+         </div>
+     
 
       
       <div className="Footer_user">

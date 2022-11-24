@@ -297,7 +297,7 @@ const getUserAppliedJobs = (req, res) => {
 const getCompanyAppliedJobs = (req, res) => {
   const companyId = req.params.companyId;
   const value = [companyId];
-  const query = `SELECT * , usersappliedjobs.id ,usersappliedjobs.is_deleted FROM usersappliedjobs INNER JOIN users ON usersappliedjobs.userId = users.id INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE companyId=$1 AND usersappliedjobs.is_deleted=0;`;
+  const query = `SELECT * ,users.phonenumber, usersappliedjobs.id ,usersappliedjobs.is_deleted FROM usersappliedjobs INNER JOIN users ON usersappliedjobs.userId = users.id INNER JOIN jobs ON usersappliedjobs.jobId = jobs.id INNER JOIN companies ON jobs.companyId = companies.id WHERE companyId=$1 AND usersappliedjobs.is_deleted=0;`;
   pool
     .query(query, value)
     .then((result) => {

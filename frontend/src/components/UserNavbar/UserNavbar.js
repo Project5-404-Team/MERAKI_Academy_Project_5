@@ -84,7 +84,7 @@ const UserNavbar = () => {
           </p>
         )}
         {isLoggedIn && (iscompleted==0)&& (
-          <p
+          <p style={{color:"#eb2f06"}}
             onClick={() => {
               navigate("/users/user/complete");
             }}

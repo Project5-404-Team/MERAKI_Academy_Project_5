@@ -780,13 +780,7 @@ const AddNewJob = () => {
             setNumberOfHires(e.target.value);
           }}
         />
-        <input
-          placeholder="Job Description "
-          className="AddNewJobInput"
-          onChange={(e) => {
-            setJobDescription(e.target.value);
-          }}
-        />
+      
         <input
           placeholder="Language"
           className="AddNewJobInput"
@@ -794,9 +788,17 @@ const AddNewJob = () => {
             setLanguage(e.target.value);
           }}
         />
-        <input
+      
+          <textarea style={{marginLeft: "20px"}}
+          placeholder="Job Description"
+          className="RegInputText"
+          onChange={(e) => {
+            setJobDescription(e.target.value);
+          }}
+        />
+          <textarea style={{marginLeft: "20px"}}
           placeholder="Job Requirements"
-          className="AddNewJobInput"
+          className="RegInputText"
           onChange={(e) => {
             setJobRequirements(e.target.value);
           }}

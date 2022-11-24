@@ -568,14 +568,6 @@ function CompanyDetails() {
               onChange={(e) => setLunchBreak(e.target.value)}
             ></input>
        
-            <input
-              placeholder="Company Overview "
-              onChange={(e) => setCompanyOverview(e.target.value)}
-            ></input>
-           
-           
-           
-          
 
             <input
               placeholder="Number of Employees "
@@ -600,21 +592,29 @@ function CompanyDetails() {
               placeholder="Password "
               onChange={(e) => setPassword(e.target.value)}
             ></input>
-             <button
+            <textarea
+          placeholder="Company Overview"
+          className="RegInputText"
+          onChange={(e) => {
+            setCompanyOverview(e.target.value);
+          }}
+        />
+             <button style={{marginTop:"70px"}}
           onClick={() => {
             handleUpdateClick()
-            console.log("yes")
+           
           }}
         >
           Update
         </button>
          
-        )
+        
           </div>
           
           </div>
         
-        )}
+        
+)}
           
       <div className="Footer_user">
       <Footer/>
@@ -622,7 +622,7 @@ function CompanyDetails() {
       </div>
       
     </>
-  );
-}
+  );}
+
 
 export default CompanyDetails;
