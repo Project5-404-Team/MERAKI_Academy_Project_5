@@ -105,6 +105,7 @@ const UserHome = () => {
                     className="companyNameCard1"
                     onClick={() => {
                       dispatch(setCompanyDetailsInUsersApp(elem));
+                      console.log(elem)
                       navigate("/users/companydetails/userapp");
                     }}
                   >
