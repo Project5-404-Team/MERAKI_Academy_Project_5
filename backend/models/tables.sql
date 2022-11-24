@@ -112,6 +112,7 @@ userId INT,
 companyId INT,
 message TEXT,
 sender Varchar(255),
+image Varchar(255),
 FOREIGN KEY (userId) REFERENCES  users(id),
 FOREIGN KEY (companyId) REFERENCES companies(id),
 is_deleted SMALLINT DEFAULT 0

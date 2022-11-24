@@ -26,6 +26,7 @@ const dispatch =useDispatch()
   });
 
 const [conv, setConv] = useState([])
+const [image, setImage] = useState([])
 
 let people = []
 
@@ -51,7 +52,8 @@ if(userId){
     console.log(result);
     console.log(result.data.result);
     console.log("from USER GET")
-
+    setImage(result.data.result.image);
+    
     setConv(result.data.result)
   })
   .catch((err) => {
@@ -102,7 +104,7 @@ if(conv[index].sender!==userName){
 {people&&people.map((elem,i)=>{
   return (
     <div className='conversations' onClick={()=>{change(elem.userid,elem.companyid);console.log("company id is  "+ elem.companyid);console.log("User id is  "+ elem.userid)}}>
-    <img className='conversationImg' src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+    <img className='conversationImg' src={elem.image} alt="" />
     <span> {elem.sender}</span>
        </div>
 

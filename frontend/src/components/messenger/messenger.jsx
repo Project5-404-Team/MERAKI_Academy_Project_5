@@ -64,15 +64,15 @@ export default function Messenger() {
 
   //const [own, setOwn] = useState(false)
 
-
+const userImage= JSON.parse(localStorage.getItem("userDetails")) ||JSON.parse(localStorage.getItem("companyDetails"))
 
   const send= (message,sender)=>{
     axios
-    .post(`http://localhost:5000/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender})
+    .post(`http://localhost:5000/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender,userImage : userImage.userimage || userImage.companylogo})
     .then((response) => {
       console.log(response);
       console.log(response.data.result)
-
+console.log(userImage.userimage || userImage.companylogo  )
     })
     .catch((err) => {
       console.log(err);
@@ -81,7 +81,7 @@ export default function Messenger() {
 
 
  useEffect(() => {
-  console.log(companyIdUserApp)
+  
   axios
   .get(`http://localhost:5000/messenger/${userId||userCoId}/${companyId||companyIdUserApp}`)
   .then((result) => {
@@ -187,7 +187,8 @@ useEffect(() => {
             <div className="chatBoxTop">
               {response1.map((elem) => (
                 <div ref={scrollRef}>
-                  <Message message={elem} own={elem.sender===userName} />
+                  {console.log(elem)}
+                  <Message  message={elem} own={elem.sender===userName} />
                 </div>
               ))}
             </div>
