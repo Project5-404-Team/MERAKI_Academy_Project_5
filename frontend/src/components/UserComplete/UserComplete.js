@@ -945,24 +945,18 @@ const UserComplete = () => {
 
           ></input></div>
         
-         
+     
           {registeredSucssfully && (
-            <div className="popuptry">
-              <h1>Completed Successfully !</h1>
-            </div>
-          )}
-<div>
-       
-          </div>
-          <button
-            className="registerButton2"
+              <h2 className="registerButtonMessage" >Completed Successfully !</h2>
+          )||<button className="registerButton2"
+          
             onClick={() => {
               handleRegister();
             }}
           >
             {" "}
             Complete Information !
-          </button>
+          </button>}
         </div>
      
       </div>

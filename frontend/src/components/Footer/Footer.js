@@ -17,7 +17,7 @@ function Footer() {
           </div>
 
           <div class="right_box">
-            <div class="topic">Contact</div>
+            <div class="topic">Contact</div><br></br>
             <div class="phone">
               <a href="#"><i class="fas fa-phone-volume"></i>+962-78-6682097</a><br></br>
               <a href="#"><i class="fas fa-phone-volume"></i>+962-79-0228491</a><br></br>

@@ -155,7 +155,7 @@ const dateRef=useRef()
 
         {registeredSucssfully && (
           <div className="popuptry">
-            <h1> Registerd In Sussfully</h1>
+            <h1> Registered Successfully</h1>
           </div>
         )}
 

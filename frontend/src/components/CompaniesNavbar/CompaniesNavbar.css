@@ -20,9 +20,12 @@
   margin-left: -10px;
   margin-right: -10px;
     }
-    .companies_navbar div:hover{
-      transition: 500ms;
+    .companies_navbar p:hover{
+      text-decoration: underline white 4px solid;
+      text-underline-offset: 15px;
+   
     }
+
     .search_navbar *{
       height: 30px;
       font-weight: 600;

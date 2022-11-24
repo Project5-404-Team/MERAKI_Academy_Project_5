@@ -15,11 +15,12 @@ import {
 import "./userNavbar.css"
 const UserNavbar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn, jobSearch ,iscompleted } = useSelector((state) => {
+  const { isLoggedIn, jobSearch ,iscompleted,userDetails } = useSelector((state) => {
     return {
       isLoggedIn: state.usersAuth.isLoggedIn,
       jobSearch: state.users.jobSearch,
-      iscompleted: state.users.userDetails.iscompleted
+      iscompleted: state.users.userDetails.iscompleted,
+      userDetails:state.users.userDetails
     };
   });
 
@@ -99,6 +100,16 @@ const UserNavbar = () => {
         <div className="search_navbar1">
          {isLoggedIn && <JobsSearch />}
          </div>
+         <div>
+        {isLoggedIn && (
+          <p
+            onClick={() => {
+              navigate("/messenger");
+            }}
+          >
+            messages
+          </p>
+        )}</div>
          <div className="logout">
         {isLoggedIn && (
           <p
@@ -112,16 +123,8 @@ const UserNavbar = () => {
             Logout
           </p>
         )}</div>
-         <div>
-        {isLoggedIn && (
-          <p
-            onClick={() => {
-              navigate("/messenger");
-            }}
-          >
-            messages
-          </p>
-        )}</div>
+     
+        {isLoggedIn&&(<h4 style={{textdecoration:"none",color:"#eb2f06",hover:"none"}}>Welcome Back {userDetails.fullname} </h4>)}
 
       </div>
     </>

@@ -110,6 +110,7 @@ function UserDetails() {
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
+        dispatch(setUserDetails(result.data.result[0]))
       })
       .catch((err) => {
         console.log(err);

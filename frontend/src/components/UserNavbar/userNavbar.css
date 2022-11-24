@@ -21,10 +21,7 @@
   margin-right: -10px;
 
   }
-  .userNavbar2 div{
-    transition: all 10000ms;
-    
-  }
+
   .userNavbar2 div:hover{
     text-decoration: underline white 4px solid;
     text-underline-offset: 15px;

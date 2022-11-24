@@ -129,18 +129,7 @@ const CompaniesComplete = () => {
           }}
         />
 
-        <div>
-        <label for="image">Choose Your Company Logo</label>
-          <input
-            id="image"
-            type="file"
-            placeholder="ompany Logoe"
-            className="RegInput"
-            onChange={(e) => {
-              uploadImage(e.target.files[0])
-            }
-            }
-          ></input></div>
+       
         <input
           placeholder="Office Location"
           className="RegInput"
@@ -149,13 +138,13 @@ const CompaniesComplete = () => {
           }}
         />
 
-        {registeredSucssfully && (
-          <div className="popuptry">
-            <h1> Completed Successfully !</h1>
-          </div>
-        )}
+    
 
-        <button
+{registeredSucssfully && (
+          <div className="popuptry">
+            <h2> Completed Successfully !</h2>
+          </div>
+        )||<button
           className="registerButton1complete"
           onClick={() => {
             handleRegister();
@@ -163,7 +152,7 @@ const CompaniesComplete = () => {
         >
           {" "}
           Complete Information !
-        </button>
+        </button>}
       </div>
 
       

@@ -7,14 +7,30 @@ import axios from "axios";
 import { setLogout } from "../Redux/reducers/CompaniesAuth/index";
 import { useDispatch, useSelector } from "react-redux";
 import "./CompaniesNavbar.css"
+
+import { setAllUsers } from "../Redux/reducers/Companies/companies.js";
 const CompaniesNavbar = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => {
-    return { isLoggedIn: state.CompaniesAuth.isLoggedIn };
+  const { isLoggedIn,companyDetails } = useSelector((state) => {
+    return { isLoggedIn: state.CompaniesAuth.isLoggedIn ,
+    companyDetails:state.companies.companyDetails};
   });
+ 
 
   const navigate = useNavigate();
-  const axios = require("axios");
+  
+  const getAllUsers = () => {
+    axios
+      .get("http://localhost:5000/users")
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
+        dispatch(setAllUsers(result.data.result));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
     {
       console.log(isLoggedIn);
@@ -29,20 +45,13 @@ const CompaniesNavbar = () => {
           <p
             onClick={() => {
               navigate("/companies/companieshome");
+              getAllUsers()
             }}
           >
             Home
           </p>
         )}
-        {isLoggedIn && (
-          <p
-            onClick={() => {
-              navigate("/companies/addnewjob");
-            }}
-          >
-            Add New Job
-          </p>
-        )}
+    
 
         {isLoggedIn && (
           <p
@@ -76,25 +85,8 @@ const CompaniesNavbar = () => {
         {isLoggedIn&& <p onClick={()=>{
           navigate('/companies/company/appliedjobs')
         }}>Jobs Applications</p>}
-        {isLoggedIn && (
-          <p
-            onClick={() => {
-              navigate("/companies/company/complete");
-            }}
-          >
-            Complete My Account
-          </p>
-        )}
-        {isLoggedIn && (
-          <p
-            onClick={() => {
-              dispatch(setLogout());
-              navigate("/companies/companies/login");
-            }}
-          >
-            Logout
-          </p>
-        )}
+       
+     
 
 {isLoggedIn && (
           <p
@@ -105,6 +97,18 @@ const CompaniesNavbar = () => {
            messages
           </p>
         )}
+           {isLoggedIn && (
+          <p
+            onClick={() => {
+              dispatch(setLogout());
+              navigate("/companies/companies/login");
+            }}
+          >
+            Logout
+          </p>
+        )}
+        {isLoggedIn&&(<h4 style={{textdecoration:"none",color:"#eb2f06",hover:"none"}}>Welcome Back {companyDetails.companyname} </h4>)}
+        
       </div>
     </>
   );

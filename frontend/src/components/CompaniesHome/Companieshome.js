@@ -10,17 +10,17 @@ import {
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesHome.css";
 import FilterNavCompanies from "../FilterNavCompanies/FilterNavCompanies";
-import { setAllUsers } from "../Redux/reducers/Companies/companies";
+import { setAllUsers,addFavUsersId } from "../Redux/reducers/Companies/companies";
 import Footer from "../Footer/Footer";
 const CompaniesHome = () => {
   const dispatch = useDispatch();
-  const { companyId, companyDetails, relativeUsers, allUsers } = useSelector(
+  const { companyId, companyDetails, allUsers,favUsersId } = useSelector(
     (state) => {
       return {
         companyId: state.CompaniesAuth.companyId,
-        companyDetails: state.companies.companyDetails.industry,
-        relativeUsers: state.companies.relativeUsers,
+        companyDetails: state.companies.companyDetails,
         allUsers: state.companies.allUsers,
+        favUsersId:state.companies.favUsersId
       };
     }
   );
@@ -57,7 +57,7 @@ const CompaniesHome = () => {
         }
       )
       .then((response) => {
-        console.log(response);
+  console.log(response)
       })
       .catch((err) => {
         console.log(err);
@@ -66,15 +66,12 @@ const CompaniesHome = () => {
 
   const handleRelevantUsers = () => {
     axios
-      .get(`http://localhost:5000/users/search?search=${companyDetails}`)
+      .get(`http://localhost:5000/users/search?search=${companyDetails.industry}`)
       .then((result) => {
-        // console.log(result);
+        console.log(companyDetails)
+        console.log(result)
         console.log(result.data.result);
-        dispatch(setRelativeUsers(result.data.result));
-
-        setTimeout(() => {
-          navigate("/companies/relevantusers");
-        }, 1000);
+        dispatch(setAllUsers(result.data.result));
       })
       .catch((err) => {
         console.log(err);
@@ -102,7 +99,7 @@ const CompaniesHome = () => {
         </div>
         
         <div className="usersCardsDiv3">
-          <button
+          <button className="addFavCard" style={{marginLeft:"0px",marginBottom:"40px"}}
             onClick={() => {
               handleRelevantUsers();
             }}
@@ -137,16 +134,23 @@ const CompaniesHome = () => {
                     {" "}
                     Languages : {elem.languages}
                   </p>
-
-                  <button
+                  {!favUsersId.includes(elem.id)&& <button
                     className="addFavCard1"
-                    onClick={() => {
+                    onClick={(e) => {
                       handleCompaniesFavUsers(elem.id);
+                      dispatch(addFavUsersId(elem.id))
+                     
                     }}
                   >
-                    {" "}
-                    Add to Favorite
-                  </button>
+                   Add to Favorite
+                  </button>}
+                  {favUsersId.includes(elem.id)&& <button
+                    className="addFavCard1"
+                   
+                  >
+                   Added to Favorite
+                  </button>}
+               
                 </div>
               );
             })}

@@ -1,4 +1,7 @@
 import react from "react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Login.css";
@@ -23,6 +26,25 @@ const LoginUser = () => {
       isLoggedIn: state.usersAuth.isLoggedIn,
     };
   });
+
+  const login = (decoded1) => {
+    axios
+      .post("http://localhost:5000/login/users/googlelogin", {
+        fullName: decoded1.name,
+        email: decoded1.email,
+        password: "0",
+      })
+      .then((response) => {
+        console.log(response.data);
+        dispatch(setUserId(response.data.payload.userId));
+        dispatch(setLogin(response.data.token));
+        dispatch(setUserDetails(response.data.payload.user));
+        navigate("/users/userhome");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const buttRef = useRef();
   const [signIn, setSignIn] = useState("Sign in");
   const dispatch = useDispatch();
@@ -32,7 +54,7 @@ const LoginUser = () => {
   const [error, setError] = useState("");
   const [loggedInSucssfully, setLoggedInSucssfully] = useState(false);
   const [iserror, setIserror] = useState(false);
-
+const [googleLogin,setGoogleLogin] = useState(false)
   const body = { email, password };
 
   const handleLogin = () => {
@@ -100,6 +122,7 @@ const LoginUser = () => {
     <>
       <div className="mainPageLoginUser">
         <div className="navbar_container2">
+         
           <p
             className="navbar_user_login_link1"
             onClick={() => {
@@ -161,8 +184,13 @@ const LoginUser = () => {
               {" "}
               {signIn}{" "}
             </button>
-            <p>{!iserror ? error : null}</p>
+            
+            <div className="popuptry1">
+              
+            <h2>{!iserror ? error : null}</h2></div>
+            
           </div>
+          
         </div>
         <div className="paragraph1">
           {" "}
@@ -179,15 +207,27 @@ const LoginUser = () => {
           >
             Dont Have Account! Register Now
           </p>
-
-          <p
+        
+          {googleLogin && <div > <GoogleOAuthProvider clientId="1051135409617-k2pttkrl0j8jtmh40184b9d1dm3vnetf.apps.googleusercontent.com">
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    var decoded1 = jwtDecode(credentialResponse.credential);
+                    login(decoded1);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </GoogleOAuthProvider>
+            </div>||<p
             className="googleLink1"
             onClick={() => {
-              navigate("/users/user/login/Google");
+              setGoogleLogin(true)
             }}
           >
             LOGIN WITH GOOGLE
-          </p>
+          </p>}
+          
         </div>
       </div>
     </>
