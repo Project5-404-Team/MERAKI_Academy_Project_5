@@ -55,26 +55,28 @@ const CompaniesAppliedJobs = () => {
                 <a href={elem.cv} download target="blank"><button>Download CV</button></a>
               </div>
               <div className="personalInfo">
-                <h3>Personal Information</h3>
-            <p>Full Name :{elem.fullname}</p>
-            <p>Date Of Birth :{elem.dateofbirth.substring(0,10)}</p>
-            <p>Gender :{elem.gender}</p>
-            <p>Phone Number :{elem.phonenumber}</p>
-            <p>Address :{elem.wheredoyoulive}</p>
-            <p>Citizenship : {elem.citizenships}</p>
-            <p>Material Status :{elem.maritalstatus}</p>
-            <p>Languages :{elem.languages}</p>
-            </div>
-            <div className="professionalInfo">
+            <h3>Personal Information</h3>
+            <p><span style={{ fontWeight: "600" }}>Full Name :</span>{elem.fullname}</p>
+            <p><span style={{ fontWeight: "600" }}>Date Of Birth :</span>{elem.dateofbirth.substring(0, 10)}</p>
+            <p><span style={{ fontWeight: "600" }}>Gender :</span>{elem.gender}</p>
+            <p><span style={{ fontWeight: "600" }}>Phone Number :</span>{elem.phonenumber}</p>
+            <p><span style={{ fontWeight: "600" }}>Address :</span>{elem.wheredoyoulive}</p>
+            <p><span style={{ fontWeight: "600" }}>Citizenship : </span>{elem.citizenships}</p>
+            <p><span style={{ fontWeight: "600" }}>Material Status :</span>{elem.maritalstatus}</p>
+            <p><span style={{ fontWeight: "600" }}>Languages :</span>{elem.languages}</p>
+          </div>
+          <div className="professionalInfo">
             <h3>Professional Information</h3>
-      <p>Recent Job Function :{elem.recentjobfunction}</p>
-      <p>Recent Job Title :{elem.recentjobtitle}</p>
-      <p>Years Of Experience :{elem.yearsofexperience}</p>
-      <p>Skills :{elem.skills}</p>
-      <h3>Educational Information</h3>
-      <p>Major :{elem.major}</p>
-      <p>Educational Institute Name :{elem.educationalinstitutename}</p>
-      </div>
+            <p><span style={{ fontWeight: "600" }}>Recent Job Function :</span>{elem.recentjobfunction}</p>
+            <p><span style={{ fontWeight: "600" }}>Recent Job Title :</span>{elem.recentjobtitle}</p>
+            <p><span style={{ fontWeight: "600" }}>Years Of Experience :</span>{elem.yearsofexperience}</p>
+            <p><span style={{ fontWeight: "600" }}>Skills :</span>{elem.skills}</p>
+            <h3>Educational Information</h3>
+            <p><span style={{ fontWeight: "600" }}>Major :</span>{elem.major}</p>
+            <p>
+            <span style={{ fontWeight: "600" }}>Educational Institute Name :</span>{elem.educationalinstitutename}
+            </p>
+          </div>
       </div>
       <h2 style={{marginLeft:"500px"}}>Job Details</h2>
       <div id={elem.id} key={elem.id} className="jobCardDetailsApplied">
@@ -145,19 +147,27 @@ const CompaniesAppliedJobs = () => {
          
          </div>
       
-     
-      </div></div>
+    
+      </div>
+      
+      </div>
+      
       
 
               
      
             
-               
+        
          
          
             );
           })}
-          
+          <div style={{marginLeft:"700px",marginBottom:"50px"}}> 
+          <button className="addFavCard1" onClick={()=>{
+       
+       window.print(); 
+     
+    }}> Print All Applications</button></div>
       <div className="Footer_user">
       <Footer/>
       </div>

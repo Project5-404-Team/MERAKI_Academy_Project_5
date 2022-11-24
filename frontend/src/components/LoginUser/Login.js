@@ -187,7 +187,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
             
             <div className="popuptry1">
               
-            <h2>{!iserror ? error : null}</h2></div>
+            <h2 style={{ color: "#3a3b3d" }}>{!iserror ? error : null}</h2></div>
             
           </div>
           

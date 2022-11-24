@@ -2,7 +2,7 @@ const pool = require("../models/db");
 const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res) => {
-  const { email, password, fullName, dateOfBirth, gender } = req.body;
+  const { email, password, fullName, dateOfBirth, gender,phoneNumber } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   const values = [
     email.toLowerCase(),
@@ -10,9 +10,10 @@ const registerUser = async (req, res) => {
     fullName,
     dateOfBirth,
     gender,
+    phoneNumber
   ];
   const query =
-    "INSERT INTO users (email,password,fullName,dateOfBirth,gender) VALUES($1,$2,$3,$4,$5)";
+    "INSERT INTO users (email,password,fullName,dateOfBirth,gender,phoneNumber) VALUES($1,$2,$3,$4,$5,$6)";
   pool
     .query(query, values)
     .then((result) => {

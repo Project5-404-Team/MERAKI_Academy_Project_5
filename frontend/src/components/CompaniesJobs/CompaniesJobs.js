@@ -117,7 +117,6 @@ const CompaniesJobs = () => {
       {!companyJobs.length&& <div className="empety">
       <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
       <h1> Add New Job NOW !</h1>
-      <button className="button1" onClick={()=>{navigate('/companies/addnewjob')}} > Add New Job  </button>
       </div>}
         {companyJobs && companyJobs.map((elem, index) => {
             return (

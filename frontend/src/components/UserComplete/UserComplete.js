@@ -65,7 +65,6 @@ const UserComplete = () => {
   };
 
   const body = {
-    phoneNumber,
     maritalStatus,
     citizenships,
     whereDoYouLive,
@@ -94,7 +93,7 @@ const UserComplete = () => {
         console.log(response.data.result[0]);
         setRegisteredSucssfully(true);
         setTimeout(() => {
-          navigate("/users/userhome");
+          navigate("/users/user/userdetails");
         }, 1000);
       })
       
@@ -110,13 +109,7 @@ const UserComplete = () => {
       <div className="bigDivRegisterComplete2">
         <h2 className="completeAccountpar2">Complete Your Account !</h2>
         <div className="infoContainerRegister2">
-          <input
-            placeholder="Phone Number"
-            className="RegInput"
-            onChange={(e) => {
-              setPhoneNumber(e.target.value);
-            }}
-          />
+        
 
           <input
             placeholder="Marital Status"

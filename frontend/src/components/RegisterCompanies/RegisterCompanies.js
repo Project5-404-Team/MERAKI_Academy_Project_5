@@ -512,7 +512,7 @@ const RegisterCompanies = () => {
 
         {registeredSucssfully && (
           <div className="popuptry">
-            <h1> Registered Successfully</h1>
+            <h2 style={{ color: "#3a3b3d" }}> Registered Successfully</h2>
           </div>
         )}
 
