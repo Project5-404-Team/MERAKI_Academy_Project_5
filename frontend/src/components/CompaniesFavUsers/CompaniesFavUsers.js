@@ -7,7 +7,7 @@ import {
   setFavUsers,
   deleteFavUsers,
 } from "../Redux/reducers/Companies/companies";
-import { setuserDetailsInCompanyApp,setRelativeUsers } from "../Redux/reducers/Companies/companies";
+import { setuserDetailsInCompanyApp,setRelativeUsers,deleteFavUsersId } from "../Redux/reducers/Companies/companies";
 import CompaniesNavbar from "../CompaniesNavbar/CompaniesNavbar";
 import "./CompaniesFavUsers.css"
 import Footer from "../Footer/Footer";
@@ -81,6 +81,7 @@ const CompaniesFavUsers = () => {
                 <button className="deleteFavCard"
                   onClick={() => {
                     deleteCompaniesFavUsers(elem.id);
+                    dispatch(deleteFavUsersId(elem.userid));
                   }}
                 >
                   Delete From Favorites

@@ -40,7 +40,7 @@
     transition: 500ms;
   }
   .navbar_user_login_link1:hover {
-    background-color:#3a3b3d;
+    background-color:#3a3b3dd1;
     cursor: pointer;
   }
   .navbar_company_login_link1 {
@@ -195,7 +195,10 @@ margin-top: 40px;
     cursor: pointer;
   }
 
-
+.google_button{
+  position: fixed;
+  top:20px;
+}
 /* !!-------------------------------------------- MEDIA Query --------------------------------------!! */
   
 

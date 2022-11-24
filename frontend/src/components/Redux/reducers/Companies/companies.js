@@ -11,8 +11,8 @@ const companiesSlice = createSlice({
     relativeUsers: [],
     companyAppliedJobs: [],
     companyLogo:"",
-    userCoId : null
-
+    userCoId : null,
+    favUsersId:[] 
   },
   reducers: {
     setAllUsers: (state, action) => {
@@ -71,7 +71,18 @@ const companiesSlice = createSlice({
     },
     setUserCoId :(state,action)=>{
       state.userCoId  = action.payload;
-    }
+    },
+    setFavUsersId: (state, action) => {
+      state.favUsersId = action.payload;
+    },
+    addFavUsersId: (state, action) => {
+      state.favUsersId.push(action.payload);
+    },
+    deleteFavUsersId: (state, action) => {
+      state.favUsersId = state.favUsersId.filter((elem, index) => {
+        return elem != action.payload;
+      });
+    },
   },
 });
 
@@ -90,6 +101,9 @@ export const {
   setCompanyAppliedJobs,
   updateJob,
   setCompanyLogo,
-  setUserCoId
+  setUserCoId,
+  setFavUsersId,
+  addFavUsersId,
+  deleteFavUsersId
 } = companiesSlice.actions;
 export default companiesSlice.reducer;

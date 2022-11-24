@@ -96,6 +96,7 @@ function JobDetailsCompanies() {
             updatedJob: result.data.result,
           })
         );
+        dispatch(setJobDetails(result.data.result))
       })
       .catch((err) => {
         console.log(err);

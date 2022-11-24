@@ -125,3 +125,22 @@ border-radius: 5px;
   color: white;
   cursor: pointer;
 }
+
+.updateSectionDetailsCompany2 select {
+  width: 410px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  color: rgba(75, 75, 75, 0.737);
+  font-size: 16px;
+  font-weight: 600;
+}
+.updateSectionDetailsCompany2 div {
+  width: 410px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  color: rgba(75, 75, 75, 0.737);
+  font-size: 16px;
+  font-weight: 600;
+}

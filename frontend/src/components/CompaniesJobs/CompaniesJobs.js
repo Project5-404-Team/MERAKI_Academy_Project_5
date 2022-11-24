@@ -140,7 +140,14 @@ const CompaniesJobs = () => {
 
             );
           })}
+          <button  style={{marginLeft:"400px"}}className ="addFavCard" onClick={() => {
+              navigate("/companies/addnewjob");
+            }}>  
+           
+            Add New Job
+          </button>
       </div>
+      
       <div className="video3">
       
       <video  style={{width:"400px"}} autoplay="true" muted="true" playsinline="true" loop="true" >

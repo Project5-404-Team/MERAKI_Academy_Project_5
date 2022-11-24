@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./LoginCompanies.css";
 import { useDispatch, useSelector } from "react-redux"
 import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth/index";
-import { setCompanyDetails } from "../Redux/reducers/Companies/companies";
+import { setCompanyDetails, setFavUsers, setFavUsersId } from "../Redux/reducers/Companies/companies";
 import CompanyDetails from "../CompanyDetails/CompanyDetails";
 import { setUserName } from "../Redux/reducers/Messenger/messenger";
 
@@ -39,9 +39,10 @@ const LoginCompanies = () => {
         dispatch(setCompanyDetails(response.data.payload.company))
         dispatch(setUserName(response.data.payload.company.companyname))
         navigate('/companies/companieshome')
+      
         console.log(isLoggedIn)
         console.log(companyDetails)
-
+       getCompaniesFavUsers(response.data.payload.companyId)
       })
 
       .catch((err) => {
@@ -50,7 +51,21 @@ const LoginCompanies = () => {
         
       });
   };
-
+  const getCompaniesFavUsers = (companyId1) => {
+    axios
+      .get(`http://localhost:5000/companies/favusers/${companyId1}`)
+      .then((result) => {
+        console.log(result);
+        console.log(result.data.result);
+        dispatch(setFavUsers(result.data.result));
+        dispatch(setFavUsersId(result.data.result.map((elm, idx) => {
+          return elm.userid;
+        })))
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
     
@@ -89,7 +104,7 @@ const LoginCompanies = () => {
               />
               {/* <p> Password</p> */}
               <input
-                /*type={"password"}*/
+                type={"password"}
                 className="emailInput"
                 placeholder=" Password "
                 onChange={(e) => {
@@ -99,7 +114,7 @@ const LoginCompanies = () => {
 
               {loggedInSucssfully && (
                 <div className="popuptry">
-                  <h1> Logged In Sussfully</h1>
+                  <h1> Logged In Successfully</h1>
                 </div>
               )}
 
@@ -113,7 +128,8 @@ const LoginCompanies = () => {
                 {" "}
                 Sign In{" "}
               </button>
-              <p>{!iserror ? error : null}</p>
+              <div className="popuptry">
+              <h2>{!iserror ? error : null}</h2></div>
             </div>
           </div>
           <div className="paragraph">    <span style={{ fontWeight: 600 }}>Employer?</span>
