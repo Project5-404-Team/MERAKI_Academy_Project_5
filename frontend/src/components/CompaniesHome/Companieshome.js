@@ -107,6 +107,12 @@ const CompaniesHome = () => {
             {" "}
             Find Relative Users{" "}
           </button>
+          {!allUsers && (
+            <div className="empety">
+              <img src="https://res.cloudinary.com/dfpuepvtg/image/upload/v1668974149/no_kxgfhk.png" />
+              <h1> No Relative Users at the moment </h1>
+            </div>
+          )}
           {allUsers &&
             allUsers.map((elem, index) => {
               return (

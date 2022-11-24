@@ -49,8 +49,8 @@ function CompanyDetailsUsersApp() {
       </div>
 </div>
 <button className="sendmessage" onClick={()=>{
-dispatch(setCompanyIdUserApp(companyDetailsInUsersApp.id))
-
+dispatch(setCompanyIdUserApp(companyDetailsInUsersApp.companyid))
+console.log(companyDetailsInUsersApp.id)
 navigate("/messenger")
     }}> Send Message</button>
 
