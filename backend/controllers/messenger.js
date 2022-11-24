@@ -6,7 +6,7 @@ const addConversation = (req,res)=>{
     const userId=req.params.userId
     const message =req.body.message
     const sender =req.body.sender
-    const Image =req.body.userImage
+    const Image =req.body.image
 
     const values = [companyId,userId,message,sender,Image]
     const query = `INSERT INTO conversations (companyId,userId,message,sender,image) VALUES($1,$2,$3,$4,$5) RETURNING *`

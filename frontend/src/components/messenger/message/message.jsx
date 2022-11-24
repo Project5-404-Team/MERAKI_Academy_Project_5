@@ -24,16 +24,16 @@ export default function Message({ message ,own }) {
 
   return (
     <div className={own ? "message own" : "message"}>
-      <div className="messageTop">
+      <div className={own ?"messageTop own":"messageTop"}>
         <img
           className="messageImg"
           src={message.image}
           alt=""
         />
-        {console.log(message.image)}
+        {/* {console.log(message.image)} */}
         <p className="messageText">
           {" "}
-          {message.sender} : {message.message}{" "}
+         {message.message}{" "}
         </p>
       </div>
 

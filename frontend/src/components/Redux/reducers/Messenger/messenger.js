@@ -6,7 +6,8 @@ const messengerSlice= createSlice({
         room : 1,
         userName  :"",
         messageList : [],
-        socketId :null
+        socketId :null,
+        image : null
     },
     reducers: { 
         setMessage : (state,action)=>{
@@ -24,11 +25,14 @@ const messengerSlice= createSlice({
         },
         setsocketId: (state,action)=>{
             state.socketId= action.payload
+        },
+        setImage: (state,action)=>{
+            state.image= action.payload
         }
     }
 
 
 })
 
-export const {setUserName , setRoom ,setMessage, setMessageList,setsocketId} = messengerSlice.actions
+export const {setUserName , setRoom ,setMessage, setMessageList,setsocketId,setImage} = messengerSlice.actions
 export default messengerSlice.reducer

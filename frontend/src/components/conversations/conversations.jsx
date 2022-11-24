@@ -34,8 +34,8 @@ let people = []
 
 const change =(userId,companyId)=>{
 
-dispatch(setCompanyId(companyId)||setCompanyIdUserApp(companyId))
-dispatch(setUserCoId(userId)||setUserId(userId))
+dispatch(setCompanyIdUserApp(companyId))
+dispatch(setUserCoId(userId))
 
 }
 
