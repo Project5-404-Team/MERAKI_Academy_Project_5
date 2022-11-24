@@ -34,11 +34,12 @@ const dateRef=useRef()
 
   const SendMail = () => {
     const params = {
+      from_name: "Hire Me",
       to_name: body.fullName,
       recieverEmail: body.email,
     };
     emailjs
-      .send("service_kv6rdi9", "template_pe0lu7b", params, "TF1iRzpMsPVOJG-cK")
+      .send("service_cliwxgs", "template_jdwcmyc", params, "z-0lEJiFwDSuMQPLa")
       .then(function (res) {
         console.log(res);
       });
