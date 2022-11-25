@@ -41,7 +41,7 @@
 }
 .filterNav2 li {
   list-style-type: none;
-  margin-bottom: 8px;
+  margin-bottom: 13px;
   font-weight: 500;
   font-size: 16px;
 }
@@ -233,6 +233,7 @@
     margin-bottom: 8px;
     font-weight: 500;
     font-size: 16px;
+
   }
 
   .video2 {
@@ -268,6 +269,7 @@
     color: GREY;
 margin-top: 0;
     border-radius: 5px;
+    
   }
   .jobsCardsDiv1 {
     display: flex;

@@ -9,7 +9,7 @@ import {
   setMessage,
 } from "../../Redux/reducers/Messenger/messenger";
 
-export default function Message({ message ,own}) {
+export default function Message({ message ,own }) {
 
 
 
@@ -24,16 +24,16 @@ export default function Message({ message ,own}) {
 
   return (
     <div className={own ? "message own" : "message"}>
-      <div className="messageTop">
+      <div className={own ?"messageTop own":"messageTop"}>
         <img
           className="messageImg"
-          src="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg"
+          src={message.image}
           alt=""
         />
-
+        {/* {console.log(message.image)} */}
         <p className="messageText">
           {" "}
-          {message.sender} : {message.message}{" "}
+         {message.message}{" "}
         </p>
       </div>
 

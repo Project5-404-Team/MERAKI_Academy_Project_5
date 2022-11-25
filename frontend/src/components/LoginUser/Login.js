@@ -15,7 +15,7 @@ import {
   setFavJobsId,
   setAppliedJobsId
 } from "../Redux/reducers/Users/users";
-import { setUserName } from "../Redux/reducers/Messenger/messenger";
+import { setUserName ,setImage} from "../Redux/reducers/Messenger/messenger";
 
 import { useRef } from "react";
 const LoginUser = () => {
@@ -69,6 +69,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
         navigate("/users/userhome");
         getAllFavJobs(response.data.payload.userId);
         getAppliedJobJobs(response.data.payload.userId)
+        dispatch(setImage(response.data.payload.user.userimage))
       })
 
       .catch((err) => {
@@ -177,7 +178,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
               onClick={(e) => {
                 buttRef.current.disabled = true;
                 setTimeout(handleLogin, 1000);
-                console.log(e);
+               
                 setSignIn(<i class="fa fa-circle-o-notch fa-spin"></i>);
               }}
             >

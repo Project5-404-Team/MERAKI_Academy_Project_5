@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setLogin, setCompanyId } from "../Redux/reducers/CompaniesAuth/index";
 import { setCompanyDetails, setFavUsers, setFavUsersId } from "../Redux/reducers/Companies/companies";
 import CompanyDetails from "../CompanyDetails/CompanyDetails";
-import { setUserName } from "../Redux/reducers/Messenger/messenger";
+import { setUserName,setImage } from "../Redux/reducers/Messenger/messenger";
 
 
 
@@ -39,7 +39,8 @@ const LoginCompanies = () => {
         dispatch(setCompanyDetails(response.data.payload.company))
         dispatch(setUserName(response.data.payload.company.companyname))
         navigate('/companies/companieshome')
-      
+        dispatch(setImage(response.data.payload.company.companylogo))
+    
         console.log(isLoggedIn)
         console.log(companyDetails)
        getCompaniesFavUsers(response.data.payload.companyId)

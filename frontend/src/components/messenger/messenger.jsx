@@ -33,11 +33,11 @@ export default function Messenger() {
 
   const [empty, setEmpty] = useState(false);
 
-  const { userName, room,  socketId ,userId,companyIdUserApp,userCoId ,companyId } = useSelector((state) => {
+  const { userName, room,  socketId ,userId,companyIdUserApp,userCoId ,companyId,image } = useSelector((state) => {
     return {
       userName: state.messenger.userName,
       room: state.messenger.room,
-      
+      image: state.messenger.image,
       socketId: state.messenger.socketId,
       companyIdUserApp: state.users.companyIdUserApp,
       userId: state.usersAuth.userId,
@@ -48,7 +48,7 @@ export default function Messenger() {
 
 
 
-
+console.log(image)
   //   axios
   //     .post(`http://localhost:5000/messenger/newconversation/${companyId}/${userId}`)
   //     .then((response) => {
@@ -68,7 +68,7 @@ export default function Messenger() {
 
   const send= (message,sender)=>{
     axios
-    .post(`http://localhost:5000/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender})
+    .post(`http://localhost:5000/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender,image})
     .then((response) => {
       console.log(response);
       console.log(response.data.result)
@@ -81,14 +81,13 @@ export default function Messenger() {
 
 
  useEffect(() => {
-  console.log(companyIdUserApp)
+  
   axios
   .get(`http://localhost:5000/messenger/${userId||userCoId}/${companyId||companyIdUserApp}`)
   .then((result) => {
     console.log(result);
     console.log(result.data.result);
     setResponse1(result.data.result)
-    
   })
   .catch((err) => {
     console.log(err);
@@ -125,7 +124,7 @@ useEffect(() => {
     
    
   
-      send(data.message,data.sender)
+      send(data.message,data.sender,data.picture)
 
 
       setResponse1([...response1, data]);
@@ -144,6 +143,7 @@ useEffect(() => {
       content: {
         sender: userName,
         message: message,
+        image:image
       },
     };
 
@@ -187,7 +187,8 @@ useEffect(() => {
             <div className="chatBoxTop">
               {response1.map((elem) => (
                 <div ref={scrollRef}>
-                  <Message message={elem} own={elem.sender===userName} />
+                  {/* {console.log(elem)} */}
+                  <Message  message={elem} own={elem.sender===userName} />
                 </div>
               ))}
             </div>
