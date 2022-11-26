@@ -26,7 +26,7 @@ function UserAppliedJobs() {
 
   const getAppliedJobJobs = () => {
     axios
-      .get(`http://localhost:5000/jobs/jobapply/${userId}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/jobapply/${userId}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -42,7 +42,7 @@ function UserAppliedJobs() {
 
   const deleteAppliedJob1 = (appliedJobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/jobapply/${appliedJobId}`,{
+      .delete(`https://hire-me-kfab.onrender.com/jobs/jobapply/${appliedJobId}`,{
         headers: {
           authorization: "Bearer " + token,
         }})

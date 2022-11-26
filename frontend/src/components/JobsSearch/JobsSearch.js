@@ -16,7 +16,7 @@ const Navigate =useNavigate()
 
   const HandleJobSearch = () => {
     axios
-      .get(`http://localhost:5000/jobs/search/${search}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/search/${search}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

@@ -21,7 +21,7 @@ function Companies() {
 
       const deleteCompany = (CompanyId) => {
         axios
-          .put(`http://localhost:5000/admin/companies/${CompanyId}`)
+          .put(`https://hire-me-kfab.onrender.com/admin/companies/${CompanyId}`)
           .then((result) => {
     
             console.log(result);

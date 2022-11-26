@@ -28,7 +28,7 @@ const LoginCompanies = () => {
 
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login/companies",body)
+      .post("https://hire-me-kfab.onrender.com/login/companies",body)
       .then((response) => {
        
         setLoggedInSucssfully(true);
@@ -54,7 +54,7 @@ const LoginCompanies = () => {
   };
   const getCompaniesFavUsers = (companyId1) => {
     axios
-      .get(`http://localhost:5000/companies/favusers/${companyId1}`)
+      .get(`https://hire-me-kfab.onrender.com/companies/favusers/${companyId1}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

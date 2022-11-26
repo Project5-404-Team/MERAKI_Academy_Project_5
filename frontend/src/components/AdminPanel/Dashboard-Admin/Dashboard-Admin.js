@@ -32,7 +32,7 @@ const dispatch =useDispatch()
 
   const getAllUsers = () => {
     axios
-      .get("http://localhost:5000/admin/users")
+      .get("https://hire-me-kfab.onrender.com/admin/users")
       .then((result) => {
         console.log(result.data.result);
        dispatch (setUsers(result.data.result));
@@ -45,7 +45,7 @@ const dispatch =useDispatch()
 
   const getAllJobs = () => {
     axios
-      .get("http://localhost:5000/admin/jobs")
+      .get("https://hire-me-kfab.onrender.com/admin/jobs")
       .then((result) => {
         console.log(result.data.result);
        dispatch (setJobs(result.data.result));
@@ -57,7 +57,7 @@ const dispatch =useDispatch()
 
   const getAllCompanies = () => {
     axios
-      .get("http://localhost:5000/admin/companies")
+      .get("https://hire-me-kfab.onrender.com/admin/companies")
       .then((result) => {
         console.log(result.data.result);
       dispatch  (setCompanies(result.data.result));

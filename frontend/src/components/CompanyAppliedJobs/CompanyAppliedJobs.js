@@ -21,7 +21,7 @@ const CompaniesAppliedJobs = () => {
 
   const getCompaniesAppliedJobs = () => {
     axios
-      .get(`http://localhost:5000/jobs/jobapplies/${companyId}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/jobapplies/${companyId}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

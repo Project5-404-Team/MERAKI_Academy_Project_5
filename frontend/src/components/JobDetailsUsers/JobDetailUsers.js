@@ -21,7 +21,7 @@ function JobDetailsUsers() {
   const dispatch=useDispatch()
   const jobApply = () => {
     axios
-      .post(`http://localhost:5000/jobs/jobapply/${userId}`, {
+      .post(`https://hire-me-kfab.onrender.com/jobs/jobapply/${userId}`, {
         jobId: jobDetails.id},{headers: {
           authorization: "Bearer " + token
         }})
@@ -35,7 +35,7 @@ function JobDetailsUsers() {
   };
   const handleAddToFav = (jobId) => {
     axios
-      .post(`http://localhost:5000/jobs/favjobs/${userId}`,{jobId},{headers: {
+      .post(`https://hire-me-kfab.onrender.com/jobs/favjobs/${userId}`,{jobId},{headers: {
         authorization: "Bearer " + token
       }})
       .then((response) => {

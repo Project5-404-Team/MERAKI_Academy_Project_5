@@ -29,7 +29,7 @@ const LoginUser = () => {
 
   const login = (decoded1) => {
     axios
-      .post("http://localhost:5000/login/users/googlelogin", {
+      .post("https://hire-me-kfab.onrender.com/login/users/googlelogin", {
         fullName: decoded1.name,
         email: decoded1.email,
         password: "0",
@@ -59,7 +59,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
 
   const handleLogin = () => {
     axios
-      .post("http://localhost:5000/login/users", body)
+      .post("https://hire-me-kfab.onrender.com/login/users", body)
       .then((response) => {
         setLoggedInSucssfully(true);
         dispatch(setUserId(response.data.payload.userId));
@@ -83,7 +83,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
   };
   const getAppliedJobJobs = (userId1) => {
     axios
-      .get(`http://localhost:5000/jobs/jobapply/${userId1}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/jobapply/${userId1}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -102,7 +102,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
   };
   const getAllFavJobs = (userId1) => {
     axios
-      .get(`http://localhost:5000/jobs/favjobs/${userId1}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/favjobs/${userId1}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

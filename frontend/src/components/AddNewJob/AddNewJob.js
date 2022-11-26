@@ -50,7 +50,7 @@ const AddNewJob = () => {
   };
   const handleAddNewJob = () => {
     axios
-      .post(`http://localhost:5000/jobs/${companyId}`, body, {
+      .post(`https://hire-me-kfab.onrender.com/jobs/${companyId}`, body, {
         headers: {
           authorization: "Bearer " + token,
         },

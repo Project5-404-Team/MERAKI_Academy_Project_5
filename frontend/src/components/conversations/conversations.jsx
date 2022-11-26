@@ -47,7 +47,7 @@ if(userId){
 
 
   axios
-  .get(`http://localhost:5000/messenger/${userId}`)
+  .get(`https://hire-me-kfab.onrender.com/messenger/${userId}`)
   .then((result) => {
     console.log(result);
     console.log(result.data.result);
@@ -64,7 +64,7 @@ if(userId){
 else{
 
   axios
-  .get(`http://localhost:5000/messenger?companyId=${companyId}`)
+  .get(`https://hire-me-kfab.onrender.com/messenger?companyId=${companyId}`)
   .then((result) => {
     console.log(result);
     console.log(result.data.result);

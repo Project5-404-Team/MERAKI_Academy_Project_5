@@ -50,7 +50,7 @@ export default function Messenger() {
 
 console.log(image)
   //   axios
-  //     .post(`http://localhost:5000/messenger/newconversation/${companyId}/${userId}`)
+  //     .post(`https://hire-me-kfab.onrender.com/messenger/newconversation/${companyId}/${userId}`)
   //     .then((response) => {
   //       console.log(response);
   //       console.log(response.data.result)
@@ -68,7 +68,7 @@ console.log(image)
 
   const send= (message,sender)=>{
     axios
-    .post(`http://localhost:5000/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender,image})
+    .post(`https://hire-me-kfab.onrender.com/messenger/newconversation/${companyId||companyIdUserApp}/${userId||userCoId}` ,{message,sender,image})
     .then((response) => {
       console.log(response);
       console.log(response.data.result)
@@ -83,7 +83,7 @@ console.log(image)
  useEffect(() => {
   
   axios
-  .get(`http://localhost:5000/messenger/${userId||userCoId}/${companyId||companyIdUserApp}`)
+  .get(`https://hire-me-kfab.onrender.com/messenger/${userId||userCoId}/${companyId||companyIdUserApp}`)
   .then((result) => {
     console.log(result);
     console.log(result.data.result);

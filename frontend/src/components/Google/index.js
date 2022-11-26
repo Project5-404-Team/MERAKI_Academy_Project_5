@@ -19,7 +19,7 @@ const Google = () => {
   });
   const login = (decoded1) => {
     axios
-      .post("http://localhost:5000/login/users/googlelogin", {
+      .post("https://hire-me-kfab.onrender.com/login/users/googlelogin", {
         fullName: decoded1.name,
         email: decoded1.email,
         password: "0",

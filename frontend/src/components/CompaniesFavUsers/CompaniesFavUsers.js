@@ -25,7 +25,7 @@ const CompaniesFavUsers = () => {
 
   const getCompaniesFavUsers = () => {
     axios
-      .get(`http://localhost:5000/companies/favusers/${companyId}`)
+      .get(`https://hire-me-kfab.onrender.com/companies/favusers/${companyId}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -37,7 +37,7 @@ const CompaniesFavUsers = () => {
   };
   const deleteCompaniesFavUsers = (favId) => {
     axios
-      .delete(`http://localhost:5000/companies/favusers/${favId}`,{
+      .delete(`https://hire-me-kfab.onrender.com/companies/favusers/${favId}`,{
         headers: {
           authorization: "Bearer " + token,
         }})

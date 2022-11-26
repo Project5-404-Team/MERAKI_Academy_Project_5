@@ -36,7 +36,7 @@ const RegisterCompanies = () => {
 
   const handleRegister = () => {
     axios
-      .post("http://localhost:5000/register/companies", body)
+      .post("https://hire-me-kfab.onrender.com/register/companies", body)
       .then((response) => {
         console.log(response);
 

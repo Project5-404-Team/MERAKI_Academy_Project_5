@@ -84,7 +84,7 @@ const UserComplete = () => {
 
   const handleRegister = () => {
     axios
-      .put(`http://localhost:5000/register/users/${userId}`, body,{
+      .put(`https://hire-me-kfab.onrender.com/register/users/${userId}`, body,{
         headers: {
           authorization: "Bearer " + token,
         }})
