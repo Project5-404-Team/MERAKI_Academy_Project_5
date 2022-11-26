@@ -173,7 +173,7 @@ useEffect(() => {
 
   return (
     <>
-      {userId&&<UserNavbar />&& companyId&& <CompaniesNavbar/>}
+      {userId&&<UserNavbar /> || companyId&& <CompaniesNavbar/>}
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
