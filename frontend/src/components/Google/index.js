@@ -1,5 +1,4 @@
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
+
 import "./style.css";
 import { useState } from "react";
 import jwtDecode from "jwt-decode";
@@ -41,7 +40,7 @@ const Google = () => {
 
   return (
     <div className="googleLogin">
-      <GoogleOAuthProvider clientId="1051135409617-k2pttkrl0j8jtmh40184b9d1dm3vnetf.apps.googleusercontent.com">
+      {/* <GoogleOAuthProvider clientId="1051135409617-k2pttkrl0j8jtmh40184b9d1dm3vnetf.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             var decoded1 = jwtDecode(credentialResponse.credential);
@@ -51,7 +50,7 @@ const Google = () => {
             console.log("Login Failed");
           }}
         />
-      </GoogleOAuthProvider>
+      </GoogleOAuthProvider> */}
     </div>
   );
 };

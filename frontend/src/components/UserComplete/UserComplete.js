@@ -939,9 +939,11 @@ const UserComplete = () => {
           ></input></div>
         
      
-          {registeredSucssfully && (
-              <h2 className="registerButtonMessage" >Completed Successfully !</h2>
-          )||<button className="registerButton2"
+          {registeredSucssfully && 
+              <h2 className="registerButtonMessage" >Completed Successfully !</h2>}
+          
+          
+          <button className="registerButton2"
           
             onClick={() => {
               handleRegister();
@@ -949,7 +951,7 @@ const UserComplete = () => {
           >
             {" "}
             Complete Information !
-          </button>}
+          </button>
         </div>
      
       </div>
