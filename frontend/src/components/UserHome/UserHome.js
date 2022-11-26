@@ -31,7 +31,7 @@ const UserHome = () => {
 
   const getAllJobs = () => {
     axios
-      .get("http://localhost:5000/jobs")
+      .get("https://hire-me-kfab.onrender.com/jobs")
       .then((result) => {
         setJobs(result.data.result);
         dispatch(setAllJobs(result.data.result));
@@ -45,7 +45,7 @@ const UserHome = () => {
   const handleAddToFav = (jobId) => {
     axios
       .post(
-        `http://localhost:5000/jobs/favjobs/${userId}`,
+        `https://hire-me-kfab.onrender.com/jobs/favjobs/${userId}`,
         { jobId },
         {
           headers: {

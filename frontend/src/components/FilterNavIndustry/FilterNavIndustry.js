@@ -15,7 +15,7 @@ function FilterNav() {
 
   const HandleJobSearch = (search) => {
     axios
-      .get(`http://localhost:5000/jobs/industrysearch/${search}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/industrysearch/${search}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

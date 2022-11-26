@@ -21,7 +21,7 @@ const CompaniesNavbar = () => {
   
   const getAllUsers = () => {
     axios
-      .get("http://localhost:5000/users")
+      .get("https://hire-me-kfab.onrender.com/users")
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

@@ -22,7 +22,7 @@ function Jobs() {
 
       const deleteJob = (jobId) => {
         axios
-          .put(`http://localhost:5000/admin/jobs/${jobId}`)
+          .put(`https://hire-me-kfab.onrender.com/admin/jobs/${jobId}`)
           .then((result) => {
             console.log(result);
          

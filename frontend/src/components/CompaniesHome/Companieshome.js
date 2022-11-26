@@ -35,7 +35,7 @@ const CompaniesHome = () => {
 
   const getAllUsers = () => {
     axios
-      .get("http://localhost:5000/users")
+      .get("https://hire-me-kfab.onrender.com/users")
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -48,7 +48,7 @@ const CompaniesHome = () => {
   const handleCompaniesFavUsers = (userId) => {
     axios
       .post(
-        `http://localhost:5000/companies/favusers/${companyId}`,
+        `https://hire-me-kfab.onrender.com/companies/favusers/${companyId}`,
         { userId },
         {
           headers: {
@@ -66,7 +66,7 @@ const CompaniesHome = () => {
 
   const handleRelevantUsers = () => {
     axios
-      .get(`http://localhost:5000/users/search?search=${companyDetails.industry}`)
+      .get(`https://hire-me-kfab.onrender.com/users/search?search=${companyDetails.industry}`)
       .then((result) => {
         console.log(companyDetails)
         console.log(result)

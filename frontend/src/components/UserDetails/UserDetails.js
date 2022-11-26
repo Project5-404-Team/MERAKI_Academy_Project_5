@@ -105,7 +105,7 @@ function UserDetails() {
   };
   const updateUser = (user) => {
     axios
-      .put(`http://localhost:5000/users/${user}`, body,{
+      .put(`https://hire-me-kfab.onrender.com/users/${user}`, body,{
         headers: {
           authorization: "Bearer " + token,
         }})

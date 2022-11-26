@@ -65,7 +65,7 @@ function CompanyDetails() {
   
   const updateCompany = () => {
     axios
-      .put(`http://localhost:5000/companies/${companyId}`, body,{
+      .put(`https://hire-me-kfab.onrender.com/companies/${companyId}`, body,{
         headers: {
           authorization: "Bearer " + token,
         }})

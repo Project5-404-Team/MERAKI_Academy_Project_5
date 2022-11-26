@@ -14,7 +14,7 @@ function FilterNavCompanies() {
 
   const HandleUserSearch = (search) => {
     axios
-      .get(`http://localhost:5000/users/search/?search=${search}`)
+      .get(`https://hire-me-kfab.onrender.com/users/search/?search=${search}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);

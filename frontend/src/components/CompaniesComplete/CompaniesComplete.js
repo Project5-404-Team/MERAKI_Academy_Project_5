@@ -57,7 +57,7 @@ const CompaniesComplete = () => {
 
   const handleRegister = () => {
     axios
-      .put(`http://localhost:5000/register/companies/${companyId}`, body,{
+      .put(`https://hire-me-kfab.onrender.com/register/companies/${companyId}`, body,{
         headers: {
           authorization: "Bearer " + token,
         }})

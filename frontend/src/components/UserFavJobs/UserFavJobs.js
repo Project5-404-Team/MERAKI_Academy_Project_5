@@ -30,7 +30,7 @@ export default function UserFavJobs() {
 
   const getAllFavJobs = () => {
     axios
-      .get(`http://localhost:5000/jobs/favjobs/${userId}`)
+      .get(`https://hire-me-kfab.onrender.com/jobs/favjobs/${userId}`)
       .then((result) => {
         console.log(result);
         console.log(result.data.result);
@@ -49,7 +49,7 @@ export default function UserFavJobs() {
 
   const deleteFavJob = (favJobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/favjobs/${favJobId}`, {
+      .delete(`https://hire-me-kfab.onrender.com/jobs/favjobs/${favJobId}`, {
         headers: {
           authorization: "Bearer " + token,
         },

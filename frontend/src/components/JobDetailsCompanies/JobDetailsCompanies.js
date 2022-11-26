@@ -40,7 +40,7 @@ function JobDetailsCompanies() {
   });
   const deleteJob = (jobId) => {
     axios
-      .delete(`http://localhost:5000/jobs/${jobId}`, {
+      .delete(`https://hire-me-kfab.onrender.com/jobs/${jobId}`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -82,7 +82,7 @@ function JobDetailsCompanies() {
   };
   const updateJob1 = () => {
     axios
-      .put(`http://localhost:5000/jobs/${jobUpdateId}`, body, {
+      .put(`https://hire-me-kfab.onrender.com/jobs/${jobUpdateId}`, body, {
         headers: {
           authorization: "Bearer " + token,
         },

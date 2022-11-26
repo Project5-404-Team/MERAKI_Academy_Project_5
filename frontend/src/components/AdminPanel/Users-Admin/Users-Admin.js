@@ -22,7 +22,7 @@ function Users() {
 
       const deleteUser = (id) => {
         axios
-          .put(`http://localhost:5000/admin/users/${id}`)
+          .put(`https://hire-me-kfab.onrender.com/admin/users/${id}`)
           .then((result) => {
           dispatch(setDeleteUser(result.data.result))
             console.log(result);
