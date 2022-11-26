@@ -1,6 +1,8 @@
 import react from "react";
 import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
@@ -207,7 +209,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
             Dont Have Account! Register Now
           </p>
         
-          {/* {googleLogin && <div > <GoogleOAuthProvider clientId="1051135409617-k2pttkrl0j8jtmh40184b9d1dm3vnetf.apps.googleusercontent.com">
+          {googleLogin && <div > <GoogleOAuthProvider clientId="1051135409617-k2pttkrl0j8jtmh40184b9d1dm3vnetf.apps.googleusercontent.com">
                 <GoogleLogin
                   onSuccess={(credentialResponse) => {
                     var decoded1 = jwtDecode(credentialResponse.credential);
@@ -226,7 +228,7 @@ const [googleLogin,setGoogleLogin] = useState(false)
           >
             LOGIN WITH GOOGLE
           </p>}
-           */}
+          
         </div>
       </div>
     </>
