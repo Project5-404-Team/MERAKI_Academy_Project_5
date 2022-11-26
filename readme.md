@@ -210,7 +210,7 @@ Your trello board link
 
 ## Data Flow <a name = "#data_flow"></a>
 
-<img width=500px height=200px src="https://trello.com/1/cards/6362d0b0a1f21a007dbf2798/attachments/6362d0c6a3ef16019bd0ecbc/previews/6362d0c7a3ef16019bd0ecdf/download/Untitled.png" alt="Diagram"></a>
+<img width=600px height=250px src="frontend\public\Readme Pictures\Diagram.png" alt="Diagram"></a>
 
 ## ⚠️ Guided By <a name = "guided_by"></a>
 
